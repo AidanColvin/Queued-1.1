@@ -4,18 +4,19 @@ Run locally with:
 
     uvicorn main:app --reload
 
-On startup the app ensures an artifact bundle exists (generating the bundled
-sample bundle if none is found and ``AUTO_SAMPLE`` is enabled), loads it into a
-shared :class:`~ml.recommender.HybridRecommender`, and seeds the SQLite catalog
-that backs ``/search``.
+The model + DB are loaded by :func:`load_state`, called both from the startup
+lifespan (local/Render) and lazily on the first request (serverless platforms
+like Vercel do not run lifespan events). ``create_app(api_prefix=...)`` lets the
+same app be mounted under ``/api`` when it runs behind the static frontend.
 """
 
 from __future__ import annotations
 
 import logging
+import threading
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import get_settings
@@ -23,21 +24,16 @@ from db.database import init_db, seed_movies
 from ml.artifacts import artifacts_exist, load_artifacts
 from ml.recommender import HybridRecommender
 from ml.reranker import SessionStore
-from routers import health, popular, recommend, search, swipe
+from routers import health, popular, recommend, search, swipe, tv
 
 logger = logging.getLogger("nextwatch")
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
+_load_lock = threading.Lock()
+
 
 def _ensure_artifacts(artifacts_dir) -> None:
-    """Generate the sample bundle if no artifacts are present and allowed to.
-
-    Args:
-        artifacts_dir: Directory the API loads artifacts from.
-
-    Raises:
-        FileNotFoundError: If artifacts are missing and ``AUTO_SAMPLE`` is off.
-    """
+    """Generate the sample bundle if no artifacts are present and allowed to."""
     settings = get_settings()
     if artifacts_exist(artifacts_dir):
         return
@@ -52,38 +48,64 @@ def _ensure_artifacts(artifacts_dir) -> None:
     write_sample_bundle(artifacts_dir)
 
 
+def _load_tv_catalog(artifacts_dir) -> list[dict]:
+    """Load the keyless popular-TV catalog (``data.build_tv`` output).
+
+    TV is a standalone catalog with no ML model; returns an empty list when the
+    file is absent so ``/tv`` simply serves nothing rather than erroring.
+    """
+    import json
+
+    try:
+        return json.loads((artifacts_dir / "tv_index.json").read_text(encoding="utf-8")).get("series", [])
+    except (OSError, ValueError):
+        return []
+
+
+def load_state(app: FastAPI) -> None:
+    """Load the model + seed the DB onto ``app.state`` (idempotent, thread-safe).
+
+    Safe to call on every request: it returns immediately once loaded. This is
+    what lets the app work on serverless platforms that never run lifespan.
+    """
+    if getattr(app.state, "recommender", None) is not None:
+        return
+    with _load_lock:
+        if getattr(app.state, "recommender", None) is not None:
+            return
+        artifacts_dir = get_settings().artifacts_dir
+        try:
+            _ensure_artifacts(artifacts_dir)
+            bundle = load_artifacts(artifacts_dir)
+            init_db()
+            seed_movies(bundle.catalog)
+            app.state.session_store = SessionStore(bundle.embeddings, bundle.catalog)
+            app.state.tv_catalog = _load_tv_catalog(artifacts_dir)
+            app.state.recommender = HybridRecommender(bundle)  # set last = "ready" flag
+            logger.info("Loaded '%s' bundle: %d titles", app.state.recommender.source, app.state.recommender.size)
+        except Exception:  # noqa: BLE001 — serve degraded so /health stays useful
+            logger.exception("Failed to load recommendation model")
+            app.state.recommender = None
+            app.state.session_store = None
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Load the model and seed the database on startup; tidy up on shutdown."""
-    settings = get_settings()
-    artifacts_dir = settings.artifacts_dir
-    try:
-        _ensure_artifacts(artifacts_dir)
-        bundle = load_artifacts(artifacts_dir)
-        app.state.recommender = HybridRecommender(bundle)
-        app.state.session_store = SessionStore(bundle.embeddings, bundle.catalog)
-        init_db()
-        seeded = seed_movies(bundle.catalog)
-        logger.info(
-            "Loaded '%s' bundle: %d titles; catalog rows in DB: %d",
-            app.state.recommender.source,
-            app.state.recommender.size,
-            seeded,
-        )
-    except Exception:  # noqa: BLE001 — log and serve degraded so /health is useful
-        logger.exception("Failed to load recommendation model")
-        app.state.recommender = None
-        app.state.session_store = None
+    """Eagerly load on startup (local/Render); harmless if the platform skips it."""
+    load_state(app)
     yield
-    app.state.recommender = None
-    app.state.session_store = None
 
 
-def create_app() -> FastAPI:
+def create_app(api_prefix: str = "") -> FastAPI:
     """Build and configure the FastAPI application.
 
+    Args:
+        api_prefix: Path prefix for all routes (``"/api"`` when served behind the
+            static frontend on a single origin). Empty for local/uvicorn.
+
     Returns:
-        The configured app (used by Uvicorn and the test suite).
+        The configured app (used by Uvicorn, the test suite, and the serverless
+        entry point).
     """
     settings = get_settings()
     app = FastAPI(
@@ -91,6 +113,8 @@ def create_app() -> FastAPI:
         version="1.0.0",
         summary="Hybrid movie & TV recommendation engine.",
         lifespan=lifespan,
+        docs_url=f"{api_prefix}/docs",
+        openapi_url=f"{api_prefix}/openapi.json",
     )
     app.add_middleware(
         CORSMiddleware,
@@ -99,16 +123,21 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    app.include_router(health.router)
-    app.include_router(search.router)
-    app.include_router(recommend.router)
-    app.include_router(swipe.router)
-    app.include_router(popular.router)
 
-    @app.get("/", tags=["meta"])
+    @app.middleware("http")
+    async def _ensure_loaded(request: Request, call_next):
+        """Lazy-load the model on the first request (serverless-safe)."""
+        if getattr(request.app.state, "recommender", None) is None:
+            load_state(request.app)
+        return await call_next(request)
+
+    for router in (health, search, recommend, swipe, popular, tv):
+        app.include_router(router.router, prefix=api_prefix)
+
+    @app.get(api_prefix or "/", tags=["meta"])
     def root() -> dict:
         """Tiny landing payload pointing at the interactive docs."""
-        return {"name": "NextWatch API", "docs": "/docs", "health": "/health"}
+        return {"name": "NextWatch API", "docs": f"{api_prefix}/docs", "health": f"{api_prefix}/health"}
 
     return app
 

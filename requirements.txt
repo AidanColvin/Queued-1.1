@@ -1,0 +1,8 @@
+# Dependencies for the Vercel serverless backend (api/index.py).
+# Slim serving set — inference is numpy/scipy only; no uvicorn/pytest needed.
+fastapi==0.115.6
+pydantic==2.10.4
+pydantic-settings==2.7.1
+numpy==2.2.1
+scipy==1.15.0
+SQLAlchemy==2.0.36

@@ -9,13 +9,10 @@ import type {
   SwipeResponse,
 } from './types';
 
-// Backend base URL. Set NEXT_PUBLIC_API_URL for local dev (see
-// .env.local.example); the default is the deployed Render backend so the Vercel
-// static build works without any dashboard env var.
-const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? 'https://nextwatch-backend.onrender.com').replace(
-  /\/$/,
-  '',
-);
+// Backend base URL. In production the backend runs as a Vercel function on the
+// same origin under /api, so the default is relative — no env var needed. For
+// local dev set NEXT_PUBLIC_API_URL=http://localhost:8000 (see .env.local.example).
+const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? '/api').replace(/\/$/, '');
 
 /** Thrown when the backend returns a non-2xx status. */
 export class ApiError extends Error {
@@ -76,6 +73,13 @@ export async function getPopular(count = 20, excludeIds: number[] = []): Promise
   const params = new URLSearchParams({ count: String(count) });
   if (excludeIds.length) params.set('exclude', excludeIds.join(','));
   return request<RecommendResponse>(`/popular?${params}`);
+}
+
+/** Fetch the popularity-ranked TV deck (separate keyless catalog — no ML model). */
+export async function getTv(count = 20, excludeIds: number[] = []): Promise<RecommendResponse> {
+  const params = new URLSearchParams({ count: String(count) });
+  if (excludeIds.length) params.set('exclude', excludeIds.join(','));
+  return request<RecommendResponse>(`/tv?${params}`);
 }
 
 /**

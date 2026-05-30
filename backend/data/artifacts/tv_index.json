@@ -1,0 +1,3116 @@
+{
+  "meta": {
+    "source": "wikidata-keyless",
+    "n_series": 217
+  },
+  "series": [
+    {
+      "id": 8000000,
+      "title": "Game of Thrones",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is the first adaptation of the A Song of Ice and Fire franchise, a series of high fantasy novels by George R. R. Martin, the first of which is A Game of Thrones. The show premiered on HBO in the United States on April 17, 2011, and concluded on May 19, 2019, with 73 episodes broadcast over eight seasons.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000002,
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "The Big Bang Theory is an American television sitcom created by Chuck Lorre and Bill Prady for CBS. It aired from September 24, 2007, to May 16, 2019, running for 12 seasons and 279 episodes.\nThe show originally centered on five characters living in Pasadena, California: Leonard Hofstadter (Johnny Galecki) and Sheldon Cooper (Jim Parsons), both physicists at the California Institute of Technology, who share an apartment; Penny (Kaley Cuoco), a waitress and aspiring actress who lives across the hall; and Leonard and Sheldon's similarly geeky and socially awkward friends and coworkers, aerospace engineer Howard Wolowitz (Simon Helberg) and astrophysicist Raj Koothrappali (Kunal Nayyar).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/TBBT_logo.svg/500px-TBBT_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000004,
+      "title": "Squid Game",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Thriller",
+        "Survival"
+      ],
+      "cast": [],
+      "overview": "Squid Game (Korean: \uc624\uc9d5\uc5b4 \uac8c\uc784; RR: Ojingeo geim) is a South Korean dystopian survival thriller drama television series created, written, and directed by Hwang Dong-hyuk for Netflix. The series revolves around a secret contest where 456 players, all of whom are in deep financial hardship, risk their lives to play a series of children's games that result in death if eliminated, for the chance to win a \u20a945.6 billion (US$39.86 million) prize.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Squid_Game_2021_vector_logo_english.svg/500px-Squid_Game_2021_vector_logo_english.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000005,
+      "title": "Teletubbies",
+      "year": 1997,
+      "type": "tv",
+      "genres": [
+        "Children's"
+      ],
+      "cast": [],
+      "overview": "Teletubbies is a British children's television series created by Anne Wood and Andrew Davenport for the BBC. The programme focuses on four differently coloured characters known as the Teletubbies, named after the television screens on their bellies. Recognised throughout popular culture for the uniquely shaped antenna protruding from the head of each character, the Teletubbies communicate mostly through gibberish and were designed to bear resemblance to toddlers.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Teletubbies_Logo.png/500px-Teletubbies_Logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000006,
+      "title": "Breaking Bad",
+      "year": 2008,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Black Comedy",
+        "Contemporary Western"
+      ],
+      "cast": [],
+      "overview": "Breaking Bad is an American crime drama neo-Western television series created by Vince Gilligan for AMC. Set and filmed in Albuquerque, New Mexico, the series follows Walter White (Bryan Cranston), an overqualified high school chemistry teacher who, after being diagnosed with stage-three lung cancer, begins producing and selling methamphetamine with former student Jesse Pinkman (Aaron Paul) to secure his family's financial future. The series also stars Anna Gunn, Dean Norris, Betsy Brandt, RJ Mitte, Giancarlo Esposito, Bob Odenkirk, and Jonathan Banks.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Breaking_Bad_logo.svg/500px-Breaking_Bad_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000007,
+      "title": "Sesame Street",
+      "year": 1969,
+      "type": "tv",
+      "genres": [
+        "Educational",
+        "Educational Entertainment",
+        "Children's"
+      ],
+      "cast": [],
+      "overview": "Sesame Street is an American educational children's television series that combines live-action, sketch comedy, animation, and puppetry. It is produced by Sesame Workshop (known as the Children's Television Workshop until June 2000) and was created by Joan Ganz Cooney and Lloyd Morrisett.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Sesame_Street_logo.svg/500px-Sesame_Street_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000008,
+      "title": "The X-Files",
+      "year": 1993,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Supernatural Fiction",
+        "Horror"
+      ],
+      "cast": [],
+      "overview": "The X-Files is an American science fiction drama television series created by Chris Carter. The original series aired from September 10, 1993, to May 19, 2002, on Fox, spanning nine seasons, with 202 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/5e/The_X-Files_original_title_screen.webp",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000009,
+      "title": "Lost",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Lost is an American science fiction adventure drama television series created by Jeffrey Lieber, J. J. Abrams, and Damon Lindelof that aired on ABC from September 22, 2004, to May 23, 2010, with a total of 121 episodes over six seasons. It contains elements of supernatural fiction and follows the survivors of Oceanic Airlines flight 815 (flying between Sydney and Los Angeles) after the plane crashes on a mysterious island somewhere in the South Pacific Ocean.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Lost_main_title.svg/500px-Lost_main_title.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000010,
+      "title": "Prison Break",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Prison Break is an American crime drama television series created by Paul Scheuring for Fox. The series revolves around two brothers: Lincoln Burrows (Dominic Purcell) and Michael Scofield (Wentworth Miller); Lincoln has been sentenced to death for a crime he did not commit, while Michael devises an elaborate plan to help his brother escape prison and clear his name.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/d3/Prison-break-s1-intro.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000011,
+      "title": "How I Met Your Mother",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Comedy Drama",
+        "Romantic Comedy Program"
+      ],
+      "cast": [],
+      "overview": "How I Met Your Mother (often abbreviated HIMYM) is an American sitcom created by Craig Thomas and Carter Bays for CBS. The series, which aired from September 19, 2005, to March 31, 2014, follows main character Ted Mosby and his group of friends in New York City's Manhattan. As a frame story, Ted (in 2030) recounts to his children Penny and Luke the events from September 2005 to May 2013 that led to him meeting their mother.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/HowIMetYourMother.svg/500px-HowIMetYourMother.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000015,
+      "title": "Xena: Warrior Princess",
+      "year": 1995,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Xena: Warrior Princess is an American sword-and-sorcery television series filmed in New Zealand, which aired in first-run syndication from September 4, 1995, to June 18, 2001. Critics have praised the series for its strong female protagonist, and it has acquired a strong cult following, attention in fandom, parody, and academia, and has influenced the direction of other television series.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/3f/Xena_Logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000016,
+      "title": "Mr. Bean",
+      "year": 1990,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Sitcom",
+        "Family"
+      ],
+      "cast": [],
+      "overview": "Mr. Bean is a British sitcom created by Rowan Atkinson and Richard Curtis, produced by Tiger Aspect Productions and starring Atkinson as the title character.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/60/Mr._bean_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000017,
+      "title": "Sherlock",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Detective",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Sherlock is a British mystery crime drama television series based on Sir Arthur Conan Doyle's Sherlock Holmes detective stories. Created by Steven Moffat and Mark Gatiss, the show stars Benedict Cumberbatch as Sherlock Holmes and Martin Freeman as Doctor John Watson.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/4/4d/Sherlock_titlecard.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000019,
+      "title": "Stranger Things",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Youth"
+      ],
+      "cast": [],
+      "overview": "Stranger Things is an American television series created by the Duffer Brothers for Netflix. Produced by Monkey Massacre Productions and 21 Laps Entertainment, the first season was released on Netflix on July 15, 2016.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Stranger_Things_logo.png/500px-Stranger_Things_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000024,
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Youth",
+        "Horror"
+      ],
+      "cast": [],
+      "overview": "The Vampire Diaries is an American supernatural teen drama television series developed by Kevin Williamson and Julie Plec, based on the book series of the same name written by L. J. Smith. The series premiered on the CW on September 10, 2009, and concluded on March 10, 2017, having aired 171 episodes over eight seasons.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Vampire_diaries.jpg/500px-Vampire_diaries.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000025,
+      "title": "Hannah Montana",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom",
+        "Music"
+      ],
+      "cast": [],
+      "overview": "Hannah Montana is an American teen sitcom created by Michael Poryes, Rich Correll, and Barry O'Brien that aired on Disney Channel for four seasons between March 2006 and January 2011. The series centers on Miley Stewart (played by Miley Cyrus), a teenage girl living a double life as famous pop singer Hannah Montana, an alter ego she adopted so she could maintain her anonymity and live a normal life as a typical teenager.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/2b/Hannah_Montana_Logo.PNG",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000026,
+      "title": "Heroes",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Superhero Program"
+      ],
+      "cast": [],
+      "overview": "Heroes is an American superhero drama television series created by Tim Kring that aired on NBC for four seasons from September 25, 2006, to February 8, 2010. The series tells the stories of ordinary people who discover that they have superhuman abilities and how these abilities take effect in the characters' lives as they work together to prevent catastrophic futures.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Heroes_%28NBC_television_series%29_promotional_logo.png/500px-Heroes_%28NBC_television_series%29_promotional_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000027,
+      "title": "Glee",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Youth",
+        "Comedy Drama",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Glee (stylized in all lowercase as glee) is  an American jukebox musical comedy-drama television series created by Ryan Murphy, Brad Falchuk, and Ian Brennan for the Fox Broadcasting Company. Set at the fictional William McKinley High School in Lima, Ohio, the series follows the members of the New Directions, a glee club competing in the show choir circuit, as they navigate social issues regarding sexuality, gender, race, family, relationships, and teamwork.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Glee_%28Ryan_Murphy_Television%29_logo.svg/500px-Glee_%28Ryan_Murphy_Television%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000028,
+      "title": "24",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "24 is an American action drama television series created by Joel Surnow and Robert Cochran for Fox. The series features an ensemble cast, with Kiefer Sutherland starring as American counter-terrorist federal agent Jack Bauer.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/24-Logo.svg/500px-24-Logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000029,
+      "title": "Dexter",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Thriller",
+        "Drama",
+        "Police Procedural"
+      ],
+      "cast": [],
+      "overview": "Dexter (stylized in all caps) is an American crime television series that initially aired on Showtime from October 1, 2006, to September 22, 2013. Set in Miami, the series centers on Dexter Morgan (Michael C. Hall), a forensic technician specializing in bloodstain pattern analysis for the fictional Miami Metro Police Department, who leads a secret parallel life as a vigilante serial killer, hunting down murderers inadequately punished by the justice system due to corruption or legal technicalities.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dexter_Logo.svg/500px-Dexter_Logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000030,
+      "title": "Sex and the City",
+      "year": 1998,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Erotic",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Sex and the City is an American romantic comedy-drama television series created by Darren Star for HBO, based on the newspaper column and 1996 book by Candace Bushnell. It premiered in the United States on June 6, 1998, and concluded on February 22, 2004, with 94 episodes broadcast over six seasons.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/55/SATC_Title.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000034,
+      "title": "American Horror Story",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Anthology",
+        "Horror"
+      ],
+      "cast": [],
+      "overview": "American Horror Story (AHS) is an American horror anthology television series created by Ryan Murphy and Brad Falchuk for the cable network FX. The first installment in the American Story media franchise, seasons of AHS are mostly conceived as self-contained miniseries, following a different set of characters in a new setting within the same fictional universe (which the show occasionally utilizes for crossovers between seasons, and shares with episodic spin-off American Horror Stories), and a storyline with its own beginning, middle, and end. Some plot elements of each season are loosely inspired by true events.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/American_Horror_Story_%28FX_television_series%29_red_logo.svg/500px-American_Horror_Story_%28FX_television_series%29_red_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000036,
+      "title": "Peaky Blinders",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Historical Drama"
+      ],
+      "cast": [],
+      "overview": "Peaky Blinders is a British historical crime drama television series created by Steven Knight. Set in Birmingham, it follows the exploits of the Peaky Blinders crime gang in the direct aftermath of the First World War.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/e8/Peaky_Blinders_titlecard.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000037,
+      "title": "ICarly",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "iCarly is an American teen sitcom created by Dan Schneider, which originally aired on Nickelodeon from September 8, 2007, to November 23, 2012.\nThe series centers on Carly Shay, a Seattle-based teenager who creates and hosts her own web show called iCarly with her best friends, Sam Puckett and Freddie Benson, in the apartment loft that she and her older brother, Spencer, live in.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Icarly_logo.svg/500px-Icarly_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000042,
+      "title": "Charmed",
+      "year": 1998,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Fantasy",
+        "Paranormal Program"
+      ],
+      "cast": [],
+      "overview": "Charmed is an American fantasy drama television series created by Constance M. Burge and produced by Aaron Spelling and his production company Spelling Television, with Brad Kern serving as showrunner.\nThe series was originally broadcast by The WB from October 7, 1998, until May 21, 2006.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/af/Charmedtitlelogo1.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000043,
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Police Procedural",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "CSI: Crime Scene Investigation, also referred to as CSI and CSI: Las Vegas, is an American procedural drama television series that aired on CBS from October 6, 2000, to September 27, 2015, spanning 15 seasons. It is the first series in the CSI franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/98/CSI-LV.main.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000046,
+      "title": "Buffy the Vampire Slayer",
+      "year": 1997,
+      "type": "tv",
+      "genres": [
+        "Youth",
+        "Drama",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Buffy the Vampire Slayer is an American supernatural horror drama television series created by Joss Whedon. The show's concept is based on the 1992 film written by Whedon, although they are separate and distinct productions.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Buffy_the_vampire_slayer.svg/500px-Buffy_the_vampire_slayer.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000047,
+      "title": "House of the Dragon",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "House of the Dragon is an American fantasy drama television series created by George R. R. Martin and Ryan Condal for HBO. A prequel to Game of Thrones (2011\u20132019), it is the second television series in Martin's A Song of Ice and Fire franchise. Based on parts of Martin's 2018 book Fire & Blood, the series begins about 100 years after the Seven Kingdoms are united by the Targaryen conquest, nearly 200 years before the events of Game of Thrones, and 172 years before the birth of Daenerys Targaryen.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/House_of_the_dragon_logo.png/500px-House_of_the_dragon_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000049,
+      "title": "Gossip Girl",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Youth",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Gossip Girl is an American teen drama television series created and developed by Josh Schwartz and Stephanie Savage and based on the series of novels of the same name by Cecily von Ziegesar. It follows a group of students on Manhattan's Upper East Side whose private and social lives are chronicled by the unidentified blogger \"Gossip Girl\".",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Gossip_girl_titlecard.svg/500px-Gossip_girl_titlecard.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000051,
+      "title": "Crash Landing on You",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Romantic Comedy"
+      ],
+      "cast": [],
+      "overview": "Crash Landing on You (Korean: \uc0ac\ub791\uc758 \ubd88\uc2dc\ucc29) is a 2019 South Korean romantic comedy television series written by Park Ji-eun, directed by Lee Jung-hyo, and starring Hyun Bin, Son Ye-jin, Kim Jung-hyun, and Seo Ji-hye. The series follows Yoon Se-ri, a South Korean chaebol who is swept across the border by a tornado while paragliding and lands in North Korea.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/5e/Crash_Landing_on_You_poster.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000054,
+      "title": "ER",
+      "year": 1994,
+      "type": "tv",
+      "genres": [
+        "Medical Drama"
+      ],
+      "cast": [],
+      "overview": "ER is an American medical drama television series created by Michael Crichton that aired on NBC from September 19, 1994, to April 2, 2009, with a total of 331 episodes spanning 15 seasons. It was produced by Constant c Productions and Amblin Television, in association with Warner Bros.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/ER_%28Amblin_Television_series%29_logo_%284%29.svg/500px-ER_%28Amblin_Television_series%29_logo_%284%29.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000055,
+      "title": "Arrow",
+      "year": 2012,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Science Fiction Program",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Arrow is an American superhero television series developed by Greg Berlanti, Marc Guggenheim, and Andrew Kreisberg based on the DC Comics character Green Arrow, a costumed crime-fighter created by Mort Weisinger and George Papp, and is the first series of the Arrowverse, sharing continuity with other related television series. The series premiered in the United States on The CW on October 10, 2012, and ran for eight seasons until January 28, 2020.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/1b/Arrow_Intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000056,
+      "title": "House of Cards",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Political Thriller",
+        "Political Drama"
+      ],
+      "cast": [],
+      "overview": "House of Cards is an American political thriller television series created by Beau Willimon for the streaming service Netflix. It is based on the 1989 novel of the same title by Michael Dobbs and an adaptation of the 1990 British series of the same name by Andrew Davies, also from the novel.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/3f/House_of_Cards_title_card.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000057,
+      "title": "The Crown",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Historical",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "The Crown is a historical drama television series about the reign of Queen Elizabeth II, created and principally written by Peter Morgan and produced by Left Bank Pictures and Sony Pictures Television for Netflix. Morgan developed the series from his film The Queen (2006) and his stage play The Audience (2013), which also focused on Elizabeth.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/18/The_Crown_Title_Card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000058,
+      "title": "The Penthouse: War in Life",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Family Drama",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "The Penthouse: War in Life (Korean: \ud39c\ud2b8\ud558\uc6b0\uc2a4) is a South Korean television series starring Lee Ji-ah, Kim So-yeon, Eugene, Um Ki-joon, Yoon Jong-hoon, and Park Eun-seok. The series, directed by Joo Dong-min and written by Kim Soon-ok, spins the story of a real estate and education war, a desire to be number one.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/09/The_Penthouse_TV_series.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000059,
+      "title": "True Beauty",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Korean Drama",
+        "Romantic Comedy",
+        "Fiction Program"
+      ],
+      "cast": [],
+      "overview": "True Beauty (Korean: \uc5ec\uc2e0\uac15\ub9bc) is a South Korean television series starring Moon Ka-young, Cha Eun-woo, Hwang In-youp and Park Yoo-na. Based on the webtoon of the same title by Yaongyi, it centers on a high school girl who, after being bullied and discriminated against because of being perceived as ugly, masters the art of makeup to transform herself into a gorgeous \"goddess\".",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/76/True_Beauty_TV_series_poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000061,
+      "title": "Seinfeld",
+      "year": 1989,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "Seinfeld ( SYNE-feld) is an American television sitcom created by Larry David and Jerry Seinfeld. It originally aired on NBC from July 5, 1989, to May 14, 1998, with a total of nine seasons consisting of 180 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Seinfeld_logo.svg/500px-Seinfeld_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000063,
+      "title": "Better Call Saul",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Tragedy",
+        "Legal Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Better Call Saul is an American neo-noir legal crime drama television series created by Vince Gilligan and Peter Gould for AMC. Part of the Breaking Bad franchise, it is a spin-off of Gilligan's previous series, Breaking Bad (2008\u20132013), to which it serves primarily as a prequel, with some scenes taking place during and after the events of Breaking Bad. Better Call Saul premiered on AMC on February 8, 2015, and ended on August 15, 2022, after six seasons, totaling 63 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/Better_Call_Saul_logo.svg/500px-Better_Call_Saul_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000064,
+      "title": "Westworld",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Westerns On"
+      ],
+      "cast": [],
+      "overview": "Westworld is an American dystopian science fiction Western drama television series created by Jonathan Nolan and Lisa Joy that aired from 2016 to 2022 on HBO. It is based upon the 1973 film of the same name written and directed by Michael Crichton and loosely upon its 1976 sequel, Futureworld.\nThe story begins in Westworld, a fictional, technologically advanced Wild-West-themed amusement park populated by android \"hosts\".",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/eb/Westworld_%28TV_series%29_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000066,
+      "title": "Muhte\u015fem Y\u00fczy\u0131l",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Soap Opera",
+        "Drama",
+        "Historical Drama"
+      ],
+      "cast": [],
+      "overview": "Muhte\u015fem Y\u00fczy\u0131l (Turkish pronunciation: [muhte\u02c8\u0283em \u02c8jyzj\u026fl], lit.\u2009'The Magnificent Century') is a Turkish historical drama series. Written by Meral Okay and Y\u0131lmaz \u015eahin, it is based on the life of Ottoman Sultan Suleiman the Magnificent, the longest-reigning Sultan of the Ottoman Empire, and H\u00fcrrem Sultan, a slave girl who became his wife.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/9e/MagnificentCenturyTheme.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000067,
+      "title": "Brooklyn Nine-Nine",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Police Procedural"
+      ],
+      "cast": [],
+      "overview": "Brooklyn Nine-Nine is an American police procedural sitcom that aired on Fox from September 17, 2013, to May 20, 2018, and later on NBC, from January 10, 2019, to September 16, 2021, for eight seasons and 153 episodes. Created by Dan Goor and Michael Schur and produced by Fremulon, Dr.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Brooklyn_Nine-Nine_Logo.png/500px-Brooklyn_Nine-Nine_Logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000068,
+      "title": "Guardian: The Lonely and Great God",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Comedy",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Guardian: The Lonely and Great God (Korean: \uc4f8\uc4f8\ud558\uace0 \ucc2c\ub780\ud558\u795e \u2013 \ub3c4\uae68\ube44) is a South Korean television series starring Gong Yoo in the title role, alongside Kim Go-eun, Lee Dong-wook, Yoo In-na, and Yook Sung-jae. Written by Kim Eun-sook, the series aired on TVN from December 2, 2016, to January 21, 2017.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/68/Goblin_Poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000069,
+      "title": "Star Trek: The Next Generation",
+      "year": 1987,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Star Trek: The Next Generation (TNG) is an American science fiction television series created by Gene Roddenberry. It originally aired from September 28, 1987, to May 23, 1994, in syndication, spanning 178 episodes over seven seasons.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Star_Trek_The_Next_Generation_Logo.svg/500px-Star_Trek_The_Next_Generation_Logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000070,
+      "title": "Terra e Paix\u00e3o",
+      "year": 2023,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "Terra e Paix\u00e3o (English title: Land of Desire) is a Brazilian telenovela created by Walcyr Carrasco. It aired on TV Globo from 8 May 2023 to 19 January 2024.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/15/Terra_e_Paix%C3%A3o_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000071,
+      "title": "Wizards of Waverly Place",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Wizards of Waverly Place is an American fantasy teen sitcom created by Todd J. Greenwald that aired on Disney Channel for four seasons between October 2007 and January 2012. The series centers on Alex Russo (Selena Gomez), a teenage wizard living on Waverly Place in the Greenwich Village section of New York City, who undertakes training alongside her brothers, Justin (David Henrie) and Max (Jake T. Austin), who are also equipped with magical abilities.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/55/Disney_Wizards_of_Waverly_Place_%28television_series_logo%29.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000072,
+      "title": "Gilmore Girls",
+      "year": 2000,
+      "type": "tv",
+      "genres": [
+        "Youth",
+        "Comedy Drama"
+      ],
+      "cast": [],
+      "overview": "Gilmore Girls is an American comedy drama television series created by Amy Sherman-Palladino. It stars Lauren Graham and Alexis Bledel as Lorelai Gilmore and Rory Gilmore, a mother\u2013daughter pair living in the fictional town of Stars Hollow, Connecticut.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/55/Gilmore_girls_title_screen.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000073,
+      "title": "Downton Abbey",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Historical Drama",
+        "Historical"
+      ],
+      "cast": [],
+      "overview": "Downton Abbey is a British historical drama television series set in the early 20th century, created and co-written by Julian Fellowes. It first aired in the United Kingdom on ITV on 26 September 2010 and in the United States on PBS, which supported its production as part of its Masterpiece Classic anthology, on 9 January 2011.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/c/c4/Downton_Abbey_Title_Card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000075,
+      "title": "Castle",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Police Procedural"
+      ],
+      "cast": [],
+      "overview": "Castle is an American crime mystery comedy-drama television series that aired on ABC for a total of eight seasons from March 9, 2009, to May 16, 2016. The series was produced by Beacon Pictures and ABC Studios.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/4/48/CastleIntertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000076,
+      "title": "Vikings",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Historical Drama",
+        "War"
+      ],
+      "cast": [],
+      "overview": "Vikings is a historical drama television series created and written by Michael Hirst. A co-production between Canada and Ireland, the series originally premiered on the History Channel on March 3, 2013.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/99/Vikings_Title.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000078,
+      "title": "Bones",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Police Procedural",
+        "Horror"
+      ],
+      "cast": [],
+      "overview": "Bones is an American police procedural drama television series created by Hart Hanson for Fox. It premiered on September 13, 2005, and concluded on March 28, 2017, airing for 246 episodes over 12 seasons.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/39/Bones_title_card.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000079,
+      "title": "Merlin",
+      "year": 2008,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Adventure",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Merlin (also known as The Adventures of Merlin) is a British fantasy-adventure drama television programme, loosely based on the Arthurian legends regarding the close relations of Merlin and King Arthur. Created by Julian Jones, Jake Michie, Johnny Capps and Julian Murphy for the BBC, it was broadcast for five series on BBC One between 20 September 2008 and 24 December 2012.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/84/Merlin_-_Screen_Capture.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000080,
+      "title": "The Flash",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Science Fiction Program",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "The Flash is an American superhero television series developed by Greg Berlanti, Andrew Kreisberg, and Geoff Johns, airing on The CW. It is based on the Barry Allen incarnation of DC Comics character the Flash, a costumed superhero crime-fighter with the power to move at superhuman speeds. It is a spin-off of Arrow, existing in the same fictional universe known as the Arrowverse.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/98/The_Flash_Intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000081,
+      "title": "Descendants of the Sun",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "Descendants of the Sun (Korean: \ud0dc\uc591\uc758 \ud6c4\uc608) is a 2016 South Korean television series starring Song Joong-ki, Song Hye-kyo, Jin Goo, and Kim Ji-won. Written by Kim Eun-sook and Kim Won-seok, the series follows the relationship between Yoo Shi-jin, a captain in the South Korean Army's special forces, and Kang Mo-yeon, a surgeon.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/6e/DescendantsoftheSun.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000082,
+      "title": "Servant of the People",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Political Satire"
+      ],
+      "cast": [],
+      "overview": "Servant of the People is a Ukrainian political satire comedy series created and produced by Volodymyr Zelenskyy. Zelenskyy stars as Vasyl Petrovych Holoborodko, a high school history teacher in his thirties, who was unexpectedly elected president of Ukraine after finding instant fame when a student recorded a video of him delivering a profane rant against government corruption in his country and uploaded it to the internet.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/77/Servant_of_the_People_TV.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000083,
+      "title": "Loki",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Superhero Program"
+      ],
+      "cast": [],
+      "overview": "Loki is an American television series created by Michael Waldron for the streaming service Disney+, based on Marvel Comics featuring the character Loki. It is the third television series in the Marvel Cinematic Universe (MCU) produced by Marvel Studios, sharing continuity with the films of the franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/4/4e/Loki_%28TV_series%29_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000085,
+      "title": "ALF",
+      "year": 1986,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "ALF is an American television sitcom that aired on NBC from September 22, 1986, to March 24, 1990.\nThe titular character, ALF, an acronym for \"Alien Life Form\", but whose real name is Gordon Shumway, crash-lands in the garage of the suburban California middle-class Tanner family.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/30/Alfintro.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000086,
+      "title": "That '70s Show",
+      "year": 1998,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "That '70s Show is an American television teen sitcom that aired on Fox from August 23, 1998, to May 18, 2006. The series focuses on the lives of a group of six teenage friends living in the fictional town of Point Place, Wisconsin, from 1976 to 1979.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/That_%2770s_Show_%28Carsey-Werner_Television%29_logo.svg/500px-That_%2770s_Show_%28Carsey-Werner_Television%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000088,
+      "title": "Mad Men",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Mad Men is an American period drama television series created by Matthew Weiner for AMC. It ran from July 19, 2007 until May 17, 2015, with seven seasons and 92 episodes. The series title is allegedly borrowed from the phrase advertisers working on Madison Avenue used to refer to themselves, although the only documented use of the phrase may derive from the late-1950s work of James Kelly, an advertising executive and writer.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/33/Mad-men-title-card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000089,
+      "title": "MythBusters",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Factual Program"
+      ],
+      "cast": [],
+      "overview": "MythBusters is a science entertainment television series created by Peter Rees, and produced by Beyond International, in Australia. The series premiered on the Discovery Channel in 2003.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/24/MythBusters_title_screen.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000090,
+      "title": "El Chavo del Ocho",
+      "year": 1973,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "El Chavo (Spanish pronunciation: [el \u02c8t\u0283a\u03b2o], \"The Kid/The Boy\"), also known as El Chavo del Ocho (Spanish pronunciation: [el \u02c8t\u0283a\u03b2o \u00f0el \u02c8ot\u0283o], \"The Kid/Boy from Number Eight\"), is a Mexican television sitcom created by Chespirito and produced by Televisa. It premiered on 26 February 1973, and concluded on 7 January 1980, after 7 seasons and 312 episodes, and aired across Latin America and Spain.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/El_Chavo_%28simple_logo%29.svg/500px-El_Chavo_%28simple_logo%29.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000091,
+      "title": "Narcos",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Biographical Program"
+      ],
+      "cast": [],
+      "overview": "Narcos is an American crime drama television series created and produced by Chris Brancato, Carlo Bernard, and Doug Miro. Set and filmed in Colombia, seasons 1 and 2 are about Colombian narcoterrorist and drug lord Pablo Escobar, leader of the Medell\u00edn Cartel and billionaire through cocaine production and distribution.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/0a/Narcos_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000092,
+      "title": "Riverdale",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Youth",
+        "Lgbt-related",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "Riverdale is an American television series based on the characters of Archie Comics. The series was adapted for the CW Network by Archie Comics' chief creative officer Roberto Aguirre-Sacasa.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/98/Riverdale.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000094,
+      "title": "WandaVision",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Comedy",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "WandaVision is an American television miniseries created by Jac Schaeffer for the streaming service Disney+, based on Marvel Comics featuring the characters Wanda Maximoff / Scarlet Witch and Vision. It is the first television series in the Marvel Cinematic Universe (MCU) produced by Marvel Studios, sharing continuity with the films of the franchise, and is set after the events of the film Avengers: Endgame (2019).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/20/WandaVision_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000095,
+      "title": "It's Okay to Not Be Okay",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "It's Okay to Not Be Okay (Korean: \uc0ac\uc774\ucf54\uc9c0\ub9cc \uad1c\ucc2e\uc544) is a 2020 South Korean romantic comedy drama television series written by Jo Yong, directed by Park Shin-woo, and starring Kim Soo-hyun, Seo Yea-ji, and Oh Jung-se. The series follows Ko Moon-young, an antisocial children's book writer who moves to her hometown to pursue her love interest Moon Gang-tae, a psych ward caretaker, who has dedicated his life to taking care of his autistic older brother Moon Sang-tae.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/58/It%27s_Okay_to_Not_Be_Okay_Poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000096,
+      "title": "Fringe",
+      "year": 2008,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "Fringe is an American science fiction television series created by J. J. Abrams, Alex Kurtzman, and Roberto Orci. It premiered on Fox on September 9, 2008, and concluded on January 18, 2013, after five seasons comprising 100 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/01/Fringe_intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000098,
+      "title": "The 100",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Speculative Fiction",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "The 100 (pronounced \"The Hundred\"\u200a) is an American post-apocalyptic science fiction drama television series that premiered on March 19, 2014, on the CW network, and ended on September 30, 2020. Developed by Jason Rothenberg, the series is based on the young adult novel series The 100 by Kass Morgan.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/6c/Logo_of_the_100.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000099,
+      "title": "One Tree Hill",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Soap Opera",
+        "Youth"
+      ],
+      "cast": [],
+      "overview": "One Tree Hill is an American teen drama television series created by Mark Schwahn, which premiered on September 23, 2003, on the WB. After the series' third season, the WB merged with UPN to form the CW, and from September 27, 2006, the series was broadcast by the CW in the United States until the end of its run on April 4, 2012. The show is set in the fictional town of Tree Hill, North Carolina, and initially follows the lives of two half-brothers, played by Chad Michael Murray and James Lafferty, who compete for positions on their school's basketball team and the drama that ensues from the brothers' respective romantic relationships.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/9c/One_Tree_Hill_original_opening_credits.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000100,
+      "title": "Barney & Friends",
+      "year": 1992,
+      "type": "tv",
+      "genres": [
+        "Educational",
+        "Children's",
+        "Music Program"
+      ],
+      "cast": [],
+      "overview": "Barney & Friends is an American children's television series created by Sheryl Leach targeted at children ages 2 to 5. The flagship production of the Barney franchise, it originally aired on PBS through the PBS Kids block from April 6, 1992, to November 2, 2010, although new videos were still released on various dates after the last episode aired.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/Barneylogo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000101,
+      "title": "Boys Over Flowers",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Romantic Comedy"
+      ],
+      "cast": [],
+      "overview": "Boys Over Flowers (Korean: \uaf43\ubcf4\ub2e4 \ub0a8\uc790; RR: Kkotboda namja) is a 2009 South Korean television series starring Koo Hye-sun, Lee Min-ho, Kim Hyun-joong, Kim Bum, and Kim Joon. Based on the Japanese manga series Boys Over Flowers (\u82b1\u3088\u308a\u7537\u5b50, Hana Yori Dango) which was written and illustrated by Yoko Kamio, the series, directed by Jeon Si-Kang, tells a story of a working-class girl who gets tangled up in the lives of a group of wealthy young men in her elite high school.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/65/Boys_Over_Flowers_%28TV_series%29_poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000102,
+      "title": "Carrossel",
+      "year": 2012,
+      "type": "tv",
+      "genres": [
+        "Telenovela",
+        "Children's"
+      ],
+      "cast": [],
+      "overview": "Carrossel (English: Carousel) is a Brazilian children's telenovela created by \u00cdris Abravanel as a Brazilian remake of the Mexican telenovela Carrusel \u2014 itself inspired by the Argentinean telenovela Jacinta Pichimahuida, la Maestra que no se Olvida, written by Abel Santa Cruz. Originally broadcast on SBT from 21 May 2012 to 26 July 2013, it was particularly successful with children and led to several spin-offs including a cartoon series and television sitcom.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Carrossel_logo_SBT.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000103,
+      "title": "Daredevil",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Marvel's Daredevil is an American television series created by Drew Goddard for the streaming service Netflix, based on the Marvel Comics character Daredevil. It is set in the Marvel Cinematic Universe (MCU), sharing continuity with the films of the franchise, and was the first Marvel Netflix series leading to the crossover miniseries The Defenders (2017).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/8a/Daredevil_%28TV_series%29_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000104,
+      "title": "The Witcher",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "The Witcher is a fantasy drama television series created by Lauren Schmidt Hissrich for Netflix. It is based on the book series by Polish author Andrzej Sapkowski.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/The_Witcher_Logo.png/500px-The_Witcher_Logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000105,
+      "title": "The Boys",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Action",
+        "Comedy Drama"
+      ],
+      "cast": [],
+      "overview": "The Boys is an American satirical superhero television series developed by Eric Kripke for Amazon Prime Video. Based on the comic book series of the same name by Garth Ennis and Darick Robertson, it follows the eponymous team of vigilantes as they combat superpowered individuals, referred to as \"Supes\", who often abuse their powers for personal gain and work for a powerful company, Vought International, that ensures the general public views them as heroes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/The_Boys_TV_series_logo.svg/500px-The_Boys_TV_series_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000106,
+      "title": "Once Upon a Time",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Youth",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Once Upon a Time is  an American fantasy adventure drama series that aired for seven seasons on ABC from October 23, 2011 to May 18, 2018. The action alternates between two main settings: a fantastical world where fairy tales happen and a fictional seaside town in Maine called Storybrooke.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Once_Upon_A_Time_Logo.png/500px-Once_Upon_A_Time_Logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000107,
+      "title": "Blackadder",
+      "year": 1983,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Historical",
+        "Alternate History"
+      ],
+      "cast": [],
+      "overview": "Blackadder is a series of four period British sitcoms \u2014 The Black Adder, Blackadder II, Blackadder the Third and Blackadder Goes Forth \u2014 along with several one-off instalments, that originally aired on BBC1 from 1983 to 1989. All episodes starred Rowan Atkinson as the antihero Edmund Blackadder and Tony Robinson as Blackadder's servant Baldrick.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Ba4.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000108,
+      "title": "CSI: NY",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Police Procedural"
+      ],
+      "cast": [],
+      "overview": "CSI: NY (Crime Scene Investigation: New York) is an American police procedural television series that aired on CBS from September 22, 2004, to February 22, 2013, for nine seasons and 197 original episodes. The show follows the investigative team of NYPD forensic scientists and police officers identified as \"Crime Scene Investigators\" (instead of the actual title of \"Crime Scene Unit Forensic Technicians\" (CSU)) as they unveil the circumstances behind mysterious and unusual deaths, as well as other crimes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/87/CSI_Ny.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000109,
+      "title": "American Idol",
+      "year": 2002,
+      "type": "tv",
+      "genres": [
+        "Singing Talent Show"
+      ],
+      "cast": [],
+      "overview": "American Idol is an American singing competition television series created by Simon Fuller, produced by Fremantle North America and 19 Entertainment, and distributed by Fremantle North America. It aired on Fox from June 11, 2002, to April 7, 2016, for 15 seasons.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/51/American_Idol_ABC_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000110,
+      "title": "Babylon 5",
+      "year": 1993,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Space Opera",
+        "Military Science Fiction"
+      ],
+      "cast": [],
+      "overview": "Babylon 5 is an American space opera television series created by writer and producer J. Michael Straczynski, under the Babylonian Productions label, in association with Straczynski's Synthetic Worlds Ltd. and Warner Bros.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Babylon_5_1994_logo_%282%29.svg/500px-Babylon_5_1994_logo_%282%29.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000111,
+      "title": "Beverly Hills, 90210",
+      "year": 1990,
+      "type": "tv",
+      "genres": [
+        "Soap Opera",
+        "Teen Drama"
+      ],
+      "cast": [],
+      "overview": "Beverly Hills, 90210 (often referred to as 90210) is an American teen drama television series created by Darren Star and produced by Aaron Spelling via his production company Spelling Television. The series ran for 10 seasons on Fox from October 4, 1990, to May 17, 2000, and is the first of six television series in the Beverly Hills, 90210 franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Beverly_Hills_90210_%28Spelling_Television_series%29_logo.svg/500px-Beverly_Hills_90210_%28Spelling_Television_series%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000112,
+      "title": "The Wire",
+      "year": 2002,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Police Drama"
+      ],
+      "cast": [],
+      "overview": "The Wire is an American crime drama television series created and primarily written by American author and former police reporter David Simon for the cable network HBO. The series premiered on June 2, 2002, and ended on March 9, 2008, comprising 60 episodes over five seasons. The idea for the show started out as a police drama loosely based on the experiences of Simon's writing partner Ed Burns, a former homicide detective and public school teacher.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/The_Wire_logo.svg/500px-The_Wire_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000113,
+      "title": "Teen Wolf",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Youth",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Teen Wolf is an American supernatural teen drama television series developed by Jeff Davis for MTV. Serving as a supernatural reimagining of the 1985 film of the same name, the series is the fourth installment overall in the titular franchise. Tyler Posey portrays a young werewolf who defends his California town from supernatural creatures and other threats.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/83/Teen_Wolf_Intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000114,
+      "title": "True Detective",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Anthology",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "True Detective is an American anthology crime drama television series created by Nic Pizzolatto for the premium cable network HBO. The series premiered on January 12, 2014, and each season of the series is structured as a self-contained narrative, employing new cast ensembles, and following various sets of characters and settings.\nThe first season, starring Matthew McConaughey, Woody Harrelson, Michelle Monaghan, Michael Potts, and Tory Kittles, aired in 2014.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/5a/True_Detective_2014_Intertitle.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000116,
+      "title": "Vincenzo",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Vincenzo (Korean: \ube48\uc13c\uc870; RR: Binsenjo) is a 2021 South Korean television series starring Song Joong-ki as the title character, alongside Jeon Yeo-been, Ok Taec-yeon, Kim Yeo-jin and Kwak Dong-yeon. It aired on tvN every Saturday and Sunday at 21:00 (KST) from February 20, 2021 to May 2, 2021.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/5b/Vincenzo_TV_series.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000117,
+      "title": "Nurses",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Medical Drama"
+      ],
+      "cast": [],
+      "overview": "Nurses (Spanish: Enfermeras) is a Colombian medical drama television series produced by Ana Mar\u00eda P\u00e9rez that aired on RCN Televisi\u00f3n from 23 October 2019 to 12 August 2022. The series focuses on the lives of several nurses, specifically focusing on the life of Mar\u00eda Clara Gonz\u00e1lez (Diana Hoyos).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/bf/Enfermeras_poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000118,
+      "title": "CSI: Miami",
+      "year": 2002,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Police Procedural"
+      ],
+      "cast": [],
+      "overview": "CSI: Miami (Crime Scene Investigation: Miami) is an American police procedural television series that aired on CBS from September 23, 2002, to April 8, 2012. Featuring David Caruso as Lieutenant Horatio Caine, Emily Procter as Detective Calleigh Duquesne, and Adam Rodriguez as Detective Eric Delko, the series is the first direct spin-off of CSI: Crime Scene Investigation, \"transplanting the same template and trickery\u2014gory crimes, procedural plot and dazzling graphics\u2014into [a new city] while retaining the essence of the original idea\".",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/96/CSI_Miami.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000119,
+      "title": "The O.C.",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Soap Opera",
+        "Youth",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "The O.C.  is an American teen drama television series created by Josh Schwartz that originally aired on Fox in the United States from August 5, 2003, to February 22, 2007, with a total of four seasons consisting of 92 episodes. The series title, \"O.C.\", is an initialism of Orange County, the location in Southern California in which the series is set.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/67/The_O.C_Intro.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000120,
+      "title": "Married... with Children",
+      "year": 1987,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "Married... with Children is an American television sitcom created by Michael G. Moye and Ron Leavitt for the Fox Broadcasting Company, broadcast from April 5, 1987, to June 9, 1997.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Married_%E2%80%A6_With_Children_%28Sony_Pictures_Television_series_logo%29.svg/500px-Married_%E2%80%A6_With_Children_%28Sony_Pictures_Television_series_logo%29.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000123,
+      "title": "Malcolm in the Middle",
+      "year": 2000,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Black Comedy",
+        "Coming-of-age Program"
+      ],
+      "cast": [],
+      "overview": "Malcolm in the Middle is an American television sitcom created by Linwood Boomer for the Fox Broadcasting Company. The series premiered on January 9, 2000, and ended on May 14, 2006, after seven seasons consisting of 151 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/ae/MitM_credits_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000125,
+      "title": "Young Sheldon",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "Young Sheldon is an American sitcom television series created by Chuck Lorre and Steven Molaro that aired on CBS from September 25, 2017, to May 16, 2024. A spin-off and prequel to The Big Bang Theory, the series is set from the late 1980s to the mid-1990s and follows the childhood of Sheldon Cooper, gifted young prodigy growing up with his family in Medford, Texas.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Young_Sheldon_logo.svg/500px-Young_Sheldon_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000126,
+      "title": "Snowdrop",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Suspense",
+        "Action",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "Snowdrop (Korean: \uc124\uac15\ud654; RR: Seolganghwa) is a South Korean television series starring Jung Hae-in, Jisoo, Yoo In-na, Jang Seung-jo, Yoon Se-ah, Kim Hye-yoon and Jung Yoo-jin. It aired on JTBC from December 18, 2021, to January 30, 2022, every Saturday and Sunday at 22:30 (KST) for 16 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/1d/Snowdrop_TV_series.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000127,
+      "title": "Mr. Queen",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Mr. Queen (Korean: \ucca0\uc778\uc655\ud6c4) is a 2020 South Korean television series based on the Chinese web series Go Princess Go.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/e7/Mr._Queen_poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000129,
+      "title": "WWE SmackDown",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Professional Wrestling",
+        "Sports Entertainment"
+      ],
+      "cast": [],
+      "overview": "WWE SmackDown, also known as Friday Night SmackDown or simply SmackDown, is an American professional wrestling television program produced by WWE. It currently airs live every Friday at 8 p.m. Eastern Time (ET) on USA Network in the United States, and in most international markets on Netflix.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/WWE_SmackDown_%282024%29_Logo.svg/500px-WWE_SmackDown_%282024%29_Logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000130,
+      "title": "Pap\u00e1s por conveniencia",
+      "year": 2024,
+      "type": "tv",
+      "genres": [
+        "Telenovela",
+        "Comedy",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "Pap\u00e1s por conveniencia (English title: Conveniently a Family) is a Mexican telenovela produced by Rosy Ocampo for TelevisaUnivision. It stars an ensemble cast led by Ariadne D\u00edaz and Jos\u00e9 Ron.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/79/Pap%C3%A1s_por_conveniencia_poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000131,
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "Sons of Anarchy is an American action crime drama television series created by Kurt Sutter for FX. Originally aired from September 3, 2008, to December 9, 2014, Sons of Anarchy follows the lives of a close-knit outlaw motorcycle club operating in Charming, a fictional town in California's Central Valley.\nCharlie Hunnam stars as Jax Teller, who after discovering a manifesto written by his late father and motorcycle club founder, begins to question himself, his relationships, and the club.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/7b/SOATitlecard.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000132,
+      "title": "Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Science Fiction Program",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Marvel's Agents of S.H.I.E.L.D. is an American television series created by Joss Whedon, Jed Whedon, and Maurissa Tancharoen for ABC based on the Marvel Comics organization S.H.I.E.L.D. (Strategic Homeland Intervention, Enforcement, and Logistics Division), a peacekeeping and spy agency in a world of superheroes. The series was the first to be set in the Marvel Cinematic Universe (MCU), and it acknowledges the continuity of the franchise's films and other television series.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/1a/Agents_of_S.H.I.E.L.D._logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000134,
+      "title": "Orange Is the New Black",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Crime",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Orange Is the New Black (sometimes abbreviated to OITNB) is an American comedy-drama television series created by Jenji Kohan for Netflix. It is based on Piper Kerman's memoir Orange Is the New Black: My Year in a Women's Prison (2010), about her experiences at FCI Danbury, a minimum security federal prison.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Orange_is_the_new_Black_Logo.svg/500px-Orange_is_the_new_Black_Logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000136,
+      "title": "Frasier",
+      "year": 1993,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "Frasier () is an American television sitcom that was broadcast on NBC for eleven seasons from September 16, 1993, to May 13, 2004. The program was created and produced by David Angell, Peter Casey, and David Lee (as Grub Street Productions), in association with Grammnet Productions (1995\u20132004) and Paramount Television.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Frasier_title_logo.svg/500px-Frasier_title_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000144,
+      "title": "The Falcon and the Winter Soldier",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Buddy",
+        "Superhero Program"
+      ],
+      "cast": [],
+      "overview": "The Falcon and the Winter Soldier is an American television miniseries created by Malcolm Spellman for the streaming service Disney+, based on Marvel Comics featuring the characters Sam Wilson / Falcon and Bucky Barnes / Winter Soldier. It is the second television series in the Marvel Cinematic Universe (MCU) produced by Marvel Studios, sharing continuity with the films of the franchise, and is set six months after Sam Wilson was handed the mantle of Captain America in the film Avengers: Endgame (2019).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/9a/The_Falcon_and_the_Winter_Soldier_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000145,
+      "title": "The Suite Life of Zack & Cody",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "The Suite Life of Zack & Cody is an American teen sitcom created by Danny Kallis and Jim Geoghan that aired on Disney Channel from March 18, 2005, to September 1, 2008. The series was nominated twice for the Primetime Emmy Award for Outstanding Children's Program.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/88/The_Suite_Life_of_Zack_%26_Cody_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000147,
+      "title": "The Handmaid's Tale",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Post-apocalyptic Program",
+        "Dystopian Fiction"
+      ],
+      "cast": [],
+      "overview": "The Handmaid's Tale is an American dystopian television series created by Bruce Miller, based on the 1985 novel The Handmaid's Tale by Canadian author Margaret Atwood. The series was ordered by the streaming service Hulu as a straight-to-series order of ten episodes, for which production began in late 2016.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/The_Handmaid%27s_Tale_intertitle.png/500px-The_Handmaid%27s_Tale_intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000148,
+      "title": "WWE Raw",
+      "year": 1993,
+      "type": "tv",
+      "genres": [
+        "Professional Wrestling",
+        "Sports Entertainment"
+      ],
+      "cast": [],
+      "overview": "WWE Raw, also known as Monday Night Raw or simply Raw, is an American professional wrestling television program produced by WWE. It currently airs live every Monday at 8 p.m. Eastern Time (ET) on Netflix.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/WWE_RAW_Logo_2025.svg/500px-WWE_RAW_Logo_2025.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000150,
+      "title": "Skins",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Teen Drama",
+        "Drama",
+        "Coming-of-age Program"
+      ],
+      "cast": [],
+      "overview": "Skins is a British teen drama television series that follows the lives of a group of teenagers in Bristol, England, through the two years of sixth form. Its controversial storylines explore issues such as dysfunctional families, mental illness (such as depression, eating disorders, post-traumatic stress disorder, and bipolar disorder), adolescent sexuality, gender, substance abuse, death, and bullying.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Skins.svg/500px-Skins.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000151,
+      "title": "Battlestar Galactica",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Battlestar Galactica is an American military science fiction television series, and part of the Battlestar Galactica franchise. The show was developed by Ronald D. Moore and executive produced by Moore and David Eick as a \"re-imagining\" of the 1978 Battlestar Galactica television series created by Glen A. Larson.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/57/Battlestar_Galactica_%282004_TV_series%29_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000152,
+      "title": "Ally McBeal",
+      "year": 1997,
+      "type": "tv",
+      "genres": [
+        "Legal Drama",
+        "Comedy Drama"
+      ],
+      "cast": [],
+      "overview": "Ally McBeal is an American legal comedy-drama television series created by David E. Kelley that originally aired on Fox from September 8, 1997, to May 20, 2002. It revolves around Calista Flockhart in the title role as a lawyer working in the Boston law firm Cage & Fish.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/af/Ally_McBeal_S1_Opening.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000153,
+      "title": "LazyTown",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Music",
+        "Educational",
+        "Children's"
+      ],
+      "cast": [],
+      "overview": "LazyTown (Icelandic: Latib\u00e6r; Icelandic pronunciation: [\u02c8lat\u02b0i\u02ccpai\u02d0r\u0325]) is an Icelandic children's television series created by and starring aerobics champion Magn\u00fas Scheving, who portrays the character Sportacus. Originally produced in English, it has been broadcast in dozens of languages globally.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/LazyTown_logo.svg/500px-LazyTown_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000154,
+      "title": "New Girl",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "New Girl is an American television sitcom created by Elizabeth Meriwether and produced by 20th Century Fox Television for Fox that aired from September 20, 2011, to May 15, 2018. The series revolves around quirky teacher Jessica Day (Zooey Deschanel) after she moves into a Los Angeles loft with three men, Nick Miller (Jake Johnson), Schmidt (Max Greenfield), and Winston Bishop (Lamorne Morris).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NewGirlTitlesS5.jpg/500px-NewGirlTitlesS5.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000155,
+      "title": "Marimar",
+      "year": 1994,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "Marimar (stylized as MariMar or Mari Mar) is a 1994 Mexican television drama series broadcast by Canal de Las Estrellas. The series is based on the 1977 Mexican drama series La venganza, which is in turn based on the radionovela La indomable.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/b3/Thalia_Marimar%2C.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000156,
+      "title": "Legends of Tomorrow",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Action",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "DC's Legends of Tomorrow, or simply Legends of Tomorrow, is an American time travel superhero television series developed by Greg Berlanti, Marc Guggenheim, Andrew Kreisberg, and Phil Klemmer, who are also executive producers along with Sarah Schechter and Chris Fedak; Klemmer and Fedak originally served as showrunners, while Keto Shimizu became co-showrunner with Klemmer starting with the fourth season. The series, based on the characters of DC Comics, premiered on The CW on January 21, 2016, and ran for seven seasons until March 2, 2022, before its cancellation on April 29.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/2f/Legends_of_Tomorrow_Intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000157,
+      "title": "Supergirl",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Action",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Supergirl is an American superhero drama television series developed by Ali Adler, Greg Berlanti and Andrew Kreisberg that aired on CBS from October 26, 2015, to April 8, 2016, and The CW from October 10, 2016, to November 9, 2021. Based on the DC Comics character created by Otto Binder and Al Plastino, the series follows Kara Zor-El (played by Melissa Benoist), Superman's cousin, and one of the last surviving Kryptonians from the planet Krypton.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Supergirl_%28Arrowverse_television_series%29_logo.svg/500px-Supergirl_%28Arrowverse_television_series%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000158,
+      "title": "Hotel del Luna",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Dark Fantasy",
+        "Comedy",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Hotel del Luna (Korean: \ud638\ud154 \ub378\ub8e8\ub098) is a South Korean television series starring Lee Ji-eun and Yeo Jin-goo as the owner and manager, respectively, of the eponymous hotel that caters only to ghosts. Produced by GTist, written by the Hong sisters and directed by Oh Chung-hwan, it aired on tvN from July 13 to September 1, 2019.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/00/Hotel_Del_Luna.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000161,
+      "title": "Ghost Whisperer",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Ghost Whisperer is an American supernatural television series, which ran on CBS from September 23, 2005, to May 21, 2010.\nThe series follows the life of Melinda Gordon (Jennifer Love Hewitt), who has the ability to see and communicate with ghosts.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/16/Ghost_Whisperer.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000163,
+      "title": "Dallas",
+      "year": 1978,
+      "type": "tv",
+      "genres": [
+        "Soap Opera"
+      ],
+      "cast": [],
+      "overview": "Dallas is an American prime time soap opera that aired on CBS from April 2, 1978, to May 3, 1991. The series revolved around an affluent and feuding Texas family, the Ewings, who owned the independent oil company Ewing Oil and the cattle-ranching land of Southfork.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/31/DallasLogo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000164,
+      "title": "Rome",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Historical",
+        "Historical Drama"
+      ],
+      "cast": [],
+      "overview": "Rome is an American-British historical drama television series created by John Milius, William J. MacDonald, and Bruno Heller. The series is set in the 1st century BC, during Ancient Rome's transition from Republic to Empire.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/e6/Rome_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000165,
+      "title": "Agatha Christie's Poirot",
+      "year": 1989,
+      "type": "tv",
+      "genres": [
+        "Detective"
+      ],
+      "cast": [],
+      "overview": "Agatha Christie's Poirot, or simply Poirot (UK: ), is a British mystery drama television programme that aired on ITV from 8 January 1989 to 13 November 2013. The ITV show is based on one of Agatha Christie's famous crime fiction series, which revolves around the fictional private investigator Hercule Poirot.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Agatha_Christie%27s_Poirot_%28title_card%29.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000166,
+      "title": "Person of Interest",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Science Fiction Program",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Person of Interest is an American science fiction crime drama television series that aired on CBS from September 22, 2011, to June 21, 2016, with its five seasons consisting of 103 episodes. The series was created by Jonathan Nolan; executive producers were Nolan, J. J. Abrams, Bryan Burk, Greg Plageman, Denise Th\u00e9, and Chris Fisher.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/db/PersonOfInterstLogo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000167,
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Historical"
+      ],
+      "cast": [],
+      "overview": "Boardwalk Empire is an American period crime drama television series created by Terence Winter for the premium cable channel HBO. The series is set chiefly in Atlantic City, New Jersey, during the Prohibition era of the 1920s. The series stars Steve Buscemi as Nucky Thompson.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/2d/Boardwalk_Empire_2010_Intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000168,
+      "title": "Jessie",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Children's",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "Jessie is an American comedy television series created by Pamela Eells O'Connell that aired on Disney Channel from September 30, 2011 to October 16, 2015. The series stars Debby Ryan, Peyton List, Cameron Boyce, Karan Brar, Skai Jackson, and Kevin Chamberlin.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/00/Jessie_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000169,
+      "title": "Rub\u00ed",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "Rub\u00ed is a Mexican telenovela produced by Jos\u00e9 Alberto Castro for Televisa. It is based on a comic strip by Yolanda Vargas Dulch\u00e9, published in installments on the 1960s Mexican romance comics magazine L\u00e1grimas, risas y amor.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/72/Rubi_%28poster_-_2004_Mexican_telenovela%29.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000170,
+      "title": "Fargo",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Psychological Thriller",
+        "Comedy Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Fargo is an American black comedy crime drama television series created by Noah Hawley for FX. It is based on the 1996 film written and directed by Joel and Ethan Coen. The Coens, whose other films also heavily influenced the series, were originally uninvolved with the series, but joined as executive producers after being impressed by Hawley's script for the first season.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Fargo_%28TV_logo%29.svg/500px-Fargo_%28TV_logo%29.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000171,
+      "title": "Lucifer",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Lucifer is an American urban fantasy television series developed by Tom Kapinos that began airing on January 25, 2016, and concluded on September 10, 2021. It revolves around Lucifer Morningstar (Tom Ellis), an alternate version of the DC Comics character of the same name created by Neil Gaiman, Sam Kieth and Mike Dringenberg.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/97/Lucifer%2C_title.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000172,
+      "title": "The Heirs",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Youth",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "The Heirs (Korean: \uc655\uad00\uc744 \uc4f0\ub824\ub294 \uc790, \uadf8 \ubb34\uac8c\ub97c \uacac\ub38c\ub77c \u2013 \uc0c1\uc18d\uc790\ub4e4), also known as The Inheritors, is a South Korean television series starring Lee Min-ho, Park Shin-hye, and Kim Woo-bin. Written by Kim Eun-sook, the drama is set in a high school populated by the privileged and uber-rich.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/f/f7/The_Inheritors_poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000173,
+      "title": "The Lord of the Rings: The Rings of Power",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "The Lord of the Rings: The Rings of Power is an American fantasy television series developed by J. D. Payne and Patrick McKay for the streaming service Amazon Prime Video. It is based on J. R. R. Tolkien's history of Middle-earth, primarily material from the appendices of the novel The Lord of the Rings (1954\u201355).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/1d/LOTR_The_Rings_of_Power_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000176,
+      "title": "All of Us Are Dead",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Youth",
+        "Horror Fiction",
+        "Zombie Apocalyptic Fiction"
+      ],
+      "cast": [],
+      "overview": "All of Us Are Dead (Korean: \uc9c0\uae08 \uc6b0\ub9ac \ud559\uad50\ub294) is a South Korean coming-of-age apocalyptic horror television series based on the webtoon of the same name by Joo Dong-geun, which was published on Webtoon between 2009 and 2011. It stars  Park Ji-hu, Yoon Chan-young, Cho Yi-hyun, Lomon, Yoo In-soo, Lee Yoo-mi, Kim Byung-chul, Lee Kyu-hyung, and Jeon Bae-soo.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/24/All_of_Us_Are_Dead.jpeg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000177,
+      "title": "The World of the Married",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Melodrama"
+      ],
+      "cast": [],
+      "overview": "The World of the Married (Korean: \ubd80\ubd80\uc758 \uc138\uacc4) is a South Korean television series starring Kim Hee-ae, Park Hae-joon, and Han So-hee. Based on BBC One's drama series Doctor Foster written by Mike Bartlett, it tells a story of a married couple whose betrayal of one another leads to a whirlwind of revenge, grief, forgiveness and healing.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/76/The_World_of_the_Married.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000178,
+      "title": "Moon Knight (miniseries)",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Adventure",
+        "Superhero",
+        "Action"
+      ],
+      "cast": [],
+      "overview": "Moon Knight is an American television miniseries created by Jeremy Slater for the streaming service Disney+, based on Marvel Comics featuring the character of the same name. It is the sixth television series in the Marvel Cinematic Universe (MCU) to be produced by Marvel Studios, sharing continuity with the films of the franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/a8/Moon_Knight_%28miniseries%29_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000179,
+      "title": "She-Hulk: Attorney at Law",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Legal Drama",
+        "Action Fiction",
+        "Superhero Fiction"
+      ],
+      "cast": [],
+      "overview": "She-Hulk: Attorney at Law is an American television miniseries created by Jessica Gao for the streaming service Disney+, based on Marvel Comics featuring the character She-Hulk. It is the eighth television series in the Marvel Cinematic Universe (MCU) produced by Marvel Studios, sharing continuity with the films of the franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/32/She-Hulk_Attorney_at_Law_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000180,
+      "title": "Monty Python's Flying Circus",
+      "year": 1969,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "Monty Python's Flying Circus (also known as simply Monty Python) is a British surreal sketch comedy series created by and starring Graham Chapman, John Cleese, Eric Idle, Terry Jones, Michael Palin, and Terry Gilliam, who became known collectively as \"Monty Python\", or the \"Pythons\". The first episode was recorded at the BBC on 7 September 1969 and premiered on 5 October on BBC1, with 45 episodes airing over four series from 1969 to 1974, plus two episodes for German TV. A feature film adaptation of several sketches, And Now for Something Completely Different, was released in 1971.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/c/cd/Monty_Python%27s_Flying_Circus_Title_Card.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000181,
+      "title": "2 Broke Girls",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "2 Broke Girls (stylized as 2 BROKE GIRL$) is an American television sitcom that aired on CBS from September 19, 2011, to April 17, 2017. The series was produced for Warner Bros.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/21/2_Broke_Girls_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000182,
+      "title": "Everybody Loves Raymond",
+      "year": 1996,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "Everybody Loves Raymond is an American television sitcom created by Philip Rosenthal that aired on CBS from September 13, 1996, to May 16, 2005, with a total of 210 episodes spanning nine seasons. It was produced by Where's Lunch and Worldwide Pants Incorporated, in association with HBO Independent Productions.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Everybody_Loves_Raymond_logo.svg/500px-Everybody_Loves_Raymond_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000183,
+      "title": "The Suite Life on Deck",
+      "year": 2008,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "The Suite Life on Deck is an American teen sitcom created by Danny Kallis and Jim Geoghan, and developed by Kallis and Pamela Eells O'Connell. The series aired on the Disney Channel from September 26, 2008, to May 6, 2011.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/26/The_Suite_Life_on_Deck_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000185,
+      "title": "Alias",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Action",
+        "Espionage"
+      ],
+      "cast": [],
+      "overview": "Alias is an American spy action thriller television series created by J. J. Abrams that was broadcast on ABC for five seasons from September 30, 2001, to May 22, 2006. It stars Jennifer Garner as Sydney Bristow, a double agent for the Central Intelligence Agency posing as an operative for SD-6, a worldwide criminal and espionage organization.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Alias_%28TV_series%29_logo.svg/500px-Alias_%28TV_series%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000186,
+      "title": "Six Feet Under",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Black Comedy",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Six Feet Under is an American drama television series created and produced by Alan Ball for the television network HBO. It premiered on June 3, 2001, and ended on August 21, 2005, after five seasons consisting of 63 episodes.\nThe show follows the Fisher family, who run a funeral home in Los Angeles, along with their friends and lovers.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Sixfeetunderlogo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000187,
+      "title": "Nip/Tuck",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Medical Drama",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Nip/Tuck is an American medical drama television series created by Ryan Murphy that aired on FX in the United States for six seasons from 2003 to 2010. The series, which also incorporates elements of crime, black comedy, family drama, satire, and psychological thriller, focuses on \"McNamara/Troy\", a cutting-edge, controversial plastic surgery center, and follows the personal and professional lives of its founders Dr.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/Nip-Tuck_%28Ryan_Murphy_Television%29_logo.svg/500px-Nip-Tuck_%28Ryan_Murphy_Television%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000188,
+      "title": "The A-Team",
+      "year": 1983,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "The A\u2011Team is an American fictional action\u2011adventure television series that aired on NBC from January 23, 1983 to March 8, 1987. Created by Stephen J. Cannell and Frank Lupo, it follows a squad of former U.S. Army Special Forces commandos who, after being falsely convicted of a crime, escape military prison and become soldiers of fortune.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/A-Team-Logo.svg/500px-A-Team-Logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000189,
+      "title": "The Muppet Show",
+      "year": 1976,
+      "type": "tv",
+      "genres": [
+        "Sketch Comedy",
+        "Variety Show",
+        "Puppetry"
+      ],
+      "cast": [],
+      "overview": "The Muppet Show is a variety sketch comedy family television series created by Jim Henson and starring the Muppets. It is presented as a variety show, featuring recurring sketches and musical numbers interspersed with ongoing plot-lines with running gags taking place backstage and in other areas of the venue.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/21/Tv_muppet_show_opening.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000190,
+      "title": "Hawaii Five-0",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Hawaii Five-0 is an American police procedural drama television series developed for CBS by Roberto Orci, Alex Kurtzman and Peter M. Lenkov. It is a reboot of the 1968\u20131980 series (the original series had the letter \"O\" in its title, the 2010 series has the number zero), which also aired on CBS. The series starred Alex O'Loughlin and Scott Caan and centers around a fictional special police major crimes task force operating at the behest of the governor of Hawaii.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hawaii_Five-0_2010_logo.svg/500px-Hawaii_Five-0_2010_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000191,
+      "title": "Cheers",
+      "year": 1982,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "Cheers is an American television sitcom, created by Glen Charles & Les Charles and James Burrows, aired on NBC for eleven seasons from September 30, 1982, to May 20, 1993. The show was produced by Charles/Burrows/Charles Productions in association with Paramount Television.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cheers.svg/500px-Cheers.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000192,
+      "title": "My Love from the Star",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Romance",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "My Love from the Star (Korean: \ubcc4\uc5d0\uc11c \uc628 \uadf8\ub300) is a South Korean fantasy romantic comedy television series written by Park Ji-eun and directed by Jang Tae-yoo. Produced by Choi Moon-suk and Moon Bo-mi, it stars Jun Ji-hyun, Kim Soo-hyun, Park Hae-jin, Yoo In-na, Shin Sung-rok, and Ahn Jae-hyun.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/ba/You_Who_Came_From_the_Stars_Cover.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000194,
+      "title": "Start-Up",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Comedy",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "Start-Up (Korean: \uc2a4\ud0c0\ud2b8\uc5c5) is a 2020 South Korean television series starring Bae Suzy, Nam Joo-hyuk, Kim Seon-ho and Kang Han-na. The series revolves around a woman who has dreams of becoming an entrepreneur like Steve Jobs, and her love triangle between a man who is secretly her first love and another man who is pretending to be her first love.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/12/Start-Up_2020.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000195,
+      "title": "The Office",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Mockumentary",
+        "Pseudo-documentary"
+      ],
+      "cast": [],
+      "overview": "The Office is a British mockumentary television sitcom first broadcast in the United Kingdom on BBC Two on 9 July 2001. Created, written and directed by Ricky Gervais and Stephen Merchant, it follows the day-to-day lives of office employees in the Slough branch of the fictional Wernham Hogg paper company.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/7e/Theoffice.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000197,
+      "title": "Shake It Up",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "Shake It Up is an American sitcom that originally aired on Disney Channel from November 7, 2010, to November 10, 2013. Created by Chris Thompson and starring Bella Thorne and Zendaya, the show follows the adventures of CeCe Jones (Bella Thorne) and Rocky Blue (Zendaya) as they star as background dancers on a local show, Shake It Up Chicago.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/c/cf/Shake_it_up_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000198,
+      "title": "The Tudors",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Historical"
+      ],
+      "cast": [],
+      "overview": "The Tudors is a historical drama television series set primarily in 16th-century England, created and written by Michael Hirst and produced for the American premium cable television channel Showtime. The series was a collaboration among American, British, and Canadian producers, and was filmed mostly in Ireland.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/bf/TudorsPromo4-2.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000199,
+      "title": "Elementary",
+      "year": 2012,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Detective",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Elementary is an American procedural comedy-drama television series that presented a contemporary update of Arthur Conan Doyle's character Sherlock Holmes. Created by Robert Doherty and starring Jonny Lee Miller as Sherlock Holmes and Lucy Liu as Dr.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/69/Elementary_intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000201,
+      "title": "The Pacific (miniseries)",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "War",
+        "Historical"
+      ],
+      "cast": [],
+      "overview": "The Pacific is a 2010 American war drama miniseries produced by HBO, Playtone, and DreamWorks that premiered in the United States on March 14, 2010. The Pacific is the second of three companion piece miniseries developed by Playtone and DreamWorks, following Band of Brothers (2001) and preceding Masters of the Air (2024).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/19/ThePacificIntertitle.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000202,
+      "title": "Zoboomafoo",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Children's",
+        "Live Action/animated"
+      ],
+      "cast": [],
+      "overview": "Zoboomafoo is a live-action/animated children's television series that originally aired on PBS from January 25, 1999, to November 21, 2001. After the original run on public television, reruns were shown on PBS Kids Sprout until 2012.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/70/Zoboomafoo_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000203,
+      "title": "The Originals",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Teen Drama",
+        "Fantasy",
+        "Werewolf Program"
+      ],
+      "cast": [],
+      "overview": "The Originals is an American supernatural drama television series. It is a spin-off of The Vampire Diaries and the first television series expansion of the franchise based on its parent series.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/The_Originals_intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000204,
+      "title": "Star Trek: Discovery",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Action",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Star Trek: Discovery is an American science fiction television series created by Bryan Fuller and Alex Kurtzman for the streaming service CBS All Access (later rebranded as Paramount+). It is the seventh Star Trek series and was released from 2017 to 2024.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Star_Trek_Discovery_logo.svg/500px-Star_Trek_Discovery_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000205,
+      "title": "How to Get Away with Murder",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Legal Drama",
+        "Thriller",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "How to Get Away with Murder is an American legal drama thriller television series that premiered on the American Broadcasting Company (ABC) on September 25, 2014, and concluded on May 14, 2020. The series was created by Peter Nowalk and produced by Shonda Rhimes and ABC Studios, airing as part of a night of programming under Rhimes' Shondaland production company.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/How_To_Get_Away_With_Murder_official_logo.svg/500px-How_To_Get_Away_With_Murder_official_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000206,
+      "title": "Moon Lovers: Scarlet Heart Ryeo",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Melodrama",
+        "Action",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Moon Lovers: Scarlet Heart Ryeo (Korean: \ub2ec\uc758 \uc5f0\uc778 \u2013 \ubcf4\ubcf4\uacbd\uc2ec \ub824) is a South Korean television series based on the Chinese novel Bu Bu Jing Xin by Tong Hua. It aired from August 29 to November 1, 2016, on SBS, every Monday and Tuesday at 22:00 (KST), for 20 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/0f/Scarletheartryeoposter.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000208,
+      "title": "Emily in Paris",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "Emily in Paris is an American romantic comedy drama television series created by Darren Star for Netflix. The series stars Lily Collins as aspiring marketing executive Emily Cooper, an American who moves to Paris to provide an American point of view to a French marketing firm.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Emily_in_Paris_logo.svg/500px-Emily_in_Paris_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000209,
+      "title": "Heated Rivalry",
+      "year": 2025,
+      "type": "tv",
+      "genres": [
+        "Romantic Drama",
+        "Sports Drama"
+      ],
+      "cast": [],
+      "overview": "Heated Rivalry is a Canadian sports romance television series created, written, and directed by Jacob Tierney for Crave. Based on the Game Changers book series by Rachel Reid, the show takes its title from the 2019 second instalment.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_Heated_Rivalry.svg/500px-Logo_Heated_Rivalry.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000210,
+      "title": "Firefly",
+      "year": 2002,
+      "type": "tv",
+      "genres": [
+        "Space Opera",
+        "Science Fiction Program",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Firefly is a 2002 American space Western drama television series, created by writer and director Joss Whedon, under his Mutant Enemy Productions label. Whedon served as an executive producer, along with Tim Minear.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/af/Fireflyopeninglogo.JPG",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000212,
+      "title": "30 Rock",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Satirical"
+      ],
+      "cast": [],
+      "overview": "30 Rock is an American satirical surrealist sitcom television series created by Tina Fey that originally aired on NBC from October 11, 2006, to January 31, 2013. The series, based on Fey's experiences as head writer for Saturday Night Live, takes place behind the scenes of a fictional live sketch comedy show depicted as airing on NBC. The series's name refers to 30 Rockefeller Plaza in New York City, where the NBC Studios are located and where Saturday Night Live is written, produced, and performed.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/30Rock_logo.svg/500px-30Rock_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000213,
+      "title": "The Bold and the Beautiful",
+      "year": 1987,
+      "type": "tv",
+      "genres": [
+        "Soap Opera"
+      ],
+      "cast": [],
+      "overview": "The Bold and the Beautiful (often referred to as B&B) is an American television soap opera created by William J. Bell and Lee Phillip Bell for CBS. It premiered on March 23, 1987, as a sister show to the Bells' other soap opera The Young and the Restless; several characters from each of the two shows have crossed over to the other since the early 1990s. Set in Los Angeles, California, the show centers upon the Forrester family and their haute couture business.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/The_Bold_and_the_Beautiful_%28logo%29.svg/500px-The_Bold_and_the_Beautiful_%28logo%29.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000214,
+      "title": "Fawlty Towers",
+      "year": 1975,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "Fawlty Towers is a British television sitcom written by John Cleese and Connie Booth, originally broadcast on BBC Two in 1975 and 1979. Two series of six episodes each were made.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/d6/Fawlty_Towers_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000217,
+      "title": "Miami Vice",
+      "year": 1984,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Miami Vice is an American crime drama television series created by Anthony Yerkovich and executive-produced by Michael Mann for NBC. It stars Don Johnson as James \"Sonny\" Crockett and Philip Michael Thomas as Ricardo \"Rico\" Tubbs, two Metro-Dade Police Department detectives working undercover in Miami, Florida. The series ran for five seasons on NBC from September 16, 1984, to June 28, 1989, airing on Friday nights.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Miami_Vice.svg/500px-Miami_Vice.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000218,
+      "title": "Charlie's Angels",
+      "year": 1976,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Charlie's Angels is an American crime drama television series created by Ivan Goff and Ben Roberts for ABC. It originally aired from September 22, 1976, to June 24, 1981, airing for five seasons consisting of 115 episodes. It was produced by Spelling-Goldberg Productions.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/f/ff/Charliesangels.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000219,
+      "title": "Under the Dome",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "Under the Dome is an American science fiction mystery drama television series that premiered on CBS on June 24, 2013, and concluded on September 10, 2015. The series was developed by Brian K. Vaughan and loosely based on the 2009 novel by Stephen King.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Under_the_Dome_%28Amblin_Television%29_logo.svg/500px-Under_the_Dome_%28Amblin_Television%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000221,
+      "title": "Coronation Street",
+      "year": 1960,
+      "type": "tv",
+      "genres": [
+        "Soap Opera"
+      ],
+      "cast": [],
+      "overview": "Coronation Street (colloquially referred to as Corrie) is a British television soap opera created by Granada Television and shown on ITV since 9 December 1960. The programme centres on a cobbled, terraced street in the fictional town of Weatherfield in Greater Manchester.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/86/Coronation_Street_Titles.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000222,
+      "title": "Cosmos: A Spacetime Odyssey",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Documentary",
+        "Television Documentary"
+      ],
+      "cast": [],
+      "overview": "Cosmos: A Spacetime Odyssey is a 2014 American science documentary television series. The show is a follow-up to the 1980 television series Cosmos: A Personal Voyage, which was presented by Carl Sagan on the Public Broadcasting Service and is considered a milestone for scientific documentaries.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/8e/Cosmos_spacetime_odyssey_titlecard.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000223,
+      "title": "Jessica Jones",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Marvel's Jessica Jones is an American television series created by Melissa Rosenberg for the streaming service Netflix, based on the Marvel Comics character Jessica Jones. It is set in the Marvel Cinematic Universe (MCU), sharing continuity with the franchise's films, and was the second Marvel Netflix series leading to the crossover miniseries The Defenders (2017).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/22/Jessica_Jones_%28TV_series%29_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000224,
+      "title": "The Good Place",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "The Good Place is an American fantasy-comedy television series created by Michael Schur for NBC. The series premiered on September 19, 2016, and concluded on January 30, 2020, after four seasons consisting of 53 episodes.\nAlthough the plot evolves significantly over the course of the series, the initial premise of the series follows Eleanor Shellstrop (Kristen Bell), a dead woman who is placed in the \"Good Place\", a Heaven-esque utopia designed and supervised by afterlife \"architect\" Michael (Ted Danson).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/The_Good_Place_title_card.svg/500px-The_Good_Place_title_card.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000225,
+      "title": "Mi coraz\u00f3n es tuyo",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "Mi coraz\u00f3n es tuyo (English title: My Heart is Yours) is a Mexican telenovela produced by Juan Osorio for Televisa. The telenovela is an adaptation of the Spanish TV series Ana y los 7.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/16/Mi_Coraz%C3%B3n_Es_Tuyo_P%C3%B3ster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000227,
+      "title": "Peacemaker",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Superhero Program"
+      ],
+      "cast": [],
+      "overview": "Peacemaker is an American superhero television series created by James Gunn for the streaming service HBO Max, based on the eponymous character from DC Comics. The first season is a spin-off of the film The Suicide Squad (2021) set in the DC Extended Universe (DCEU), further exploring jingoistic vigilante Chris Smith / Peacemaker.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/a0/Peacemaker_%28TV_series%29_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000228,
+      "title": "Secret Invasion (miniseries)",
+      "year": 2023,
+      "type": "tv",
+      "genres": [
+        "Science Fiction",
+        "Drama",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Secret Invasion is an American television miniseries created by Kyle Bradstreet for the streaming service Disney+, based on the 2008 Marvel Comics storyline \"Secret Invasion\". It is the ninth television series in the Marvel Cinematic Universe (MCU) produced by Marvel Studios, sharing continuity with the films of the franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/91/Secret_Invasion_%28miniseries%29_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000229,
+      "title": "Homeland",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Espionage",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "Homeland (stylized as HOM\u018eLAND) is an American espionage thriller television series developed by Howard Gordon and Alex Gansa. It is based on the Israeli series Prisoners of War (Hebrew: \u05d7\u05d8\u05d5\u05e4\u05d9\u05dd, romanized: Hatufim, literally 'Abductees'), created by Gideon Raff, who also serves as an executive producer on Homeland.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/97/HomelandTVSeries.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000230,
+      "title": "Outlander",
+      "year": null,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Romance",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Outlander is a historical fantasy television series based on the book series of the same name by Diana Gabaldon. Developed by Ronald D. Moore, the show premiered on August 9, 2014, on Starz.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/31/Outlander_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000231,
+      "title": "H2O: Just Add Water",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Youth",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "H2O: Just Add Water, more commonly referred to as H2O, is an Australian fantasy children and teen drama television show created by Jonathan M. Shiff. It first screened on Australia's Network Ten and as of 2009 ran in syndication in over 120 countries with a worldwide audience of more than 250 million.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/29/H2O_Just_Add_Water.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000233,
+      "title": "The L Word",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Erotic",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "The L Word is a television drama series that aired on Showtime in the United States from January 18, 2004 to March 8, 2009. The series follows the lives of a group of lesbian and bisexual women who live in West Hollywood, California.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/65/The_L_Word_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000235,
+      "title": "Sonny with a Chance",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "Sonny with a Chance is an American teen sitcom created by Steve Marmel that aired on Disney Channel for two seasons between February 2009 and January 2011. The series centers on Sonny Munroe, portrayed by Demi Lovato, a teenage comedian from Wisconsin who joins the cast of a sketch comedy television series titled So Random!",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sonnywithachance-logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000236,
+      "title": "60 Minutes",
+      "year": 1968,
+      "type": "tv",
+      "genres": [
+        "Television Documentary"
+      ],
+      "cast": [],
+      "overview": "60 Minutes is an American television news magazine broadcast on the CBS television network. Debuting in 1968, the program was created by Don Hewitt and Bill Leonard, who distinguished it from other news programs by using a unique style of reporter-centered investigation.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/60-minutes.svg/500px-60-minutes.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000237,
+      "title": "Good Luck Charlie",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Youth"
+      ],
+      "cast": [],
+      "overview": "Good Luck Charlie is an American sitcom that aired on Disney Channel from April 4, 2010, to February 16, 2014. It focuses on the Duncan family, a middle-class American family in Denver as they adjust to the births of their fourth and later fifth children, Charlotte \"Charlie\" (Mia Talerico) and Toby (Logan Moreau).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Goodluck_charly_logo.svg/500px-Goodluck_charly_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000240,
+      "title": "Inspector Rex",
+      "year": 1994,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Comedy",
+        "Police Drama"
+      ],
+      "cast": [],
+      "overview": "Inspector Rex (German: Kommissar Rex; Italian: Il commissario Rex) is an Austrian-Italian police procedural television series created by Peter Hajek and Peter Moser. Originally an Austrian series aired from 1994 to 2004 on ORF 1, in 2008 it was revived as an Austro-Italian production on Rai 1 and, from the next year, was made fully in Italy, with occasional episodes set in Austria.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/13/Inspector_Rex_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000241,
+      "title": "The Twilight Zone",
+      "year": 1959,
+      "type": "tv",
+      "genres": [
+        "Anthology",
+        "Science Fiction Program",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "The Twilight Zone (marketed as Twilight Zone for its final two seasons) is an American fantasy science fiction horror anthology television series created and presented by Rod Serling, which ran for five seasons on CBS from October 2, 1959, to June 19, 1964. Each episode presents a standalone story in which characters find themselves dealing with often disturbing or unusual events, an experience described as entering \"the Twilight Zone\", often with a surprise ending and a moral.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/The_Twilight_Zone_%281959_TV_series%29_logo.svg/500px-The_Twilight_Zone_%281959_TV_series%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000242,
+      "title": "Sam & Cat",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "Sam & Cat is an American teen sitcom created by Dan Schneider for Nickelodeon. It is a spin-off of iCarly and Victorious, two teen sitcoms that Schneider also created for Nickelodeon.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/b4/Sam_and_Cat_logo2.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000243,
+      "title": "Dirili\u015f: Ertu\u011frul",
+      "year": 2014,
+      "type": "tv",
+      "genres": [
+        "Adventure",
+        "Historical"
+      ],
+      "cast": [],
+      "overview": "Dirili\u015f: Ertu\u011frul, translated as Resurrection: Ertu\u011frul, is a Turkish historical drama television series inspired by the life of Ertu\u011frul Bey, the father of Osman I, founder of the Ottoman Empire. Created and produced by Mehmet Bozda\u011f under Bozda\u011f Films, the series originally aired on TRT 1 from 2014 to 2019.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/Dirili%C5%9F-_Ertu%C4%9Frul_logo.png/500px-Dirili%C5%9F-_Ertu%C4%9Frul_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000244,
+      "title": "Iron Fist",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Superhero Program"
+      ],
+      "cast": [],
+      "overview": "Marvel's Iron Fist is an American television series created by Scott Buck for the streaming service Netflix, based on the Marvel Comics character of the same name. It is set in the Marvel Cinematic Universe (MCU), sharing continuity with the franchise's films, and was the fourth Marvel Netflix series leading to the crossover miniseries The Defenders (2017).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/eb/Iron_Fist_%28TV_series%29_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000245,
+      "title": "Agent Carter",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Detective Fiction",
+        "Science Fiction Program",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Marvel's Agent Carter, or simply Agent Carter, is an American television series created by Christopher Markus & Stephen McFeely for ABC, based on the Marvel Comics character Peggy Carter following her roles in the 2011 film Captain America: The First Avenger and the 2013 Marvel One-Shot short film of Agent Carter. It is set in the Marvel Cinematic Universe (MCU) and shares continuity with the franchise's films and other television series.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/14/Agent_Carter_%28TV_series%29_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000247,
+      "title": "The End of the F***ing World",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Black Comedy",
+        "Coming-of-age Program",
+        "Teen Drama"
+      ],
+      "cast": [],
+      "overview": "The End of the F***ing World is a British black comedy television programme. Based on the 2011\u201313 minicomics The End of the Fucking World by Charles Forsman, the eight-part first series premiered its first episode on Channel 4 in the United Kingdom on 24 October 2017.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/The_End_of_the_F%2A%2A%2Aing_World_logo.png/500px-The_End_of_the_F%2A%2A%2Aing_World_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000249,
+      "title": "Ms. Marvel (miniseries)",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Coming-of-age Program",
+        "Action-adventure"
+      ],
+      "cast": [],
+      "overview": "Ms. Marvel is an American television miniseries created by Bisha K. Ali for the streaming service Disney+, based on Marvel Comics featuring the character Kamala Khan / Ms.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/ac/Ms._Marvel_%28miniseries%29_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000250,
+      "title": "Queer as Folk",
+      "year": 2000,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Queer as Folk is a drama television series that ran from December 3, 2000, to August 7, 2005. The series was produced for Showtime and Showcase by Cowlip Productions, Tony Jonas Productions, Temple Street Productions, and Showtime Networks, in association with Crowe Entertainment and Warner Bros.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Queer_As_Folk.png/500px-Queer_As_Folk.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000252,
+      "title": "O Clone",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "O Clone (English: The Clone) is a Brazilian telenovela created by Gl\u00f3ria Perez and directed by Jayme Monjardim. Produced and aired by Rede Globo, it was aired from 1 October 2001 to 13 June 2002, with 221 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/2c/O_Clone_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000255,
+      "title": "The IT Crowd",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "The IT Crowd is a British television sitcom originally broadcast by Channel 4, created, written, and directed by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry. \nSet in the offices of the fictional Reynholm Industries in London, the series revolves around the staff of its information technology (IT) department: technical genius Maurice Moss (Ayoade); work-shy Roy Trenneman (O'Dowd); and Jen Barber (Parkinson), the department head/relationship manager who knows nothing about IT. The show also focuses on the bosses of Reynholm Industries: Denholm Reynholm (Chris Morris) and, later, his son Douglas (Matt Berry).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/The_IT_Crowd_title_card.jpg/500px-The_IT_Crowd_title_card.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000256,
+      "title": "M*A*S*H",
+      "year": 1972,
+      "type": "tv",
+      "genres": [
+        "Black Comedy",
+        "War",
+        "Comedy Drama"
+      ],
+      "cast": [],
+      "overview": "M*A*S*H  is an American war comedy drama television series that aired on CBS from September 17, 1972, to February 28, 1983. It was developed by Larry Gelbart as the first original spin-off series adapted from the 1970 film of the same name, which, in turn, was based on Richard Hooker's 1968 novel MASH: A Novel About Three Army Doctors.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/b9/M%2AA%2AS%2AH_TV_title_screen.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000257,
+      "title": "The Americans",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Espionage",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "The Americans is an American period spy drama television series created by Joe Weisberg for FX. It aired for six seasons from January 30, 2013, to May 30, 2018. Weisberg and Joel Fields also served as showrunners and executive producers.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/The_americans_2013_title_logo.svg/500px-The_americans_2013_title_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000259,
+      "title": "Cold Case",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Police Procedural",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "Cold Case is an American police procedural crime drama television series. It ran on CBS from September 28, 2003, to May 2, 2010.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/32/Cold_Case_cover.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000261,
+      "title": "Without a Trace",
+      "year": 2002,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Police Procedural"
+      ],
+      "cast": [],
+      "overview": "Without a Trace is an American police procedural drama television series created by Hank Steinberg that aired on CBS from September 26, 2002, to May 19, 2009, with the total of seven seasons and 160 episodes. The series focuses the cases of a Missing Persons Unit (MPU) of the Federal Bureau of Investigation (FBI) in New York City.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/61/Without_a_trace_logo.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000262,
+      "title": "Cosmos: A Personal Voyage",
+      "year": 1980,
+      "type": "tv",
+      "genres": [
+        "Television Documentary",
+        "Popular Science"
+      ],
+      "cast": [],
+      "overview": "Cosmos: A Personal Voyage is a 1980 science documentary television series written by Carl Sagan, Ann Druyan, and Steven Soter, with Sagan as presenter. It was executive-produced by Adrian Malone, produced by David Kennard, Geoffrey Haines-Stiles, and Gregory Andorfer, and directed by the producers, David Oyster, Richard Wells, Tom Weidlinger, and others.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/ec/Cosmos_-_A_Personal_Voyage_%28title_card%29.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000263,
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama",
+        "Alternate History"
+      ],
+      "cast": [],
+      "overview": "The Umbrella Academy is an American superhero comedy drama television series loosely based on the comic book series of the same name written by Gerard Way, illustrated by Gabriel B\u00e1, and published by Dark Horse Comics. Created for Netflix by Steve Blackman and developed by Jeremy Slater, it revolves around a dysfunctional family of adopted sibling superheroes who reunite for their father's funeral and the threat of an imminent apocalypse.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/The_Umbrella_Academy_logo.svg/500px-The_Umbrella_Academy_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000264,
+      "title": "Helga y Flora",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Thriller",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Helga y Flora (English: Helga and Flora) is a Chilean television drama series created and written by Omar Saavedra Santis, produced by Suricato for the Chilean channel Canal 13. It premiered on April 25, 2020.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Helgayflorac13.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000265,
+      "title": "Obi-Wan Kenobi (miniseries)",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Action",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "Obi-Wan Kenobi, also known as Star Wars: Obi-Wan Kenobi, is an American space opera television miniseries produced by Lucasfilm for the streaming service Disney+. It is part of the Star Wars franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Obi_Wan_Kenobi_series_logo_simplified.svg/500px-Obi_Wan_Kenobi_series_logo_simplified.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000266,
+      "title": "Bridgerton",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Historical Drama",
+        "Romantic Fiction",
+        "Alternate History"
+      ],
+      "cast": [],
+      "overview": "Bridgerton is an American alternative history, Regency romance television series created by Chris Van Dusen for Netflix. Based on the book series of the same name by Julia Quinn, it is Shondaland's first scripted show for Netflix.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/3d/Bridgerton_Title_Card.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000267,
+      "title": "My Name Is Earl",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "My Name Is Earl is an American television sitcom created by Greg Garcia for NBC. It aired for four seasons from September 20, 2005, to May 14, 2009, with a total of 96 episodes. It was produced by Amigos de Garcia Productions in association with 20th Century Fox Television, and starred Jason Lee as the title character, Earl Hickey, a small-time thief with a messed-up life.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/My_Name_is_Earl_%2820th_Century_Fox_Television%29_logo.svg/500px-My_Name_is_Earl_%2820th_Century_Fox_Television%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000268,
+      "title": "Ugly Betty",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Ugly Betty is an American comedy-drama television series developed by Silvio Horta, which aired on ABC from September 28, 2006, to April 14, 2010. It is based on the Colombian telenovela Yo soy Betty, la fea, created by Fernando Gait\u00e1n.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/0f/Ugly_Betty_intertitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000269,
+      "title": "Man vs. Wild",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Reality",
+        "Nature Program"
+      ],
+      "cast": [],
+      "overview": "Man vs. Wild, also called Born Survivor: Bear Grylls, Ultimate Survival, Survival Game, or colloquially as simply Bear Grylls in the United Kingdom, is a survival television series hosted by Bear Grylls on the Discovery Channel.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/df/Man_Vs_Wild_Logo_Green.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000270,
+      "title": "Entourage",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama",
+        "Lgbt-related"
+      ],
+      "cast": [],
+      "overview": "Entourage is an American satirical comedy-drama television series that premiered on HBO on July 18, 2004, and ended on September 11, 2011, after eight seasons. The series was created and largely written by Doug Ellin, and chronicles the acting career of Vincent Chase, a young A-list movie star, and his childhood friends from Queens, New York City, as they attempt to further their nascent careers in Los Angeles.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/5c/Entourage_title.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000271,
+      "title": "Sabrina the Teenage Witch",
+      "year": 1996,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Youth",
+        "Fantasy"
+      ],
+      "cast": [],
+      "overview": "Sabrina the Teenage Witch is an American fantasy sitcom series based on the Archie Comics character Sabrina Spellman which shares the title of the 1971 comic book series Sabrina the Teenage Witch. Created by Nell Scovell and developed by Jonathan Schmock, the series premiered on September 27, 1996, on ABC to over 17 million viewers in its \"T.G.I.F.\" lineup.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sabrina_the_Teenage_Witch_%281996_TV_series%29_official_logo.svg/500px-Sabrina_the_Teenage_Witch_%281996_TV_series%29_official_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000272,
+      "title": "The Cosby Show",
+      "year": 1984,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "The Cosby Show is an American television sitcom created by (along with Ed. Weinberger and Michael J. Leeson) and starring Bill Cosby that originally aired on NBC from September 20, 1984, to April 30, 1992, with a total of 201 half-hour episodes spanning eight seasons, including an outtakes special.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/The_Cosby_Show_%28Carsey-Werner_Television%29_logo.svg/500px-The_Cosby_Show_%28Carsey-Werner_Television%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000273,
+      "title": "The Nanny",
+      "year": 1993,
+      "type": "tv",
+      "genres": [
+        "Sitcom"
+      ],
+      "cast": [],
+      "overview": "The Nanny is an American television sitcom. It originally aired on CBS from November 3, 1993, to June 23, 1999, starring Fran Drescher as Fran Fine, a Jewish fashionista from Flushing, Queens, who becomes the nanny to three children from an Anglo-American upper-class family in New York City.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/The_Nanny_%28TriStar_Television%29_logo.svg/500px-The_Nanny_%28TriStar_Television%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000274,
+      "title": "Full House",
+      "year": 1987,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Sitcom",
+        "Family"
+      ],
+      "cast": [],
+      "overview": "Full House is an American television sitcom created by Jeff Franklin for ABC. The show is about the recently widowed father Danny Tanner who enlists his brother-in-law Jesse Katsopolis and childhood best friend Joey Gladstone to help raise his three daughters, D.J., Stephanie, and Michelle, in his San Francisco home. It originally aired from September 22, 1987, to May 23, 1995, with a total of eight seasons consisting of 192 episodes.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Full_House_-_original_title_screen_logo.svg/500px-Full_House_-_original_title_screen_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000275,
+      "title": "Seventeen Moments of Spring",
+      "year": 1973,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Espionage",
+        "Detective"
+      ],
+      "cast": [],
+      "overview": "Seventeen Moments of Spring (Russian: \u0421\u0435\u043c\u043d\u0430\u0434\u0446\u0430\u0442\u044c \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u0438\u0439 \u0432\u0435\u0441\u043d\u044b, romanized: Semnadtsat' mgnoveniy vesny) is a 1973 Soviet twelve-part television series, directed by Tatyana Lioznova and based on the novel of the same title by Yulian Semyonov.\nThe series portrays the exploits of Maxim Isaev, a Soviet spy operating in Nazi Germany under the name Max Otto von Stierlitz, portrayed by Vyacheslav Tikhonov.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/15/17_moments_of_the_spring_dvd_cover.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000276,
+      "title": "Yo soy Betty, la fea",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "Yo soy Betty, la fea (English: I am Betty, the Ugly one), often referred to simply as Betty, la fea, is a Colombian telenovela created by Fernando Gait\u00e1n. It aired from 25 October 1999 to 8 May 2001 on RCN. Ana Mar\u00eda Orozco stars as the titular character, alongside Jorge Enrique Abello, Natalia Ram\u00edrez, Lorna Cepeda, Luis Mesa and Juli\u00e1n Arango.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/03/Yo_soy_Betty%2C_la_Fea.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000277,
+      "title": "Kyle XY",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Teen Drama",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Kyle XY is an American science fiction television series created by Eric Bress and J. Mackye Gruber and produced by ABC Studios. The central character is a teenage boy (Matt Dallas) who awakens naked in a forest outside Seattle, Washington, with amnesia and no belly button.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/4/4c/KyleXYtitle.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000281,
+      "title": "Fleabag",
+      "year": 2016,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama"
+      ],
+      "cast": [],
+      "overview": "Fleabag is a British comedy-drama television series created and written by Phoebe Waller-Bridge, based on her one-woman show first performed in 2013 at the Edinburgh Festival Fringe. The series was produced by Two Brothers Pictures for digital channel BBC Three, in a co-production agreement with Amazon Studios.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Fleabag_titlecard.png/500px-Fleabag_titlecard.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000282,
+      "title": "Fear the Walking Dead",
+      "year": 2015,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Horror",
+        "Post-apocalyptic"
+      ],
+      "cast": [],
+      "overview": "Fear the Walking Dead is an American post-apocalyptic horror drama television series created by Robert Kirkman and Dave Erickson for AMC. It is a spin-off to The Walking Dead, which is based on the comic book series of the same name by Kirkman, Tony Moore, and Charlie Adlard. It is also the second television series within The Walking Dead franchise.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/f/fd/Fear_The_Walking_Dead_title_card.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000285,
+      "title": "Andor",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Science Fiction",
+        "Space Opera"
+      ],
+      "cast": [],
+      "overview": "Andor, also known as Star Wars: Andor or Andor: A Star Wars Story, is an American television series created by Tony Gilroy for the streaming service Disney+. It is part of the Star Wars franchise and a prequel to the anthology film Rogue One: A Star Wars Story (2016), itself a prequel to the original 1977 Star Wars film.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Andor.svg/500px-Andor.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000286,
+      "title": "Batwoman",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Action",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Batwoman is an American superhero television series developed by Caroline Dries for The CW. Based on the DC Comics character of the same name, it is part of the Arrowverse television franchise. The series premiered on October 6, 2019, and ran for three seasons until March 2, 2022, before its cancellation on April 29.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/Batwoman_TV_series_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000288,
+      "title": "Mi camino es amarte",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "Mi camino es amarte (English title: The Path of Love) is a Mexican telenovela that aired on Las Estrellas from 7 November 2022 to 12 March 2023. The series is produced by Nicandro D\u00edaz Gonz\u00e1lez.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/c/c9/Mi_camino_es_amarte_poster.jpg",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000289,
+      "title": "Fallout",
+      "year": 2024,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Adventure",
+        "Science Fiction Western"
+      ],
+      "cast": [],
+      "overview": "Fallout is an American post-apocalyptic drama television series created by Graham Wagner and Geneva Robertson-Dworet for Amazon Prime Video. Based on the role-playing video game franchise created by Tim Cain and Leonard Boyarsky, the series is set two centuries after the Great War of 2077, in which society has collapsed following a nuclear holocaust.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Fallout_television_series_logo.svg/500px-Fallout_television_series_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000290,
+      "title": "Weeds",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Comedy Drama"
+      ],
+      "cast": [],
+      "overview": "Weeds  is an American dark comedy-drama television series created by Jenji Kohan, which aired on Showtime from August 8, 2005, to September 16, 2012. The series tells of Nancy Botwin (Mary-Louise Parker), a widowed mother of two boys (Hunter Parrish and Alexander Gould) who begins selling marijuana to support her family.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/bf/Weeds_logo.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000293,
+      "title": "Boston Legal",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Black Comedy",
+        "Satire",
+        "Legal Drama"
+      ],
+      "cast": [],
+      "overview": "Boston Legal  is an American legal comedy drama television series created by former lawyer and Boston native David E. Kelley, produced in association with 20th Century Fox Television for ABC. The series aired from October 3, 2004, to December 8, 2008. The series stars James Spader, William Shatner and Candice Bergen.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Boston_Legal_-_ABC_television_series_logo.webp",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000294,
+      "title": "The Fresh Prince of Bel-Air",
+      "year": 1990,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Teen Sitcom"
+      ],
+      "cast": [],
+      "overview": "The Fresh Prince of Bel-Air is an American television sitcom created by Andy and Susan Borowitz that aired on NBC from September 10, 1990, to May 20, 1996. The series stars Will Smith as a fictionalized version of himself, a street-smart teenager born and raised in West Philadelphia who is sent to live with his wealthy uncle and aunt in Bel-Air, Los Angeles, where his lifestyle often clashes with that of his upper-class relatives.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Fresh_Prince_Bel_Aire_logo.svg/500px-Fresh_Prince_Bel_Aire_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000295,
+      "title": "Joey",
+      "year": 2004,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "Joey is an American sitcom created by Scott Silveri and Shana Goldberg-Meehan. It is a spin-off sequel to Friends, with Matt LeBlanc reprising his role as Joey Tribbiani.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Joey_%28Warner_Bros._television_series%29_NBC_official_site_logo.svg/500px-Joey_%28Warner_Bros._television_series%29_NBC_official_site_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000296,
+      "title": "I Love Lucy",
+      "year": 1951,
+      "type": "tv",
+      "genres": [
+        "Sitcom",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "I Love Lucy is an American sitcom that aired on CBS from October 15, 1951, to May 6, 1957, with 180 half-hour episodes across six seasons. The series starred Lucille Ball and her husband Desi Arnaz, along with Vivian Vance and William Frawley, and follows the life of Lucy Ricardo (Ball), a young, middle-class housewife living in New York City, who often concocts plans with her best friends and landlords, Ethel and Fred Mertz (Vance and Frawley), to appear alongside her bandleader husband, Ricky Ricardo (Arnaz), in his nightclub.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/I_Love_Lucy_title.svg/500px-I_Love_Lucy_title.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000297,
+      "title": "Jewel in the Palace",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Historical Fiction"
+      ],
+      "cast": [],
+      "overview": "Jewel in the Palace (Korean: \ub300\uc7a5\uae08; Hanja: \u5927\u9577\u4eca; RR: Daejanggeum) is a 2003 South Korean historical drama television series directed by Lee Byung-hoon. It first aired on MBC from September 15, 2003, to March 23, 2004, where it was the top program with an average viewership rating of 45.8% and a peak of 57.1% (making it the 10th highest rated Korean drama of all time).",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/e5/Dae_Jang_Geum_endtitle.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000298,
+      "title": "V",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Science Fiction Program",
+        "Drama",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "V is an American science-fiction drama television series that ran for two seasons on ABC, from November 3, 2009, to March 15, 2011. A remake of the 1983 miniseries created by Kenneth Johnson, the new series chronicles the arrival on Earth of a technologically advanced alien species, which ostensibly comes in peace, but actually has sinister motives.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/V_%282009_TV_series%29_logo.svg/500px-V_%282009_TV_series%29_logo.svg.png",
+      "tmdb_id": null
+    },
+    {
+      "id": 8000299,
+      "title": "Mar\u00eda la del Barrio",
+      "year": 1995,
+      "type": "tv",
+      "genres": [
+        "Telenovela"
+      ],
+      "cast": [],
+      "overview": "Mar\u00eda la del Barrio (Lit: Maria From the Hood/English title: Humble Maria) is a 1995 Mexican television drama series broadcast by Canal de Las Estrellas. The series is based on 1979 Mexican drama series Los ricos tambi\u00e9n lloran.",
+      "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/86/Thalia_Mar%C3%ADa.jpg",
+      "tmdb_id": null
+    }
+  ]
+}

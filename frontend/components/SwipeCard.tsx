@@ -32,10 +32,14 @@ function actionForOffset(offset: { x: number; y: number }, threshold: number): S
   return offset.y < 0 ? 'saved' : 'skip';
 }
 
-/** Dynamic exit variant — receives the committed action via AnimatePresence custom. */
+/** Dynamic exit variant — receives the committed action via AnimatePresence custom.
+ *  A short tween (not a slow spring) so the card clears fast and the next swipe
+ *  is accepted almost immediately — rapid swiping never feels dropped. */
 const cardVariants = {
   exit: (action: SwipeAction | null) =>
-    action ? { ...ACTION_CONFIG[action].exit, opacity: 0 } : { opacity: 0, scale: 0.9 },
+    action
+      ? { ...ACTION_CONFIG[action].exit, opacity: 0, transition: { duration: 0.22, ease: 'easeOut' } }
+      : { opacity: 0, scale: 0.9, transition: { duration: 0.18 } },
 };
 
 /** A bold, tilted stamp (LIKE / PASS / SAVE / SKIP) revealed while dragging. */
@@ -138,17 +142,6 @@ export default function SwipeCard({
             <Stamp action="skip" opacity={skipOpacity} />
           </>
         )}
-
-        <div className="absolute right-3 top-3 flex items-center gap-2">
-          {isTop && (
-            <span className="rounded-full bg-amber/90 px-2.5 py-1 text-xs font-semibold text-charcoal">
-              ▶ Trailer
-            </span>
-          )}
-          <span className="rounded-full bg-black/45 px-2.5 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
-            {rec.type === 'tv' ? 'TV' : 'Film'}
-          </span>
-        </div>
 
         <div className="absolute inset-x-0 bottom-0 space-y-1.5 p-5">
           <h2 className="font-serif text-3xl leading-tight text-ink drop-shadow">{rec.title}</h2>

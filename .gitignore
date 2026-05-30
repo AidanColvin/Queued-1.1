@@ -58,3 +58,4 @@ frontend/.env*.local
 !backend/data/artifacts/cf_item_factors.npy
 !backend/data/artifacts/tfidf_matrix.npz
 !backend/data/artifacts/embeddings.npy
+!backend/data/artifacts/tv_index.json

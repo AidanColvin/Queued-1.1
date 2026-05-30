@@ -34,6 +34,8 @@ export interface DeckApi {
   reorderRemaining: (ids: number[]) => void;
   /** Append fresh cards, skipping any already in the deck. Returns # added. */
   append: (recs: Recommendation[]) => number;
+  /** Empty the queue + history for a fresh stack; keeps liked + wish list. */
+  reset: () => void;
 }
 
 const LIKED_KEY = 'nextwatch:liked';
@@ -58,20 +60,27 @@ export function useDeck(): DeckApi {
   }));
   const stateRef = useRef(state);
   stateRef.current = state;
+  // Gates persistence: stays false until the restore below has committed, so we
+  // never write the empty initial state over saved items. It must be state (not
+  // a ref) so React Strict Mode's double-invoked effects can't flip it early.
+  const [hydrated, setHydrated] = useState(false);
 
-  // Restore persisted wish list + likes once on mount.
+  // Restore persisted wish list + likes once on mount. Client-only, so SSR and
+  // first paint both render the empty initial state and never mismatch.
   useEffect(() => {
     setState((s) => ({ ...s, likedCards: load(LIKED_KEY), wishlistCards: load(WISHLIST_KEY) }));
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
+    if (!hydrated) return; // don't persist until the restore has run
     try {
       localStorage.setItem(LIKED_KEY, JSON.stringify(state.likedCards));
       localStorage.setItem(WISHLIST_KEY, JSON.stringify(state.wishlistCards));
     } catch {
       /* storage unavailable — non-fatal */
     }
-  }, [state.likedCards, state.wishlistCards]);
+  }, [hydrated, state.likedCards, state.wishlistCards]);
 
   const commit = useCallback<DeckApi['commit']>((action) => {
     const s = stateRef.current;
@@ -130,6 +139,10 @@ export function useDeck(): DeckApi {
     });
   }, []);
 
+  const reset = useCallback(() => {
+    setState((s) => ({ ...s, queue: [], current: 0, decisions: [] }));
+  }, []);
+
   const append = useCallback<DeckApi['append']>((recs) => {
     let added = 0;
     setState((s) => {
@@ -153,12 +166,21 @@ export function useDeck(): DeckApi {
       liked: state.likedCards,
       wishlist: state.wishlistCards,
       knownIds,
-      positiveTitles: [...new Set([...state.likedCards, ...state.wishlistCards].map((r) => r.title))].slice(-8),
+      // Movies-only: the recommender can't resolve TV titles, so never seed it
+      // with them (doing so 422s the whole request).
+      positiveTitles: [
+        ...new Set(
+          [...state.likedCards, ...state.wishlistCards]
+            .filter((r) => r.type === 'movie')
+            .map((r) => r.title),
+        ),
+      ].slice(-8),
       canUndo: state.decisions.length > 0,
       commit,
       undo,
       reorderRemaining,
       append,
+      reset,
     };
-  }, [state, commit, undo, reorderRemaining, append]);
+  }, [state, commit, undo, reorderRemaining, append, reset]);
 }

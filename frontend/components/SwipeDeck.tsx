@@ -57,6 +57,12 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
       if (!res) return;
       lockedRef.current = true;
       setExitAction(action);
+      // Safety net: release the input lock shortly after the exit tween even if
+      // AnimatePresence's onExitComplete is delayed or never fires, so the deck
+      // can never get stuck "unable to swipe".
+      window.setTimeout(() => {
+        lockedRef.current = false;
+      }, 260);
       if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate(12);
 
       const elapsed = Date.now() - appearedAtRef.current;
@@ -149,7 +155,11 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
 
   return (
     <div ref={containerRef} className="flex h-full w-full flex-col">
-      <div className="relative mx-auto w-full max-w-[420px] flex-1" style={{ minHeight: 520 }}>
+      {/* Center a poster-proportioned (2:3) card in the available space so the
+          poster shows in its natural shape instead of being cropped to fill a
+          full-height box. */}
+      <div className="flex min-h-0 flex-1 items-center justify-center">
+        <div className="relative aspect-[2/3] max-h-full w-full max-w-[420px]">
         <AnimatePresence
           custom={exitAction}
           onExitComplete={() => {
@@ -171,7 +181,30 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
             />
           ))}
         </AnimatePresence>
-        <KeyHints visible={hintsVisible} />
+
+        {/* Card actions — Watchlist (left) + Trailer (right). Kept outside the
+            draggable cards so taps never get swallowed by the drag handler. */}
+        {deck.currentCard && (
+          <div className="pointer-events-none absolute right-3 top-3 z-40 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => decide('saved')}
+              className="pointer-events-auto rounded-full bg-black/55 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-black/75"
+            >
+              ♡ Watchlist
+            </button>
+            <button
+              type="button"
+              onClick={() => onOpenCard(deck.currentCard!)}
+              className="pointer-events-auto rounded-full bg-amber/90 px-3 py-1.5 text-sm font-medium text-charcoal transition hover:bg-amber"
+            >
+              ▶ Trailer
+            </button>
+          </div>
+        )}
+
+          <KeyHints visible={hintsVisible} />
+        </div>
       </div>
 
       <div className="mx-auto mt-5 w-full max-w-[460px]">

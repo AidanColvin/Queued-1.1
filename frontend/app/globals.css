@@ -19,6 +19,14 @@
     @apply bg-charcoal text-ink font-sans antialiased;
   }
 
+  /* App shell sized to the *visible* viewport. `dvh` tracks the mobile URL bar
+     as it shows/hides (so the deck never hides behind it); the `vh` line is a
+     fallback for browsers without dynamic-viewport units. */
+  .app-shell {
+    height: 100vh;
+    height: 100dvh;
+  }
+
   /* Slow, subtle animated backdrop — pure CSS, no images. */
   .backdrop-grain {
     background:

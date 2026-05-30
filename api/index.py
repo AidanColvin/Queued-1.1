@@ -1,0 +1,27 @@
+"""Vercel serverless entry point for the NextWatch backend.
+
+Serves the FastAPI app under ``/api`` on the same Vercel project as the static
+frontend, so the deployed site is fully self-contained (same origin, no CORS,
+no separate backend host). Model + DB load lazily on the first request (Vercel
+does not run FastAPI lifespan events); the SQLite catalog lives in ``/tmp`` (the
+only writable path on the serverless filesystem).
+"""
+
+from __future__ import annotations
+
+import os
+import sys
+
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_BACKEND = os.path.join(_ROOT, "backend")
+sys.path.insert(0, _BACKEND)
+
+os.environ.setdefault("MODEL_ARTIFACTS_PATH", os.path.join(_BACKEND, "data", "artifacts"))
+os.environ.setdefault("DATABASE_URL", "sqlite:////tmp/nextwatch.db")
+os.environ.setdefault("AUTO_SAMPLE", "false")
+os.environ.setdefault("CORS_ORIGINS", "*")
+
+from main import create_app  # noqa: E402  (must follow the sys.path / env setup)
+
+# Served behind the static frontend at /api/*.
+app = create_app(api_prefix="/api")
