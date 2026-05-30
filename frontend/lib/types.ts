@@ -15,11 +15,14 @@ export interface SearchResult {
 }
 
 export interface Recommendation {
+  id: number; // stable unique id (movie_id) — dedupe/exclude key
   title: string;
   year: number | null;
   type: MediaType;
   score: number;
   genres: string[];
+  cast: string[];
+  overview: string;
   poster_url: string | null;
   tmdb_id: number | null;
   why: string;

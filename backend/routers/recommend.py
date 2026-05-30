@@ -48,4 +48,5 @@ def recommend(
         seed_indices=resolved.indices,
         count=payload.count,
         exclude_seen=payload.exclude_seen,
+        exclude_ids=payload.exclude_ids,
     )

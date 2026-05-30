@@ -34,18 +34,25 @@ class RecommendRequest(BaseModel):
     """
 
     titles: list[str] = Field(default_factory=list, examples=[["The Wire", "Severance"]])
-    count: int = Field(default=10, ge=1, le=50)
+    count: int = Field(default=10, ge=1, le=60)
     exclude_seen: bool = True
+    exclude_ids: list[int] = Field(
+        default_factory=list,
+        description="Recommendation ids already shown — never returned again (keeps the endless deck unique).",
+    )
 
 
 class Recommendation(BaseModel):
     """A single ranked recommendation."""
 
+    id: int = Field(description="Stable unique id (MovieLens movie_id) — used to de-duplicate the deck.")
     title: str
     year: int | None
     type: MediaType
     score: float = Field(ge=0.0, le=1.0, description="Blended hybrid confidence in [0, 1].")
     genres: list[str]
+    cast: list[str] = Field(default_factory=list, description="Top-billed cast.")
+    overview: str = Field(default="", description="One- or two-sentence synopsis.")
     poster_url: str | None
     tmdb_id: int | None
     why: str = Field(description="Human-readable explanation of why this title was matched.")

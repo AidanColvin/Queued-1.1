@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import gzip
 import shutil
+import tarfile
 import zipfile
 from pathlib import Path
 
@@ -23,6 +24,7 @@ from tqdm import tqdm
 RAW_DIR = Path(__file__).resolve().parent / "raw"
 MOVIELENS_URL = "https://files.grouplens.org/datasets/movielens/ml-25m.zip"
 IMDB_BASICS_URL = "https://datasets.imdbws.com/title.basics.tsv.gz"
+CMU_URL = "http://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz"
 
 _CHUNK = 1 << 20  # 1 MiB
 
@@ -96,11 +98,36 @@ def download_imdb_basics(raw_dir: Path = RAW_DIR) -> Path:
     return tsv
 
 
+def download_cmu(raw_dir: Path = RAW_DIR) -> Path:
+    """Download and extract the CMU Movie Summary Corpus (42K plot summaries).
+
+    Provides the richest free plot text for the semantic embedding layer — no
+    API key required.
+
+    Args:
+        raw_dir: Directory to download into.
+
+    Returns:
+        Path to the extracted ``MovieSummaries`` directory.
+    """
+    extracted = raw_dir / "MovieSummaries"
+    if extracted.exists():
+        print(f"✓ {extracted} already extracted, skipping")
+        return extracted
+
+    archive = _stream_download(CMU_URL, raw_dir / "MovieSummaries.tar.gz")
+    print("Extracting CMU Movie Summary Corpus...")
+    with tarfile.open(archive) as tf:
+        tf.extractall(raw_dir)  # noqa: S202 — trusted academic source
+    return extracted
+
+
 def main() -> None:
     """Download every raw dataset needed by the real pipeline."""
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     download_movielens()
     download_imdb_basics()
+    download_cmu()
     print(f"\nDone. Raw data in {RAW_DIR}\nNext: python -m data.preprocess")
 
 

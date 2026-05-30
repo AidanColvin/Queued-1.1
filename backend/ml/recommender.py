@@ -125,7 +125,11 @@ class HybridRecommender:
     # Recommendation
     # ------------------------------------------------------------------ #
     def recommend(
-        self, seed_indices: list[int], count: int = 10, exclude_seen: bool = True
+        self,
+        seed_indices: list[int],
+        count: int = 10,
+        exclude_seen: bool = True,
+        exclude_ids: list[int] | None = None,
     ) -> RecommendResponse:
         """Produce ranked recommendations for resolved seed indices.
 
@@ -133,6 +137,8 @@ class HybridRecommender:
             seed_indices: Catalog rows of the seed titles (already resolved).
             count: Maximum number of recommendations.
             exclude_seen: Drop the seed titles from the results when true.
+            exclude_ids: Recommendation ids (``movie_id``) already shown — never
+                returned again, so the endless deck never repeats a card.
 
         Returns:
             A :class:`~schemas.RecommendResponse`.
@@ -145,25 +151,19 @@ class HybridRecommender:
 
         order = np.argsort(blended)[::-1]
         seed_set = set(seed_indices) if exclude_seen else set()
+        excluded = set(exclude_ids or [])
 
         recs: list[Recommendation] = []
         for idx in order:
             idx = int(idx)
-            if idx in seed_set:
-                continue
             rec = self._catalog[idx]
+            if idx in seed_set or rec.movie_id in excluded:
+                continue
             recs.append(
-                Recommendation(
-                    title=rec.title,
-                    year=rec.year,
-                    type=rec.type if rec.type in ("movie", "tv") else "movie",
+                self._to_recommendation(
+                    rec,
                     score=round(float(blended[idx]), 2),
-                    genres=rec.genres,
-                    poster_url=rec.poster_url,
-                    tmdb_id=rec.tmdb_id,
-                    why=self._explain(
-                        rec, seed_indices, cf[idx], content[idx], semantic[idx]
-                    ),
+                    why=self._explain(rec, seed_indices, cf[idx], content[idx], semantic[idx]),
                 )
             )
             if len(recs) >= count:
@@ -172,6 +172,67 @@ class HybridRecommender:
         return RecommendResponse(
             recommendations=recs,
             taste_profile=self._taste_profile(seed_indices),
+        )
+
+    def popular(
+        self,
+        popularity: dict[int, float],
+        count: int = 20,
+        exclude_ids: list[int] | None = None,
+    ) -> RecommendResponse:
+        """Cold-start deck ranked by crowd popularity (no seeds needed).
+
+        Used for the landing deck and for refills before the user has liked
+        anything. ``popularity`` maps a recommendation id (``movie_id``) to a
+        swipe-derived score; titles absent from it fall back to their catalog
+        order so the deck is always full.
+
+        Args:
+            popularity: ``tmdb_id`` → popularity score (weighted swipe counts).
+            count: How many cards to return.
+            exclude_ids: Recommendation ids (``movie_id``) already shown.
+
+        Returns:
+            A :class:`~schemas.RecommendResponse`.
+        """
+        excluded = set(exclude_ids or [])
+        ranked = sorted(
+            (r for r in self._catalog if r.movie_id not in excluded),
+            key=lambda r: (popularity.get(r.tmdb_id or -1, 0.0), -r.idx),
+            reverse=True,
+        )
+        recs = [
+            self._to_recommendation(
+                rec,
+                score=round(min(0.95, 0.7 + 0.02 * i), 2),
+                why="Popular with viewers right now.",
+            )
+            for i, rec in enumerate(ranked[:count])
+        ]
+        chosen = [self._index_of(r) for r in ranked[:count]]
+        return RecommendResponse(
+            recommendations=recs,
+            taste_profile=self._taste_profile(chosen),
+        )
+
+    def _index_of(self, rec: MovieRecord) -> int:
+        """Return the catalog index of a record."""
+        return rec.idx
+
+    def _to_recommendation(self, rec: MovieRecord, score: float, why: str) -> Recommendation:
+        """Build a :class:`~schemas.Recommendation` from a catalog record."""
+        return Recommendation(
+            id=rec.movie_id,
+            title=rec.title,
+            year=rec.year,
+            type=rec.type if rec.type in ("movie", "tv") else "movie",
+            score=score,
+            genres=rec.genres,
+            cast=rec.cast,
+            overview=rec.overview,
+            poster_url=rec.poster_url,
+            tmdb_id=rec.tmdb_id,
+            why=why,
         )
 
     # ------------------------------------------------------------------ #

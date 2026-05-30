@@ -8,8 +8,8 @@
 -r requirements.txt
 
 pandas==2.2.3
-scikit-learn==1.6.0
-scikit-surprise==1.1.4
+pyarrow==18.1.0       # parquet handoff between preprocess and training
+scikit-learn==1.6.0   # TruncatedSVD for collaborative factors (NumPy-2 safe)
 sentence-transformers==3.3.1
 requests==2.32.3
 tqdm==4.67.1

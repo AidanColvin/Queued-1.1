@@ -33,17 +33,19 @@ import requests
 from tqdm import tqdm
 
 from config import get_settings
-from ml.artifacts import ArtifactBundle, MovieRecord, save_artifacts
+from ml.artifacts import ArtifactBundle, MovieRecord, normalize_title, save_artifacts
 from ml.collaborative import DEFAULT_N_FACTORS
 from ml.content import TfidfBuilder
 from ml.embeddings import get_embedder
 
 RAW_DIR = Path(__file__).resolve().parent / "raw"
 ML_DIR = RAW_DIR / "ml-25m"
+CMU_DIR = RAW_DIR / "MovieSummaries"
 
 MIN_RATINGS_PER_MOVIE = 50
 MIN_RATINGS_PER_USER = 20
 TOP_TAGS_PER_MOVIE = 6
+TOP_GENOME_TAGS = 15  # highest-relevance genome tags kept per movie
 TMDB_SLEEP = 0.25  # seconds between TMDB calls (free-tier courtesy)
 TMDB_IMG_BASE = "https://image.tmdb.org/t/p/w500"
 
@@ -99,6 +101,63 @@ def _aggregate_tags(movie_ids: list[int]) -> dict[int, list[str]]:
     return out
 
 
+def load_genome_tags(movie_ids: list[int]) -> dict[int, list[str]]:
+    """Top relevance-weighted genome tags per movie — the richest content signal.
+
+    ``genome-scores.csv`` scores each of 1,128 tags per movie; we keep the
+    highest-relevance ones as content keywords.
+
+    Args:
+        movie_ids: Movies to keep.
+
+    Returns:
+        ``{movieId: [tag, ...]}`` (empty if the genome files are absent).
+    """
+    scores_path = ML_DIR / "genome-scores.csv"
+    tags_path = ML_DIR / "genome-tags.csv"
+    if not scores_path.exists() or not tags_path.exists():
+        return {}
+    print("Loading genome-scores (richest content signal)...")
+    tag_names = pd.read_csv(tags_path).set_index("tagId")["tag"].to_dict()
+    scores = pd.read_csv(scores_path)
+    scores = scores[scores["movieId"].isin(set(movie_ids))]
+    out: dict[int, list[str]] = {}
+    for movie_id, grp in scores.groupby("movieId"):
+        top = grp.nlargest(TOP_GENOME_TAGS, "relevance")["tagId"].tolist()
+        out[int(movie_id)] = [tag_names[t] for t in top if t in tag_names]
+    return out
+
+
+def load_cmu_summaries() -> dict[tuple[str, int | None], str]:
+    """Map (normalized title, year) → plot summary from the CMU corpus.
+
+    CMU plot summaries are richer than TMDB overviews for many films and need no
+    API key, so they back the semantic embedding layer.
+
+    Returns:
+        Lookup keyed by ``(title_norm, year)`` and ``(title_norm, None)``.
+    """
+    meta_path = CMU_DIR / "movie.metadata.tsv"
+    plot_path = CMU_DIR / "plot_summaries.txt"
+    if not meta_path.exists() or not plot_path.exists():
+        return {}
+    print("Loading CMU plot summaries (semantic layer)...")
+    meta = pd.read_csv(
+        meta_path, sep="\t", header=None, usecols=[0, 2, 3], names=["wikiId", "name", "release"]
+    )
+    plots = pd.read_csv(plot_path, sep="\t", header=None, names=["wikiId", "summary"])
+    merged = meta.merge(plots, on="wikiId")
+
+    out: dict[tuple[str, int | None], str] = {}
+    for name, release, summary in zip(merged["name"], merged["release"], merged["summary"]):
+        title_norm = normalize_title(str(name))
+        rel = str(release)
+        year = int(rel[:4]) if len(rel) >= 4 and rel[:4].isdigit() else None
+        out[(title_norm, year)] = summary
+        out.setdefault((title_norm, None), summary)
+    return out
+
+
 class TMDBClient:
     """Minimal cached TMDB client for overview/genres/poster enrichment.
 
@@ -129,17 +188,21 @@ class TMDBClient:
 
         url = f"https://api.themoviedb.org/3/movie/{tmdb_id}"
         try:
-            resp = requests.get(url, params={"api_key": self.api_key}, timeout=15)
+            resp = requests.get(
+                url, params={"api_key": self.api_key, "append_to_response": "credits"}, timeout=15
+            )
             resp.raise_for_status()
             data = resp.json()
             poster = data.get("poster_path")
+            cast = [c["name"] for c in (data.get("credits", {}).get("cast") or [])[:3] if c.get("name")]
             record = {
                 "overview": data.get("overview", "") or "",
                 "genres": [g["name"] for g in data.get("genres", [])],
                 "poster_url": f"{TMDB_IMG_BASE}{poster}" if poster else None,
+                "cast": cast,
             }
         except requests.RequestException:
-            record = {"overview": "", "genres": [], "poster_url": None}
+            record = {"overview": "", "genres": [], "poster_url": None, "cast": []}
 
         self.cache[key] = record
         time.sleep(TMDB_SLEEP)
@@ -150,14 +213,23 @@ class TMDBClient:
         self.cache_path.write_text(json.dumps(self.cache))
 
 
-def build_catalog(movie_ids: list[int]) -> list[MovieRecord]:
-    """Assemble :class:`MovieRecord` entries for the kept movies.
+def build_catalog(
+    movie_ids: list[int],
+    genome_map: dict[int, list[str]],
+    cmu_map: dict[tuple[str, int | None], str],
+) -> list[MovieRecord]:
+    """Assemble :class:`MovieRecord` entries by fusing every data source.
 
-    Joins MovieLens ``movies.csv`` (titles/genres) and ``links.csv`` (TMDB id),
-    aggregates top user tags, and enriches with TMDB overview/genres/poster.
+    Per movie: MovieLens genres + user tags, the top genome tags (richest content
+    signal), a CMU plot summary (semantic), and — when a ``TMDB_API_KEY`` is set —
+    TMDB overview/genres/poster/cast. TMDB is **optional**: without a key the
+    model still trains fully on MovieLens + genome + CMU + IMDb; posters are
+    added later by ``data.enrich_sample``-style enrichment.
 
     Args:
         movie_ids: MovieLens movie ids to include, in catalog order.
+        genome_map: ``{movieId: [genome tags]}``.
+        cmu_map: CMU summary lookup keyed by ``(title_norm, year)``.
 
     Returns:
         Aligned list of movie records.
@@ -167,9 +239,9 @@ def build_catalog(movie_ids: list[int]) -> list[MovieRecord]:
     tag_map = _aggregate_tags(movie_ids)
 
     settings = get_settings()
-    if not settings.tmdb_api_key:
-        raise RuntimeError("TMDB_API_KEY is required for the real preprocess step.")
-    tmdb = TMDBClient(settings.tmdb_api_key, RAW_DIR / "tmdb_cache.json")
+    tmdb = TMDBClient(settings.tmdb_api_key, RAW_DIR / "tmdb_cache.json") if settings.tmdb_api_key else None
+    if tmdb is None:
+        print("No TMDB_API_KEY — training on MovieLens + genome + CMU + IMDb (posters added later).")
 
     year_re = r"\((\d{4})\)\s*$"
     catalog: list[MovieRecord] = []
@@ -183,9 +255,16 @@ def build_catalog(movie_ids: list[int]) -> list[MovieRecord]:
 
         tmdb_id = links.loc[movie_id, "tmdbId"] if movie_id in links.index else None
         tmdb_id = int(tmdb_id) if pd.notna(tmdb_id) else None
-        meta = tmdb.fetch(tmdb_id) if tmdb_id else {"overview": "", "genres": [], "poster_url": None}
+        meta = tmdb.fetch(tmdb_id) if (tmdb and tmdb_id) else {"overview": "", "genres": [], "poster_url": None, "cast": []}
+
+        title_norm = normalize_title(title)
+        cmu_summary = cmu_map.get((title_norm, year)) or cmu_map.get((title_norm, None)) or ""
+        # Prefer TMDB overview for display; fall back to the (richer) CMU summary.
+        overview = meta["overview"] or cmu_summary[:400]
 
         genres = sorted({*ml_genres, *meta["genres"]})
+        # Content keywords = user tags + the high-relevance genome tags.
+        mood_tags = list(dict.fromkeys([*tag_map.get(int(movie_id), []), *genome_map.get(int(movie_id), [])]))
         catalog.append(
             MovieRecord(
                 idx=idx,
@@ -195,13 +274,16 @@ def build_catalog(movie_ids: list[int]) -> list[MovieRecord]:
                 year=year,
                 type="movie",  # MovieLens 25M is films only
                 genres=genres,
-                mood_tags=tag_map.get(int(movie_id), []),
-                overview=meta["overview"],
+                mood_tags=mood_tags,
+                cast=meta["cast"],
+                overview=overview,
                 poster_url=meta["poster_url"],
+                # Full CMU text drives the semantic embedding (see preprocess()).
             )
         )
 
-    tmdb.flush()
+    if tmdb:
+        tmdb.flush()
     return catalog
 
 
@@ -231,15 +313,25 @@ def preprocess(sample_frac: float = 1.0) -> ArtifactBundle:
     ratings = load_and_filter_ratings(sample_frac=sample_frac)
     ratings.to_parquet(art / "ratings.parquet")  # consumed by ml.collaborative
 
-    movie_ids = sorted(ratings["movieId"].unique().tolist())
-    catalog = build_catalog(movie_ids)
+    # Order the catalog by MovieLens rating count (most-rated first) so the
+    # cold-start /popular deck opens on a genuinely popular title.
+    movie_ids = ratings["movieId"].value_counts().index.tolist()
+    genome_map = load_genome_tags(movie_ids)
+    cmu_map = load_cmu_summaries()
+    catalog = build_catalog(movie_ids, genome_map, cmu_map)
 
-    print("Building TF-IDF content matrix...")
+    print("Building TF-IDF content matrix (genres + tags + genome + overview)...")
     tfidf = TfidfBuilder(min_df=2).fit_transform([_content_document(r) for r in catalog])
 
-    print("Computing semantic embeddings...")
+    print("Computing semantic embeddings (CMU plot summaries)...")
     embedder = get_embedder(prefer_semantic=True)
-    embeddings = embedder.encode([r.overview or r.title for r in catalog])
+
+    def _semantic_text(rec: MovieRecord) -> str:
+        key = normalize_title(rec.title)
+        cmu = cmu_map.get((key, rec.year)) or cmu_map.get((key, None))
+        return (cmu or rec.overview or rec.title)[:1000]
+
+    embeddings = embedder.encode([_semantic_text(r) for r in catalog])
 
     cf_placeholder = np.zeros((len(catalog), DEFAULT_N_FACTORS), dtype=np.float32)
     bundle = ArtifactBundle(

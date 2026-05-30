@@ -19,6 +19,7 @@ from pathlib import Path
 import numpy as np
 
 from data.catalog_seed import SEED_CATALOG
+from data.sample_enrichment import CAST
 from ml.artifacts import ArtifactBundle, MovieRecord, save_artifacts
 from ml.collaborative import DEFAULT_N_FACTORS, synthesize_item_factors
 from ml.content import TfidfBuilder
@@ -66,6 +67,7 @@ def build_sample_bundle(seed: int = 7) -> ArtifactBundle:
             type=entry["type"],
             genres=entry["genres"],
             mood_tags=entry["mood_tags"],
+            cast=CAST.get(entry["title"], []),
             overview=entry["overview"],
             poster_url=None,  # real posters arrive with TMDB enrichment
         )

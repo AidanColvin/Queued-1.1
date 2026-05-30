@@ -64,6 +64,7 @@ class MovieRecord:
     type: str
     genres: list[str] = field(default_factory=list)
     mood_tags: list[str] = field(default_factory=list)
+    cast: list[str] = field(default_factory=list)
     overview: str = ""
     tmdb_id: int | None = None
     poster_url: str | None = None
@@ -92,7 +93,11 @@ def normalize_title(title: str) -> str:
         A normalized key suitable for dictionary lookup.
     """
     title = _YEAR_SUFFIX_RE.sub("", title.strip().lower())
-    return _PUNCT_RE.sub(" ", title).strip()
+    cleaned = _PUNCT_RE.sub(" ", title).strip()
+    # Drop leading/trailing articles so "The Matrix" and MovieLens's "Matrix,
+    # The" resolve to the same key.
+    tokens = [t for t in cleaned.split() if t not in {"the", "a", "an"}]
+    return " ".join(tokens) if tokens else cleaned
 
 
 @dataclass(slots=True)

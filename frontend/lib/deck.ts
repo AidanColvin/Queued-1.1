@@ -1,6 +1,7 @@
-// Deck state: queue of cards, decision history (for undo + summary), and silent
-// re-ordering of the upcoming cards after each swipe. History persists to
-// localStorage so a refresh resumes where the user left off.
+// Endless deck state. Cards are appended as the backend supplies more, never
+// removed (the cursor just advances), so the queue doubles as the "already
+// shown" set used to exclude repeats. Liked + wish-list cards persist to
+// localStorage so they survive a refresh.
 
 'use client';
 
@@ -12,65 +13,65 @@ interface DeckState {
   queue: Recommendation[];
   current: number;
   decisions: CardDecision[];
+  likedCards: Recommendation[];
+  wishlistCards: Recommendation[];
 }
 
 export interface DeckApi {
-  /** The card awaiting a decision, or null when the deck is exhausted. */
   currentCard: Recommendation | null;
-  /** Up to two cards peeking behind the current one. */
   upcoming: Recommendation[];
-  current: number;
-  total: number;
-  decisions: CardDecision[];
+  upcomingCount: number;
+  decisionsCount: number;
   liked: Recommendation[];
-  saved: Recommendation[];
-  isDone: boolean;
+  wishlist: Recommendation[];
+  /** Every TMDB id ever queued — pass to the backend to avoid repeats. */
+  knownIds: number[];
+  /** Recent positive titles (liked + wish-listed), used to seed adaptive refills. */
+  positiveTitles: string[];
   canUndo: boolean;
-  /** Record a decision on the current card and advance. Returns the decided
-   *  card and the tmdb_ids still pending (to send to /swipe). */
   commit: (action: SwipeAction) => { card: Recommendation; remaining: number[] } | null;
-  /** Step back one card. */
   undo: () => void;
-  /** Silently re-order the still-pending cards to match `ids`. */
   reorderRemaining: (ids: number[]) => void;
+  /** Append fresh cards, skipping any already in the deck. Returns # added. */
+  append: (recs: Recommendation[]) => number;
 }
 
-const STORAGE_PREFIX = 'nextwatch:deck:';
+const LIKED_KEY = 'nextwatch:liked';
+const WISHLIST_KEY = 'nextwatch:wishlist';
 
-export function useDeck(recommendations: Recommendation[], key: string): DeckApi {
+function load(key: string): Recommendation[] {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as Recommendation[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function useDeck(): DeckApi {
   const [state, setState] = useState<DeckState>(() => ({
-    queue: recommendations,
+    queue: [],
     current: 0,
     decisions: [],
+    likedCards: [],
+    wishlistCards: [],
   }));
-
-  // Mirror of the latest state for synchronous reads inside `commit` (a setState
-  // updater is not invoked synchronously, so we cannot rely on it to return).
   const stateRef = useRef(state);
   stateRef.current = state;
 
-  // Re-initialize when a new deck arrives, restoring any saved progress.
+  // Restore persisted wish list + likes once on mount.
   useEffect(() => {
-    let decisions: CardDecision[] = [];
-    try {
-      const raw = localStorage.getItem(STORAGE_PREFIX + key);
-      if (raw) decisions = JSON.parse(raw) as CardDecision[];
-    } catch {
-      /* ignore malformed storage */
-    }
-    const decidedIds = new Set(decisions.map((d) => d.tmdbId));
-    const current = recommendations.filter((r) => r.tmdb_id != null && decidedIds.has(r.tmdb_id)).length;
-    setState({ queue: recommendations, current, decisions });
-  }, [key, recommendations]);
+    setState((s) => ({ ...s, likedCards: load(LIKED_KEY), wishlistCards: load(WISHLIST_KEY) }));
+  }, []);
 
-  // Persist history on every change.
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(state.decisions));
+      localStorage.setItem(LIKED_KEY, JSON.stringify(state.likedCards));
+      localStorage.setItem(WISHLIST_KEY, JSON.stringify(state.wishlistCards));
     } catch {
-      /* storage full / unavailable — non-fatal */
+      /* storage unavailable — non-fatal */
     }
-  }, [key, state.decisions]);
+  }, [state.likedCards, state.wishlistCards]);
 
   const commit = useCallback<DeckApi['commit']>((action) => {
     const s = stateRef.current;
@@ -90,6 +91,8 @@ export function useDeck(recommendations: Recommendation[], key: string): DeckApi
       ...prev,
       current: prev.current + 1,
       decisions: [...prev.decisions, decision],
+      likedCards: action === 'liked' ? [...prev.likedCards, card] : prev.likedCards,
+      wishlistCards: action === 'saved' ? [...prev.wishlistCards, card] : prev.wishlistCards,
     }));
     return { card, remaining };
   }, []);
@@ -97,10 +100,13 @@ export function useDeck(recommendations: Recommendation[], key: string): DeckApi
   const undo = useCallback(() => {
     setState((s) => {
       if (s.decisions.length === 0) return s;
+      const last = s.decisions[s.decisions.length - 1];
       return {
         ...s,
         current: Math.max(0, s.current - 1),
         decisions: s.decisions.slice(0, -1),
+        likedCards: last.action === 'liked' ? s.likedCards.slice(0, -1) : s.likedCards,
+        wishlistCards: last.action === 'saved' ? s.wishlistCards.slice(0, -1) : s.wishlistCards,
       };
     });
   }, []);
@@ -124,26 +130,35 @@ export function useDeck(recommendations: Recommendation[], key: string): DeckApi
     });
   }, []);
 
+  const append = useCallback<DeckApi['append']>((recs) => {
+    let added = 0;
+    setState((s) => {
+      // De-duplicate on the stable `id` (movie_id) — tmdb_id can be null for
+      // some real titles, which previously let them recirculate.
+      const known = new Set(s.queue.map((r) => r.id));
+      const fresh = recs.filter((r) => !known.has(r.id));
+      added = fresh.length;
+      return fresh.length ? { ...s, queue: [...s.queue, ...fresh] } : s;
+    });
+    return added;
+  }, []);
+
   return useMemo<DeckApi>(() => {
-    const liked = state.queue.filter((r) =>
-      state.decisions.some((d) => d.tmdbId === r.tmdb_id && d.action === 'liked'),
-    );
-    const saved = state.queue.filter((r) =>
-      state.decisions.some((d) => d.tmdbId === r.tmdb_id && d.action === 'saved'),
-    );
+    const knownIds = state.queue.map((r) => r.id);
     return {
       currentCard: state.queue[state.current] ?? null,
       upcoming: state.queue.slice(state.current + 1, state.current + 3),
-      current: state.current,
-      total: state.queue.length,
-      decisions: state.decisions,
-      liked,
-      saved,
-      isDone: state.current >= state.queue.length,
+      upcomingCount: Math.max(0, state.queue.length - state.current - 1),
+      decisionsCount: state.decisions.length,
+      liked: state.likedCards,
+      wishlist: state.wishlistCards,
+      knownIds,
+      positiveTitles: [...new Set([...state.likedCards, ...state.wishlistCards].map((r) => r.title))].slice(-8),
       canUndo: state.decisions.length > 0,
       commit,
       undo,
       reorderRemaining,
+      append,
     };
-  }, [state, commit, undo, reorderRemaining]);
+  }, [state, commit, undo, reorderRemaining, append]);
 }

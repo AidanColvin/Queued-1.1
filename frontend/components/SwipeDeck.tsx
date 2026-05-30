@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { recordSwipe } from '@/lib/api';
 import { KEY_TO_ACTION } from '@/lib/actions';
 import type { DeckApi } from '@/lib/deck';
-import type { SwipeAction } from '@/lib/types';
+import type { Recommendation, SwipeAction } from '@/lib/types';
 import { makeSessionId } from '@/lib/util';
 import ActionBar from './ActionBar';
 import KeyHints from './KeyHints';
@@ -14,9 +14,10 @@ import SwipeCard from './SwipeCard';
 
 interface SwipeDeckProps {
   deck: DeckApi;
+  onOpenCard: (rec: Recommendation) => void;
 }
 
-export default function SwipeDeck({ deck }: SwipeDeckProps) {
+export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
   const sessionIdRef = useRef<string>('');
   const lockedRef = useRef(false);
   const appearedAtRef = useRef<number>(0);
@@ -105,15 +106,15 @@ export default function SwipeDeck({ deck }: SwipeDeckProps) {
     return () => window.removeEventListener('keydown', handler);
   }, [deck, decide]);
 
-  // Trackpad: two-finger HORIZONTAL swipe → like / pass. Vertical wheel is left
-  // alone — it is indistinguishable from normal scroll intent, so save/skip stay
-  // on drag (up/down), the W/S keys, and the action buttons. The gesture must be
-  // strongly horizontal and clear a firm threshold so ambient scrolling never
-  // commits a swipe.
+  // Trackpad: a two-finger swipe sends the card the way your fingers move, in
+  // all four directions. macOS "natural" scrolling (the default) reports a
+  // finger-right swipe as NEGATIVE deltaX and a finger-up swipe as POSITIVE
+  // deltaY, so the card follows the finger when we map it this way. A firm
+  // threshold + cooldown keeps incidental scrolling from committing a swipe.
   useEffect(() => {
     const node = containerRef.current;
     if (!node) return;
-    const THRESHOLD = 180;
+    const THRESHOLD = 120;
     const onWheel = (e: WheelEvent) => {
       if (wheelLock.current || lockedRef.current) return;
       const now = Date.now();
@@ -125,19 +126,20 @@ export default function SwipeDeck({ deck }: SwipeDeckProps) {
       acc.x += e.deltaX;
       acc.y += e.deltaY;
       acc.t = now;
-      const ax = Math.abs(acc.x);
-      const ay = Math.abs(acc.y);
-      // Require a deliberate, dominantly-horizontal gesture.
-      if (ax < THRESHOLD || ax < ay * 1.6) return;
-      const dir = acc.x;
+      const adx = Math.abs(acc.x);
+      const ady = Math.abs(acc.y);
+      if (Math.max(adx, ady) < THRESHOLD) return;
+      // Finger-right (deltaX<0) → like; finger-up (deltaY>0) → save.
+      const action: SwipeAction =
+        adx > ady ? (acc.x < 0 ? 'liked' : 'dismissed') : acc.y > 0 ? 'saved' : 'skip';
       acc.x = 0;
       acc.y = 0;
       wheelLock.current = true;
       setHintsVisible(false);
       window.setTimeout(() => {
         wheelLock.current = false;
-      }, 550);
-      decide(dir >= 0 ? 'liked' : 'dismissed');
+      }, 500);
+      decide(action);
     };
     node.addEventListener('wheel', onWheel, { passive: true });
     return () => node.removeEventListener('wheel', onWheel);
@@ -158,13 +160,14 @@ export default function SwipeDeck({ deck }: SwipeDeckProps) {
         >
           {cards.map((rec, i) => (
             <SwipeCard
-              key={rec.tmdb_id ?? rec.title}
+              key={rec.id}
               rec={rec}
               depth={i}
               isTop={i === 0}
               threshold={threshold}
               expanded={i === 0 && expanded}
               onCommit={decide}
+              onOpen={i === 0 ? () => onOpenCard(rec) : undefined}
             />
           ))}
         </AnimatePresence>
@@ -173,8 +176,7 @@ export default function SwipeDeck({ deck }: SwipeDeckProps) {
 
       <div className="mx-auto mt-5 w-full max-w-[460px]">
         <ActionBar
-          current={deck.current}
-          total={deck.total}
+          swiped={deck.decisionsCount}
           canUndo={deck.canUndo}
           onAction={decide}
           onUndo={() => deck.undo()}

@@ -32,3 +32,15 @@ export function decodeTitles(params: URLSearchParams | null): string[] {
 export function titlesKey(titles: string[]): string {
   return [...titles].map((t) => t.toLowerCase().trim()).sort().join('|');
 }
+
+/** TMDB page URL for a title (where users can find where to watch). */
+export function tmdbUrl(tmdbId: number | null, type: 'movie' | 'tv'): string {
+  if (tmdbId == null) return '#';
+  return `https://www.themoviedb.org/${type === 'tv' ? 'tv' : 'movie'}/${tmdbId}`;
+}
+
+/** YouTube search that lands on the title's trailer (keyless, always works). */
+export function youtubeTrailerUrl(title: string, year: number | null): string {
+  const q = `${title} ${year ?? ''} trailer`.trim();
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
+}

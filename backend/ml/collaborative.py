@@ -77,47 +77,45 @@ def synthesize_item_factors(
     return factors.astype(np.float32)
 
 
-def train_svd(
-    ratings,
-    movie_order: list[int],
-    n_factors: int = 50,
-    n_epochs: int = 20,
-    lr_all: float = 0.005,
-    reg_all: float = 0.02,
-) -> np.ndarray:
-    """Train SVD on explicit ratings and return factors aligned to ``movie_order``.
+def train_svd(ratings, movie_order: list[int], n_factors: int = 50) -> np.ndarray:
+    """Learn latent item factors by truncated SVD of the user-item matrix.
 
-    Uses scikit-surprise (a training-only dependency). Items absent from the
-    ratings get a zero factor vector (cold start), which :func:`cf_scores`
-    treats as a non-match.
+    Builds the sparse ``(users × items)`` rating matrix and factorizes it with
+    scikit-learn's :class:`~sklearn.decomposition.TruncatedSVD` (the standard,
+    NumPy-2-safe matrix-factorization path; scikit-surprise's compiled SVD is
+    incompatible with NumPy 2). The item latent vectors are ``components_.T``,
+    aligned to ``movie_order``. Items absent from the ratings get a (near-)zero
+    factor — :func:`cf_scores` treats those as non-matches.
 
     Args:
-        ratings: A pandas DataFrame with columns ``userId, movieId, rating``.
+        ratings: A DataFrame with columns ``userId, movieId, rating``.
         movie_order: MovieLens ``movieId`` values in catalog (row) order.
         n_factors: Latent dimension.
-        n_epochs: SGD epochs.
-        lr_all: Learning rate.
-        reg_all: L2 regularization.
 
     Returns:
-        An ``(len(movie_order), n_factors)`` factor matrix in catalog order.
+        An ``(len(movie_order), n_factors)`` float32 factor matrix.
     """
-    from surprise import SVD, Dataset, Reader  # lazy, training-only
+    import scipy.sparse as sp
+    from sklearn.decomposition import TruncatedSVD
 
-    reader = Reader(rating_scale=(0.5, 5.0))
-    data = Dataset.load_from_df(ratings[["userId", "movieId", "rating"]], reader)
-    trainset = data.build_full_trainset()
+    col_of = {mid: i for i, mid in enumerate(movie_order)}
+    df = ratings[ratings["movieId"].isin(col_of)]
+    users = df["userId"].unique()
+    row_of = {u: i for i, u in enumerate(users)}
 
-    algo = SVD(n_factors=n_factors, n_epochs=n_epochs, lr_all=lr_all, reg_all=reg_all)
-    algo.fit(trainset)
+    rows = df["userId"].map(row_of).to_numpy()
+    cols = df["movieId"].map(col_of).to_numpy()
+    vals = df["rating"].to_numpy(dtype=np.float32)
+    matrix = sp.csr_matrix((vals, (rows, cols)), shape=(len(users), len(movie_order)))
 
-    factors = np.zeros((len(movie_order), n_factors), dtype=np.float32)
-    for row, movie_id in enumerate(movie_order):
-        try:
-            inner_iid = trainset.to_inner_iid(movie_id)
-        except ValueError:
-            continue  # movie had no ratings in the training split → cold start
-        factors[row] = algo.qi[inner_iid]
+    k = max(1, min(n_factors, min(matrix.shape) - 1))
+    svd = TruncatedSVD(n_components=k, random_state=42)
+    svd.fit(matrix)
+    factors = svd.components_.T.astype(np.float32)  # (n_items, k)
+
+    if factors.shape[1] < n_factors:  # pad to the requested width
+        pad = np.zeros((factors.shape[0], n_factors - factors.shape[1]), dtype=np.float32)
+        factors = np.hstack([factors, pad])
     return factors
 
 

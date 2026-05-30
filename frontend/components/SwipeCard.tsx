@@ -20,6 +20,7 @@ interface SwipeCardProps {
   threshold: number;
   expanded: boolean;
   onCommit: (action: SwipeAction) => void;
+  onOpen?: () => void;
 }
 
 /** Decide which action a drag offset represents (dominant axis wins). */
@@ -50,7 +51,15 @@ function Stamp({ action, opacity }: { action: SwipeAction; opacity: MotionValue<
   );
 }
 
-export default function SwipeCard({ rec, depth, isTop, threshold, expanded, onCommit }: SwipeCardProps) {
+export default function SwipeCard({
+  rec,
+  depth,
+  isTop,
+  threshold,
+  expanded,
+  onCommit,
+  onOpen,
+}: SwipeCardProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotate = useTransform(x, [-320, 320], [-16, 16]);
@@ -92,6 +101,7 @@ export default function SwipeCard({ rec, depth, isTop, threshold, expanded, onCo
         const action = actionForOffset(info.offset, threshold);
         if (action) onCommit(action);
       }}
+      onTap={isTop ? () => onOpen?.() : undefined}
       variants={cardVariants}
       initial={isTop ? false : { scale: scale - 0.04, y: offsetY + 10, opacity: 0 }}
       animate={isTop ? { scale: 1 } : { scale, y: offsetY, opacity: 1 }}
@@ -129,28 +139,37 @@ export default function SwipeCard({ rec, depth, isTop, threshold, expanded, onCo
           </>
         )}
 
-        <div className="absolute right-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
-          {rec.type === 'tv' ? 'TV' : 'Film'}
-          {rec.year ? ` · ${rec.year}` : ''}
+        <div className="absolute right-3 top-3 flex items-center gap-2">
+          {isTop && (
+            <span className="rounded-full bg-amber/90 px-2.5 py-1 text-xs font-semibold text-charcoal">
+              ▶ Trailer
+            </span>
+          )}
+          <span className="rounded-full bg-black/45 px-2.5 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
+            {rec.type === 'tv' ? 'TV' : 'Film'}
+          </span>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 p-5">
+        <div className="absolute inset-x-0 bottom-0 space-y-1.5 p-5">
           <h2 className="font-serif text-3xl leading-tight text-ink drop-shadow">{rec.title}</h2>
-          <div className="mt-2 flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-1.5">
+            {rec.year ? (
+              <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-white/70">{rec.year}</span>
+            ) : null}
             {rec.genres.slice(0, 3).map((g) => (
               <span key={g} className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-white/70">
                 {g}
               </span>
             ))}
           </div>
-          <p
-            className={`mt-2 text-sm text-amber/90 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-100 ${
-              expanded ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            {rec.why}
-          </p>
-          <div className="mt-3">
+          {rec.cast.length > 0 && (
+            <p className="truncate text-xs text-white/70">{rec.cast.join(' · ')}</p>
+          )}
+          {rec.overview && (
+            <p className={`text-sm text-white/80 ${expanded ? '' : 'line-clamp-2'}`}>{rec.overview}</p>
+          )}
+          {expanded && rec.why && <p className="text-xs italic text-amber/90">{rec.why}</p>}
+          <div className="pt-1.5">
             <ScoreBar score={rec.score} />
           </div>
         </div>

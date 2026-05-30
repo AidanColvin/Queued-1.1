@@ -39,6 +39,7 @@ backend/data/raw/
 node_modules/
 .next/
 out/
+*.tsbuildinfo
 frontend/.env*.local
 
 # ---- OS / editor ----
@@ -49,3 +50,11 @@ frontend/.env*.local
 
 # ---- Local-only Claude Code settings (keep launch.json shareable) ----
 .claude/settings.local.json
+
+# ---- Committed servable model artifacts ----
+# The trained 5,400-movie model ships in the repo so the deployed backend serves
+# it out of the box. The 15 MB training parquet + raw data stay ignored above.
+!backend/data/artifacts/movie_index.json
+!backend/data/artifacts/cf_item_factors.npy
+!backend/data/artifacts/tfidf_matrix.npz
+!backend/data/artifacts/embeddings.npy

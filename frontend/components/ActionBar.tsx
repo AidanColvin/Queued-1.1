@@ -4,8 +4,7 @@ import { ACTION_BAR_ORDER, ACTION_CONFIG } from '@/lib/actions';
 import type { SwipeAction } from '@/lib/types';
 
 interface ActionBarProps {
-  current: number;
-  total: number;
+  swiped: number;
   canUndo: boolean;
   onAction: (action: SwipeAction) => void;
   onUndo: () => void;
@@ -13,8 +12,7 @@ interface ActionBarProps {
 }
 
 export default function ActionBar({
-  current,
-  total,
+  swiped,
   canUndo,
   onAction,
   onUndo,
@@ -52,8 +50,8 @@ export default function ActionBar({
       </div>
 
       <div className="flex items-center gap-2">
-        <span className="tabular-nums text-sm text-muted" aria-label="Progress">
-          {Math.min(current + 1, total)} / {total}
+        <span className="tabular-nums text-sm text-muted" aria-label="Swiped count">
+          {swiped} swiped
         </span>
         <button
           type="button"

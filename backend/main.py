@@ -23,7 +23,7 @@ from db.database import init_db, seed_movies
 from ml.artifacts import artifacts_exist, load_artifacts
 from ml.recommender import HybridRecommender
 from ml.reranker import SessionStore
-from routers import health, recommend, search, swipe
+from routers import health, popular, recommend, search, swipe
 
 logger = logging.getLogger("nextwatch")
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -103,6 +103,7 @@ def create_app() -> FastAPI:
     app.include_router(search.router)
     app.include_router(recommend.router)
     app.include_router(swipe.router)
+    app.include_router(popular.router)
 
     @app.get("/", tags=["meta"])
     def root() -> dict:

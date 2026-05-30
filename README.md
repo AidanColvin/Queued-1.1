@@ -52,14 +52,23 @@ You give NextWatch a list of movies or shows. It analyzes your taste across thre
 ## ML pipeline
 
 ### Data
-Training data is the [MovieLens 25M dataset](https://grouplens.org/datasets/movielens/25m/) (GroupLens public license). It contains 25 million explicit ratings from 162,000 users across 62,000 movies. Movie metadata (posters, overviews, genres) is fetched from the [TMDB API](https://www.themoviedb.org/documentation/api) (free tier). Title canonicalization uses IMDb's [publicly available TSV dumps](https://datasets.imdbws.com/).
+The model trains on a stack of public datasets, no single one carrying the whole signal:
+
+| Source | License | Role in the pipeline |
+|---|---|---|
+| [MovieLens 25M](https://grouplens.org/datasets/movielens/25m/) | GroupLens, non-commercial | 25M ratings → collaborative filtering; **genome-scores** (1,128 tag-relevance scores/movie) → richest content signal |
+| [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/data/) | free, research | 42K plot summaries → semantic embedding text (no API key) |
+| [IMDb TSV dumps](https://datasets.imdbws.com/) | free, non-commercial | canonical titles + years |
+| [TMDB API](https://www.themoviedb.org/documentation/api) | free tier | posters, cast, overview (optional — layered on after training) |
+
+Because the semantic and content signals come from CMU + genome (not TMDB), the model **trains fully without a TMDB key**; TMDB is only needed for posters.
 
 ### Models
-**Collaborative filtering** (SVD via scikit-surprise). Learns latent factors from the user-item rating matrix. Given a set of seed movies, averages their item vectors and cosine-ranks all other items against that mean. Captures behavioral patterns that genre labels miss — e.g., "prestige TV with unreliable narrators."
+**Collaborative filtering** (truncated SVD of the user-item matrix, `scikit-learn`). Learns latent item factors from 25M ratings. Given seed movies, averages their item vectors and cosine-ranks all others against that mean — capturing behavioral patterns genre labels miss, e.g. "prestige TV with unreliable narrators." (scikit-learn's SVD is used over scikit-surprise's, which is incompatible with NumPy 2.)
 
-**Content-based filtering** (TF-IDF cosine similarity). Builds a sparse matrix over genres, user-assigned tags, and plot keywords. Handles cold-start well — new titles without many ratings still surface if their metadata overlaps.
+**Content-based filtering** (TF-IDF cosine similarity). A sparse matrix over genres, user tags, and the top **genome tags** per movie — the densest metadata signal in the dataset. Handles cold-start: new titles still surface when their metadata overlaps.
 
-**Semantic similarity** (sentence-transformers `all-MiniLM-L6-v2`). Encodes TMDB plot overviews into 384-dim dense vectors. Finds thematically related titles even when genre tags diverge. Runs at inference time against precomputed embeddings stored as a numpy array.
+**Semantic similarity** (sentence-transformers `all-MiniLM-L6-v2`). Encodes **CMU plot summaries** into 384-dim vectors, finding thematically related titles even when genres diverge. Runs at inference against precomputed embeddings.
 
 ### Hybrid blending
 ```python
@@ -167,23 +176,32 @@ like/pass), or the on-screen buttons. The deck quietly re-orders itself after
 every swipe as it learns your taste. `npm run build` produces the static export
 for Vercel.
 
-### Training on the real MovieLens 25M data (optional)
+### Training on the real MovieLens 25M data
 
-The sample bundle exists so the project runs instantly; the real pipeline is
-fully implemented. To build the production model you need a free
-[TMDB API key](https://www.themoviedb.org/settings/api):
+The sample bundle exists so the project runs instantly, but the real pipeline is
+what produces the production model — and it **needs no API key** (CMU summaries
+and genome-scores carry the semantic + content signal; TMDB is only for posters):
 
 ```bash
 cd backend
-pip install -r requirements-train.txt    # heavy stack: surprise, sentence-transformers
-cp ../.env.example .env                   # add your TMDB_API_KEY
+pip install -r requirements-train.txt    # pandas, scikit-learn, sentence-transformers
 ../scripts/train.sh 0.1                    # download → preprocess (10% sample) → train SVD
 # ../scripts/train.sh                      # full 25M run (the production model)
 ```
 
 `train.sh` runs `data.download` → `data.preprocess` → `ml.collaborative` and
-writes the same four artifact files the sample path produces, so the API serves
-them with no code change. Set `AUTO_SAMPLE=false` to require real artifacts.
+writes the same four artifact files the sample produces, so the API serves them
+with no code change. A 10% sample yields ~5,400 movies (a genuinely endless
+deck); the recommendations are real — e.g. *Pulp Fiction → Reservoir Dogs,
+Kill Bill, Jackie Brown*.
+
+**Posters + accurate cast** then come from a free
+[TMDB key](https://www.themoviedb.org/settings/api):
+
+```bash
+echo "TMDB_API_KEY=..." >> .env
+python -m data.enrich_sample   # backfills posters + cast into the bundle
+```
 
 ---
 

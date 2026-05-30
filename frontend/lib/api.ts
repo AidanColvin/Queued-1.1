@@ -9,7 +9,13 @@ import type {
   SwipeResponse,
 } from './types';
 
-const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000').replace(/\/$/, '');
+// Backend base URL. Set NEXT_PUBLIC_API_URL for local dev (see
+// .env.local.example); the default is the deployed Render backend so the Vercel
+// static build works without any dashboard env var.
+const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? 'https://nextwatch-backend.onrender.com').replace(
+  /\/$/,
+  '',
+);
 
 /** Thrown when the backend returns a non-2xx status. */
 export class ApiError extends Error {
@@ -57,11 +63,19 @@ export async function searchTitles(
 export async function getRecommendations(
   titles: string[],
   count = 20,
+  excludeIds: number[] = [],
 ): Promise<RecommendResponse> {
   return request<RecommendResponse>('/recommend', {
     method: 'POST',
-    body: JSON.stringify({ titles, count, exclude_seen: true }),
+    body: JSON.stringify({ titles, count, exclude_seen: true, exclude_ids: excludeIds }),
   });
+}
+
+/** Fetch the seedless, popularity-ranked cold-start deck. */
+export async function getPopular(count = 20, excludeIds: number[] = []): Promise<RecommendResponse> {
+  const params = new URLSearchParams({ count: String(count) });
+  if (excludeIds.length) params.set('exclude', excludeIds.join(','));
+  return request<RecommendResponse>(`/popular?${params}`);
 }
 
 /**
