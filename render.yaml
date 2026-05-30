@@ -1,0 +1,23 @@
+# Render blueprint for the NextWatch backend (free tier friendly).
+# The sample bundle is generated on startup (AUTO_SAMPLE), so the service boots
+# with no data step. To serve the real model, commit the artifacts (Git LFS if
+# >100 MB) and set AUTO_SAMPLE=false.
+services:
+  - type: web
+    name: nextwatch-backend
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: AUTO_SAMPLE
+        value: "true"
+      - key: MODEL_ARTIFACTS_PATH
+        value: ./data/artifacts
+      - key: DATABASE_URL
+        value: sqlite:///./nextwatch.db
+      - key: CORS_ORIGINS
+        value: https://nextwatch.vercel.app,http://localhost:3000
+      - key: TMDB_API_KEY
+        sync: false

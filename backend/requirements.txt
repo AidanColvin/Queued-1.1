@@ -1,0 +1,17 @@
+# ---- Runtime dependencies ----
+# Deliberately lightweight: the API serves precomputed artifacts, so inference
+# needs only numpy/scipy. The heavy training stack (scikit-surprise,
+# sentence-transformers, pandas) lives in requirements-train.txt and is NOT
+# required to run the server or the test suite.
+fastapi==0.115.6
+uvicorn==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.7.1
+numpy==2.2.1
+scipy==1.15.0
+SQLAlchemy==2.0.36
+httpx==0.28.1
+
+# ---- Test stack ----
+pytest==8.3.4
+pytest-cov==6.0.0

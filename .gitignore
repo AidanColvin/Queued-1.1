@@ -1,0 +1,51 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# ---- Environment / secrets ----
+.env
+.env.local
+*.local
+
+# ---- Databases ----
+*.db
+*.sqlite
+*.sqlite3
+
+# ---- ML artifacts & raw data ----
+# Generated/large artifacts are not committed. The sample artifacts are
+# regenerated on demand via `python -m data.sample`; the real artifacts come
+# from the download + preprocess pipeline.
+backend/data/artifacts/*
+!backend/data/artifacts/.gitkeep
+backend/data/raw/
+*.npy
+*.npz
+*.pkl
+
+# ---- Node / Next.js (Phase 2) ----
+node_modules/
+.next/
+out/
+frontend/.env*.local
+
+# ---- OS / editor ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# ---- Local-only Claude Code settings (keep launch.json shareable) ----
+.claude/settings.local.json

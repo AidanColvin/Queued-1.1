@@ -1,0 +1,16 @@
+# ---- Training / data-pipeline dependencies ----
+# Needed ONLY to build the REAL artifacts from MovieLens 25M + TMDB:
+#   pip install -r requirements-train.txt
+#   python -m data.download && python -m data.preprocess && python -m ml.collaborative
+#
+# These are intentionally separate from requirements.txt so the served API and
+# CI test suite stay fast and free of torch / native build steps.
+-r requirements.txt
+
+pandas==2.2.3
+scikit-learn==1.6.0
+scikit-surprise==1.1.4
+sentence-transformers==3.3.1
+requests==2.32.3
+tqdm==4.67.1
+python-dotenv==1.0.1

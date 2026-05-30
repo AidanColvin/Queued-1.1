@@ -1,0 +1,19 @@
+# Optional local-dev shortcut. Brings up the FastAPI backend on :8000.
+# The frontend (Phase 2) runs separately with `npm run dev`.
+services:
+  backend:
+    build:
+      context: ./backend
+    image: nextwatch-backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Override these in a local .env or here for real data / Postgres.
+      DATABASE_URL: ${DATABASE_URL:-sqlite:///./nextwatch.db}
+      MODEL_ARTIFACTS_PATH: ${MODEL_ARTIFACTS_PATH:-./data/artifacts}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      AUTO_SAMPLE: ${AUTO_SAMPLE:-true}
+      TMDB_API_KEY: ${TMDB_API_KEY:-}
+    volumes:
+      - ./backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
