@@ -53,6 +53,12 @@ export interface SwipeResponse {
   applied: boolean;
 }
 
+export interface TrailerResponse {
+  youtube_key: string | null;
+  name: string | null;
+  source: 'tmdb' | 'none' | 'unconfigured' | 'error';
+}
+
 /** A user's decision on a single card — the unit persisted for undo + history. */
 export interface CardDecision {
   tmdbId: number;

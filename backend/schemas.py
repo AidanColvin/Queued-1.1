@@ -125,6 +125,26 @@ class SwipeResponse(BaseModel):
 
 
 # --------------------------------------------------------------------------- #
+# /trailer
+# --------------------------------------------------------------------------- #
+class TrailerResponse(BaseModel):
+    """Response body for ``GET /trailer/{tmdb_id}``.
+
+    Attributes:
+        youtube_key: The YouTube video id to embed and play in-page, or ``None``
+            when no trailer could be resolved (keyless deploy, network error, or
+            the title simply has no trailer on TMDB).
+        name: The trailer's display name, when known.
+        source: Why we got (or didn't get) a key — useful for the client's
+            fallback messaging and for debugging a deployment's TMDB setup.
+    """
+
+    youtube_key: str | None = None
+    name: str | None = None
+    source: Literal["tmdb", "none", "unconfigured", "error"] = "none"
+
+
+# --------------------------------------------------------------------------- #
 # /health
 # --------------------------------------------------------------------------- #
 class HealthResponse(BaseModel):

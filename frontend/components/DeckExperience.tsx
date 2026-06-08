@@ -5,8 +5,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { getPopular, getRecommendations, getTv } from '@/lib/api';
 import { useDeck } from '@/lib/deck';
 import type { Recommendation } from '@/lib/types';
-import { youtubeTrailerUrl } from '@/lib/util';
 import SwipeDeck from './SwipeDeck';
+import TrailerModal from './TrailerModal';
 import WishlistDrawer from './WishlistDrawer';
 
 interface DeckExperienceProps {
@@ -23,6 +23,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const deck = useDeck();
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [wishlistOpen, setWishlistOpen] = useState(false);
+  const [trailerRec, setTrailerRec] = useState<Recommendation | null>(null);
   const [stack, setStack] = useState<Stack>('movie');
   const fetchingRef = useRef(false);
   const startedRef = useRef(false);
@@ -89,8 +90,9 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     [stack, deck, fetchMore],
   );
 
+  // Open the trailer in an in-page player instead of navigating to YouTube.
   const openCard = useCallback((rec: Recommendation) => {
-    window.open(youtubeTrailerUrl(rec.title, rec.year), '_blank', 'noopener,noreferrer');
+    setTrailerRec(rec);
   }, []);
 
   const navBtn = (active: boolean) =>
@@ -173,6 +175,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       </p>
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />
+      <TrailerModal rec={trailerRec} onClose={() => setTrailerRec(null)} />
     </main>
   );
 }
