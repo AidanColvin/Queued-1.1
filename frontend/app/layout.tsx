@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: 'NextWatch — find your next watch',
   description:
     'Swipe through movie & TV recommendations from a hybrid ML engine trained on 25M ratings. It learns your taste as you go.',
+  manifest: '/manifest.webmanifest',
+  applicationName: 'NextWatch',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  // Adds the apple-mobile-web-app-* meta so "Add to Home Screen" launches a
+  // chromeless, standalone app with our title and a translucent dark status bar
+  // (the app shell already pads content out of the safe areas).
+  appleWebApp: {
+    capable: true,
+    title: 'NextWatch',
+    statusBarStyle: 'black-translucent',
+  },
 };
 
 export const viewport: Viewport = {
