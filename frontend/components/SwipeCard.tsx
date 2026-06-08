@@ -7,7 +7,7 @@ import {
   type MotionValue,
   type PanInfo,
 } from 'framer-motion';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { ACTION_CONFIG } from '@/lib/actions';
 import type { Recommendation, SwipeAction } from '@/lib/types';
@@ -91,6 +91,12 @@ export default function SwipeCard({
   const [imgFailed, setImgFailed] = useState(false);
   const hasPoster = rec.poster_url && !imgFailed;
 
+  // framer-motion fires `onTap` on pointer-up even when the gesture was a drag,
+  // so a swipe would otherwise *also* open the trailer (YouTube). Track whether
+  // the pointer actually dragged and only open the trailer on a genuine tap —
+  // a real swipe just commits its like / pass / save / skip.
+  const draggedRef = useRef(false);
+
   const scale = 1 - depth * 0.05;
   const offsetY = depth * 14;
 
@@ -101,11 +107,23 @@ export default function SwipeCard({
       drag={isTop}
       dragSnapToOrigin
       dragElastic={0.55}
+      onDragStart={() => {
+        draggedRef.current = true;
+      }}
       onDragEnd={(_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
         const action = actionForOffset(info.offset, threshold);
         if (action) onCommit(action);
+        // Clear on the next tick — after framer's `onTap` (which fires
+        // synchronously on the same pointer-up) has read it and skipped opening
+        // the trailer. The timeout also self-heals the flag if `onTap` never
+        // fires, so a later genuine tap still works.
+        window.setTimeout(() => {
+          draggedRef.current = false;
+        }, 0);
       }}
-      onTap={isTop ? () => onOpen?.() : undefined}
+      onTap={isTop ? () => {
+        if (!draggedRef.current) onOpen?.();
+      } : undefined}
       variants={cardVariants}
       initial={isTop ? false : { scale: scale - 0.04, y: offsetY + 10, opacity: 0 }}
       animate={isTop ? { scale: 1 } : { scale, y: offsetY, opacity: 1 }}
