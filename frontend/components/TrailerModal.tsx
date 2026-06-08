@@ -110,7 +110,11 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
           {phase.state === 'playing' && (
             <iframe
               className="absolute inset-0 h-full w-full"
-              src={`https://www.youtube-nocookie.com/embed/${phase.key}?autoplay=1&rel=0&modestbranding=1`}
+              // playsinline keeps iOS from forcing its native fullscreen player;
+              // mute lets it actually autostart (iOS blocks autoplay with sound
+              // when the load isn't in the tap's synchronous call stack) — the
+              // viewer taps the speaker to unmute.
+              src={`https://www.youtube-nocookie.com/embed/${phase.key}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`}
               title={`${rec.title} trailer`}
               allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
               allowFullScreen

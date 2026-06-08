@@ -21,10 +21,26 @@
 
   /* App shell sized to the *visible* viewport. `dvh` tracks the mobile URL bar
      as it shows/hides (so the deck never hides behind it); the `vh` line is a
-     fallback for browsers without dynamic-viewport units. */
+     fallback for browsers without dynamic-viewport units.
+
+     Padding is `max(base, safe-area-inset)` so on edge-to-edge iPhones the
+     header/action bar clear the notch + home indicator, while desktop and
+     non-notched devices keep the original 1rem / 0.75rem gutters. This replaces
+     the px/py utilities the shell used to carry. */
   .app-shell {
     height: 100vh;
     height: 100dvh;
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 640px) {
+    .app-shell {
+      padding-top: max(1.25rem, env(safe-area-inset-top));
+      padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+    }
   }
 
   /* Slow, subtle animated backdrop — pure CSS, no images. */

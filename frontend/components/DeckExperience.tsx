@@ -105,7 +105,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     }`;
 
   return (
-    <main className="app-shell mx-auto flex w-full max-w-3xl flex-col px-4 py-3 sm:py-5">
+    <main className="app-shell mx-auto flex w-full max-w-3xl flex-col">
       <header className="mb-3 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <button type="button" onClick={() => switchStack('movie')} className={navBtn(stack === 'movie')}>
