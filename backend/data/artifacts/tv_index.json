@@ -1,7 +1,8 @@
 {
   "meta": {
     "source": "wikidata-keyless",
-    "n_series": 217
+    "n_series": 217,
+    "tv_essentials_added": 46
   },
   "series": [
     {
@@ -43,7 +44,7 @@
         "Survival"
       ],
       "cast": [],
-      "overview": "Squid Game (Korean: \uc624\uc9d5\uc5b4 \uac8c\uc784; RR: Ojingeo geim) is a South Korean dystopian survival thriller drama television series created, written, and directed by Hwang Dong-hyuk for Netflix. The series revolves around a secret contest where 456 players, all of whom are in deep financial hardship, risk their lives to play a series of children's games that result in death if eliminated, for the chance to win a \u20a945.6 billion (US$39.86 million) prize.",
+      "overview": "Squid Game (Korean: 오징어 게임; RR: Ojingeo geim) is a South Korean dystopian survival thriller drama television series created, written, and directed by Hwang Dong-hyuk for Netflix. The series revolves around a secret contest where 456 players, all of whom are in deep financial hardship, risk their lives to play a series of children's games that result in death if eliminated, for the chance to win a ₩45.6 billion (US$39.86 million) prize.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Squid_Game_2021_vector_logo_english.svg/500px-Squid_Game_2021_vector_logo_english.svg.png",
       "tmdb_id": null
     },
@@ -411,7 +412,7 @@
         "Fantasy"
       ],
       "cast": [],
-      "overview": "House of the Dragon is an American fantasy drama television series created by George R. R. Martin and Ryan Condal for HBO. A prequel to Game of Thrones (2011\u20132019), it is the second television series in Martin's A Song of Ice and Fire franchise. Based on parts of Martin's 2018 book Fire & Blood, the series begins about 100 years after the Seven Kingdoms are united by the Targaryen conquest, nearly 200 years before the events of Game of Thrones, and 172 years before the birth of Daenerys Targaryen.",
+      "overview": "House of the Dragon is an American fantasy drama television series created by George R. R. Martin and Ryan Condal for HBO. A prequel to Game of Thrones (2011–2019), it is the second television series in Martin's A Song of Ice and Fire franchise. Based on parts of Martin's 2018 book Fire & Blood, the series begins about 100 years after the Seven Kingdoms are united by the Targaryen conquest, nearly 200 years before the events of Game of Thrones, and 172 years before the birth of Daenerys Targaryen.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/House_of_the_dragon_logo.png/500px-House_of_the_dragon_logo.png",
       "tmdb_id": null
     },
@@ -439,7 +440,7 @@
         "Romantic Comedy"
       ],
       "cast": [],
-      "overview": "Crash Landing on You (Korean: \uc0ac\ub791\uc758 \ubd88\uc2dc\ucc29) is a 2019 South Korean romantic comedy television series written by Park Ji-eun, directed by Lee Jung-hyo, and starring Hyun Bin, Son Ye-jin, Kim Jung-hyun, and Seo Ji-hye. The series follows Yoon Se-ri, a South Korean chaebol who is swept across the border by a tornado while paragliding and lands in North Korea.",
+      "overview": "Crash Landing on You (Korean: 사랑의 불시착) is a 2019 South Korean romantic comedy television series written by Park Ji-eun, directed by Lee Jung-hyo, and starring Hyun Bin, Son Ye-jin, Kim Jung-hyun, and Seo Ji-hye. The series follows Yoon Se-ri, a South Korean chaebol who is swept across the border by a tornado while paragliding and lands in North Korea.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/5e/Crash_Landing_on_You_poster.png",
       "tmdb_id": null
     },
@@ -510,7 +511,7 @@
         "Thriller"
       ],
       "cast": [],
-      "overview": "The Penthouse: War in Life (Korean: \ud39c\ud2b8\ud558\uc6b0\uc2a4) is a South Korean television series starring Lee Ji-ah, Kim So-yeon, Eugene, Um Ki-joon, Yoon Jong-hoon, and Park Eun-seok. The series, directed by Joo Dong-min and written by Kim Soon-ok, spins the story of a real estate and education war, a desire to be number one.",
+      "overview": "The Penthouse: War in Life (Korean: 펜트하우스) is a South Korean television series starring Lee Ji-ah, Kim So-yeon, Eugene, Um Ki-joon, Yoon Jong-hoon, and Park Eun-seok. The series, directed by Joo Dong-min and written by Kim Soon-ok, spins the story of a real estate and education war, a desire to be number one.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/09/The_Penthouse_TV_series.jpg",
       "tmdb_id": null
     },
@@ -525,7 +526,7 @@
         "Fiction Program"
       ],
       "cast": [],
-      "overview": "True Beauty (Korean: \uc5ec\uc2e0\uac15\ub9bc) is a South Korean television series starring Moon Ka-young, Cha Eun-woo, Hwang In-youp and Park Yoo-na. Based on the webtoon of the same title by Yaongyi, it centers on a high school girl who, after being bullied and discriminated against because of being perceived as ugly, masters the art of makeup to transform herself into a gorgeous \"goddess\".",
+      "overview": "True Beauty (Korean: 여신강림) is a South Korean television series starring Moon Ka-young, Cha Eun-woo, Hwang In-youp and Park Yoo-na. Based on the webtoon of the same title by Yaongyi, it centers on a high school girl who, after being bullied and discriminated against because of being perceived as ugly, masters the art of makeup to transform herself into a gorgeous \"goddess\".",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/76/True_Beauty_TV_series_poster.jpg",
       "tmdb_id": null
     },
@@ -553,7 +554,7 @@
         "Crime"
       ],
       "cast": [],
-      "overview": "Better Call Saul is an American neo-noir legal crime drama television series created by Vince Gilligan and Peter Gould for AMC. Part of the Breaking Bad franchise, it is a spin-off of Gilligan's previous series, Breaking Bad (2008\u20132013), to which it serves primarily as a prequel, with some scenes taking place during and after the events of Breaking Bad. Better Call Saul premiered on AMC on February 8, 2015, and ended on August 15, 2022, after six seasons, totaling 63 episodes.",
+      "overview": "Better Call Saul is an American neo-noir legal crime drama television series created by Vince Gilligan and Peter Gould for AMC. Part of the Breaking Bad franchise, it is a spin-off of Gilligan's previous series, Breaking Bad (2008–2013), to which it serves primarily as a prequel, with some scenes taking place during and after the events of Breaking Bad. Better Call Saul premiered on AMC on February 8, 2015, and ended on August 15, 2022, after six seasons, totaling 63 episodes.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/Better_Call_Saul_logo.svg/500px-Better_Call_Saul_logo.svg.png",
       "tmdb_id": null
     },
@@ -574,7 +575,7 @@
     },
     {
       "id": 8000066,
-      "title": "Muhte\u015fem Y\u00fczy\u0131l",
+      "title": "Muhteşem Yüzyıl",
       "year": 2011,
       "type": "tv",
       "genres": [
@@ -583,7 +584,7 @@
         "Historical Drama"
       ],
       "cast": [],
-      "overview": "Muhte\u015fem Y\u00fczy\u0131l (Turkish pronunciation: [muhte\u02c8\u0283em \u02c8jyzj\u026fl], lit.\u2009'The Magnificent Century') is a Turkish historical drama series. Written by Meral Okay and Y\u0131lmaz \u015eahin, it is based on the life of Ottoman Sultan Suleiman the Magnificent, the longest-reigning Sultan of the Ottoman Empire, and H\u00fcrrem Sultan, a slave girl who became his wife.",
+      "overview": "Muhteşem Yüzyıl (Turkish pronunciation: [muhteˈʃem ˈjyzjɯl], lit. 'The Magnificent Century') is a Turkish historical drama series. Written by Meral Okay and Yılmaz Şahin, it is based on the life of Ottoman Sultan Suleiman the Magnificent, the longest-reigning Sultan of the Ottoman Empire, and Hürrem Sultan, a slave girl who became his wife.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/9e/MagnificentCenturyTheme.jpg",
       "tmdb_id": null
     },
@@ -612,7 +613,7 @@
         "Fantasy"
       ],
       "cast": [],
-      "overview": "Guardian: The Lonely and Great God (Korean: \uc4f8\uc4f8\ud558\uace0 \ucc2c\ub780\ud558\u795e \u2013 \ub3c4\uae68\ube44) is a South Korean television series starring Gong Yoo in the title role, alongside Kim Go-eun, Lee Dong-wook, Yoo In-na, and Yook Sung-jae. Written by Kim Eun-sook, the series aired on TVN from December 2, 2016, to January 21, 2017.",
+      "overview": "Guardian: The Lonely and Great God (Korean: 쓸쓸하고 찬란하神 – 도깨비) is a South Korean television series starring Gong Yoo in the title role, alongside Kim Go-eun, Lee Dong-wook, Yoo In-na, and Yook Sung-jae. Written by Kim Eun-sook, the series aired on TVN from December 2, 2016, to January 21, 2017.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/68/Goblin_Poster.jpg",
       "tmdb_id": null
     },
@@ -632,14 +633,14 @@
     },
     {
       "id": 8000070,
-      "title": "Terra e Paix\u00e3o",
+      "title": "Terra e Paixão",
       "year": 2023,
       "type": "tv",
       "genres": [
         "Telenovela"
       ],
       "cast": [],
-      "overview": "Terra e Paix\u00e3o (English title: Land of Desire) is a Brazilian telenovela created by Walcyr Carrasco. It aired on TV Globo from 8 May 2023 to 19 January 2024.",
+      "overview": "Terra e Paixão (English title: Land of Desire) is a Brazilian telenovela created by Walcyr Carrasco. It aired on TV Globo from 8 May 2023 to 19 January 2024.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/15/Terra_e_Paix%C3%A3o_title_card.jpg",
       "tmdb_id": null
     },
@@ -667,7 +668,7 @@
         "Comedy Drama"
       ],
       "cast": [],
-      "overview": "Gilmore Girls is an American comedy drama television series created by Amy Sherman-Palladino. It stars Lauren Graham and Alexis Bledel as Lorelai Gilmore and Rory Gilmore, a mother\u2013daughter pair living in the fictional town of Stars Hollow, Connecticut.",
+      "overview": "Gilmore Girls is an American comedy drama television series created by Amy Sherman-Palladino. It stars Lauren Graham and Alexis Bledel as Lorelai Gilmore and Rory Gilmore, a mother–daughter pair living in the fictional town of Stars Hollow, Connecticut.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/55/Gilmore_girls_title_screen.jpg",
       "tmdb_id": null
     },
@@ -771,7 +772,7 @@
         "Comedy"
       ],
       "cast": [],
-      "overview": "Descendants of the Sun (Korean: \ud0dc\uc591\uc758 \ud6c4\uc608) is a 2016 South Korean television series starring Song Joong-ki, Song Hye-kyo, Jin Goo, and Kim Ji-won. Written by Kim Eun-sook and Kim Won-seok, the series follows the relationship between Yoo Shi-jin, a captain in the South Korean Army's special forces, and Kang Mo-yeon, a surgeon.",
+      "overview": "Descendants of the Sun (Korean: 태양의 후예) is a 2016 South Korean television series starring Song Joong-ki, Song Hye-kyo, Jin Goo, and Kim Ji-won. Written by Kim Eun-sook and Kim Won-seok, the series follows the relationship between Yoo Shi-jin, a captain in the South Korean Army's special forces, and Kang Mo-yeon, a surgeon.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/6e/DescendantsoftheSun.jpg",
       "tmdb_id": null
     },
@@ -866,7 +867,7 @@
         "Sitcom"
       ],
       "cast": [],
-      "overview": "El Chavo (Spanish pronunciation: [el \u02c8t\u0283a\u03b2o], \"The Kid/The Boy\"), also known as El Chavo del Ocho (Spanish pronunciation: [el \u02c8t\u0283a\u03b2o \u00f0el \u02c8ot\u0283o], \"The Kid/Boy from Number Eight\"), is a Mexican television sitcom created by Chespirito and produced by Televisa. It premiered on 26 February 1973, and concluded on 7 January 1980, after 7 seasons and 312 episodes, and aired across Latin America and Spain.",
+      "overview": "El Chavo (Spanish pronunciation: [el ˈtʃaβo], \"The Kid/The Boy\"), also known as El Chavo del Ocho (Spanish pronunciation: [el ˈtʃaβo ðel ˈotʃo], \"The Kid/Boy from Number Eight\"), is a Mexican television sitcom created by Chespirito and produced by Televisa. It premiered on 26 February 1973, and concluded on 7 January 1980, after 7 seasons and 312 episodes, and aired across Latin America and Spain.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/El_Chavo_%28simple_logo%29.svg/500px-El_Chavo_%28simple_logo%29.svg.png",
       "tmdb_id": null
     },
@@ -881,7 +882,7 @@
         "Biographical Program"
       ],
       "cast": [],
-      "overview": "Narcos is an American crime drama television series created and produced by Chris Brancato, Carlo Bernard, and Doug Miro. Set and filmed in Colombia, seasons 1 and 2 are about Colombian narcoterrorist and drug lord Pablo Escobar, leader of the Medell\u00edn Cartel and billionaire through cocaine production and distribution.",
+      "overview": "Narcos is an American crime drama television series created and produced by Chris Brancato, Carlo Bernard, and Doug Miro. Set and filmed in Colombia, seasons 1 and 2 are about Colombian narcoterrorist and drug lord Pablo Escobar, leader of the Medellín Cartel and billionaire through cocaine production and distribution.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/0a/Narcos_title_card.jpg",
       "tmdb_id": null
     },
@@ -925,7 +926,7 @@
         "Drama"
       ],
       "cast": [],
-      "overview": "It's Okay to Not Be Okay (Korean: \uc0ac\uc774\ucf54\uc9c0\ub9cc \uad1c\ucc2e\uc544) is a 2020 South Korean romantic comedy drama television series written by Jo Yong, directed by Park Shin-woo, and starring Kim Soo-hyun, Seo Yea-ji, and Oh Jung-se. The series follows Ko Moon-young, an antisocial children's book writer who moves to her hometown to pursue her love interest Moon Gang-tae, a psych ward caretaker, who has dedicated his life to taking care of his autistic older brother Moon Sang-tae.",
+      "overview": "It's Okay to Not Be Okay (Korean: 사이코지만 괜찮아) is a 2020 South Korean romantic comedy drama television series written by Jo Yong, directed by Park Shin-woo, and starring Kim Soo-hyun, Seo Yea-ji, and Oh Jung-se. The series follows Ko Moon-young, an antisocial children's book writer who moves to her hometown to pursue her love interest Moon Gang-tae, a psych ward caretaker, who has dedicated his life to taking care of his autistic older brother Moon Sang-tae.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/58/It%27s_Okay_to_Not_Be_Okay_Poster.jpg",
       "tmdb_id": null
     },
@@ -955,7 +956,7 @@
         "Lgbt-related"
       ],
       "cast": [],
-      "overview": "The 100 (pronounced \"The Hundred\"\u200a) is an American post-apocalyptic science fiction drama television series that premiered on March 19, 2014, on the CW network, and ended on September 30, 2020. Developed by Jason Rothenberg, the series is based on the young adult novel series The 100 by Kass Morgan.",
+      "overview": "The 100 (pronounced \"The Hundred\" ) is an American post-apocalyptic science fiction drama television series that premiered on March 19, 2014, on the CW network, and ended on September 30, 2020. Developed by Jason Rothenberg, the series is based on the young adult novel series The 100 by Kass Morgan.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/6c/Logo_of_the_100.jpg",
       "tmdb_id": null
     },
@@ -997,7 +998,7 @@
         "Romantic Comedy"
       ],
       "cast": [],
-      "overview": "Boys Over Flowers (Korean: \uaf43\ubcf4\ub2e4 \ub0a8\uc790; RR: Kkotboda namja) is a 2009 South Korean television series starring Koo Hye-sun, Lee Min-ho, Kim Hyun-joong, Kim Bum, and Kim Joon. Based on the Japanese manga series Boys Over Flowers (\u82b1\u3088\u308a\u7537\u5b50, Hana Yori Dango) which was written and illustrated by Yoko Kamio, the series, directed by Jeon Si-Kang, tells a story of a working-class girl who gets tangled up in the lives of a group of wealthy young men in her elite high school.",
+      "overview": "Boys Over Flowers (Korean: 꽃보다 남자; RR: Kkotboda namja) is a 2009 South Korean television series starring Koo Hye-sun, Lee Min-ho, Kim Hyun-joong, Kim Bum, and Kim Joon. Based on the Japanese manga series Boys Over Flowers (花より男子, Hana Yori Dango) which was written and illustrated by Yoko Kamio, the series, directed by Jeon Si-Kang, tells a story of a working-class girl who gets tangled up in the lives of a group of wealthy young men in her elite high school.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/6/65/Boys_Over_Flowers_%28TV_series%29_poster.jpg",
       "tmdb_id": null
     },
@@ -1011,7 +1012,7 @@
         "Children's"
       ],
       "cast": [],
-      "overview": "Carrossel (English: Carousel) is a Brazilian children's telenovela created by \u00cdris Abravanel as a Brazilian remake of the Mexican telenovela Carrusel \u2014 itself inspired by the Argentinean telenovela Jacinta Pichimahuida, la Maestra que no se Olvida, written by Abel Santa Cruz. Originally broadcast on SBT from 21 May 2012 to 26 July 2013, it was particularly successful with children and led to several spin-offs including a cartoon series and television sitcom.",
+      "overview": "Carrossel (English: Carousel) is a Brazilian children's telenovela created by Íris Abravanel as a Brazilian remake of the Mexican telenovela Carrusel — itself inspired by the Argentinean telenovela Jacinta Pichimahuida, la Maestra que no se Olvida, written by Abel Santa Cruz. Originally broadcast on SBT from 21 May 2012 to 26 July 2013, it was particularly successful with children and led to several spin-offs including a cartoon series and television sitcom.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Carrossel_logo_SBT.png",
       "tmdb_id": null
     },
@@ -1085,7 +1086,7 @@
         "Alternate History"
       ],
       "cast": [],
-      "overview": "Blackadder is a series of four period British sitcoms \u2014 The Black Adder, Blackadder II, Blackadder the Third and Blackadder Goes Forth \u2014 along with several one-off instalments, that originally aired on BBC1 from 1983 to 1989. All episodes starred Rowan Atkinson as the antihero Edmund Blackadder and Tony Robinson as Blackadder's servant Baldrick.",
+      "overview": "Blackadder is a series of four period British sitcoms — The Black Adder, Blackadder II, Blackadder the Third and Blackadder Goes Forth — along with several one-off instalments, that originally aired on BBC1 from 1983 to 1989. All episodes starred Rowan Atkinson as the antihero Edmund Blackadder and Tony Robinson as Blackadder's servant Baldrick.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Ba4.jpg",
       "tmdb_id": null
     },
@@ -1201,7 +1202,7 @@
         "Crime"
       ],
       "cast": [],
-      "overview": "Vincenzo (Korean: \ube48\uc13c\uc870; RR: Binsenjo) is a 2021 South Korean television series starring Song Joong-ki as the title character, alongside Jeon Yeo-been, Ok Taec-yeon, Kim Yeo-jin and Kwak Dong-yeon. It aired on tvN every Saturday and Sunday at 21:00 (KST) from February 20, 2021 to May 2, 2021.",
+      "overview": "Vincenzo (Korean: 빈센조; RR: Binsenjo) is a 2021 South Korean television series starring Song Joong-ki as the title character, alongside Jeon Yeo-been, Ok Taec-yeon, Kim Yeo-jin and Kwak Dong-yeon. It aired on tvN every Saturday and Sunday at 21:00 (KST) from February 20, 2021 to May 2, 2021.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/5/5b/Vincenzo_TV_series.jpg",
       "tmdb_id": null
     },
@@ -1214,7 +1215,7 @@
         "Medical Drama"
       ],
       "cast": [],
-      "overview": "Nurses (Spanish: Enfermeras) is a Colombian medical drama television series produced by Ana Mar\u00eda P\u00e9rez that aired on RCN Televisi\u00f3n from 23 October 2019 to 12 August 2022. The series focuses on the lives of several nurses, specifically focusing on the life of Mar\u00eda Clara Gonz\u00e1lez (Diana Hoyos).",
+      "overview": "Nurses (Spanish: Enfermeras) is a Colombian medical drama television series produced by Ana María Pérez that aired on RCN Televisión from 23 October 2019 to 12 August 2022. The series focuses on the lives of several nurses, specifically focusing on the life of María Clara González (Diana Hoyos).",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/bf/Enfermeras_poster.jpg",
       "tmdb_id": null
     },
@@ -1228,7 +1229,7 @@
         "Police Procedural"
       ],
       "cast": [],
-      "overview": "CSI: Miami (Crime Scene Investigation: Miami) is an American police procedural television series that aired on CBS from September 23, 2002, to April 8, 2012. Featuring David Caruso as Lieutenant Horatio Caine, Emily Procter as Detective Calleigh Duquesne, and Adam Rodriguez as Detective Eric Delko, the series is the first direct spin-off of CSI: Crime Scene Investigation, \"transplanting the same template and trickery\u2014gory crimes, procedural plot and dazzling graphics\u2014into [a new city] while retaining the essence of the original idea\".",
+      "overview": "CSI: Miami (Crime Scene Investigation: Miami) is an American police procedural television series that aired on CBS from September 23, 2002, to April 8, 2012. Featuring David Caruso as Lieutenant Horatio Caine, Emily Procter as Detective Calleigh Duquesne, and Adam Rodriguez as Detective Eric Delko, the series is the first direct spin-off of CSI: Crime Scene Investigation, \"transplanting the same template and trickery—gory crimes, procedural plot and dazzling graphics—into [a new city] while retaining the essence of the original idea\".",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/96/CSI_Miami.png",
       "tmdb_id": null
     },
@@ -1299,7 +1300,7 @@
         "Romance"
       ],
       "cast": [],
-      "overview": "Snowdrop (Korean: \uc124\uac15\ud654; RR: Seolganghwa) is a South Korean television series starring Jung Hae-in, Jisoo, Yoo In-na, Jang Seung-jo, Yoon Se-ah, Kim Hye-yoon and Jung Yoo-jin. It aired on JTBC from December 18, 2021, to January 30, 2022, every Saturday and Sunday at 22:30 (KST) for 16 episodes.",
+      "overview": "Snowdrop (Korean: 설강화; RR: Seolganghwa) is a South Korean television series starring Jung Hae-in, Jisoo, Yoo In-na, Jang Seung-jo, Yoon Se-ah, Kim Hye-yoon and Jung Yoo-jin. It aired on JTBC from December 18, 2021, to January 30, 2022, every Saturday and Sunday at 22:30 (KST) for 16 episodes.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/1d/Snowdrop_TV_series.jpg",
       "tmdb_id": null
     },
@@ -1314,7 +1315,7 @@
         "Fantasy"
       ],
       "cast": [],
-      "overview": "Mr. Queen (Korean: \ucca0\uc778\uc655\ud6c4) is a 2020 South Korean television series based on the Chinese web series Go Princess Go.",
+      "overview": "Mr. Queen (Korean: 철인왕후) is a 2020 South Korean television series based on the Chinese web series Go Princess Go.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/e7/Mr._Queen_poster.jpg",
       "tmdb_id": null
     },
@@ -1334,7 +1335,7 @@
     },
     {
       "id": 8000130,
-      "title": "Pap\u00e1s por conveniencia",
+      "title": "Papás por conveniencia",
       "year": 2024,
       "type": "tv",
       "genres": [
@@ -1343,7 +1344,7 @@
         "Romance"
       ],
       "cast": [],
-      "overview": "Pap\u00e1s por conveniencia (English title: Conveniently a Family) is a Mexican telenovela produced by Rosy Ocampo for TelevisaUnivision. It stars an ensemble cast led by Ariadne D\u00edaz and Jos\u00e9 Ron.",
+      "overview": "Papás por conveniencia (English title: Conveniently a Family) is a Mexican telenovela produced by Rosy Ocampo for TelevisaUnivision. It stars an ensemble cast led by Ariadne Díaz and José Ron.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/79/Pap%C3%A1s_por_conveniencia_poster.jpg",
       "tmdb_id": null
     },
@@ -1401,7 +1402,7 @@
         "Sitcom"
       ],
       "cast": [],
-      "overview": "Frasier () is an American television sitcom that was broadcast on NBC for eleven seasons from September 16, 1993, to May 13, 2004. The program was created and produced by David Angell, Peter Casey, and David Lee (as Grub Street Productions), in association with Grammnet Productions (1995\u20132004) and Paramount Television.",
+      "overview": "Frasier () is an American television sitcom that was broadcast on NBC for eleven seasons from September 16, 1993, to May 13, 2004. The program was created and produced by David Angell, Peter Casey, and David Lee (as Grub Street Productions), in association with Grammnet Productions (1995–2004) and Paramount Television.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Frasier_title_logo.svg/500px-Frasier_title_logo.svg.png",
       "tmdb_id": null
     },
@@ -1517,7 +1518,7 @@
         "Children's"
       ],
       "cast": [],
-      "overview": "LazyTown (Icelandic: Latib\u00e6r; Icelandic pronunciation: [\u02c8lat\u02b0i\u02ccpai\u02d0r\u0325]) is an Icelandic children's television series created by and starring aerobics champion Magn\u00fas Scheving, who portrays the character Sportacus. Originally produced in English, it has been broadcast in dozens of languages globally.",
+      "overview": "LazyTown (Icelandic: Latibær; Icelandic pronunciation: [ˈlatʰiˌpaiːr̥]) is an Icelandic children's television series created by and starring aerobics champion Magnús Scheving, who portrays the character Sportacus. Originally produced in English, it has been broadcast in dozens of languages globally.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/LazyTown_logo.svg/500px-LazyTown_logo.svg.png",
       "tmdb_id": null
     },
@@ -1588,7 +1589,7 @@
         "Fantasy"
       ],
       "cast": [],
-      "overview": "Hotel del Luna (Korean: \ud638\ud154 \ub378\ub8e8\ub098) is a South Korean television series starring Lee Ji-eun and Yeo Jin-goo as the owner and manager, respectively, of the eponymous hotel that caters only to ghosts. Produced by GTist, written by the Hong sisters and directed by Oh Chung-hwan, it aired on tvN from July 13 to September 1, 2019.",
+      "overview": "Hotel del Luna (Korean: 호텔 델루나) is a South Korean television series starring Lee Ji-eun and Yeo Jin-goo as the owner and manager, respectively, of the eponymous hotel that caters only to ghosts. Produced by GTist, written by the Hong sisters and directed by Oh Chung-hwan, it aired on tvN from July 13 to September 1, 2019.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/00/Hotel_Del_Luna.jpg",
       "tmdb_id": null
     },
@@ -1658,7 +1659,7 @@
         "Drama"
       ],
       "cast": [],
-      "overview": "Person of Interest is an American science fiction crime drama television series that aired on CBS from September 22, 2011, to June 21, 2016, with its five seasons consisting of 103 episodes. The series was created by Jonathan Nolan; executive producers were Nolan, J. J. Abrams, Bryan Burk, Greg Plageman, Denise Th\u00e9, and Chris Fisher.",
+      "overview": "Person of Interest is an American science fiction crime drama television series that aired on CBS from September 22, 2011, to June 21, 2016, with its five seasons consisting of 103 episodes. The series was created by Jonathan Nolan; executive producers were Nolan, J. J. Abrams, Bryan Burk, Greg Plageman, Denise Thé, and Chris Fisher.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/d/db/PersonOfInterstLogo.jpg",
       "tmdb_id": null
     },
@@ -1693,14 +1694,14 @@
     },
     {
       "id": 8000169,
-      "title": "Rub\u00ed",
+      "title": "Rubí",
       "year": 2004,
       "type": "tv",
       "genres": [
         "Telenovela"
       ],
       "cast": [],
-      "overview": "Rub\u00ed is a Mexican telenovela produced by Jos\u00e9 Alberto Castro for Televisa. It is based on a comic strip by Yolanda Vargas Dulch\u00e9, published in installments on the 1960s Mexican romance comics magazine L\u00e1grimas, risas y amor.",
+      "overview": "Rubí is a Mexican telenovela produced by José Alberto Castro for Televisa. It is based on a comic strip by Yolanda Vargas Dulché, published in installments on the 1960s Mexican romance comics magazine Lágrimas, risas y amor.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/72/Rubi_%28poster_-_2004_Mexican_telenovela%29.jpg",
       "tmdb_id": null
     },
@@ -1743,7 +1744,7 @@
         "Romance"
       ],
       "cast": [],
-      "overview": "The Heirs (Korean: \uc655\uad00\uc744 \uc4f0\ub824\ub294 \uc790, \uadf8 \ubb34\uac8c\ub97c \uacac\ub38c\ub77c \u2013 \uc0c1\uc18d\uc790\ub4e4), also known as The Inheritors, is a South Korean television series starring Lee Min-ho, Park Shin-hye, and Kim Woo-bin. Written by Kim Eun-sook, the drama is set in a high school populated by the privileged and uber-rich.",
+      "overview": "The Heirs (Korean: 왕관을 쓰려는 자, 그 무게를 견뎌라 – 상속자들), also known as The Inheritors, is a South Korean television series starring Lee Min-ho, Park Shin-hye, and Kim Woo-bin. Written by Kim Eun-sook, the drama is set in a high school populated by the privileged and uber-rich.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/f/f7/The_Inheritors_poster.jpg",
       "tmdb_id": null
     },
@@ -1758,7 +1759,7 @@
         "Fantasy"
       ],
       "cast": [],
-      "overview": "The Lord of the Rings: The Rings of Power is an American fantasy television series developed by J. D. Payne and Patrick McKay for the streaming service Amazon Prime Video. It is based on J. R. R. Tolkien's history of Middle-earth, primarily material from the appendices of the novel The Lord of the Rings (1954\u201355).",
+      "overview": "The Lord of the Rings: The Rings of Power is an American fantasy television series developed by J. D. Payne and Patrick McKay for the streaming service Amazon Prime Video. It is based on J. R. R. Tolkien's history of Middle-earth, primarily material from the appendices of the novel The Lord of the Rings (1954–55).",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/1d/LOTR_The_Rings_of_Power_logo.jpg",
       "tmdb_id": null
     },
@@ -1773,7 +1774,7 @@
         "Zombie Apocalyptic Fiction"
       ],
       "cast": [],
-      "overview": "All of Us Are Dead (Korean: \uc9c0\uae08 \uc6b0\ub9ac \ud559\uad50\ub294) is a South Korean coming-of-age apocalyptic horror television series based on the webtoon of the same name by Joo Dong-geun, which was published on Webtoon between 2009 and 2011. It stars  Park Ji-hu, Yoon Chan-young, Cho Yi-hyun, Lomon, Yoo In-soo, Lee Yoo-mi, Kim Byung-chul, Lee Kyu-hyung, and Jeon Bae-soo.",
+      "overview": "All of Us Are Dead (Korean: 지금 우리 학교는) is a South Korean coming-of-age apocalyptic horror television series based on the webtoon of the same name by Joo Dong-geun, which was published on Webtoon between 2009 and 2011. It stars  Park Ji-hu, Yoon Chan-young, Cho Yi-hyun, Lomon, Yoo In-soo, Lee Yoo-mi, Kim Byung-chul, Lee Kyu-hyung, and Jeon Bae-soo.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/24/All_of_Us_Are_Dead.jpeg",
       "tmdb_id": null
     },
@@ -1786,7 +1787,7 @@
         "Melodrama"
       ],
       "cast": [],
-      "overview": "The World of the Married (Korean: \ubd80\ubd80\uc758 \uc138\uacc4) is a South Korean television series starring Kim Hee-ae, Park Hae-joon, and Han So-hee. Based on BBC One's drama series Doctor Foster written by Mike Bartlett, it tells a story of a married couple whose betrayal of one another leads to a whirlwind of revenge, grief, forgiveness and healing.",
+      "overview": "The World of the Married (Korean: 부부의 세계) is a South Korean television series starring Kim Hee-ae, Park Hae-joon, and Han So-hee. Based on BBC One's drama series Doctor Foster written by Mike Bartlett, it tells a story of a married couple whose betrayal of one another leads to a whirlwind of revenge, grief, forgiveness and healing.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/7/76/The_World_of_the_Married.jpg",
       "tmdb_id": null
     },
@@ -1926,7 +1927,7 @@
         "Adventure"
       ],
       "cast": [],
-      "overview": "The A\u2011Team is an American fictional action\u2011adventure television series that aired on NBC from January 23, 1983 to March 8, 1987. Created by Stephen J. Cannell and Frank Lupo, it follows a squad of former U.S. Army Special Forces commandos who, after being falsely convicted of a crime, escape military prison and become soldiers of fortune.",
+      "overview": "The A‑Team is an American fictional action‑adventure television series that aired on NBC from January 23, 1983 to March 8, 1987. Created by Stephen J. Cannell and Frank Lupo, it follows a squad of former U.S. Army Special Forces commandos who, after being falsely convicted of a crime, escape military prison and become soldiers of fortune.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/A-Team-Logo.svg/500px-A-Team-Logo.svg.png",
       "tmdb_id": null
     },
@@ -1956,7 +1957,7 @@
         "Crime"
       ],
       "cast": [],
-      "overview": "Hawaii Five-0 is an American police procedural drama television series developed for CBS by Roberto Orci, Alex Kurtzman and Peter M. Lenkov. It is a reboot of the 1968\u20131980 series (the original series had the letter \"O\" in its title, the 2010 series has the number zero), which also aired on CBS. The series starred Alex O'Loughlin and Scott Caan and centers around a fictional special police major crimes task force operating at the behest of the governor of Hawaii.",
+      "overview": "Hawaii Five-0 is an American police procedural drama television series developed for CBS by Roberto Orci, Alex Kurtzman and Peter M. Lenkov. It is a reboot of the 1968–1980 series (the original series had the letter \"O\" in its title, the 2010 series has the number zero), which also aired on CBS. The series starred Alex O'Loughlin and Scott Caan and centers around a fictional special police major crimes task force operating at the behest of the governor of Hawaii.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hawaii_Five-0_2010_logo.svg/500px-Hawaii_Five-0_2010_logo.svg.png",
       "tmdb_id": null
     },
@@ -1984,7 +1985,7 @@
         "Fantasy"
       ],
       "cast": [],
-      "overview": "My Love from the Star (Korean: \ubcc4\uc5d0\uc11c \uc628 \uadf8\ub300) is a South Korean fantasy romantic comedy television series written by Park Ji-eun and directed by Jang Tae-yoo. Produced by Choi Moon-suk and Moon Bo-mi, it stars Jun Ji-hyun, Kim Soo-hyun, Park Hae-jin, Yoo In-na, Shin Sung-rok, and Ahn Jae-hyun.",
+      "overview": "My Love from the Star (Korean: 별에서 온 그대) is a South Korean fantasy romantic comedy television series written by Park Ji-eun and directed by Jang Tae-yoo. Produced by Choi Moon-suk and Moon Bo-mi, it stars Jun Ji-hyun, Kim Soo-hyun, Park Hae-jin, Yoo In-na, Shin Sung-rok, and Ahn Jae-hyun.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/ba/You_Who_Came_From_the_Stars_Cover.jpg",
       "tmdb_id": null
     },
@@ -1999,7 +2000,7 @@
         "Romance"
       ],
       "cast": [],
-      "overview": "Start-Up (Korean: \uc2a4\ud0c0\ud2b8\uc5c5) is a 2020 South Korean television series starring Bae Suzy, Nam Joo-hyuk, Kim Seon-ho and Kang Han-na. The series revolves around a woman who has dreams of becoming an entrepreneur like Steve Jobs, and her love triangle between a man who is secretly her first love and another man who is pretending to be her first love.",
+      "overview": "Start-Up (Korean: 스타트업) is a 2020 South Korean television series starring Bae Suzy, Nam Joo-hyuk, Kim Seon-ho and Kang Han-na. The series revolves around a woman who has dreams of becoming an entrepreneur like Steve Jobs, and her love triangle between a man who is secretly her first love and another man who is pretending to be her first love.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/12/Start-Up_2020.jpg",
       "tmdb_id": null
     },
@@ -2145,7 +2146,7 @@
         "Drama"
       ],
       "cast": [],
-      "overview": "Moon Lovers: Scarlet Heart Ryeo (Korean: \ub2ec\uc758 \uc5f0\uc778 \u2013 \ubcf4\ubcf4\uacbd\uc2ec \ub824) is a South Korean television series based on the Chinese novel Bu Bu Jing Xin by Tong Hua. It aired from August 29 to November 1, 2016, on SBS, every Monday and Tuesday at 22:00 (KST), for 20 episodes.",
+      "overview": "Moon Lovers: Scarlet Heart Ryeo (Korean: 달의 연인 – 보보경심 려) is a South Korean television series based on the Chinese novel Bu Bu Jing Xin by Tong Hua. It aired from August 29 to November 1, 2016, on SBS, every Monday and Tuesday at 22:00 (KST), for 20 episodes.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/0f/Scarletheartryeoposter.jpg",
       "tmdb_id": null
     },
@@ -2335,14 +2336,14 @@
     },
     {
       "id": 8000225,
-      "title": "Mi coraz\u00f3n es tuyo",
+      "title": "Mi corazón es tuyo",
       "year": 2014,
       "type": "tv",
       "genres": [
         "Telenovela"
       ],
       "cast": [],
-      "overview": "Mi coraz\u00f3n es tuyo (English title: My Heart is Yours) is a Mexican telenovela produced by Juan Osorio for Televisa. The telenovela is an adaptation of the Spanish TV series Ana y los 7.",
+      "overview": "Mi corazón es tuyo (English title: My Heart is Yours) is a Mexican telenovela produced by Juan Osorio for Televisa. The telenovela is an adaptation of the Spanish TV series Ana y los 7.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/16/Mi_Coraz%C3%B3n_Es_Tuyo_P%C3%B3ster.jpg",
       "tmdb_id": null
     },
@@ -2387,7 +2388,7 @@
         "Thriller"
       ],
       "cast": [],
-      "overview": "Homeland (stylized as HOM\u018eLAND) is an American espionage thriller television series developed by Howard Gordon and Alex Gansa. It is based on the Israeli series Prisoners of War (Hebrew: \u05d7\u05d8\u05d5\u05e4\u05d9\u05dd, romanized: Hatufim, literally 'Abductees'), created by Gideon Raff, who also serves as an executive producer on Homeland.",
+      "overview": "Homeland (stylized as HOMƎLAND) is an American espionage thriller television series developed by Howard Gordon and Alex Gansa. It is based on the Israeli series Prisoners of War (Hebrew: חטופים, romanized: Hatufim, literally 'Abductees'), created by Gideon Raff, who also serves as an executive producer on Homeland.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/97/HomelandTVSeries.jpg",
       "tmdb_id": null
     },
@@ -2520,7 +2521,7 @@
     },
     {
       "id": 8000243,
-      "title": "Dirili\u015f: Ertu\u011frul",
+      "title": "Diriliş: Ertuğrul",
       "year": 2014,
       "type": "tv",
       "genres": [
@@ -2528,7 +2529,7 @@
         "Historical"
       ],
       "cast": [],
-      "overview": "Dirili\u015f: Ertu\u011frul, translated as Resurrection: Ertu\u011frul, is a Turkish historical drama television series inspired by the life of Ertu\u011frul Bey, the father of Osman I, founder of the Ottoman Empire. Created and produced by Mehmet Bozda\u011f under Bozda\u011f Films, the series originally aired on TRT 1 from 2014 to 2019.",
+      "overview": "Diriliş: Ertuğrul, translated as Resurrection: Ertuğrul, is a Turkish historical drama television series inspired by the life of Ertuğrul Bey, the father of Osman I, founder of the Ottoman Empire. Created and produced by Mehmet Bozdağ under Bozdağ Films, the series originally aired on TRT 1 from 2014 to 2019.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/Dirili%C5%9F-_Ertu%C4%9Frul_logo.png/500px-Dirili%C5%9F-_Ertu%C4%9Frul_logo.png",
       "tmdb_id": null
     },
@@ -2573,7 +2574,7 @@
         "Teen Drama"
       ],
       "cast": [],
-      "overview": "The End of the F***ing World is a British black comedy television programme. Based on the 2011\u201313 minicomics The End of the Fucking World by Charles Forsman, the eight-part first series premiered its first episode on Channel 4 in the United Kingdom on 24 October 2017.",
+      "overview": "The End of the F***ing World is a British black comedy television programme. Based on the 2011–13 minicomics The End of the Fucking World by Charles Forsman, the eight-part first series premiered its first episode on Channel 4 in the United Kingdom on 24 October 2017.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/The_End_of_the_F%2A%2A%2Aing_World_logo.png/500px-The_End_of_the_F%2A%2A%2Aing_World_logo.png",
       "tmdb_id": null
     },
@@ -2615,7 +2616,7 @@
         "Telenovela"
       ],
       "cast": [],
-      "overview": "O Clone (English: The Clone) is a Brazilian telenovela created by Gl\u00f3ria Perez and directed by Jayme Monjardim. Produced and aired by Rede Globo, it was aired from 1 October 2001 to 13 June 2002, with 221 episodes.",
+      "overview": "O Clone (English: The Clone) is a Brazilian telenovela created by Glória Perez and directed by Jayme Monjardim. Produced and aired by Rede Globo, it was aired from 1 October 2001 to 13 June 2002, with 221 episodes.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/2c/O_Clone_title_card.jpg",
       "tmdb_id": null
     },
@@ -2715,7 +2716,7 @@
         "Alternate History"
       ],
       "cast": [],
-      "overview": "The Umbrella Academy is an American superhero comedy drama television series loosely based on the comic book series of the same name written by Gerard Way, illustrated by Gabriel B\u00e1, and published by Dark Horse Comics. Created for Netflix by Steve Blackman and developed by Jeremy Slater, it revolves around a dysfunctional family of adopted sibling superheroes who reunite for their father's funeral and the threat of an imminent apocalypse.",
+      "overview": "The Umbrella Academy is an American superhero comedy drama television series loosely based on the comic book series of the same name written by Gerard Way, illustrated by Gabriel Bá, and published by Dark Horse Comics. Created for Netflix by Steve Blackman and developed by Jeremy Slater, it revolves around a dysfunctional family of adopted sibling superheroes who reunite for their father's funeral and the threat of an imminent apocalypse.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/The_Umbrella_Academy_logo.svg/500px-The_Umbrella_Academy_logo.svg.png",
       "tmdb_id": null
     },
@@ -2786,7 +2787,7 @@
         "Lgbt-related"
       ],
       "cast": [],
-      "overview": "Ugly Betty is an American comedy-drama television series developed by Silvio Horta, which aired on ABC from September 28, 2006, to April 14, 2010. It is based on the Colombian telenovela Yo soy Betty, la fea, created by Fernando Gait\u00e1n.",
+      "overview": "Ugly Betty is an American comedy-drama television series developed by Silvio Horta, which aired on ABC from September 28, 2006, to April 14, 2010. It is based on the Colombian telenovela Yo soy Betty, la fea, created by Fernando Gaitán.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/0f/Ugly_Betty_intertitle.png",
       "tmdb_id": null
     },
@@ -2885,7 +2886,7 @@
         "Detective"
       ],
       "cast": [],
-      "overview": "Seventeen Moments of Spring (Russian: \u0421\u0435\u043c\u043d\u0430\u0434\u0446\u0430\u0442\u044c \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u0438\u0439 \u0432\u0435\u0441\u043d\u044b, romanized: Semnadtsat' mgnoveniy vesny) is a 1973 Soviet twelve-part television series, directed by Tatyana Lioznova and based on the novel of the same title by Yulian Semyonov.\nThe series portrays the exploits of Maxim Isaev, a Soviet spy operating in Nazi Germany under the name Max Otto von Stierlitz, portrayed by Vyacheslav Tikhonov.",
+      "overview": "Seventeen Moments of Spring (Russian: Семнадцать мгновений весны, romanized: Semnadtsat' mgnoveniy vesny) is a 1973 Soviet twelve-part television series, directed by Tatyana Lioznova and based on the novel of the same title by Yulian Semyonov.\nThe series portrays the exploits of Maxim Isaev, a Soviet spy operating in Nazi Germany under the name Max Otto von Stierlitz, portrayed by Vyacheslav Tikhonov.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/15/17_moments_of_the_spring_dvd_cover.jpg",
       "tmdb_id": null
     },
@@ -2898,7 +2899,7 @@
         "Telenovela"
       ],
       "cast": [],
-      "overview": "Yo soy Betty, la fea (English: I am Betty, the Ugly one), often referred to simply as Betty, la fea, is a Colombian telenovela created by Fernando Gait\u00e1n. It aired from 25 October 1999 to 8 May 2001 on RCN. Ana Mar\u00eda Orozco stars as the titular character, alongside Jorge Enrique Abello, Natalia Ram\u00edrez, Lorna Cepeda, Luis Mesa and Juli\u00e1n Arango.",
+      "overview": "Yo soy Betty, la fea (English: I am Betty, the Ugly one), often referred to simply as Betty, la fea, is a Colombian telenovela created by Fernando Gaitán. It aired from 25 October 1999 to 8 May 2001 on RCN. Ana María Orozco stars as the titular character, alongside Jorge Enrique Abello, Natalia Ramírez, Lorna Cepeda, Luis Mesa and Julián Arango.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/0/03/Yo_soy_Betty%2C_la_Fea.jpg",
       "tmdb_id": null
     },
@@ -2983,7 +2984,7 @@
         "Telenovela"
       ],
       "cast": [],
-      "overview": "Mi camino es amarte (English title: The Path of Love) is a Mexican telenovela that aired on Las Estrellas from 7 November 2022 to 12 March 2023. The series is produced by Nicandro D\u00edaz Gonz\u00e1lez.",
+      "overview": "Mi camino es amarte (English title: The Path of Love) is a Mexican telenovela that aired on Las Estrellas from 7 November 2022 to 12 March 2023. The series is produced by Nicandro Díaz González.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/c/c9/Mi_camino_es_amarte_poster.jpg",
       "tmdb_id": null
     },
@@ -3080,7 +3081,7 @@
         "Historical Fiction"
       ],
       "cast": [],
-      "overview": "Jewel in the Palace (Korean: \ub300\uc7a5\uae08; Hanja: \u5927\u9577\u4eca; RR: Daejanggeum) is a 2003 South Korean historical drama television series directed by Lee Byung-hoon. It first aired on MBC from September 15, 2003, to March 23, 2004, where it was the top program with an average viewership rating of 45.8% and a peak of 57.1% (making it the 10th highest rated Korean drama of all time).",
+      "overview": "Jewel in the Palace (Korean: 대장금; Hanja: 大長今; RR: Daejanggeum) is a 2003 South Korean historical drama television series directed by Lee Byung-hoon. It first aired on MBC from September 15, 2003, to March 23, 2004, where it was the top program with an average viewership rating of 45.8% and a peak of 57.1% (making it the 10th highest rated Korean drama of all time).",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/e/e5/Dae_Jang_Geum_endtitle.png",
       "tmdb_id": null
     },
@@ -3101,16 +3102,724 @@
     },
     {
       "id": 8000299,
-      "title": "Mar\u00eda la del Barrio",
+      "title": "María la del Barrio",
       "year": 1995,
       "type": "tv",
       "genres": [
         "Telenovela"
       ],
       "cast": [],
-      "overview": "Mar\u00eda la del Barrio (Lit: Maria From the Hood/English title: Humble Maria) is a 1995 Mexican television drama series broadcast by Canal de Las Estrellas. The series is based on 1979 Mexican drama series Los ricos tambi\u00e9n lloran.",
+      "overview": "María la del Barrio (Lit: Maria From the Hood/English title: Humble Maria) is a 1995 Mexican television drama series broadcast by Canal de Las Estrellas. The series is based on 1979 Mexican drama series Los ricos también lloran.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/86/Thalia_Mar%C3%ADa.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900000,
+      "title": "The Sopranos",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "A New Jersey mob boss juggles running a criminal organization with family life — and therapy.",
+      "poster_url": null,
+      "tmdb_id": 1398,
+      "trailer_key": null
+    },
+    {
+      "id": 8900001,
+      "title": "The Simpsons",
+      "year": 1989,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "The satirical misadventures of a working-class family in the town of Springfield.",
+      "poster_url": null,
+      "tmdb_id": 456,
+      "trailer_key": null
+    },
+    {
+      "id": 8900002,
+      "title": "Black Mirror",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "An anthology exploring a twisted near-future where technology collides with humanity's darkest instincts.",
+      "poster_url": null,
+      "tmdb_id": 42009,
+      "trailer_key": null
+    },
+    {
+      "id": 8900003,
+      "title": "Grey's Anatomy",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "The professional and personal lives of surgeons at a Seattle teaching hospital.",
+      "poster_url": null,
+      "tmdb_id": 1416,
+      "trailer_key": null
+    },
+    {
+      "id": 8900004,
+      "title": "Modern Family",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A mockumentary following three diverse but related families in suburban Los Angeles.",
+      "poster_url": null,
+      "tmdb_id": 1421,
+      "trailer_key": null
+    },
+    {
+      "id": 8900005,
+      "title": "Arrested Development",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A formerly wealthy, hopelessly dysfunctional family clings to its privileged lifestyle.",
+      "poster_url": null,
+      "tmdb_id": 4589,
+      "trailer_key": null
+    },
+    {
+      "id": 8900006,
+      "title": "Chernobyl",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "cast": [],
+      "overview": "A dramatization of the 1986 nuclear disaster and the sacrifices made to contain it.",
+      "poster_url": null,
+      "tmdb_id": 87108,
+      "trailer_key": null
+    },
+    {
+      "id": 8900007,
+      "title": "Band of Brothers",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "War",
+        "History"
+      ],
+      "cast": [],
+      "overview": "Easy Company of the US 101st Airborne, from training through the end of WWII.",
+      "poster_url": null,
+      "tmdb_id": 4613,
+      "trailer_key": null
+    },
+    {
+      "id": 8900008,
+      "title": "Ozark",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "A financial planner moves his family to the Ozarks to launder money for a drug cartel.",
+      "poster_url": null,
+      "tmdb_id": 69740,
+      "trailer_key": null
+    },
+    {
+      "id": 8900009,
+      "title": "Succession",
+      "year": 2018,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A media dynasty's children vie for control as their ailing father weighs his future.",
+      "poster_url": null,
+      "tmdb_id": 76331,
+      "trailer_key": null
+    },
+    {
+      "id": 8900010,
+      "title": "The Mandalorian",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A lone bounty hunter protects a mysterious child across the galaxy's outer reaches.",
+      "poster_url": null,
+      "tmdb_id": 82856,
+      "trailer_key": null
+    },
+    {
+      "id": 8900011,
+      "title": "Supernatural",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "Two brothers hunt demons, ghosts and monsters across America.",
+      "poster_url": null,
+      "tmdb_id": 1622,
+      "trailer_key": null
+    },
+    {
+      "id": 8900012,
+      "title": "Criminal Minds",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "An elite FBI team profiles the country's most dangerous criminals.",
+      "poster_url": null,
+      "tmdb_id": 4057,
+      "trailer_key": null
+    },
+    {
+      "id": 8900013,
+      "title": "Law & Order: SVU",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "An elite squad of detectives investigates sexually based offenses.",
+      "poster_url": null,
+      "tmdb_id": 2734,
+      "trailer_key": null
+    },
+    {
+      "id": 8900014,
+      "title": "Rick and Morty",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A cynical scientist drags his grandson on reckless interdimensional adventures.",
+      "poster_url": null,
+      "tmdb_id": 60625,
+      "trailer_key": null
+    },
+    {
+      "id": 8900015,
+      "title": "South Park",
+      "year": 1997,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "Four foul-mouthed boys cause havoc in a quiet Colorado mountain town.",
+      "poster_url": null,
+      "tmdb_id": 2190,
+      "trailer_key": null
+    },
+    {
+      "id": 8900016,
+      "title": "Family Guy",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "The surreal misadventures of the Griffin family in Quahog, Rhode Island.",
+      "poster_url": null,
+      "tmdb_id": 1434,
+      "trailer_key": null
+    },
+    {
+      "id": 8900017,
+      "title": "Futurama",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A slacker is cryogenically frozen and wakes in the year 3000 to work at a delivery company.",
+      "poster_url": null,
+      "tmdb_id": 615,
+      "trailer_key": null
+    },
+    {
+      "id": 8900018,
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A mockumentary on the absurd day-to-day of an Indiana town's parks department.",
+      "poster_url": null,
+      "tmdb_id": 8592,
+      "trailer_key": null
+    },
+    {
+      "id": 8900019,
+      "title": "Community",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A disbarred lawyer joins a community-college study group that becomes a surrogate family.",
+      "poster_url": null,
+      "tmdb_id": 18347,
+      "trailer_key": null
+    },
+    {
+      "id": 8900020,
+      "title": "The Punisher",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Frank Castle wages a one-man war on crime after his family is murdered.",
+      "poster_url": null,
+      "tmdb_id": 67178,
+      "trailer_key": null
+    },
+    {
+      "id": 8900021,
+      "title": "Superman & Lois",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Superman and Lois Lane juggle careers and raising two sons back in Smallville.",
+      "poster_url": null,
+      "tmdb_id": 95057,
+      "trailer_key": null
+    },
+    {
+      "id": 8900022,
+      "title": "Smallville",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A young Clark Kent comes of age and discovers his powers in Smallville, Kansas.",
+      "poster_url": null,
+      "tmdb_id": 1486,
+      "trailer_key": null
+    },
+    {
+      "id": 8900023,
+      "title": "Twin Peaks",
+      "year": 1990,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "An FBI agent investigates the murder of a homecoming queen in a strange small town.",
+      "poster_url": null,
+      "tmdb_id": 1920,
+      "trailer_key": null
+    },
+    {
+      "id": 8900024,
+      "title": "Angel",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Action"
+      ],
+      "cast": [],
+      "overview": "A vampire with a soul fights evil — and his own nature — in Los Angeles.",
+      "poster_url": null,
+      "tmdb_id": 2007,
+      "trailer_key": null
+    },
+    {
+      "id": 8900025,
+      "title": "Doctor Who",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A time-travelling alien explores the universe in a ship disguised as a police box.",
+      "poster_url": null,
+      "tmdb_id": 57243,
+      "trailer_key": null
+    },
+    {
+      "id": 8900026,
+      "title": "Star Trek: Deep Space Nine",
+      "year": 1993,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "The crew of a space station guards a strategic wormhole near the planet Bajor.",
+      "poster_url": null,
+      "tmdb_id": 580,
+      "trailer_key": null
+    },
+    {
+      "id": 8900027,
+      "title": "Star Trek: Voyager",
+      "year": 1995,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A starship stranded 70,000 light years from home fights its way back across the galaxy.",
+      "poster_url": null,
+      "tmdb_id": 1855,
+      "trailer_key": null
+    },
+    {
+      "id": 8900028,
+      "title": "Euphoria",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A group of high-schoolers navigate drugs, sex, identity and trauma.",
+      "poster_url": null,
+      "tmdb_id": 85552,
+      "trailer_key": null
+    },
+    {
+      "id": 8900029,
+      "title": "Yellowstone",
+      "year": 2018,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Western"
+      ],
+      "cast": [],
+      "overview": "A Montana ranching dynasty fights to defend its land and legacy.",
+      "poster_url": null,
+      "tmdb_id": 73586,
+      "trailer_key": null
+    },
+    {
+      "id": 8900030,
+      "title": "The Bear",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A fine-dining chef returns home to run his family's chaotic Chicago sandwich shop.",
+      "poster_url": null,
+      "tmdb_id": 136315,
+      "trailer_key": null
+    },
+    {
+      "id": 8900031,
+      "title": "Ted Lasso",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "An American football coach is hired to manage an English soccer club despite no experience.",
+      "poster_url": null,
+      "tmdb_id": 97546,
+      "trailer_key": null
+    },
+    {
+      "id": 8900032,
+      "title": "Severance",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "Employees surgically split their work and personal memories — until the wall begins to crack.",
+      "poster_url": null,
+      "tmdb_id": 95396,
+      "trailer_key": null
+    },
+    {
+      "id": 8900033,
+      "title": "Mindhunter",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "FBI agents interview imprisoned serial killers to understand — and catch — active ones.",
+      "poster_url": null,
+      "tmdb_id": 67744,
+      "trailer_key": null
+    },
+    {
+      "id": 8900034,
+      "title": "The Last of Us",
+      "year": 2023,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Action",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "A hardened smuggler escorts an immune teenager across a post-pandemic America.",
+      "poster_url": null,
+      "tmdb_id": 100088,
+      "trailer_key": null
+    },
+    {
+      "id": 8900035,
+      "title": "Money Heist",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "A criminal mastermind leads an audacious heist on the Royal Mint of Spain.",
+      "poster_url": null,
+      "tmdb_id": 71446,
+      "trailer_key": null
+    },
+    {
+      "id": 8900036,
+      "title": "Dark",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "Four families unravel a time-travel conspiracy spanning generations in a German town.",
+      "poster_url": null,
+      "tmdb_id": 70523,
+      "trailer_key": null
+    },
+    {
+      "id": 8900037,
+      "title": "Lupin",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "A gentleman thief seeks revenge for his father, inspired by Arsène Lupin.",
+      "poster_url": null,
+      "tmdb_id": 96677,
+      "trailer_key": null
+    },
+    {
+      "id": 8900038,
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "A teen receives tapes from a classmate who died by suicide, each explaining a reason why.",
+      "poster_url": null,
+      "tmdb_id": 66788,
+      "trailer_key": null
+    },
+    {
+      "id": 8900039,
+      "title": "Spartacus",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A betrayed Thracian enslaved as a gladiator rises in rebellion against Rome.",
+      "poster_url": null,
+      "tmdb_id": 18843,
+      "trailer_key": null
+    },
+    {
+      "id": 8900040,
+      "title": "The Newsroom",
+      "year": 2012,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A cable-news anchor and his team set out to do the news well in a flawed media landscape.",
+      "poster_url": null,
+      "tmdb_id": 44217,
+      "trailer_key": null
+    },
+    {
+      "id": 8900041,
+      "title": "Chuck",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A computer geek becomes a reluctant spy after government secrets are loaded into his brain.",
+      "poster_url": null,
+      "tmdb_id": 1404,
+      "trailer_key": null
+    },
+    {
+      "id": 8900042,
+      "title": "Psych",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "A sharp-eyed slacker fakes being a psychic to help the police solve crimes.",
+      "poster_url": null,
+      "tmdb_id": 1447,
+      "trailer_key": null
+    },
+    {
+      "id": 8900043,
+      "title": "Monk",
+      "year": 2002,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A brilliant detective with OCD solves cases while battling his many phobias.",
+      "poster_url": null,
+      "tmdb_id": 1695,
+      "trailer_key": null
+    },
+    {
+      "id": 8900044,
+      "title": "Scrubs",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "The comedic, heartfelt and surreal lives of staff at a teaching hospital.",
+      "poster_url": null,
+      "tmdb_id": 4556,
+      "trailer_key": null
+    },
+    {
+      "id": 8900045,
+      "title": "The West Wing",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "The senior staff of the White House navigate politics and policy in the West Wing.",
+      "poster_url": null,
+      "tmdb_id": 1972,
+      "trailer_key": null
     }
   ]
 }

@@ -60,7 +60,9 @@ def add_essentials() -> None:
         bundle.catalog.append(
             MovieRecord(
                 idx=idx,
-                movie_id=_SYNTHETIC_ID_BASE + added,
+                # Key off the global catalog index, not a per-run counter, so
+                # re-runs never reissue an id already given to another title.
+                movie_id=_SYNTHETIC_ID_BASE + idx,
                 title=spec["title"],
                 year=spec.get("year"),
                 type="movie",
@@ -88,6 +90,10 @@ def add_essentials() -> None:
         tfidf = sp.vstack([bundle.tfidf, sp.vstack(tfidf_rows)]).tocsr()
     else:
         cf, emb, tfidf = bundle.cf_factors, bundle.embeddings, bundle.tfidf
+
+    ids = [r.movie_id for r in bundle.catalog]
+    if len(set(ids)) != len(ids):
+        raise RuntimeError("Duplicate movie_id in catalog after merge — aborting to avoid a corrupt deck.")
 
     merged = ArtifactBundle(
         catalog=bundle.catalog,
