@@ -15,7 +15,7 @@ from collections import Counter
 from fastapi import APIRouter, Query, Request
 
 from routers.popular import _parse_exclude
-from schemas import Recommendation, RecommendResponse, TasteProfile
+from schemas import PopularRequest, Recommendation, RecommendResponse, TasteProfile
 
 router = APIRouter(tags=["tv"])
 
@@ -28,24 +28,10 @@ def _era_label(years: list[int]) -> str:
     return f"{decade}s"
 
 
-@router.get("/tv", response_model=RecommendResponse)
-def tv(
-    request: Request,
-    count: int = Query(20, ge=1, le=60),
-    exclude: str | None = Query(None, description="TV ids already shown (kept out of the result)."),
-) -> RecommendResponse:
-    """Return a popularity-ranked deck of television series.
-
-    Args:
-        request: The request (carries the loaded TV catalog on ``app.state``).
-        count: Number of cards to return.
-        exclude: Comma-separated TV ids already shown.
-
-    Returns:
-        A :class:`~schemas.RecommendResponse`.
-    """
+def _tv_deck(request: Request, count: int, exclude_ids: list[int]) -> RecommendResponse:
+    """Build the popularity-ranked TV deck, excluding ``exclude_ids``."""
     catalog: list[dict] = getattr(request.app.state, "tv_catalog", None) or []
-    excluded = set(_parse_exclude(exclude))
+    excluded = set(exclude_ids)
     chosen = [r for r in catalog if r["id"] not in excluded][:count]
 
     recs = [
@@ -74,3 +60,29 @@ def tv(
             era_bias=_era_label([r["year"] for r in chosen if r.get("year")]),
         ),
     )
+
+
+@router.get("/tv", response_model=RecommendResponse)
+def tv(
+    request: Request,
+    count: int = Query(20, ge=1, le=60),
+    exclude: str | None = Query(None, description="TV ids already shown (kept out of the result)."),
+) -> RecommendResponse:
+    """Return a popularity-ranked deck of television series (query-string exclude).
+
+    Args:
+        request: The request (carries the loaded TV catalog on ``app.state``).
+        count: Number of cards to return.
+        exclude: Comma-separated TV ids already shown.
+
+    Returns:
+        A :class:`~schemas.RecommendResponse`.
+    """
+    return _tv_deck(request, count, _parse_exclude(exclude))
+
+
+@router.post("/tv", response_model=RecommendResponse)
+def tv_post(request: Request, payload: PopularRequest) -> RecommendResponse:
+    """Same as ``GET /tv`` but takes the exclude list in the body, so the shared,
+    ever-growing "seen" set never bumps into URL-length limits."""
+    return _tv_deck(request, payload.count, payload.exclude_ids)

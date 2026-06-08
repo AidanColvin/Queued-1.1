@@ -14,7 +14,7 @@ from sqlalchemy.orm import Session
 from db.database import SwipeEvent, get_db
 from dependencies import get_recommender
 from ml.recommender import HybridRecommender
-from schemas import RecommendResponse
+from schemas import PopularRequest, RecommendResponse
 
 router = APIRouter(tags=["popular"])
 
@@ -34,24 +34,10 @@ def _parse_exclude(exclude: str | None) -> list[int]:
     return out
 
 
-@router.get("/popular", response_model=RecommendResponse)
-def popular(
-    count: int = Query(20, ge=1, le=60),
-    exclude: str | None = Query(None, description="Comma-separated recommendation ids (movie_id) to skip."),
-    recommender: HybridRecommender = Depends(get_recommender),
-    db: Session = Depends(get_db),
+def _popular_deck(
+    count: int, exclude_ids: list[int], recommender: HybridRecommender, db: Session
 ) -> RecommendResponse:
-    """Return a popularity-ranked deck.
-
-    Args:
-        count: Number of cards to return.
-        exclude: TMDB ids already shown (kept out of the result).
-        recommender: Injected recommender (owns the catalog).
-        db: Injected database session (holds the swipe log).
-
-    Returns:
-        A :class:`~schemas.RecommendResponse`.
-    """
+    """Build the crowd-popularity deck, excluding ``exclude_ids``."""
     rows = db.execute(
         select(SwipeEvent.tmdb_id, SwipeEvent.action, func.count())
         .group_by(SwipeEvent.tmdb_id, SwipeEvent.action)
@@ -60,8 +46,36 @@ def popular(
     for tmdb_id, action, n in rows:
         popularity[tmdb_id] = popularity.get(tmdb_id, 0.0) + _ACTION_WEIGHT.get(action, 0.0) * n
 
-    return recommender.popular(
-        popularity=popularity,
-        count=count,
-        exclude_ids=_parse_exclude(exclude),
-    )
+    return recommender.popular(popularity=popularity, count=count, exclude_ids=exclude_ids)
+
+
+@router.get("/popular", response_model=RecommendResponse)
+def popular(
+    count: int = Query(20, ge=1, le=60),
+    exclude: str | None = Query(None, description="Comma-separated recommendation ids (movie_id) to skip."),
+    recommender: HybridRecommender = Depends(get_recommender),
+    db: Session = Depends(get_db),
+) -> RecommendResponse:
+    """Return a popularity-ranked deck (small exclude lists — query string).
+
+    Args:
+        count: Number of cards to return.
+        exclude: Comma-separated recommendation ids already shown.
+        recommender: Injected recommender (owns the catalog).
+        db: Injected database session (holds the swipe log).
+
+    Returns:
+        A :class:`~schemas.RecommendResponse`.
+    """
+    return _popular_deck(count, _parse_exclude(exclude), recommender, db)
+
+
+@router.post("/popular", response_model=RecommendResponse)
+def popular_post(
+    payload: PopularRequest,
+    recommender: HybridRecommender = Depends(get_recommender),
+    db: Session = Depends(get_db),
+) -> RecommendResponse:
+    """Same as ``GET /popular`` but takes the exclude list in the body, so a long
+    session's ever-growing "seen" set never bumps into URL-length limits."""
+    return _popular_deck(payload.count, payload.exclude_ids, recommender, db)
