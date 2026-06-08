@@ -168,7 +168,8 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       </div>
 
       <p className="mt-3 text-center text-xs text-muted/70">
-        → like · ← pass · ↑ watchlist · ↓ skip — it learns as you go. Tap a card for the trailer.
+        → like · ← dislike · ↑ watchlist · ↓ haven&apos;t seen — it learns as you go. Tap a card for
+        details + the trailer.
       </p>
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />

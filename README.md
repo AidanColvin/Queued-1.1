@@ -81,10 +81,10 @@ Weights were tuned empirically on a held-out 20% of the MovieLens test split. CF
 The model never cold-starts against *you* — it ships trained on 25M ratings, so the first card is already good. From there it personalizes in real time. Each swipe nudges a per-session preference vector toward (or away from) the card's embedding, and the remaining deck is re-sorted by cosine similarity — pure numpy, ~milliseconds, **no retraining** ([`ml/reranker.py`](backend/ml/reranker.py)):
 
 ```python
-SIGNAL_WEIGHTS = {"liked": 1.0, "saved": 0.65, "skip": -0.25, "dismissed": -0.55}
+SIGNAL_WEIGHTS = {"liked": 1.0, "saved": 0.65, "skip": 0.0, "dismissed": -0.55}
 ```
 
-The signals are deliberately **asymmetric** — a dismiss is not the mirror of a like — and a `time_on_card_ms` modifier treats a fast dismiss as a confident "no" and a long hesitation as a soft "maybe". Every swipe is logged to `swipe_events` as the source of truth for periodic offline retraining (planned: ALS on implicit feedback). Cross-session user profiles arrive with accounts in Phase 3.
+The four directions map to **like** (→), **dislike** (←), **watchlist / save** (↑) and **"haven't seen it"** (↓). The signals are deliberately **asymmetric** — a dislike is not the mirror of a like — and a `time_on_card_ms` modifier treats a fast dislike as a confident "no" and a long hesitation as a soft "maybe". "Haven't seen it" is weighted **neutral**: it signals unfamiliarity, not taste, so a discovery app must not learn *away* from titles you simply haven't met — but it is still logged. Every swipe is written to `swipe_events` as the source of truth for periodic offline retraining (planned: ALS on implicit feedback). Cross-session user profiles arrive with accounts in Phase 3.
 
 ---
 

@@ -9,9 +9,9 @@ interface KeyHintsProps {
 /** Subtle keyboard-hint overlay shown on first load, fades after 3s / first key. */
 export default function KeyHints({ visible }: KeyHintsProps) {
   const hints: [string, string][] = [
-    ['A / ←', 'Pass'],
-    ['W / ↑', 'Save'],
-    ['S / ↓', 'Skip'],
+    ['A / ←', 'Dislike'],
+    ['W / ↑', 'Watchlist'],
+    ['S / ↓', 'Not seen'],
     ['D / →', 'Like'],
   ];
   return (
