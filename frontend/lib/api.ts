@@ -70,18 +70,21 @@ export async function getRecommendations(
   });
 }
 
-/** Fetch the seedless, popularity-ranked cold-start deck. */
+/** Fetch the seedless, popularity-ranked cold-start deck. POSTed so the
+ *  ever-growing "seen" exclude list never hits URL-length limits. */
 export async function getPopular(count = 20, excludeIds: number[] = []): Promise<RecommendResponse> {
-  const params = new URLSearchParams({ count: String(count) });
-  if (excludeIds.length) params.set('exclude', excludeIds.join(','));
-  return request<RecommendResponse>(`/popular?${params}`);
+  return request<RecommendResponse>('/popular', {
+    method: 'POST',
+    body: JSON.stringify({ count, exclude_ids: excludeIds }),
+  });
 }
 
 /** Fetch the popularity-ranked TV deck (separate keyless catalog — no ML model). */
 export async function getTv(count = 20, excludeIds: number[] = []): Promise<RecommendResponse> {
-  const params = new URLSearchParams({ count: String(count) });
-  if (excludeIds.length) params.set('exclude', excludeIds.join(','));
-  return request<RecommendResponse>(`/tv?${params}`);
+  return request<RecommendResponse>('/tv', {
+    method: 'POST',
+    body: JSON.stringify({ count, exclude_ids: excludeIds }),
+  });
 }
 
 /**

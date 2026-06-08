@@ -77,6 +77,23 @@ class RecommendResponse(BaseModel):
     taste_profile: TasteProfile
 
 
+class PopularRequest(BaseModel):
+    """Body for ``POST /popular`` and ``POST /tv``.
+
+    The endless deck's "already seen" set grows without bound over a long
+    session; sending it in a POST body (rather than a ``GET`` query string)
+    keeps the request well clear of URL-length limits.
+
+    Attributes:
+        count: Number of cards to return.
+        exclude_ids: Recommendation ids (``movie_id`` / TV id) already shown —
+            kept out of the deck so a card is never served twice.
+    """
+
+    count: int = Field(default=20, ge=1, le=60)
+    exclude_ids: list[int] = Field(default_factory=list)
+
+
 # --------------------------------------------------------------------------- #
 # /search
 # --------------------------------------------------------------------------- #

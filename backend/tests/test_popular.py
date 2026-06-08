@@ -32,6 +32,24 @@ def test_recommend_excludes_ids(client) -> None:
     assert all(r["id"] not in seen for r in refill["recommendations"])
 
 
+def test_popular_post_excludes_ids(client) -> None:
+    """POST /popular takes the exclude list in the body (no URL-length ceiling)."""
+    first = client.get("/popular", params={"count": 5}).json()["recommendations"]
+    drop = [r["id"] for r in first]
+    again = client.post("/popular", json={"count": 5, "exclude_ids": drop}).json()["recommendations"]
+    assert all(r["id"] not in drop for r in again)
+
+
+def test_tv_post_excludes_ids(client) -> None:
+    """POST /tv mirrors GET /tv but with a body exclude list."""
+    first = client.get("/tv", params={"count": 5}).json()["recommendations"]
+    if not first:  # TV catalog may be empty on the sample bundle
+        return
+    drop = [r["id"] for r in first]
+    again = client.post("/tv", json={"count": 5, "exclude_ids": drop}).json()["recommendations"]
+    assert all(r["id"] not in drop for r in again)
+
+
 def test_recommend_includes_cast_and_overview(client) -> None:
     """Recommendations now carry cast + synopsis for the card."""
     resp = client.post("/recommend", json={"titles": ["The Godfather"], "count": 5})
