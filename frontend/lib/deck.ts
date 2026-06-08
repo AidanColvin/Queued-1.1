@@ -15,6 +15,9 @@ interface DeckState {
   decisions: CardDecision[];
   likedCards: Recommendation[];
   wishlistCards: Recommendation[];
+  /** Persisted ids of every card ever shown — survives reloads so the deck
+   *  never re-serves a title the user has already seen. */
+  seenIds: number[];
 }
 
 export interface DeckApi {
@@ -24,10 +27,15 @@ export interface DeckApi {
   decisionsCount: number;
   liked: Recommendation[];
   wishlist: Recommendation[];
-  /** Every TMDB id ever queued — pass to the backend to avoid repeats. */
+  /** Every id ever shown — current queue ∪ the persisted seen set. Pass to the
+   *  backend as the exclude list so a card is never served twice, even across
+   *  page reloads / cold-starts. */
   knownIds: number[];
   /** Recent positive titles (liked + wish-listed), used to seed adaptive refills. */
   positiveTitles: string[];
+  /** True once localStorage has been restored — gate the first fetch on this so
+   *  the initial deck already excludes everything seen in past sessions. */
+  hydrated: boolean;
   canUndo: boolean;
   commit: (action: SwipeAction) => { card: Recommendation; remaining: number[] } | null;
   undo: () => void;
@@ -40,11 +48,23 @@ export interface DeckApi {
 
 const LIKED_KEY = 'nextwatch:liked';
 const WISHLIST_KEY = 'nextwatch:wishlist';
+const SEEN_KEY = 'nextwatch:seen';
 
 function load(key: string): Recommendation[] {
   try {
     const raw = localStorage.getItem(key);
     return raw ? (JSON.parse(raw) as Recommendation[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+/** Restore a persisted id list (the seen set), tolerating absent/corrupt data. */
+function loadIds(key: string): number[] {
+  try {
+    const raw = localStorage.getItem(key);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed.filter((n): n is number => typeof n === 'number') : [];
   } catch {
     return [];
   }
@@ -57,6 +77,7 @@ export function useDeck(): DeckApi {
     decisions: [],
     likedCards: [],
     wishlistCards: [],
+    seenIds: [],
   }));
   const stateRef = useRef(state);
   stateRef.current = state;
@@ -68,7 +89,12 @@ export function useDeck(): DeckApi {
   // Restore persisted wish list + likes once on mount. Client-only, so SSR and
   // first paint both render the empty initial state and never mismatch.
   useEffect(() => {
-    setState((s) => ({ ...s, likedCards: load(LIKED_KEY), wishlistCards: load(WISHLIST_KEY) }));
+    setState((s) => ({
+      ...s,
+      likedCards: load(LIKED_KEY),
+      wishlistCards: load(WISHLIST_KEY),
+      seenIds: loadIds(SEEN_KEY),
+    }));
     setHydrated(true);
   }, []);
 
@@ -77,10 +103,11 @@ export function useDeck(): DeckApi {
     try {
       localStorage.setItem(LIKED_KEY, JSON.stringify(state.likedCards));
       localStorage.setItem(WISHLIST_KEY, JSON.stringify(state.wishlistCards));
+      localStorage.setItem(SEEN_KEY, JSON.stringify(state.seenIds));
     } catch {
       /* storage unavailable — non-fatal */
     }
-  }, [hydrated, state.likedCards, state.wishlistCards]);
+  }, [hydrated, state.likedCards, state.wishlistCards, state.seenIds]);
 
   const commit = useCallback<DeckApi['commit']>((action) => {
     const s = stateRef.current;
@@ -146,18 +173,27 @@ export function useDeck(): DeckApi {
   const append = useCallback<DeckApi['append']>((recs) => {
     let added = 0;
     setState((s) => {
-      // De-duplicate on the stable `id` (movie_id) — tmdb_id can be null for
-      // some real titles, which previously let them recirculate.
-      const known = new Set(s.queue.map((r) => r.id));
+      // De-duplicate on the stable `id` (movie_id) against both the current
+      // queue AND the persisted seen set, so a title the user already saw in a
+      // previous session can never re-enter the deck. (tmdb_id can be null for
+      // some real titles, which previously let them recirculate.)
+      const known = new Set<number>([...s.queue.map((r) => r.id), ...s.seenIds]);
       const fresh = recs.filter((r) => !known.has(r.id));
       added = fresh.length;
-      return fresh.length ? { ...s, queue: [...s.queue, ...fresh] } : s;
+      if (!fresh.length) return s;
+      return {
+        ...s,
+        queue: [...s.queue, ...fresh],
+        seenIds: [...s.seenIds, ...fresh.map((r) => r.id)],
+      };
     });
     return added;
   }, []);
 
   return useMemo<DeckApi>(() => {
-    const knownIds = state.queue.map((r) => r.id);
+    // Union of the persisted seen set and the current queue — the full exclude
+    // list, so refills *and* the cold-start/initial deck both skip seen cards.
+    const knownIds = [...new Set<number>([...state.seenIds, ...state.queue.map((r) => r.id)])];
     return {
       currentCard: state.queue[state.current] ?? null,
       upcoming: state.queue.slice(state.current + 1, state.current + 3),
@@ -166,6 +202,7 @@ export function useDeck(): DeckApi {
       liked: state.likedCards,
       wishlist: state.wishlistCards,
       knownIds,
+      hydrated,
       // Movies-only: the recommender can't resolve TV titles, so never seed it
       // with them (doing so 422s the whole request).
       positiveTitles: [
@@ -182,5 +219,5 @@ export function useDeck(): DeckApi {
       append,
       reset,
     };
-  }, [state, commit, undo, reorderRemaining, append, reset]);
+  }, [state, hydrated, commit, undo, reorderRemaining, append, reset]);
 }
