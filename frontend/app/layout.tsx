@@ -13,6 +13,9 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
+  // Render edge-to-edge on notched iPhones; the app shell then pads itself back
+  // out of the safe areas (see .app-shell in globals.css).
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
