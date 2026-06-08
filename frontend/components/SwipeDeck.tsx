@@ -151,6 +151,17 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
     return () => node.removeEventListener('wheel', onWheel);
   }, [decide]);
 
+  // Tapping the top card both reveals the full synopsis/why inline and opens the
+  // trailer in the browser — a click is "tell me more + play it", a swipe is a
+  // decision (handled separately, and never triggers this).
+  const openTopCard = useCallback(
+    (rec: Recommendation) => {
+      setExpanded(true);
+      onOpenCard(rec);
+    },
+    [onOpenCard],
+  );
+
   const cards = deck.currentCard ? [deck.currentCard, ...deck.upcoming] : [];
 
   return (
@@ -177,7 +188,7 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
               threshold={threshold}
               expanded={i === 0 && expanded}
               onCommit={decide}
-              onOpen={i === 0 ? () => onOpenCard(rec) : undefined}
+              onOpen={i === 0 ? () => openTopCard(rec) : undefined}
             />
           ))}
         </AnimatePresence>

@@ -27,8 +27,11 @@ from ml.artifacts import MovieRecord
 SIGNAL_WEIGHTS: dict[str, float] = {
     "liked": 1.0,      # strong positive — "more exactly like this"
     "saved": 0.65,     # moderate positive — "interested, lower urgency"
-    "skip": -0.25,     # weak negative — "not appealing right now"
-    "dismissed": -0.55,  # moderate negative — "not this vibe at all"
+    "skip": 0.0,       # neutral — "haven't seen it": unfamiliarity, not taste.
+                       # Still recorded to swipe_events (offline training), but
+                       # never nudges the live taste vector — a discovery app
+                       # must not learn *away* from titles you simply haven't met.
+    "dismissed": -0.55,  # moderate negative — "not this vibe at all" (dislike)
 }
 
 # Re-rank only once the session carries enough signal to be meaningful.
@@ -96,12 +99,13 @@ class SessionReranker:
             time_on_card_ms: Deliberation time in milliseconds.
 
         Returns:
-            ``True`` if the swipe was applied, ``False`` if the card or action
-            was unknown (the request is then a no-op, not an error).
+            ``True`` if the swipe moved the session vector, ``False`` if the
+            card/action was unknown or carries no signal (e.g. a neutral
+            "haven't seen it"). Either way it is not an error.
         """
         idx = self._tmdb_to_idx.get(tmdb_id)
         weight = SIGNAL_WEIGHTS.get(action)
-        if idx is None or weight is None:
+        if idx is None or weight is None or weight == 0.0:
             return False
         self.session_vector += weight * time_modifier(time_on_card_ms, action) * self._embeddings[idx]
         self.confidence = min(self.confidence + abs(weight) * 0.1, 1.0)
