@@ -11,11 +11,18 @@ YouTube" link rather than ever auto-navigating.
 
 from __future__ import annotations
 
-import httpx
 from fastapi import APIRouter, Query
 
 from config import get_settings
 from schemas import MediaType, TrailerResponse
+
+# Imported defensively: this router must never break app startup if the slim
+# serverless runtime is missing httpx — the endpoint just degrades to an error
+# response and every other route keeps working.
+try:
+    import httpx
+except ImportError:  # pragma: no cover - httpx is a declared runtime dependency
+    httpx = None  # type: ignore[assignment]
 
 router = APIRouter(tags=["trailer"])
 
@@ -58,6 +65,8 @@ def trailer(
     settings = get_settings()
     if not settings.tmdb_api_key:
         return TrailerResponse(source="unconfigured")
+    if httpx is None:
+        return TrailerResponse(source="error")
 
     endpoint = "tv" if type == "tv" else "movie"
     url = f"https://api.themoviedb.org/3/{endpoint}/{tmdb_id}/videos"

@@ -6,3 +6,4 @@ pydantic-settings==2.7.1
 numpy==2.2.1
 scipy==1.15.0
 SQLAlchemy==2.0.36
+httpx==0.28.1  # /trailer calls TMDB; must mirror backend/requirements.txt
