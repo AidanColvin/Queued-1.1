@@ -25,6 +25,8 @@ export interface Recommendation {
   overview: string;
   poster_url: string | null;
   tmdb_id: number | null;
+  /** YouTube video id baked in keylessly — lets the trailer play in-page. */
+  trailer_key: string | null;
   why: string;
 }
 

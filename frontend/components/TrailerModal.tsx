@@ -32,6 +32,12 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
     let cancelled = false;
     setPhase({ state: 'loading' });
 
+    // Prefer the keyless trailer id baked into the catalog — plays in-page with
+    // no API call at all. Only fall back to the TMDB-backed lookup when absent.
+    if (rec.trailer_key) {
+      setPhase({ state: 'playing', key: rec.trailer_key });
+      return;
+    }
     if (rec.tmdb_id == null) {
       setPhase({ state: 'unavailable' });
       return;

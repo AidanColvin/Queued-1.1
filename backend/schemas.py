@@ -55,6 +55,10 @@ class Recommendation(BaseModel):
     overview: str = Field(default="", description="One- or two-sentence synopsis.")
     poster_url: str | None
     tmdb_id: int | None
+    trailer_key: str | None = Field(
+        default=None,
+        description="YouTube video id for the trailer, baked in keylessly — lets the client play it in-page with no API key.",
+    )
     why: str = Field(description="Human-readable explanation of why this title was matched.")
 
 

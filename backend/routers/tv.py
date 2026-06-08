@@ -60,6 +60,7 @@ def tv(
             overview=r.get("overview", ""),
             poster_url=r.get("poster_url"),
             tmdb_id=r.get("tmdb_id"),
+            trailer_key=r.get("trailer_key"),
             why="Popular series right now.",
         )
         for i, r in enumerate(chosen)
