@@ -62,6 +62,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900000,
+      "title": "The Sopranos",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "A New Jersey mob boss juggles running a criminal organization with family life — and therapy.",
+      "poster_url": null,
+      "tmdb_id": 1398,
+      "trailer_key": null
+    },
+    {
       "id": 8000006,
       "title": "Breaking Bad",
       "year": 2008,
@@ -120,6 +135,21 @@
       "overview": "Lost is an American science fiction adventure drama television series created by Jeffrey Lieber, J. J. Abrams, and Damon Lindelof that aired on ABC from September 22, 2004, to May 23, 2010, with a total of 121 episodes over six seasons. It contains elements of supernatural fiction and follows the survivors of Oceanic Airlines flight 815 (flying between Sydney and Los Angeles) after the plane crashes on a mysterious island somewhere in the South Pacific Ocean.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Lost_main_title.svg/500px-Lost_main_title.svg.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900001,
+      "title": "The Simpsons",
+      "year": 1989,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "The satirical misadventures of a working-class family in the town of Springfield.",
+      "poster_url": null,
+      "tmdb_id": 456,
+      "trailer_key": null
     },
     {
       "id": 8000010,
@@ -182,6 +212,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900002,
+      "title": "Black Mirror",
+      "year": 2011,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "An anthology exploring a twisted near-future where technology collides with humanity's darkest instincts.",
+      "poster_url": null,
+      "tmdb_id": 42009,
+      "trailer_key": null
+    },
+    {
       "id": 8000017,
       "title": "Sherlock",
       "year": 2010,
@@ -239,6 +285,21 @@
       "overview": "Hannah Montana is an American teen sitcom created by Michael Poryes, Rich Correll, and Barry O'Brien that aired on Disney Channel for four seasons between March 2006 and January 2011. The series centers on Miley Stewart (played by Miley Cyrus), a teenage girl living a double life as famous pop singer Hannah Montana, an alter ego she adopted so she could maintain her anonymity and live a normal life as a typical teenager.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/2b/Hannah_Montana_Logo.PNG",
       "tmdb_id": null
+    },
+    {
+      "id": 8900003,
+      "title": "Grey's Anatomy",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "cast": [],
+      "overview": "The professional and personal lives of surgeons at a Seattle teaching hospital.",
+      "poster_url": null,
+      "tmdb_id": 1416,
+      "trailer_key": null
     },
     {
       "id": 8000026,
@@ -301,6 +362,20 @@
       "tmdb_id": null
     },
     {
+      "id": 8900004,
+      "title": "Modern Family",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A mockumentary following three diverse but related families in suburban Los Angeles.",
+      "poster_url": null,
+      "tmdb_id": 1421,
+      "trailer_key": null
+    },
+    {
       "id": 8000030,
       "title": "Sex and the City",
       "year": 1998,
@@ -356,6 +431,20 @@
       "overview": "iCarly is an American teen sitcom created by Dan Schneider, which originally aired on Nickelodeon from September 8, 2007, to November 23, 2012.\nThe series centers on Carly Shay, a Seattle-based teenager who creates and hosts her own web show called iCarly with her best friends, Sam Puckett and Freddie Benson, in the apartment loft that she and her older brother, Spencer, live in.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Icarly_logo.svg/500px-Icarly_logo.svg.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900005,
+      "title": "Arrested Development",
+      "year": 2003,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A formerly wealthy, hopelessly dysfunctional family clings to its privileged lifestyle.",
+      "poster_url": null,
+      "tmdb_id": 4589,
+      "trailer_key": null
     },
     {
       "id": 8000042,
@@ -417,6 +506,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900006,
+      "title": "Chernobyl",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "cast": [],
+      "overview": "A dramatization of the 1986 nuclear disaster and the sacrifices made to contain it.",
+      "poster_url": null,
+      "tmdb_id": 87108,
+      "trailer_key": null
+    },
+    {
       "id": 8000049,
       "title": "Gossip Girl",
       "year": 2007,
@@ -471,6 +575,22 @@
       "overview": "Arrow is an American superhero television series developed by Greg Berlanti, Marc Guggenheim, and Andrew Kreisberg based on the DC Comics character Green Arrow, a costumed crime-fighter created by Mort Weisinger and George Papp, and is the first series of the Arrowverse, sharing continuity with other related television series. The series premiered in the United States on The CW on October 10, 2012, and ran for eight seasons until January 28, 2020.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/1b/Arrow_Intertitle.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900007,
+      "title": "Band of Brothers",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "War",
+        "History"
+      ],
+      "cast": [],
+      "overview": "Easy Company of the US 101st Airborne, from training through the end of WWII.",
+      "poster_url": null,
+      "tmdb_id": 4613,
+      "trailer_key": null
     },
     {
       "id": 8000056,
@@ -531,6 +651,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900008,
+      "title": "Ozark",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "A financial planner moves his family to the Ozarks to launder money for a drug cartel.",
+      "poster_url": null,
+      "tmdb_id": 69740,
+      "trailer_key": null
+    },
+    {
       "id": 8000061,
       "title": "Seinfeld",
       "year": 1989,
@@ -589,6 +725,20 @@
       "tmdb_id": null
     },
     {
+      "id": 8900009,
+      "title": "Succession",
+      "year": 2018,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A media dynasty's children vie for control as their ailing father weighs his future.",
+      "poster_url": null,
+      "tmdb_id": 76331,
+      "trailer_key": null
+    },
+    {
       "id": 8000067,
       "title": "Brooklyn Nine-Nine",
       "year": 2013,
@@ -643,6 +793,22 @@
       "overview": "Terra e Paixão (English title: Land of Desire) is a Brazilian telenovela created by Walcyr Carrasco. It aired on TV Globo from 8 May 2023 to 19 January 2024.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/15/Terra_e_Paix%C3%A3o_title_card.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900010,
+      "title": "The Mandalorian",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A lone bounty hunter protects a mysterious child across the galaxy's outer reaches.",
+      "poster_url": null,
+      "tmdb_id": 82856,
+      "trailer_key": null
     },
     {
       "id": 8000071,
@@ -700,6 +866,22 @@
       "overview": "Castle is an American crime mystery comedy-drama television series that aired on ABC for a total of eight seasons from March 9, 2009, to May 16, 2016. The series was produced by Beacon Pictures and ABC Studios.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/4/48/CastleIntertitle.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900011,
+      "title": "Supernatural",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "Two brothers hunt demons, ghosts and monsters across America.",
+      "poster_url": null,
+      "tmdb_id": 1622,
+      "trailer_key": null
     },
     {
       "id": 8000076,
@@ -762,6 +944,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900012,
+      "title": "Criminal Minds",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "An elite FBI team profiles the country's most dangerous criminals.",
+      "poster_url": null,
+      "tmdb_id": 4057,
+      "trailer_key": null
+    },
+    {
       "id": 8000081,
       "title": "Descendants of the Sun",
       "year": 2016,
@@ -820,6 +1018,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900013,
+      "title": "Law & Order: SVU",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "An elite squad of detectives investigates sexually based offenses.",
+      "poster_url": null,
+      "tmdb_id": 2734,
+      "trailer_key": null
+    },
+    {
       "id": 8000086,
       "title": "That '70s Show",
       "year": 1998,
@@ -870,6 +1084,22 @@
       "overview": "El Chavo (Spanish pronunciation: [el ˈtʃaβo], \"The Kid/The Boy\"), also known as El Chavo del Ocho (Spanish pronunciation: [el ˈtʃaβo ðel ˈotʃo], \"The Kid/Boy from Number Eight\"), is a Mexican television sitcom created by Chespirito and produced by Televisa. It premiered on 26 February 1973, and concluded on 7 January 1980, after 7 seasons and 312 episodes, and aired across Latin America and Spain.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/El_Chavo_%28simple_logo%29.svg/500px-El_Chavo_%28simple_logo%29.svg.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900014,
+      "title": "Rick and Morty",
+      "year": 2013,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A cynical scientist drags his grandson on reckless interdimensional adventures.",
+      "poster_url": null,
+      "tmdb_id": 60625,
+      "trailer_key": null
     },
     {
       "id": 8000091,
@@ -931,6 +1161,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900015,
+      "title": "South Park",
+      "year": 1997,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "Four foul-mouthed boys cause havoc in a quiet Colorado mountain town.",
+      "poster_url": null,
+      "tmdb_id": 2190,
+      "trailer_key": null
+    },
+    {
       "id": 8000096,
       "title": "Fringe",
       "year": 2008,
@@ -990,6 +1235,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900016,
+      "title": "Family Guy",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "The surreal misadventures of the Griffin family in Quahog, Rhode Island.",
+      "poster_url": null,
+      "tmdb_id": 1434,
+      "trailer_key": null
+    },
+    {
       "id": 8000101,
       "title": "Boys Over Flowers",
       "year": 2009,
@@ -1044,6 +1304,22 @@
       "overview": "The Witcher is a fantasy drama television series created by Lauren Schmidt Hissrich for Netflix. It is based on the book series by Polish author Andrzej Sapkowski.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/The_Witcher_Logo.png/500px-The_Witcher_Logo.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900017,
+      "title": "Futurama",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A slacker is cryogenically frozen and wakes in the year 3000 to work at a delivery company.",
+      "poster_url": null,
+      "tmdb_id": 615,
+      "trailer_key": null
     },
     {
       "id": 8000105,
@@ -1105,6 +1381,20 @@
       "tmdb_id": null
     },
     {
+      "id": 8900018,
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A mockumentary on the absurd day-to-day of an Indiana town's parks department.",
+      "poster_url": null,
+      "tmdb_id": 8592,
+      "trailer_key": null
+    },
+    {
       "id": 8000109,
       "title": "American Idol",
       "year": 2002,
@@ -1160,6 +1450,20 @@
       "overview": "The Wire is an American crime drama television series created and primarily written by American author and former police reporter David Simon for the cable network HBO. The series premiered on June 2, 2002, and ended on March 9, 2008, comprising 60 episodes over five seasons. The idea for the show started out as a police drama loosely based on the experiences of Simon's writing partner Ed Burns, a former homicide detective and public school teacher.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/The_Wire_logo.svg/500px-The_Wire_logo.svg.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900019,
+      "title": "Community",
+      "year": 2009,
+      "type": "tv",
+      "genres": [
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A disbarred lawyer joins a community-college study group that becomes a surrogate family.",
+      "poster_url": null,
+      "tmdb_id": 18347,
+      "trailer_key": null
     },
     {
       "id": 8000113,
@@ -1220,6 +1524,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900020,
+      "title": "The Punisher",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Frank Castle wages a one-man war on crime after his family is murdered.",
+      "poster_url": null,
+      "tmdb_id": 67178,
+      "trailer_key": null
+    },
+    {
       "id": 8000118,
       "title": "CSI: Miami",
       "year": 2002,
@@ -1277,6 +1597,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900021,
+      "title": "Superman & Lois",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "Superman and Lois Lane juggle careers and raising two sons back in Smallville.",
+      "poster_url": null,
+      "tmdb_id": 95057,
+      "trailer_key": null
+    },
+    {
       "id": 8000125,
       "title": "Young Sheldon",
       "year": 2017,
@@ -1332,6 +1668,22 @@
       "overview": "WWE SmackDown, also known as Friday Night SmackDown or simply SmackDown, is an American professional wrestling television program produced by WWE. It currently airs live every Friday at 8 p.m. Eastern Time (ET) on USA Network in the United States, and in most international markets on Netflix.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/WWE_SmackDown_%282024%29_Logo.svg/500px-WWE_SmackDown_%282024%29_Logo.svg.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900022,
+      "title": "Smallville",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A young Clark Kent comes of age and discovers his powers in Smallville, Kansas.",
+      "poster_url": null,
+      "tmdb_id": 1486,
+      "trailer_key": null
     },
     {
       "id": 8000130,
@@ -1394,6 +1746,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900023,
+      "title": "Twin Peaks",
+      "year": 1990,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Crime"
+      ],
+      "cast": [],
+      "overview": "An FBI agent investigates the murder of a homecoming queen in a strange small town.",
+      "poster_url": null,
+      "tmdb_id": 1920,
+      "trailer_key": null
+    },
+    {
       "id": 8000136,
       "title": "Frasier",
       "year": 1993,
@@ -1448,6 +1816,22 @@
       "overview": "The Handmaid's Tale is an American dystopian television series created by Bruce Miller, based on the 1985 novel The Handmaid's Tale by Canadian author Margaret Atwood. The series was ordered by the streaming service Hulu as a straight-to-series order of ten episodes, for which production began in late 2016.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/The_Handmaid%27s_Tale_intertitle.png/500px-The_Handmaid%27s_Tale_intertitle.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900024,
+      "title": "Angel",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Action"
+      ],
+      "cast": [],
+      "overview": "A vampire with a soul fights evil — and his own nature — in Los Angeles.",
+      "poster_url": null,
+      "tmdb_id": 2007,
+      "trailer_key": null
     },
     {
       "id": 8000148,
@@ -1508,6 +1892,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900025,
+      "title": "Doctor Who",
+      "year": 2005,
+      "type": "tv",
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A time-travelling alien explores the universe in a ship disguised as a police box.",
+      "poster_url": null,
+      "tmdb_id": 57243,
+      "trailer_key": null
+    },
+    {
       "id": 8000153,
       "title": "LazyTown",
       "year": 2004,
@@ -1562,6 +1962,22 @@
       "overview": "DC's Legends of Tomorrow, or simply Legends of Tomorrow, is an American time travel superhero television series developed by Greg Berlanti, Marc Guggenheim, Andrew Kreisberg, and Phil Klemmer, who are also executive producers along with Sarah Schechter and Chris Fedak; Klemmer and Fedak originally served as showrunners, while Keto Shimizu became co-showrunner with Klemmer starting with the fourth season. The series, based on the characters of DC Comics, premiered on The CW on January 21, 2016, and ran for seven seasons until March 2, 2022, before its cancellation on April 29.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/2f/Legends_of_Tomorrow_Intertitle.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900026,
+      "title": "Star Trek: Deep Space Nine",
+      "year": 1993,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "The crew of a space station guards a strategic wormhole near the planet Bajor.",
+      "poster_url": null,
+      "tmdb_id": 580,
+      "trailer_key": null
     },
     {
       "id": 8000157,
@@ -1619,6 +2035,22 @@
       "overview": "Dallas is an American prime time soap opera that aired on CBS from April 2, 1978, to May 3, 1991. The series revolved around an affluent and feuding Texas family, the Ewings, who owned the independent oil company Ewing Oil and the cattle-ranching land of Southfork.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/3/31/DallasLogo.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900027,
+      "title": "Star Trek: Voyager",
+      "year": 1995,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "A starship stranded 70,000 light years from home fights its way back across the galaxy.",
+      "poster_url": null,
+      "tmdb_id": 1855,
+      "trailer_key": null
     },
     {
       "id": 8000164,
@@ -1679,6 +2111,20 @@
       "tmdb_id": null
     },
     {
+      "id": 8900028,
+      "title": "Euphoria",
+      "year": 2019,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A group of high-schoolers navigate drugs, sex, identity and trauma.",
+      "poster_url": null,
+      "tmdb_id": 85552,
+      "trailer_key": null
+    },
+    {
       "id": 8000168,
       "title": "Jessie",
       "year": 2011,
@@ -1732,6 +2178,21 @@
       "overview": "Lucifer is an American urban fantasy television series developed by Tom Kapinos that began airing on January 25, 2016, and concluded on September 10, 2021. It revolves around Lucifer Morningstar (Tom Ellis), an alternate version of the DC Comics character of the same name created by Neil Gaiman, Sam Kieth and Mike Dringenberg.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/9/97/Lucifer%2C_title.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900029,
+      "title": "Yellowstone",
+      "year": 2018,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Western"
+      ],
+      "cast": [],
+      "overview": "A Montana ranching dynasty fights to defend its land and legacy.",
+      "poster_url": null,
+      "tmdb_id": 73586,
+      "trailer_key": null
     },
     {
       "id": 8000172,
@@ -1792,6 +2253,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900030,
+      "title": "The Bear",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "cast": [],
+      "overview": "A fine-dining chef returns home to run his family's chaotic Chicago sandwich shop.",
+      "poster_url": null,
+      "tmdb_id": 136315,
+      "trailer_key": null
+    },
+    {
       "id": 8000178,
       "title": "Moon Knight (miniseries)",
       "year": 2022,
@@ -1848,6 +2324,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900031,
+      "title": "Ted Lasso",
+      "year": 2020,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "An American football coach is hired to manage an English soccer club despite no experience.",
+      "poster_url": null,
+      "tmdb_id": 97546,
+      "trailer_key": null
+    },
+    {
       "id": 8000182,
       "title": "Everybody Loves Raymond",
       "year": 1996,
@@ -1902,6 +2393,22 @@
       "overview": "Six Feet Under is an American drama television series created and produced by Alan Ball for the television network HBO. It premiered on June 3, 2001, and ended on August 21, 2005, after five seasons consisting of 63 episodes.\nThe show follows the Fisher family, who run a funeral home in Los Angeles, along with their friends and lovers.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Sixfeetunderlogo.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900032,
+      "title": "Severance",
+      "year": 2022,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "Employees surgically split their work and personal memories — until the wall begins to crack.",
+      "poster_url": null,
+      "tmdb_id": 95396,
+      "trailer_key": null
     },
     {
       "id": 8000187,
@@ -1962,6 +2469,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900033,
+      "title": "Mindhunter",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "FBI agents interview imprisoned serial killers to understand — and catch — active ones.",
+      "poster_url": null,
+      "tmdb_id": 67744,
+      "trailer_key": null
+    },
+    {
       "id": 8000191,
       "title": "Cheers",
       "year": 1982,
@@ -2020,6 +2543,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900034,
+      "title": "The Last of Us",
+      "year": 2023,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Action",
+        "Adventure"
+      ],
+      "cast": [],
+      "overview": "A hardened smuggler escorts an immune teenager across a post-pandemic America.",
+      "poster_url": null,
+      "tmdb_id": 100088,
+      "trailer_key": null
+    },
+    {
       "id": 8000197,
       "title": "Shake It Up",
       "year": 2010,
@@ -2075,6 +2614,22 @@
       "overview": "The Pacific is a 2010 American war drama miniseries produced by HBO, Playtone, and DreamWorks that premiered in the United States on March 14, 2010. The Pacific is the second of three companion piece miniseries developed by Playtone and DreamWorks, following Band of Brothers (2001) and preceding Masters of the Air (2024).",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/1/19/ThePacificIntertitle.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900035,
+      "title": "Money Heist",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "cast": [],
+      "overview": "A criminal mastermind leads an audacious heist on the Royal Mint of Spain.",
+      "poster_url": null,
+      "tmdb_id": 71446,
+      "trailer_key": null
     },
     {
       "id": 8000202,
@@ -2136,6 +2691,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900036,
+      "title": "Dark",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "cast": [],
+      "overview": "Four families unravel a time-travel conspiracy spanning generations in a German town.",
+      "poster_url": null,
+      "tmdb_id": 70523,
+      "trailer_key": null
+    },
+    {
       "id": 8000206,
       "title": "Moon Lovers: Scarlet Heart Ryeo",
       "year": 2016,
@@ -2194,6 +2765,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900037,
+      "title": "Lupin",
+      "year": 2021,
+      "type": "tv",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "A gentleman thief seeks revenge for his father, inspired by Arsène Lupin.",
+      "poster_url": null,
+      "tmdb_id": 96677,
+      "trailer_key": null
+    },
+    {
       "id": 8000212,
       "title": "30 Rock",
       "year": 2006,
@@ -2247,6 +2834,21 @@
       "overview": "Miami Vice is an American crime drama television series created by Anthony Yerkovich and executive-produced by Michael Mann for NBC. It stars Don Johnson as James \"Sonny\" Crockett and Philip Michael Thomas as Ricardo \"Rico\" Tubbs, two Metro-Dade Police Department detectives working undercover in Miami, Florida. The series ran for five seasons on NBC from September 16, 1984, to June 28, 1989, airing on Friday nights.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Miami_Vice.svg/500px-Miami_Vice.svg.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900038,
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "type": "tv",
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "A teen receives tapes from a classmate who died by suicide, each explaining a reason why.",
+      "poster_url": null,
+      "tmdb_id": 66788,
+      "trailer_key": null
     },
     {
       "id": 8000218,
@@ -2306,6 +2908,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900039,
+      "title": "Spartacus",
+      "year": 2010,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A betrayed Thracian enslaved as a gladiator rises in rebellion against Rome.",
+      "poster_url": null,
+      "tmdb_id": 18843,
+      "trailer_key": null
+    },
+    {
       "id": 8000223,
       "title": "Jessica Jones",
       "year": 2015,
@@ -2361,6 +2978,20 @@
       "overview": "Peacemaker is an American superhero television series created by James Gunn for the streaming service HBO Max, based on the eponymous character from DC Comics. The first season is a spin-off of the film The Suicide Squad (2021) set in the DC Extended Universe (DCEU), further exploring jingoistic vigilante Chris Smith / Peacemaker.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/a/a0/Peacemaker_%28TV_series%29_logo.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900040,
+      "title": "The Newsroom",
+      "year": 2012,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A cable-news anchor and his team set out to do the news well in a flawed media landscape.",
+      "poster_url": null,
+      "tmdb_id": 44217,
+      "trailer_key": null
     },
     {
       "id": 8000228,
@@ -2422,6 +3053,22 @@
       "tmdb_id": null
     },
     {
+      "id": 8900041,
+      "title": "Chuck",
+      "year": 2007,
+      "type": "tv",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A computer geek becomes a reluctant spy after government secrets are loaded into his brain.",
+      "poster_url": null,
+      "tmdb_id": 1404,
+      "trailer_key": null
+    },
+    {
       "id": 8000233,
       "title": "The L Word",
       "year": 2004,
@@ -2475,6 +3122,22 @@
       "overview": "Good Luck Charlie is an American sitcom that aired on Disney Channel from April 4, 2010, to February 16, 2014. It focuses on the Duncan family, a middle-class American family in Denver as they adjust to the births of their fourth and later fifth children, Charlotte \"Charlie\" (Mia Talerico) and Toby (Logan Moreau).",
       "poster_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Goodluck_charly_logo.svg/500px-Goodluck_charly_logo.svg.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900042,
+      "title": "Psych",
+      "year": 2006,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Mystery"
+      ],
+      "cast": [],
+      "overview": "A sharp-eyed slacker fakes being a psychic to help the police solve crimes.",
+      "poster_url": null,
+      "tmdb_id": 1447,
+      "trailer_key": null
     },
     {
       "id": 8000240,
@@ -2532,6 +3195,22 @@
       "overview": "Diriliş: Ertuğrul, translated as Resurrection: Ertuğrul, is a Turkish historical drama television series inspired by the life of Ertuğrul Bey, the father of Osman I, founder of the Ottoman Empire. Created and produced by Mehmet Bozdağ under Bozdağ Films, the series originally aired on TRT 1 from 2014 to 2019.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/Dirili%C5%9F-_Ertu%C4%9Frul_logo.png/500px-Dirili%C5%9F-_Ertu%C4%9Frul_logo.png",
       "tmdb_id": null
+    },
+    {
+      "id": 8900043,
+      "title": "Monk",
+      "year": 2002,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "A brilliant detective with OCD solves cases while battling his many phobias.",
+      "poster_url": null,
+      "tmdb_id": 1695,
+      "trailer_key": null
     },
     {
       "id": 8000244,
@@ -2594,6 +3273,21 @@
       "tmdb_id": null
     },
     {
+      "id": 8900044,
+      "title": "Scrubs",
+      "year": 2001,
+      "type": "tv",
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "The comedic, heartfelt and surreal lives of staff at a teaching hospital.",
+      "poster_url": null,
+      "tmdb_id": 4556,
+      "trailer_key": null
+    },
+    {
       "id": 8000250,
       "title": "Queer as Folk",
       "year": 2000,
@@ -2647,6 +3341,20 @@
       "overview": "M*A*S*H  is an American war comedy drama television series that aired on CBS from September 17, 1972, to February 28, 1983. It was developed by Larry Gelbart as the first original spin-off series adapted from the 1970 film of the same name, which, in turn, was based on Richard Hooker's 1968 novel MASH: A Novel About Three Army Doctors.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/b/b9/M%2AA%2AS%2AH_TV_title_screen.jpg",
       "tmdb_id": null
+    },
+    {
+      "id": 8900045,
+      "title": "The West Wing",
+      "year": 1999,
+      "type": "tv",
+      "genres": [
+        "Drama"
+      ],
+      "cast": [],
+      "overview": "The senior staff of the White House navigate politics and policy in the West Wing.",
+      "poster_url": null,
+      "tmdb_id": 1972,
+      "trailer_key": null
     },
     {
       "id": 8000257,
@@ -3112,714 +3820,6 @@
       "overview": "María la del Barrio (Lit: Maria From the Hood/English title: Humble Maria) is a 1995 Mexican television drama series broadcast by Canal de Las Estrellas. The series is based on 1979 Mexican drama series Los ricos también lloran.",
       "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/86/Thalia_Mar%C3%ADa.jpg",
       "tmdb_id": null
-    },
-    {
-      "id": 8900000,
-      "title": "The Sopranos",
-      "year": 1999,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Crime"
-      ],
-      "cast": [],
-      "overview": "A New Jersey mob boss juggles running a criminal organization with family life — and therapy.",
-      "poster_url": null,
-      "tmdb_id": 1398,
-      "trailer_key": null
-    },
-    {
-      "id": 8900001,
-      "title": "The Simpsons",
-      "year": 1989,
-      "type": "tv",
-      "genres": [
-        "Animation",
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "The satirical misadventures of a working-class family in the town of Springfield.",
-      "poster_url": null,
-      "tmdb_id": 456,
-      "trailer_key": null
-    },
-    {
-      "id": 8900002,
-      "title": "Black Mirror",
-      "year": 2011,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Sci-Fi",
-        "Thriller"
-      ],
-      "cast": [],
-      "overview": "An anthology exploring a twisted near-future where technology collides with humanity's darkest instincts.",
-      "poster_url": null,
-      "tmdb_id": 42009,
-      "trailer_key": null
-    },
-    {
-      "id": 8900003,
-      "title": "Grey's Anatomy",
-      "year": 2005,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "cast": [],
-      "overview": "The professional and personal lives of surgeons at a Seattle teaching hospital.",
-      "poster_url": null,
-      "tmdb_id": 1416,
-      "trailer_key": null
-    },
-    {
-      "id": 8900004,
-      "title": "Modern Family",
-      "year": 2009,
-      "type": "tv",
-      "genres": [
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "A mockumentary following three diverse but related families in suburban Los Angeles.",
-      "poster_url": null,
-      "tmdb_id": 1421,
-      "trailer_key": null
-    },
-    {
-      "id": 8900005,
-      "title": "Arrested Development",
-      "year": 2003,
-      "type": "tv",
-      "genres": [
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "A formerly wealthy, hopelessly dysfunctional family clings to its privileged lifestyle.",
-      "poster_url": null,
-      "tmdb_id": 4589,
-      "trailer_key": null
-    },
-    {
-      "id": 8900006,
-      "title": "Chernobyl",
-      "year": 2019,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "History"
-      ],
-      "cast": [],
-      "overview": "A dramatization of the 1986 nuclear disaster and the sacrifices made to contain it.",
-      "poster_url": null,
-      "tmdb_id": 87108,
-      "trailer_key": null
-    },
-    {
-      "id": 8900007,
-      "title": "Band of Brothers",
-      "year": 2001,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "War",
-        "History"
-      ],
-      "cast": [],
-      "overview": "Easy Company of the US 101st Airborne, from training through the end of WWII.",
-      "poster_url": null,
-      "tmdb_id": 4613,
-      "trailer_key": null
-    },
-    {
-      "id": 8900008,
-      "title": "Ozark",
-      "year": 2017,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Crime",
-        "Thriller"
-      ],
-      "cast": [],
-      "overview": "A financial planner moves his family to the Ozarks to launder money for a drug cartel.",
-      "poster_url": null,
-      "tmdb_id": 69740,
-      "trailer_key": null
-    },
-    {
-      "id": 8900009,
-      "title": "Succession",
-      "year": 2018,
-      "type": "tv",
-      "genres": [
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "A media dynasty's children vie for control as their ailing father weighs his future.",
-      "poster_url": null,
-      "tmdb_id": 76331,
-      "trailer_key": null
-    },
-    {
-      "id": 8900010,
-      "title": "The Mandalorian",
-      "year": 2019,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "A lone bounty hunter protects a mysterious child across the galaxy's outer reaches.",
-      "poster_url": null,
-      "tmdb_id": 82856,
-      "trailer_key": null
-    },
-    {
-      "id": 8900011,
-      "title": "Supernatural",
-      "year": 2005,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Fantasy",
-        "Mystery"
-      ],
-      "cast": [],
-      "overview": "Two brothers hunt demons, ghosts and monsters across America.",
-      "poster_url": null,
-      "tmdb_id": 1622,
-      "trailer_key": null
-    },
-    {
-      "id": 8900012,
-      "title": "Criminal Minds",
-      "year": 2005,
-      "type": "tv",
-      "genres": [
-        "Crime",
-        "Drama",
-        "Mystery"
-      ],
-      "cast": [],
-      "overview": "An elite FBI team profiles the country's most dangerous criminals.",
-      "poster_url": null,
-      "tmdb_id": 4057,
-      "trailer_key": null
-    },
-    {
-      "id": 8900013,
-      "title": "Law & Order: SVU",
-      "year": 1999,
-      "type": "tv",
-      "genres": [
-        "Crime",
-        "Drama",
-        "Mystery"
-      ],
-      "cast": [],
-      "overview": "An elite squad of detectives investigates sexually based offenses.",
-      "poster_url": null,
-      "tmdb_id": 2734,
-      "trailer_key": null
-    },
-    {
-      "id": 8900014,
-      "title": "Rick and Morty",
-      "year": 2013,
-      "type": "tv",
-      "genres": [
-        "Animation",
-        "Comedy",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "A cynical scientist drags his grandson on reckless interdimensional adventures.",
-      "poster_url": null,
-      "tmdb_id": 60625,
-      "trailer_key": null
-    },
-    {
-      "id": 8900015,
-      "title": "South Park",
-      "year": 1997,
-      "type": "tv",
-      "genres": [
-        "Animation",
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "Four foul-mouthed boys cause havoc in a quiet Colorado mountain town.",
-      "poster_url": null,
-      "tmdb_id": 2190,
-      "trailer_key": null
-    },
-    {
-      "id": 8900016,
-      "title": "Family Guy",
-      "year": 1999,
-      "type": "tv",
-      "genres": [
-        "Animation",
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "The surreal misadventures of the Griffin family in Quahog, Rhode Island.",
-      "poster_url": null,
-      "tmdb_id": 1434,
-      "trailer_key": null
-    },
-    {
-      "id": 8900017,
-      "title": "Futurama",
-      "year": 1999,
-      "type": "tv",
-      "genres": [
-        "Animation",
-        "Comedy",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "A slacker is cryogenically frozen and wakes in the year 3000 to work at a delivery company.",
-      "poster_url": null,
-      "tmdb_id": 615,
-      "trailer_key": null
-    },
-    {
-      "id": 8900018,
-      "title": "Parks and Recreation",
-      "year": 2009,
-      "type": "tv",
-      "genres": [
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "A mockumentary on the absurd day-to-day of an Indiana town's parks department.",
-      "poster_url": null,
-      "tmdb_id": 8592,
-      "trailer_key": null
-    },
-    {
-      "id": 8900019,
-      "title": "Community",
-      "year": 2009,
-      "type": "tv",
-      "genres": [
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "A disbarred lawyer joins a community-college study group that becomes a surrogate family.",
-      "poster_url": null,
-      "tmdb_id": 18347,
-      "trailer_key": null
-    },
-    {
-      "id": 8900020,
-      "title": "The Punisher",
-      "year": 2017,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Crime",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "Frank Castle wages a one-man war on crime after his family is murdered.",
-      "poster_url": null,
-      "tmdb_id": 67178,
-      "trailer_key": null
-    },
-    {
-      "id": 8900021,
-      "title": "Superman & Lois",
-      "year": 2021,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "Superman and Lois Lane juggle careers and raising two sons back in Smallville.",
-      "poster_url": null,
-      "tmdb_id": 95057,
-      "trailer_key": null
-    },
-    {
-      "id": 8900022,
-      "title": "Smallville",
-      "year": 2001,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "A young Clark Kent comes of age and discovers his powers in Smallville, Kansas.",
-      "poster_url": null,
-      "tmdb_id": 1486,
-      "trailer_key": null
-    },
-    {
-      "id": 8900023,
-      "title": "Twin Peaks",
-      "year": 1990,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Mystery",
-        "Crime"
-      ],
-      "cast": [],
-      "overview": "An FBI agent investigates the murder of a homecoming queen in a strange small town.",
-      "poster_url": null,
-      "tmdb_id": 1920,
-      "trailer_key": null
-    },
-    {
-      "id": 8900024,
-      "title": "Angel",
-      "year": 1999,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Fantasy",
-        "Action"
-      ],
-      "cast": [],
-      "overview": "A vampire with a soul fights evil — and his own nature — in Los Angeles.",
-      "poster_url": null,
-      "tmdb_id": 2007,
-      "trailer_key": null
-    },
-    {
-      "id": 8900025,
-      "title": "Doctor Who",
-      "year": 2005,
-      "type": "tv",
-      "genres": [
-        "Adventure",
-        "Drama",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "A time-travelling alien explores the universe in a ship disguised as a police box.",
-      "poster_url": null,
-      "tmdb_id": 57243,
-      "trailer_key": null
-    },
-    {
-      "id": 8900026,
-      "title": "Star Trek: Deep Space Nine",
-      "year": 1993,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "The crew of a space station guards a strategic wormhole near the planet Bajor.",
-      "poster_url": null,
-      "tmdb_id": 580,
-      "trailer_key": null
-    },
-    {
-      "id": 8900027,
-      "title": "Star Trek: Voyager",
-      "year": 1995,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "A starship stranded 70,000 light years from home fights its way back across the galaxy.",
-      "poster_url": null,
-      "tmdb_id": 1855,
-      "trailer_key": null
-    },
-    {
-      "id": 8900028,
-      "title": "Euphoria",
-      "year": 2019,
-      "type": "tv",
-      "genres": [
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "A group of high-schoolers navigate drugs, sex, identity and trauma.",
-      "poster_url": null,
-      "tmdb_id": 85552,
-      "trailer_key": null
-    },
-    {
-      "id": 8900029,
-      "title": "Yellowstone",
-      "year": 2018,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Western"
-      ],
-      "cast": [],
-      "overview": "A Montana ranching dynasty fights to defend its land and legacy.",
-      "poster_url": null,
-      "tmdb_id": 73586,
-      "trailer_key": null
-    },
-    {
-      "id": 8900030,
-      "title": "The Bear",
-      "year": 2022,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Comedy"
-      ],
-      "cast": [],
-      "overview": "A fine-dining chef returns home to run his family's chaotic Chicago sandwich shop.",
-      "poster_url": null,
-      "tmdb_id": 136315,
-      "trailer_key": null
-    },
-    {
-      "id": 8900031,
-      "title": "Ted Lasso",
-      "year": 2020,
-      "type": "tv",
-      "genres": [
-        "Comedy",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "An American football coach is hired to manage an English soccer club despite no experience.",
-      "poster_url": null,
-      "tmdb_id": 97546,
-      "trailer_key": null
-    },
-    {
-      "id": 8900032,
-      "title": "Severance",
-      "year": 2022,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Mystery",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "Employees surgically split their work and personal memories — until the wall begins to crack.",
-      "poster_url": null,
-      "tmdb_id": 95396,
-      "trailer_key": null
-    },
-    {
-      "id": 8900033,
-      "title": "Mindhunter",
-      "year": 2017,
-      "type": "tv",
-      "genres": [
-        "Crime",
-        "Drama",
-        "Mystery"
-      ],
-      "cast": [],
-      "overview": "FBI agents interview imprisoned serial killers to understand — and catch — active ones.",
-      "poster_url": null,
-      "tmdb_id": 67744,
-      "trailer_key": null
-    },
-    {
-      "id": 8900034,
-      "title": "The Last of Us",
-      "year": 2023,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Action",
-        "Adventure"
-      ],
-      "cast": [],
-      "overview": "A hardened smuggler escorts an immune teenager across a post-pandemic America.",
-      "poster_url": null,
-      "tmdb_id": 100088,
-      "trailer_key": null
-    },
-    {
-      "id": 8900035,
-      "title": "Money Heist",
-      "year": 2017,
-      "type": "tv",
-      "genres": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
-      "cast": [],
-      "overview": "A criminal mastermind leads an audacious heist on the Royal Mint of Spain.",
-      "poster_url": null,
-      "tmdb_id": 71446,
-      "trailer_key": null
-    },
-    {
-      "id": 8900036,
-      "title": "Dark",
-      "year": 2017,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Mystery",
-        "Sci-Fi"
-      ],
-      "cast": [],
-      "overview": "Four families unravel a time-travel conspiracy spanning generations in a German town.",
-      "poster_url": null,
-      "tmdb_id": 70523,
-      "trailer_key": null
-    },
-    {
-      "id": 8900037,
-      "title": "Lupin",
-      "year": 2021,
-      "type": "tv",
-      "genres": [
-        "Crime",
-        "Drama",
-        "Mystery"
-      ],
-      "cast": [],
-      "overview": "A gentleman thief seeks revenge for his father, inspired by Arsène Lupin.",
-      "poster_url": null,
-      "tmdb_id": 96677,
-      "trailer_key": null
-    },
-    {
-      "id": 8900038,
-      "title": "13 Reasons Why",
-      "year": 2017,
-      "type": "tv",
-      "genres": [
-        "Drama",
-        "Mystery"
-      ],
-      "cast": [],
-      "overview": "A teen receives tapes from a classmate who died by suicide, each explaining a reason why.",
-      "poster_url": null,
-      "tmdb_id": 66788,
-      "trailer_key": null
-    },
-    {
-      "id": 8900039,
-      "title": "Spartacus",
-      "year": 2010,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "A betrayed Thracian enslaved as a gladiator rises in rebellion against Rome.",
-      "poster_url": null,
-      "tmdb_id": 18843,
-      "trailer_key": null
-    },
-    {
-      "id": 8900040,
-      "title": "The Newsroom",
-      "year": 2012,
-      "type": "tv",
-      "genres": [
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "A cable-news anchor and his team set out to do the news well in a flawed media landscape.",
-      "poster_url": null,
-      "tmdb_id": 44217,
-      "trailer_key": null
-    },
-    {
-      "id": 8900041,
-      "title": "Chuck",
-      "year": 2007,
-      "type": "tv",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "A computer geek becomes a reluctant spy after government secrets are loaded into his brain.",
-      "poster_url": null,
-      "tmdb_id": 1404,
-      "trailer_key": null
-    },
-    {
-      "id": 8900042,
-      "title": "Psych",
-      "year": 2006,
-      "type": "tv",
-      "genres": [
-        "Comedy",
-        "Crime",
-        "Mystery"
-      ],
-      "cast": [],
-      "overview": "A sharp-eyed slacker fakes being a psychic to help the police solve crimes.",
-      "poster_url": null,
-      "tmdb_id": 1447,
-      "trailer_key": null
-    },
-    {
-      "id": 8900043,
-      "title": "Monk",
-      "year": 2002,
-      "type": "tv",
-      "genres": [
-        "Comedy",
-        "Crime",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "A brilliant detective with OCD solves cases while battling his many phobias.",
-      "poster_url": null,
-      "tmdb_id": 1695,
-      "trailer_key": null
-    },
-    {
-      "id": 8900044,
-      "title": "Scrubs",
-      "year": 2001,
-      "type": "tv",
-      "genres": [
-        "Comedy",
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "The comedic, heartfelt and surreal lives of staff at a teaching hospital.",
-      "poster_url": null,
-      "tmdb_id": 4556,
-      "trailer_key": null
-    },
-    {
-      "id": 8900045,
-      "title": "The West Wing",
-      "year": 1999,
-      "type": "tv",
-      "genres": [
-        "Drama"
-      ],
-      "cast": [],
-      "overview": "The senior staff of the White House navigate politics and policy in the West Wing.",
-      "poster_url": null,
-      "tmdb_id": 1972,
-      "trailer_key": null
     }
   ]
 }
