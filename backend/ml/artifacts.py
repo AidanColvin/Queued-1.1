@@ -55,6 +55,9 @@ class MovieRecord:
         mood_tags: Short descriptive tags ("slow-burn", "prestige", ...).
         overview: Plot synopsis used for the semantic embedding.
         poster_url: Fully-qualified TMDB poster URL, when known.
+        trailer_key: YouTube video id of the title's trailer, when known —
+            baked in keylessly (Wikidata P1651) so the player embeds it in-page
+            with no runtime API key. See ``data.enrich_trailers``.
     """
 
     idx: int
@@ -68,6 +71,7 @@ class MovieRecord:
     overview: str = ""
     tmdb_id: int | None = None
     poster_url: str | None = None
+    trailer_key: str | None = None
 
     def to_json(self) -> dict:
         """Serialize to a plain dict for ``movie_index.json``."""

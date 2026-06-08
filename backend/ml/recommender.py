@@ -232,6 +232,7 @@ class HybridRecommender:
             overview=rec.overview,
             poster_url=rec.poster_url,
             tmdb_id=rec.tmdb_id,
+            trailer_key=rec.trailer_key,
             why=why,
         )
 
