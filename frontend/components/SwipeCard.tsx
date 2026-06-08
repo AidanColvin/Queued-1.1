@@ -7,7 +7,7 @@ import {
   type MotionValue,
   type PanInfo,
 } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 
 import { ACTION_CONFIG } from '@/lib/actions';
 import type { Recommendation, SwipeAction } from '@/lib/types';
@@ -91,11 +91,13 @@ export default function SwipeCard({
   const [imgFailed, setImgFailed] = useState(false);
   const hasPoster = rec.poster_url && !imgFailed;
 
-  // framer-motion fires `onTap` on pointer-up even when the gesture was a drag,
-  // so a swipe would otherwise *also* open the trailer (YouTube). Track whether
-  // the pointer actually dragged and only open the trailer on a genuine tap —
-  // a real swipe just commits its like / pass / save / skip.
-  const draggedRef = useRef(false);
+  // Distinguish a tap (open trailer) from a swipe (commit a decision) from the
+  // raw pointer positions rather than framer's `onTap` — which fires on
+  // pointer-up even after a drag and would otherwise open YouTube on every
+  // swipe. We record where the press began and, on release, only treat it as a
+  // tap if the pointer barely moved. Any real drag is left entirely to
+  // `onDragEnd` and never opens the trailer.
+  const pressRef = useRef<{ x: number; y: number } | null>(null);
 
   const scale = 1 - depth * 0.05;
   const offsetY = depth * 14;
@@ -107,23 +109,30 @@ export default function SwipeCard({
       drag={isTop}
       dragSnapToOrigin
       dragElastic={0.55}
-      onDragStart={() => {
-        draggedRef.current = true;
-      }}
+      onPointerDown={
+        isTop
+          ? (e: ReactPointerEvent) => {
+              pressRef.current = { x: e.clientX, y: e.clientY };
+            }
+          : undefined
+      }
+      onPointerUp={
+        isTop
+          ? (e: ReactPointerEvent) => {
+              const start = pressRef.current;
+              pressRef.current = null;
+              if (!start) return;
+              const moved = Math.hypot(e.clientX - start.x, e.clientY - start.y);
+              // Under ~10px of travel = a tap → open the trailer + expand.
+              // Anything more is a swipe and is handled solely by onDragEnd.
+              if (moved < 10) onOpen?.();
+            }
+          : undefined
+      }
       onDragEnd={(_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
         const action = actionForOffset(info.offset, threshold);
         if (action) onCommit(action);
-        // Clear on the next tick — after framer's `onTap` (which fires
-        // synchronously on the same pointer-up) has read it and skipped opening
-        // the trailer. The timeout also self-heals the flag if `onTap` never
-        // fires, so a later genuine tap still works.
-        window.setTimeout(() => {
-          draggedRef.current = false;
-        }, 0);
       }}
-      onTap={isTop ? () => {
-        if (!draggedRef.current) onOpen?.();
-      } : undefined}
       variants={cardVariants}
       initial={isTop ? false : { scale: scale - 0.04, y: offsetY + 10, opacity: 0 }}
       animate={isTop ? { scale: 1 } : { scale, y: offsetY, opacity: 1 }}
