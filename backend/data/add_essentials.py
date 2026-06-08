@@ -31,11 +31,23 @@ _SYNTHETIC_ID_BASE = 900_000_000
 
 
 def add_essentials() -> None:
-    """Apply renames and splice any missing essential titles into the bundle."""
+    """Apply renames and splice essential titles in — rebuilding from the base
+    catalog each run so it stays idempotent and correctly row-aligned."""
     art = get_settings().artifacts_dir
     bundle = load_artifacts(art)
 
-    by_norm = {normalize_title(r.title): r for r in bundle.catalog}
+    # Strip any previously-spliced synthetic entries (always appended at the
+    # tail) back to the trained base, then rebuild. This makes re-runs a stable
+    # fixpoint and guarantees each record's idx equals its matrix-row position.
+    base_n = sum(1 for r in bundle.catalog if r.movie_id < _SYNTHETIC_ID_BASE)
+    catalog = bundle.catalog[:base_n]
+    cf = bundle.cf_factors[:base_n]
+    emb = bundle.embeddings[:base_n]
+    tfidf = bundle.tfidf[:base_n].tocsr()
+    for i, rec in enumerate(catalog):
+        rec.idx = i  # defensive: keep idx == position
+
+    by_norm = {normalize_title(r.title): r for r in catalog}
 
     # 1) Release-name fixes for the dataset's pre-release placeholders.
     renamed = 0
@@ -46,61 +58,53 @@ def add_essentials() -> None:
             by_norm[normalize_title(new_title)] = rec
             renamed += 1
 
-    # 2) Splice in the essentials that aren't already present.
+    # 2) Splice in the essentials that aren't already present, copying each
+    #    one's anchor (an existing base title) feature vectors.
     cf_rows, emb_rows, tfidf_rows = [], [], []
-    added = 0
     for spec in ESSENTIALS:
         if normalize_title(spec["title"]) in by_norm:
             continue  # already present — idempotent
         anchor = by_norm.get(normalize_title(spec["anchor"]))
-        if anchor is None:
-            print(f"  ! skip {spec['title']!r}: anchor {spec['anchor']!r} not in catalog")
+        if anchor is None or anchor.idx >= base_n:
+            print(f"  ! skip {spec['title']!r}: anchor {spec['anchor']!r} not a base title")
             continue
-        idx = len(bundle.catalog) + added
-        bundle.catalog.append(
-            MovieRecord(
-                idx=idx,
-                # Key off the global catalog index, not a per-run counter, so
-                # re-runs never reissue an id already given to another title.
-                movie_id=_SYNTHETIC_ID_BASE + idx,
-                title=spec["title"],
-                year=spec.get("year"),
-                type="movie",
-                genres=spec.get("genres", []),
-                mood_tags=[],
-                cast=[],
-                overview=spec.get("overview", ""),
-                tmdb_id=spec.get("tmdb_id"),
-                poster_url=None,  # backfilled later by keyless enrichment
-                trailer_key=None,
-            )
+        idx = len(catalog)  # the row this record will occupy
+        rec = MovieRecord(
+            idx=idx,
+            movie_id=_SYNTHETIC_ID_BASE + idx,
+            title=spec["title"],
+            year=spec.get("year"),
+            type="movie",
+            genres=spec.get("genres", []),
+            mood_tags=[],
+            cast=[],
+            overview=spec.get("overview", ""),
+            tmdb_id=spec.get("tmdb_id"),
+            poster_url=None,  # backfilled later by keyless enrichment
+            trailer_key=None,
         )
-        cf_rows.append(bundle.cf_factors[anchor.idx])
-        emb_rows.append(bundle.embeddings[anchor.idx])
-        tfidf_rows.append(bundle.tfidf[anchor.idx])
-        added += 1
+        catalog.append(rec)
+        by_norm[normalize_title(spec["title"])] = rec
+        cf_rows.append(cf[anchor.idx])
+        emb_rows.append(emb[anchor.idx])
+        tfidf_rows.append(tfidf[anchor.idx])
 
-    if not added and not renamed:
-        print("Nothing to do — all essentials already present.")
-        return
-
+    added = len(cf_rows)
     if added:
-        cf = np.vstack([bundle.cf_factors, np.array(cf_rows, dtype=bundle.cf_factors.dtype)])
-        emb = np.vstack([bundle.embeddings, np.array(emb_rows, dtype=bundle.embeddings.dtype)])
-        tfidf = sp.vstack([bundle.tfidf, sp.vstack(tfidf_rows)]).tocsr()
-    else:
-        cf, emb, tfidf = bundle.cf_factors, bundle.embeddings, bundle.tfidf
+        cf = np.vstack([cf, np.array(cf_rows, dtype=cf.dtype)])
+        emb = np.vstack([emb, np.array(emb_rows, dtype=emb.dtype)])
+        tfidf = sp.vstack([tfidf, sp.vstack(tfidf_rows)]).tocsr()
 
-    ids = [r.movie_id for r in bundle.catalog]
+    ids = [r.movie_id for r in catalog]
     if len(set(ids)) != len(ids):
         raise RuntimeError("Duplicate movie_id in catalog after merge — aborting to avoid a corrupt deck.")
 
     merged = ArtifactBundle(
-        catalog=bundle.catalog,
+        catalog=catalog,
         cf_factors=cf,
         tfidf=tfidf,
         embeddings=emb,
-        meta={**bundle.meta, "essentials_added": added + bundle.meta.get("essentials_added", 0)},
+        meta={**bundle.meta, "essentials_added": added},
     )
     save_artifacts(merged, art)
 
