@@ -2,11 +2,13 @@
 // Base URL comes from NEXT_PUBLIC_API_URL (see .env.local.example).
 
 import type {
+  MediaType,
   RecommendResponse,
   SearchResult,
   SearchType,
   SwipeRequest,
   SwipeResponse,
+  TrailerResponse,
 } from './types';
 
 // Backend base URL. In production the backend runs as a Vercel function on the
@@ -91,4 +93,10 @@ export async function recordSwipe(req: SwipeRequest): Promise<SwipeResponse> {
     method: 'POST',
     body: JSON.stringify(req),
   });
+}
+
+/** Resolve a title's YouTube trailer key so it can play in an in-page player. */
+export async function getTrailer(tmdbId: number, type: MediaType): Promise<TrailerResponse> {
+  const params = new URLSearchParams({ type });
+  return request<TrailerResponse>(`/trailer/${tmdbId}?${params}`);
 }
