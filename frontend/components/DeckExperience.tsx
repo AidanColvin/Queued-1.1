@@ -37,7 +37,10 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       if (fetchingRef.current) return;
       fetchingRef.current = true;
       try {
-        const exclude = initial ? [] : deck.knownIds;
+        // Always exclude everything seen — on the initial load this is the
+        // persisted seen set (so reloads never repeat cards), on refills it's
+        // that plus the current queue.
+        const exclude = deck.knownIds;
         const count = initial ? 20 : REFILL_COUNT;
         let res;
         if (forStack === 'tv') {
@@ -62,12 +65,13 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     [deck, seedTitles],
   );
 
-  // Initial load (once).
+  // Initial load (once) — wait until localStorage has been restored so the
+  // first fetch already excludes everything seen in previous sessions.
   useEffect(() => {
-    if (startedRef.current) return;
+    if (startedRef.current || !deck.hydrated) return;
     startedRef.current = true;
     void fetchMore(true, 'movie');
-  }, [fetchMore]);
+  }, [fetchMore, deck.hydrated]);
 
   // Endless refill: keep the queue topped up as the user swipes.
   useEffect(() => {
