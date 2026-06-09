@@ -11,7 +11,7 @@ import { useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 
 import { ACTION_CONFIG } from '@/lib/actions';
 import type { Recommendation, SwipeAction } from '@/lib/types';
-import ScoreBar from './ScoreBar';
+import { StarIcon } from './Icons';
 
 interface SwipeCardProps {
   rec: Recommendation;
@@ -174,7 +174,17 @@ export default function SwipeCard({
           </div>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 h-[68%] bg-gradient-to-t from-black via-black/65 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[72%] bg-gradient-to-t from-black via-black/70 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent" />
+
+        {/* Match score — a quiet frosted badge in the corner rather than a
+            labeled bar, so the poster stays the hero. */}
+        {rec.score > 0 && (
+          <div className="absolute left-4 top-4 flex items-center gap-1 rounded-full border border-white/15 bg-black/40 px-2.5 py-1 text-[11px] font-semibold text-amber backdrop-blur-md">
+            <StarIcon className="h-3.5 w-3.5" filled />
+            {Math.round(Math.max(0, Math.min(1, rec.score)) * 100)}% match
+          </div>
+        )}
 
         {isTop && (
           <>
@@ -186,35 +196,31 @@ export default function SwipeCard({
           </>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 space-y-2 p-5 sm:p-6">
+        <div className="absolute inset-x-0 bottom-0 space-y-2.5 p-5 sm:p-6">
           <h2 className="font-serif text-[2rem] leading-[1.05] tracking-tight text-ink drop-shadow-lg">
             {rec.title}
           </h2>
-          <div className="flex flex-wrap items-center gap-1.5">
-            {rec.year ? <span className="chip tabular-nums">{rec.year}</span> : null}
-            {rec.genres.slice(0, 3).map((g) => (
-              <span key={g} className="chip">
-                {g}
-              </span>
-            ))}
-          </div>
-          {rec.cast.length > 0 && (
-            <p className="truncate text-xs text-white/60">{rec.cast.join(' · ')}</p>
-          )}
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/65">
+            {rec.year ? <span className="font-medium tabular-nums text-white/85">{rec.year}</span> : null}
+            {rec.year && rec.genres.length > 0 ? <span className="text-white/25">·</span> : null}
+            <span>{rec.genres.slice(0, 3).join(' · ')}</span>
+          </p>
           {rec.overview && (
-            <p className={`text-sm leading-relaxed text-white/80 ${expanded ? '' : 'line-clamp-2'}`}>
+            <p className={`text-sm leading-relaxed text-white/75 ${expanded ? '' : 'line-clamp-2'}`}>
               {rec.overview}
+            </p>
+          )}
+          {expanded && rec.cast.length > 0 && (
+            <p className="truncate text-xs text-white/55">
+              <span className="text-white/40">Starring</span> {rec.cast.join(' · ')}
             </p>
           )}
           {expanded && rec.why && (
             <p className="flex items-start gap-1.5 text-xs italic text-amber/90">
-              <span aria-hidden className="not-italic">✨</span>
+              <StarIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 not-italic" filled />
               {rec.why}
             </p>
           )}
-          <div className="pt-1">
-            <ScoreBar score={rec.score} />
-          </div>
         </div>
       </div>
     </motion.div>

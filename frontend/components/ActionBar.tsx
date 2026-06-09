@@ -50,8 +50,8 @@ export default function ActionBar({
       {ORDER.map((action) => {
         const cfg = ACTION_CONFIG[action];
         const { Icon, primary } = ACTION_META[action];
-        const size = primary ? 'h-16 w-16' : 'h-[3.25rem] w-[3.25rem] sm:h-14 sm:w-14';
-        const iconSize = primary ? 'h-7 w-7' : 'h-6 w-6';
+        const size = primary ? 'h-16 w-16' : 'h-[3.25rem] w-[3.25rem]';
+        const iconSize = primary ? 'h-7 w-7' : 'h-[1.35rem] w-[1.35rem]';
         return (
           <button
             key={action}
@@ -59,11 +59,13 @@ export default function ActionBar({
             onClick={() => onAction(action)}
             aria-label={cfg.label}
             title={cfg.label}
-            className={`group flex ${size} items-center justify-center rounded-full border-2 bg-surface/90 shadow-card backdrop-blur-sm transition-transform duration-150 hover:scale-110 active:scale-90`}
+            className={`flex ${size} items-center justify-center rounded-full bg-surface/90 backdrop-blur-sm transition-transform duration-150 hover:scale-110 active:scale-90 ${
+              primary ? 'border-2 shadow-card' : 'border border-white/10'
+            }`}
             style={{
-              borderColor: cfg.color,
+              borderColor: primary ? cfg.color : undefined,
               color: cfg.color,
-              boxShadow: `0 8px 24px -10px ${cfg.color}80`,
+              boxShadow: primary ? `0 8px 26px -10px ${cfg.color}` : undefined,
             }}
           >
             <Icon className={iconSize} />

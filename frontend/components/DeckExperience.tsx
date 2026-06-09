@@ -189,10 +189,8 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           ))}
       </div>
 
-      <p className="mt-4 text-center text-xs text-muted/70">
-        Swipe <span className="text-like">right to like</span> ·{' '}
-        <span className="text-pass">left to pass</span> · <span className="text-save">up to save</span> ·{' '}
-        <span className="text-skip">down if unseen</span> — it learns as you go. Tap a card for the trailer.
+      <p className="mt-4 text-center text-xs text-muted/60">
+        Swipe or use the buttons — it learns as you go. Tap a card for the trailer.
       </p>
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />
