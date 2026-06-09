@@ -56,15 +56,16 @@ const cardVariants = {
       : { opacity: 0, scale: 0.9, transition: { duration: 0.18 } },
 };
 
-/** A bold, tilted stamp (LIKE / PASS / SAVE / SKIP) revealed while dragging. */
+/** A clean, lowercase label (like / dislike / save / not seen) revealed while
+ *  dragging — no box, just the word in the action's colour. */
 function Stamp({ action, opacity }: { action: SwipeAction; opacity: MotionValue<number> }) {
   const cfg = ACTION_CONFIG[action];
   return (
     <motion.div
-      style={{ opacity, color: cfg.color, borderColor: cfg.color }}
-      className="pointer-events-none absolute left-6 top-6 -rotate-12 rounded-md border-4 px-4 py-1 text-3xl font-extrabold tracking-widest"
+      style={{ opacity, color: cfg.color }}
+      className="pointer-events-none absolute left-6 top-6 -rotate-6 text-4xl font-bold lowercase tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
     >
-      {cfg.label}
+      {cfg.label.toLowerCase()}
     </motion.div>
   );
 }
