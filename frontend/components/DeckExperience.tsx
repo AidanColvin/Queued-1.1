@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { getPopular, getRecommendations, getTv } from '@/lib/api';
 import { useDeck } from '@/lib/deck';
+import { resolvePoster } from '@/lib/posters';
 import type { Recommendation } from '@/lib/types';
 import SwipeDeck from './SwipeDeck';
 import TrailerModal from './TrailerModal';
@@ -28,6 +29,20 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const fetchingRef = useRef(false);
   const startedRef = useRef(false);
   const exhaustedRef = useRef(false);
+
+  // Users should only ever see cards with a real poster. Keep a rec only if it
+  // already has a poster (movies) or one can be resolved keylessly (TV → TVmaze);
+  // anything still without artwork is dropped so no placeholder tile is shown.
+  const keepPostered = useCallback(async (recs: Recommendation[]): Promise<Recommendation[]> => {
+    const resolved = await Promise.all(
+      recs.map(async (r) => {
+        if (r.poster_url) return r;
+        const url = await resolvePoster(r);
+        return url ? { ...r, poster_url: url } : null;
+      }),
+    );
+    return resolved.filter((r): r is Recommendation => r !== null);
+  }, []);
 
   // Pull the next batch for the active stack. Movies are ML-personalized (seeded
   // by what you've liked); TV is a separate popularity-ranked catalog. `initial`
@@ -61,8 +76,15 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
                 ? await getRecommendations(seeds, REFILL_COUNT, exclude).catch(() => getPopular(count, exclude))
                 : await getPopular(count, exclude);
             }
-            const added = deck.append(res.recommendations);
-            if (!initial && added === 0) exhaustedRef.current = true; // catalog drained
+            const fetched = res.recommendations;
+            // Drop anything we can't show a poster for before it enters the deck.
+            const postered = await keepPostered(fetched);
+            // Queue the postered cards, but mark the *whole* fetched batch seen so
+            // dropped (poster-less) titles are excluded from future fetches. When
+            // a batch yields no postered cards, the refill effect re-fires and
+            // pulls the next batch automatically (the excludes have grown).
+            deck.append(postered, fetched);
+            if (!initial && fetched.length === 0) exhaustedRef.current = true; // catalog drained
             setStatus('ready');
             return;
           } catch (err) {
@@ -78,7 +100,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
         fetchingRef.current = false;
       }
     },
-    [deck, seedTitles],
+    [deck, seedTitles, keepPostered],
   );
 
   // Initial load (once) — wait until localStorage has been restored so the

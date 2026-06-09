@@ -40,8 +40,11 @@ export interface DeckApi {
   commit: (action: SwipeAction) => { card: Recommendation; remaining: number[] } | null;
   undo: () => void;
   reorderRemaining: (ids: number[]) => void;
-  /** Append fresh cards, skipping any already in the deck. Returns # added. */
-  append: (recs: Recommendation[]) => number;
+  /** Append fresh cards to the queue, skipping any already in the deck. Pass
+   *  `fetchedAll` (the full fetched batch) to mark *every* fetched id as seen —
+   *  including ones filtered out (e.g. no poster) — so they never get re-served.
+   *  Returns the number of cards actually queued. */
+  append: (recs: Recommendation[], fetchedAll?: Recommendation[]) => number;
   /** Empty the queue + history for a fresh stack; keeps liked + wish list. */
   reset: () => void;
 }
@@ -170,7 +173,8 @@ export function useDeck(): DeckApi {
     setState((s) => ({ ...s, queue: [], current: 0, decisions: [] }));
   }, []);
 
-  const append = useCallback<DeckApi['append']>((recs) => {
+  const append = useCallback<DeckApi['append']>((recs, fetchedAll) => {
+    const allFetched = fetchedAll ?? recs;
     let added = 0;
     setState((s) => {
       // De-duplicate on the stable `id` (movie_id) against both the current
@@ -180,11 +184,15 @@ export function useDeck(): DeckApi {
       const known = new Set<number>([...s.queue.map((r) => r.id), ...s.seenIds]);
       const fresh = recs.filter((r) => !known.has(r.id));
       added = fresh.length;
-      if (!fresh.length) return s;
+      // Mark every *fetched* id as seen — including titles the caller filtered
+      // out (e.g. for having no poster) — so the backend's exclude list skips
+      // them next time and they never recirculate.
+      const newlySeen = allFetched.map((r) => r.id).filter((id) => !known.has(id));
+      if (!fresh.length && !newlySeen.length) return s;
       return {
         ...s,
         queue: [...s.queue, ...fresh],
-        seenIds: [...s.seenIds, ...fresh.map((r) => r.id)],
+        seenIds: [...s.seenIds, ...newlySeen],
       };
     });
     return added;
