@@ -1,10 +1,11 @@
 'use client';
 
-// Keyless poster backfill. The bundled catalog gets its posters from Wikipedia,
-// which misses some titles — notably a chunk of popular TV shows (The Sopranos,
-// Black Mirror, …). For those we resolve a real poster at runtime from TVmaze
-// (free, no API key, CORS-enabled, returns portrait artwork). Results are cached
-// in memory + localStorage so each show is looked up at most once.
+// Keyless poster resolution. For TV we prefer TVmaze (free, no API key,
+// CORS-enabled, real portrait artwork) over the bundled catalog's Wikipedia
+// image — Wikipedia's TV "posters" are frequently just a show logo or a low-res
+// upscale (e.g. Game of Thrones, The Big Bang Theory), which look unpolished
+// next to the movie posters. Movies keep their Wikipedia poster (those are real
+// posters). TVmaze lookups are cached in memory + localStorage (one per show).
 
 import { useEffect, useState } from 'react';
 
@@ -28,19 +29,10 @@ async function fetchTvmazePoster(title: string): Promise<string | null> {
   }
 }
 
-/**
- * Best poster URL for a card. Returns the real (Wikipedia) poster immediately
- * when present; otherwise, for TV titles, resolves one keylessly from TVmaze.
- * Movies without a poster (rare) resolve to null → the card shows its tile.
- */
-export async function resolvePoster(rec: Recommendation): Promise<string | null> {
-  if (rec.poster_url) return rec.poster_url;
-  if (rec.type !== 'tv') return null;
-
-  const key = cacheKey(rec.title);
+/** Cached TVmaze poster lookup by title ('' in localStorage = "looked up, none"). */
+async function tvmazePoster(title: string): Promise<string | null> {
+  const key = cacheKey(title);
   if (memCache.has(key)) return memCache.get(key) ?? null;
-
-  // localStorage stores '' for "looked up, none found" to avoid re-querying.
   try {
     const cached = localStorage.getItem(LS_PREFIX + key);
     if (cached !== null) {
@@ -51,8 +43,7 @@ export async function resolvePoster(rec: Recommendation): Promise<string | null>
   } catch {
     /* localStorage unavailable — fall through to network */
   }
-
-  const url = await fetchTvmazePoster(rec.title);
+  const url = await fetchTvmazePoster(title);
   memCache.set(key, url);
   try {
     localStorage.setItem(LS_PREFIX + key, url ?? '');
@@ -60,6 +51,18 @@ export async function resolvePoster(rec: Recommendation): Promise<string | null>
     /* ignore quota/availability errors */
   }
   return url;
+}
+
+/**
+ * Best poster URL for a card. Movies use their (real) Wikipedia poster. TV
+ * prefers a proper portrait poster from TVmaze, falling back to the catalog's
+ * Wikipedia image only when TVmaze has nothing. Returns null when no artwork
+ * exists at all → the card is filtered out upstream.
+ */
+export async function resolvePoster(rec: Recommendation): Promise<string | null> {
+  if (rec.type !== 'tv') return rec.poster_url ?? null;
+  const tvmaze = await tvmazePoster(rec.title);
+  return tvmaze ?? rec.poster_url ?? null;
 }
 
 /**
@@ -71,21 +74,23 @@ export function useCardPoster(rec: Recommendation): string | null {
   const [url, setUrl] = useState<string | null>(rec.poster_url ?? null);
 
   useEffect(() => {
-    if (rec.poster_url) {
-      setUrl(rec.poster_url);
+    // Movies: the catalog poster is final. TV: start from whatever we have, then
+    // upgrade to the TVmaze portrait (preferred) once it resolves.
+    if (rec.type !== 'tv') {
+      setUrl(rec.poster_url ?? null);
       return;
     }
+    setUrl(rec.poster_url ?? null);
     let alive = true;
-    setUrl(null);
     void resolvePoster(rec).then((resolved) => {
-      if (alive) setUrl(resolved);
+      if (alive && resolved) setUrl(resolved);
     });
     return () => {
       alive = false;
     };
     // rec.id keys the card; poster_url is the only field that flips resolution.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rec.id, rec.poster_url]);
+  }, [rec.id, rec.type, rec.poster_url]);
 
   return url;
 }

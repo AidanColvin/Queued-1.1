@@ -36,7 +36,9 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const keepPostered = useCallback(async (recs: Recommendation[]): Promise<Recommendation[]> => {
     const resolved = await Promise.all(
       recs.map(async (r) => {
-        if (r.poster_url) return r;
+        // Movies must already carry a (real) poster. TV always resolves so we can
+        // prefer TVmaze's portrait art over the catalog's logo/low-res image.
+        if (r.type !== 'tv') return r.poster_url ? r : null;
         const url = await resolvePoster(r);
         return url ? { ...r, poster_url: url } : null;
       }),
