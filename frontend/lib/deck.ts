@@ -152,8 +152,14 @@ export function useDeck(): DeckApi {
 
   const reorderRemaining = useCallback((ids: number[]) => {
     setState((s) => {
-      const head = s.queue.slice(0, s.current);
-      const tail = s.queue.slice(s.current);
+      // Pin the on-screen cards (the top card + its two peeks) so a re-rank can
+      // never reshuffle a currently-visible card out of the render window — that
+      // would make AnimatePresence fly it off with the last swipe's direction,
+      // looking like a second poster got swiped. Only reorder the off-screen
+      // upcoming cards, which the user hasn't seen yet.
+      const PINNED = s.current + 3;
+      const head = s.queue.slice(0, PINNED);
+      const tail = s.queue.slice(PINNED);
       const byId = new Map<number, Recommendation>();
       for (const r of tail) if (r.tmdb_id != null) byId.set(r.tmdb_id, r);
       const ordered: Recommendation[] = [];
