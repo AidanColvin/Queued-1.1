@@ -1,9 +1,10 @@
 {
  "meta": {
   "source": "wikidata-keyless",
-  "n_series": 408,
+  "n_series": 411,
   "tv_essentials_added": 46,
-  "tvmaze_added": 145
+  "tvmaze_added": 145,
+  "all_have_poster": true
  },
  "series": [
   {
@@ -73,7 +74,7 @@
    ],
    "cast": [],
    "overview": "A New Jersey mob boss juggles running a criminal organization with family life — and therapy.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11341.jpg",
    "tmdb_id": 1398,
    "trailer_key": null
   },
@@ -148,7 +149,7 @@
    ],
    "cast": [],
    "overview": "The satirical misadventures of a working-class family in the town of Springfield.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/588/1471731.jpg",
    "tmdb_id": 456,
    "trailer_key": null
   },
@@ -224,7 +225,7 @@
    ],
    "cast": [],
    "overview": "An anthology exploring a twisted near-future where technology collides with humanity's darkest instincts.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/564/1411764.jpg",
    "tmdb_id": 42009,
    "trailer_key": null
   },
@@ -298,7 +299,7 @@
    ],
    "cast": [],
    "overview": "The professional and personal lives of surgeons at a Seattle teaching hospital.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/600/1501061.jpg",
    "tmdb_id": 1416,
    "trailer_key": null
   },
@@ -372,7 +373,7 @@
    ],
    "cast": [],
    "overview": "A mockumentary following three diverse but related families in suburban Los Angeles.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/359/898320.jpg",
    "tmdb_id": 1421,
    "trailer_key": null
   },
@@ -443,7 +444,7 @@
    ],
    "cast": [],
    "overview": "A formerly wealthy, hopelessly dysfunctional family clings to its privileged lifestyle.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/338/846049.jpg",
    "tmdb_id": 4589,
    "trailer_key": null
   },
@@ -517,7 +518,7 @@
    ],
    "cast": [],
    "overview": "A dramatization of the 1986 nuclear disaster and the sacrifices made to contain it.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/193/482599.jpg",
    "tmdb_id": 87108,
    "trailer_key": null
   },
@@ -589,7 +590,7 @@
    ],
    "cast": [],
    "overview": "Easy Company of the US 101st Airborne, from training through the end of WWII.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/80/201679.jpg",
    "tmdb_id": 4613,
    "trailer_key": null
   },
@@ -663,7 +664,7 @@
    ],
    "cast": [],
    "overview": "A financial planner moves his family to the Ozarks to launder money for a drug cartel.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/398/996611.jpg",
    "tmdb_id": 69740,
    "trailer_key": null
   },
@@ -735,7 +736,7 @@
    ],
    "cast": [],
    "overview": "A media dynasty's children vie for control as their ailing father weighs his future.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/453/1134275.jpg",
    "tmdb_id": 76331,
    "trailer_key": null
   },
@@ -807,7 +808,7 @@
    ],
    "cast": [],
    "overview": "A lone bounty hunter protects a mysterious child across the galaxy's outer reaches.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/501/1253498.jpg",
    "tmdb_id": 82856,
    "trailer_key": null
   },
@@ -880,7 +881,7 @@
    ],
    "cast": [],
    "overview": "Two brothers hunt demons, ghosts and monsters across America.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/445/1114097.jpg",
    "tmdb_id": 1622,
    "trailer_key": null
   },
@@ -956,7 +957,7 @@
    ],
    "cast": [],
    "overview": "An elite FBI team profiles the country's most dangerous criminals.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/626/1567475.jpg",
    "tmdb_id": 4057,
    "trailer_key": null
   },
@@ -1030,7 +1031,7 @@
    ],
    "cast": [],
    "overview": "An elite squad of detectives investigates sexually based offenses.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/589/1472924.jpg",
    "tmdb_id": 2734,
    "trailer_key": null
   },
@@ -1098,7 +1099,7 @@
    ],
    "cast": [],
    "overview": "A cynical scientist drags his grandson on reckless interdimensional adventures.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/626/1566363.jpg",
    "tmdb_id": 60625,
    "trailer_key": null
   },
@@ -1172,7 +1173,7 @@
    ],
    "cast": [],
    "overview": "Four foul-mouthed boys cause havoc in a quiet Colorado mountain town.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485766.jpg",
    "tmdb_id": 2190,
    "trailer_key": null
   },
@@ -1246,7 +1247,7 @@
    ],
    "cast": [],
    "overview": "The surreal misadventures of the Griffin family in Quahog, Rhode Island.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/609/1523259.jpg",
    "tmdb_id": 1434,
    "trailer_key": null
   },
@@ -1318,7 +1319,7 @@
    ],
    "cast": [],
    "overview": "A slacker is cryogenically frozen and wakes in the year 3000 to work at a delivery company.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/587/1469185.jpg",
    "tmdb_id": 615,
    "trailer_key": null
   },
@@ -1391,7 +1392,7 @@
    ],
    "cast": [],
    "overview": "A mockumentary on the absurd day-to-day of an Indiana town's parks department.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/481/1204341.jpg",
    "tmdb_id": 8592,
    "trailer_key": null
   },
@@ -1462,7 +1463,7 @@
    ],
    "cast": [],
    "overview": "A disbarred lawyer joins a community-college study group that becomes a surrogate family.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/2/5134.jpg",
    "tmdb_id": 18347,
    "trailer_key": null
   },
@@ -1536,7 +1537,7 @@
    ],
    "cast": [],
    "overview": "Frank Castle wages a one-man war on crime after his family is murdered.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/500/1250736.jpg",
    "tmdb_id": 67178,
    "trailer_key": null
   },
@@ -1609,7 +1610,7 @@
    ],
    "cast": [],
    "overview": "Superman and Lois Lane juggle careers and raising two sons back in Smallville.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/545/1362617.jpg",
    "tmdb_id": 95057,
    "trailer_key": null
   },
@@ -1682,7 +1683,7 @@
    ],
    "cast": [],
    "overview": "A young Clark Kent comes of age and discovers his powers in Smallville, Kansas.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/79/199609.jpg",
    "tmdb_id": 1486,
    "trailer_key": null
   },
@@ -1758,7 +1759,7 @@
    ],
    "cast": [],
    "overview": "An FBI agent investigates the murder of a homecoming queen in a strange small town.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/397/992910.jpg",
    "tmdb_id": 1920,
    "trailer_key": null
   },
@@ -1830,7 +1831,7 @@
    ],
    "cast": [],
    "overview": "A vampire with a soul fights evil — and his own nature — in Los Angeles.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/3/7507.jpg",
    "tmdb_id": 2007,
    "trailer_key": null
   },
@@ -1904,7 +1905,7 @@
    ],
    "cast": [],
    "overview": "A time-travelling alien explores the universe in a ship disguised as a police box.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/488/1220400.jpg",
    "tmdb_id": 57243,
    "trailer_key": null
   },
@@ -1976,7 +1977,7 @@
    ],
    "cast": [],
    "overview": "The crew of a space station guards a strategic wormhole near the planet Bajor.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/382/955996.jpg",
    "tmdb_id": 580,
    "trailer_key": null
   },
@@ -2049,7 +2050,7 @@
    ],
    "cast": [],
    "overview": "A starship stranded 70,000 light years from home fights its way back across the galaxy.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/362/907309.jpg",
    "tmdb_id": 1855,
    "trailer_key": null
   },
@@ -2121,7 +2122,7 @@
    ],
    "cast": [],
    "overview": "A group of high-schoolers navigate drugs, sex, identity and trauma.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/621/1552657.jpg",
    "tmdb_id": 85552,
    "trailer_key": null
   },
@@ -2191,7 +2192,7 @@
    ],
    "cast": [],
    "overview": "A Montana ranching dynasty fights to defend its land and legacy.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/545/1362616.jpg",
    "tmdb_id": 73586,
    "trailer_key": null
   },
@@ -2264,7 +2265,7 @@
    ],
    "cast": [],
    "overview": "A fine-dining chef returns home to run his family's chaotic Chicago sandwich shop.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/626/1567246.jpg",
    "tmdb_id": 136315,
    "trailer_key": null
   },
@@ -2335,7 +2336,7 @@
    ],
    "cast": [],
    "overview": "An American football coach is hired to manage an English soccer club despite no experience.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/457/1142533.jpg",
    "tmdb_id": 97546,
    "trailer_key": null
   },
@@ -2407,7 +2408,7 @@
    ],
    "cast": [],
    "overview": "Employees surgically split their work and personal memories — until the wall begins to crack.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/548/1371406.jpg",
    "tmdb_id": 95396,
    "trailer_key": null
   },
@@ -2481,7 +2482,7 @@
    ],
    "cast": [],
    "overview": "FBI agents interview imprisoned serial killers to understand — and catch — active ones.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/501/1253490.jpg",
    "tmdb_id": 67744,
    "trailer_key": null
   },
@@ -2555,7 +2556,7 @@
    ],
    "cast": [],
    "overview": "A hardened smuggler escorts an immune teenager across a post-pandemic America.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/563/1409008.jpg",
    "tmdb_id": 100088,
    "trailer_key": null
   },
@@ -2628,7 +2629,7 @@
    ],
    "cast": [],
    "overview": "A criminal mastermind leads an audacious heist on the Royal Mint of Spain.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/430/1076004.jpg",
    "tmdb_id": 71446,
    "trailer_key": null
   },
@@ -2703,7 +2704,7 @@
    ],
    "cast": [],
    "overview": "Four families unravel a time-travel conspiracy spanning generations in a German town.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/504/1262352.jpg",
    "tmdb_id": 70523,
    "trailer_key": null
   },
@@ -2777,7 +2778,7 @@
    ],
    "cast": [],
    "overview": "A gentleman thief seeks revenge for his father, inspired by Arsène Lupin.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/603/1507749.jpg",
    "tmdb_id": 96677,
    "trailer_key": null
   },
@@ -2847,7 +2848,7 @@
    ],
    "cast": [],
    "overview": "A teen receives tapes from a classmate who died by suicide, each explaining a reason why.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/258/646815.jpg",
    "tmdb_id": 66788,
    "trailer_key": null
   },
@@ -2919,7 +2920,7 @@
    ],
    "cast": [],
    "overview": "A betrayed Thracian enslaved as a gladiator rises in rebellion against Rome.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/354/886339.jpg",
    "tmdb_id": 18843,
    "trailer_key": null
   },
@@ -2990,7 +2991,7 @@
    ],
    "cast": [],
    "overview": "A cable-news anchor and his team set out to do the news well in a flawed media landscape.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/2066.jpg",
    "tmdb_id": 44217,
    "trailer_key": null
   },
@@ -3065,7 +3066,7 @@
    ],
    "cast": [],
    "overview": "A computer geek becomes a reluctant spy after government secrets are loaded into his brain.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/2385.jpg",
    "tmdb_id": 1404,
    "trailer_key": null
   },
@@ -3136,7 +3137,7 @@
    ],
    "cast": [],
    "overview": "A sharp-eyed slacker fakes being a psychic to help the police solve crimes.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11255.jpg",
    "tmdb_id": 1447,
    "trailer_key": null
   },
@@ -3209,7 +3210,7 @@
    ],
    "cast": [],
    "overview": "A brilliant detective with OCD solves cases while battling his many phobias.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11451.jpg",
    "tmdb_id": 1695,
    "trailer_key": null
   },
@@ -3284,7 +3285,7 @@
    ],
    "cast": [],
    "overview": "The comedic, heartfelt and surreal lives of staff at a teaching hospital.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/614/1537114.jpg",
    "tmdb_id": 4556,
    "trailer_key": null
   },
@@ -3353,7 +3354,7 @@
    ],
    "cast": [],
    "overview": "The senior staff of the White House navigate politics and policy in the West Wing.",
-   "poster_url": null,
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11284.jpg",
    "tmdb_id": 1972,
    "trailer_key": null
   },
@@ -6720,6 +6721,68 @@
    ],
    "overview": "The Hatfield-McCoy saga begins with 'Devil' Anse Hatfield (Costner) and Randall McCoy (Paxton). Close friends and comrades during the Civil War, they returned to their neighboring homes - Hatfield in West Virginia, McCoy just across the Tug River border in Kentucky - to increasing tensions, misunderstandings and resentments that soon exploded into all-out warfare between the two families. As hostilities grew, friends, neighbors and outside forces joined the fight, bringing the two states to the brink of another Civil War.",
    "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/17230.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900191,
+   "title": "House M.D.",
+   "year": 2004,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Mystery",
+    "Medical"
+   ],
+   "cast": [
+    "Hugh Laurie",
+    "Robert Sean Leonard",
+    "Omar Epps",
+    "Jesse Spencer",
+    "Lisa Edelstein"
+   ],
+   "overview": "Sink your teeth into meaty drama and intrigue with House, FOX's take on mystery, where the villain is a medical malady and the hero is an irreverent, controversial doctor who trusts no one, least of all his patients.Dr. Gregory House is a maverick physician who is devoid of bedside manner. While his behavior can border on antisocial, Dr. House thrives on the challenge of solving the medical puzzles that other doctors give up on. Together with his hand-picked team of young medical experts, he'll do whatever it takes in the race against the clock to solve the case.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/357/894990.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900192,
+   "title": "The Underground Railroad",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "History"
+   ],
+   "cast": [
+    "Thuso Mbedu",
+    "Joel Edgerton",
+    "Chase W. Dillon",
+    "Sheila Atim",
+    "Peter Mullan"
+   ],
+   "overview": "The Underground Railroad is an adaptation of the acclaimed Colson Whitehead novel of the same title. It chronicles young Cora's journey as she makes a desperate bid for freedom in the antebellum South. After escaping her Georgia plantation for the rumored Underground Railroad, Cora discovers no mere metaphor, but an actual railroad full of engineers and conductors, and a secret network of tracks and tunnels beneath the Southern soil.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/309/774476.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900193,
+   "title": "Generation War",
+   "year": 2013,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "War"
+   ],
+   "cast": [
+    "Katharina Schüttler",
+    "Volker Bruch",
+    "Tom Schilling",
+    "Miriam Stein",
+    "Ludwig Trepte"
+   ],
+   "overview": "The story of five German friends in the years from 1941 to 1945. Their friendship was meant to last their whole lives, but the war changed everything.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/7/17646.jpg",
    "tmdb_id": null
   }
  ]
