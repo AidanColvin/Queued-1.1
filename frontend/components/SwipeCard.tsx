@@ -150,8 +150,15 @@ export default function SwipeCard({
       // Cards behind the top stay fully opaque — they slide/scale into place but
       // never fade in. A peek card fading from transparent reads as a second
       // ghosted poster behind the current one.
-      initial={isTop ? false : { scale: scale - 0.04, y: offsetY + 10 }}
-      animate={isTop ? { scale: 1 } : { scale, y: offsetY }}
+      //
+      // `opacity: 1` is asserted on every visible card's `animate` target on
+      // purpose: if a swipe interrupts a card's entrance, framer freezes any
+      // property that's missing from the next target at its mid-flight value.
+      // Without opacity here, a card caught mid-fade would stay permanently
+      // semi-transparent at rest, letting the poster behind it show through.
+      // Naming it guarantees framer always drives it back to fully opaque.
+      initial={isTop ? false : { scale: scale - 0.04, y: offsetY + 10, opacity: 1 }}
+      animate={isTop ? { scale: 1, opacity: 1 } : { scale, y: offsetY, opacity: 1 }}
       exit="exit"
       transition={{ type: 'spring', stiffness: 300, damping: 26 }}
     >
