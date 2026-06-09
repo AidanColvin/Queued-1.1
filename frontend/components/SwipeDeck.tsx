@@ -193,28 +193,6 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
           ))}
         </AnimatePresence>
 
-        {/* Card actions — Watchlist (left) + Trailer (right). Kept outside the
-            draggable cards so taps never get swallowed by the drag handler. */}
-        {deck.currentCard && (
-          <div className="pointer-events-none absolute right-3 top-3 z-40 flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => decide('saved')}
-              aria-label="Add to watchlist"
-              className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-base text-white backdrop-blur-md transition hover:bg-black/50 active:scale-95"
-            >
-              ♡
-            </button>
-            <button
-              type="button"
-              onClick={() => onOpenCard(deck.currentCard!)}
-              className="pointer-events-auto flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-2 text-sm font-medium text-ink backdrop-blur-md transition hover:bg-white active:scale-95"
-            >
-              <span className="text-[11px]">▶</span> Trailer
-            </button>
-          </div>
-        )}
-
           <KeyHints visible={hintsVisible} />
         </div>
       </div>

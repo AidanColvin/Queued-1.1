@@ -162,6 +162,25 @@ export default function SwipeCard({
       transition={{ type: 'spring', stiffness: 300, damping: 26 }}
     >
       <div className="group relative h-full w-full overflow-hidden rounded-[28px] bg-surface shadow-card ring-1 ring-black/5">
+        {/* Trailer action (▶). Lives inside the card so it rides the swipe
+            transform with it. stopPropagation on the press keeps a button tap
+            from being read as a card tap/drag. */}
+        {isTop && (
+          <div className="absolute right-3 top-3 z-40 flex items-center gap-2">
+            <button
+              type="button"
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpen?.();
+              }}
+              className="flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-2 text-sm font-medium text-ink backdrop-blur-md transition hover:bg-white active:scale-95"
+            >
+              <span className="text-[11px]">▶</span> Trailer
+            </button>
+          </div>
+        )}
+
         {hasPoster ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
