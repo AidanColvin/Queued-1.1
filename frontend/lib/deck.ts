@@ -130,7 +130,10 @@ export function useDeck(): DeckApi {
       ...prev,
       current: prev.current + 1,
       decisions: [...prev.decisions, decision],
-      likedCards: action === 'liked' ? [...prev.likedCards, card] : prev.likedCards,
+      likedCards:
+        action === 'liked' || action === 'superliked'
+          ? [...prev.likedCards, card]
+          : prev.likedCards,
       wishlistCards: action === 'saved' ? [...prev.wishlistCards, card] : prev.wishlistCards,
     }));
     return { card, remaining };
@@ -144,7 +147,10 @@ export function useDeck(): DeckApi {
         ...s,
         current: Math.max(0, s.current - 1),
         decisions: s.decisions.slice(0, -1),
-        likedCards: last.action === 'liked' ? s.likedCards.slice(0, -1) : s.likedCards,
+        likedCards:
+          last.action === 'liked' || last.action === 'superliked'
+            ? s.likedCards.slice(0, -1)
+            : s.likedCards,
         wishlistCards: last.action === 'saved' ? s.wishlistCards.slice(0, -1) : s.wishlistCards,
       };
     });

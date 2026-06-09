@@ -16,8 +16,9 @@ from pydantic import BaseModel, Field
 MediaType = Literal["movie", "tv"]
 SearchType = Literal["movie", "tv", "all"]
 
-# The four swipe directions, stored verbatim in ``swipe_events``.
-SwipeAction = Literal["liked", "saved", "dismissed", "skip"]
+# The four swipe directions plus the double-tap "super like", stored verbatim
+# in ``swipe_events``.
+SwipeAction = Literal["liked", "saved", "dismissed", "skip", "superliked"]
 
 
 # --------------------------------------------------------------------------- #

@@ -25,6 +25,9 @@ from ml.artifacts import MovieRecord
 # Per-action base weights. Positive pulls the session vector toward the title;
 # negative pushes it away. Not symmetric — see the module docstring.
 SIGNAL_WEIGHTS: dict[str, float] = {
+    "superliked": 1.8,  # emphatic positive — a double-tap "exactly this, more of it".
+                       # Weighted well above an ordinary like so a single super
+                       # like steers the deck harder than a normal swipe-right.
     "liked": 1.0,      # strong positive — "more exactly like this"
     "saved": 0.65,     # moderate positive — "interested, lower urgency"
     "skip": 0.0,       # neutral — "haven't seen it": unfamiliarity, not taste.
@@ -54,7 +57,7 @@ def time_modifier(time_on_card_ms: int, action: str) -> float:
     Returns:
         A multiplier applied to the base weight before accumulation.
     """
-    if action in ("liked", "saved"):
+    if action in ("liked", "saved", "superliked"):
         return 1.0
     if time_on_card_ms < 1500:
         return 1.2

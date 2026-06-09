@@ -3,8 +3,8 @@
 export type MediaType = 'movie' | 'tv';
 export type SearchType = 'movie' | 'tv' | 'all';
 
-/** The four swipe directions. */
-export type SwipeAction = 'liked' | 'saved' | 'dismissed' | 'skip';
+/** The four swipe directions, plus the double-tap "super like". */
+export type SwipeAction = 'liked' | 'saved' | 'dismissed' | 'skip' | 'superliked';
 
 export interface SearchResult {
   tmdb_id: number | null;

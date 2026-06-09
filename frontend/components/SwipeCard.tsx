@@ -7,7 +7,7 @@ import {
   type MotionValue,
   type PanInfo,
 } from 'framer-motion';
-import { useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 
 import { ACTION_CONFIG } from '@/lib/actions';
 import { useCardPoster } from '@/lib/posters';
@@ -22,6 +22,8 @@ interface SwipeCardProps {
   expanded: boolean;
   onCommit: (action: SwipeAction) => void;
   onOpen?: () => void;
+  /** Double-tap the centre of the card → super like. */
+  onSuperLike?: () => void;
 }
 
 /** Decide which action a drag offset represents (dominant axis wins). */
@@ -70,6 +72,21 @@ function Stamp({ action, opacity }: { action: SwipeAction; opacity: MotionValue<
   );
 }
 
+/** Max gap between two taps to count as a double-tap (ms). */
+const DOUBLE_TAP_MS = 280;
+/** Max distance between the two taps to count as the same spot (px). */
+const DOUBLE_TAP_SLOP = 44;
+
+/** Is a tap in the central "super like" band of the card? Excludes the top
+ *  (trailer button) and the bottom (title / synopsis), where a double-tap would
+ *  fight with those controls. */
+function isInSuperLikeZone(e: ReactPointerEvent): boolean {
+  const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+  if (rect.height === 0) return false;
+  const relY = (e.clientY - rect.top) / rect.height;
+  return relY > 0.15 && relY < 0.7;
+}
+
 export default function SwipeCard({
   rec,
   depth,
@@ -78,6 +95,7 @@ export default function SwipeCard({
   expanded,
   onCommit,
   onOpen,
+  onSuperLike,
 }: SwipeCardProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -117,6 +135,16 @@ export default function SwipeCard({
   // tap if the pointer barely moved. Any real drag is left entirely to
   // `onDragEnd` and never opens the trailer.
   const pressRef = useRef<{ x: number; y: number } | null>(null);
+  // Single-vs-double tap disambiguation for the central "super like" zone. A
+  // lone tap opens the trailer; a quick second tap in the centre is a super
+  // like. We hold a single tap in the centre for DOUBLE_TAP_MS to see whether a
+  // second one lands; taps outside the centre open the trailer immediately.
+  const lastTapRef = useRef<{ t: number; x: number; y: number } | null>(null);
+  const pendingOpenRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Never let a held-back trailer-open fire after the card has left the deck.
+  useEffect(() => () => {
+    if (pendingOpenRef.current) clearTimeout(pendingOpenRef.current);
+  }, []);
 
   const scale = 1 - depth * 0.05;
   const offsetY = depth * 14;
@@ -142,9 +170,44 @@ export default function SwipeCard({
               pressRef.current = null;
               if (!start) return;
               const moved = Math.hypot(e.clientX - start.x, e.clientY - start.y);
-              // Under ~10px of travel = a tap → open the trailer + expand.
-              // Anything more is a swipe and is handled solely by onDragEnd.
-              if (moved < 10) onOpen?.();
+              // More than ~10px of travel = a swipe, handled solely by onDragEnd.
+              if (moved >= 10) return;
+
+              const now = e.timeStamp;
+              const last = lastTapRef.current;
+              const inZone = isInSuperLikeZone(e);
+              const isDouble =
+                inZone &&
+                last !== null &&
+                now - last.t < DOUBLE_TAP_MS &&
+                Math.hypot(e.clientX - last.x, e.clientY - last.y) < DOUBLE_TAP_SLOP;
+
+              if (isDouble) {
+                // Second centre tap → super like. Cancel the held-back trailer
+                // open from the first tap so it never also fires.
+                if (pendingOpenRef.current) {
+                  clearTimeout(pendingOpenRef.current);
+                  pendingOpenRef.current = null;
+                }
+                lastTapRef.current = null;
+                onSuperLike?.();
+                return;
+              }
+
+              lastTapRef.current = { t: now, x: e.clientX, y: e.clientY };
+
+              if (inZone) {
+                // First tap in the centre: wait briefly for a possible second
+                // tap before committing to "open trailer".
+                if (pendingOpenRef.current) clearTimeout(pendingOpenRef.current);
+                pendingOpenRef.current = setTimeout(() => {
+                  pendingOpenRef.current = null;
+                  onOpen?.();
+                }, DOUBLE_TAP_MS);
+              } else {
+                // Outside the centre a double-tap isn't possible — open at once.
+                onOpen?.();
+              }
             }
           : undefined
       }

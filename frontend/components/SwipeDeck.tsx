@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { recordSwipe } from '@/lib/api';
@@ -28,6 +28,8 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
   const [exitAction, setExitAction] = useState<SwipeAction | null>(null);
   const [hintsVisible, setHintsVisible] = useState(true);
   const [expanded, setExpanded] = useState(false);
+  // Bumped on every super like so the celebratory ★ flash re-plays each time.
+  const [superFlash, setSuperFlash] = useState(0);
 
   const threshold = typeof window !== 'undefined' && window.matchMedia?.('(pointer: coarse)').matches ? 120 : 100;
 
@@ -57,13 +59,16 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
       if (!res) return;
       lockedRef.current = true;
       setExitAction(action);
+      if (action === 'superliked') setSuperFlash((n) => n + 1);
       // Safety net: release the input lock shortly after the exit tween even if
       // AnimatePresence's onExitComplete is delayed or never fires, so the deck
       // can never get stuck "unable to swipe".
       window.setTimeout(() => {
         lockedRef.current = false;
       }, 260);
-      if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate(12);
+      // A super like gets a stronger double-buzz than an ordinary swipe.
+      if (typeof navigator !== 'undefined' && navigator.vibrate)
+        navigator.vibrate(action === 'superliked' ? [18, 40, 18] : 12);
 
       const elapsed = Date.now() - appearedAtRef.current;
       if (res.card.tmdb_id != null) {
@@ -189,10 +194,12 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
               expanded={i === 0 && expanded}
               onCommit={decide}
               onOpen={i === 0 ? () => openTopCard(rec) : undefined}
+              onSuperLike={i === 0 ? () => decide('superliked') : undefined}
             />
           ))}
         </AnimatePresence>
 
+          <SuperLikeFlash trigger={superFlash} />
           <KeyHints visible={hintsVisible} />
         </div>
       </div>
@@ -207,5 +214,28 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
         />
       </div>
     </div>
+  );
+}
+
+/** A celebratory gold ★ that pops and fades over the deck on each super like.
+ *  Keyed on `trigger` (a counter) so it re-mounts and re-plays every time; the
+ *  keyframe animation fades itself out, so it leaves nothing on screen. */
+function SuperLikeFlash({ trigger }: { trigger: number }) {
+  if (trigger === 0) return null;
+  return (
+    <motion.div
+      key={trigger}
+      className="pointer-events-none absolute inset-0 z-50 flex items-center justify-center"
+      initial={{ opacity: 0, scale: 0.4 }}
+      animate={{ opacity: [0, 1, 1, 0], scale: [0.4, 1, 1.05, 1.6] }}
+      transition={{ duration: 0.6, ease: 'easeOut', times: [0, 0.25, 0.6, 1] }}
+    >
+      <span
+        className="text-8xl drop-shadow-[0_4px_24px_rgba(255,214,10,0.7)]"
+        style={{ color: '#ffd60a' }}
+      >
+        ★
+      </span>
+    </motion.div>
   );
 }

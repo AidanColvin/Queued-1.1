@@ -19,7 +19,7 @@ from schemas import PopularRequest, RecommendResponse
 router = APIRouter(tags=["popular"])
 
 # How much each action contributes to a title's popularity.
-_ACTION_WEIGHT = {"liked": 1.0, "saved": 0.7, "skip": -0.2, "dismissed": -0.5}
+_ACTION_WEIGHT = {"superliked": 1.6, "liked": 1.0, "saved": 0.7, "skip": -0.2, "dismissed": -0.5}
 
 
 def _parse_exclude(exclude: str | None) -> list[int]:
