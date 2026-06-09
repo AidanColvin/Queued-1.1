@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { getPopular, getRecommendations, getTv } from '@/lib/api';
 import { useDeck } from '@/lib/deck';
 import type { Recommendation } from '@/lib/types';
+import { FilmIcon, HeartIcon } from './Icons';
 import SwipeDeck from './SwipeDeck';
 import TrailerModal from './TrailerModal';
 import WishlistDrawer from './WishlistDrawer';
@@ -99,37 +100,52 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     setTrailerRec(rec);
   }, []);
 
-  const navBtn = (active: boolean) =>
-    `rounded-full px-3 py-1.5 text-sm font-medium transition ${
-      active ? 'bg-amber text-charcoal' : 'border border-warm text-ink hover:border-amber'
+  const segBtn = (active: boolean) =>
+    `rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+      active ? 'bg-amber text-charcoal shadow-sm' : 'text-muted hover:text-ink'
     }`;
 
   return (
     <main className="app-shell mx-auto flex w-full max-w-3xl flex-col">
-      <header className="mb-3 flex items-center justify-between gap-2">
+      <header className="mb-4 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 text-amber">
+          <FilmIcon className="h-5 w-5" />
+          <span className="font-serif text-xl tracking-tight text-ink">NextWatch</span>
+        </div>
+
         <div className="flex items-center gap-2">
-          <button type="button" onClick={() => switchStack('movie')} className={navBtn(stack === 'movie')}>
-            Movies
-          </button>
-          <button type="button" onClick={() => switchStack('tv')} className={navBtn(stack === 'tv')}>
-            TV
-          </button>
+          <div className="flex rounded-full border border-white/10 bg-surface/70 p-1 backdrop-blur-sm">
+            <button type="button" onClick={() => switchStack('movie')} className={segBtn(stack === 'movie')}>
+              Movies
+            </button>
+            <button type="button" onClick={() => switchStack('tv')} className={segBtn(stack === 'tv')}>
+              TV
+            </button>
+          </div>
           <button
             type="button"
             onClick={() => setWishlistOpen(true)}
-            className="rounded-full border border-warm px-3 py-1.5 text-sm font-medium text-ink transition hover:border-amber"
+            aria-label="Open watchlist"
+            className="relative flex h-10 items-center gap-1.5 rounded-full border border-white/10 bg-surface/70 px-3 text-sm font-medium text-ink backdrop-blur-sm transition hover:border-amber"
           >
-            ♡ Watchlist{deck.wishlist.length ? ` ${deck.wishlist.length}` : ''}
+            <HeartIcon className="h-4 w-4 text-save" />
+            <span className="hidden sm:inline">Watchlist</span>
+            {deck.wishlist.length > 0 && (
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-amber px-1.5 text-xs font-bold tabular-nums text-charcoal">
+                {deck.wishlist.length}
+              </span>
+            )}
           </button>
         </div>
-        <span className="hidden text-sm font-semibold uppercase tracking-[0.25em] text-amber/80 sm:inline">
-          NextWatch
-        </span>
       </header>
 
       <div className="flex min-h-0 flex-1 flex-col">
         {status === 'loading' && (
-          <div className="flex flex-1 items-center justify-center">
+          <div className="flex flex-1 flex-col items-center justify-center gap-5">
+            <div className="relative h-12 w-12">
+              <span className="absolute inset-0 rounded-full border-2 border-amber/60" />
+              <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-amber" />
+            </div>
             <p className="animate-pulse font-serif text-2xl text-muted">Finding something to watch…</p>
           </div>
         )}
@@ -173,9 +189,10 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           ))}
       </div>
 
-      <p className="mt-3 text-center text-xs text-muted/70">
-        → like · ← dislike · ↑ watchlist · ↓ haven&apos;t seen — it learns as you go. Tap a card for
-        details + the trailer.
+      <p className="mt-4 text-center text-xs text-muted/70">
+        Swipe <span className="text-like">right to like</span> ·{' '}
+        <span className="text-pass">left to pass</span> · <span className="text-save">up to save</span> ·{' '}
+        <span className="text-skip">down if unseen</span> — it learns as you go. Tap a card for the trailer.
       </p>
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />

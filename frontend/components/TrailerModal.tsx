@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getTrailer } from '@/lib/api';
 import type { Recommendation } from '@/lib/types';
 import { youtubeTrailerUrl } from '@/lib/util';
+import { PlayIcon, XIcon } from './Icons';
 
 interface TrailerModalProps {
   /** The card whose trailer to play, or null when the modal is closed. */
@@ -75,14 +76,14 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`${rec.title} trailer`}
     >
       <div
-        className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-warm bg-surface shadow-2xl"
+        className="relative w-full max-w-3xl animate-rise overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-card"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
@@ -94,9 +95,9 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
             type="button"
             onClick={onClose}
             aria-label="Close trailer"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-ink transition hover:border-warm"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-warm hover:text-ink"
           >
-            ✕
+            <XIcon className="h-5 w-5" />
           </button>
         </div>
 
@@ -128,9 +129,10 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
                 href={youtubeTrailerUrl(rec.title, rec.year)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-amber/90 px-4 py-2 text-sm font-medium text-charcoal transition hover:bg-amber"
+                className="flex items-center gap-1.5 rounded-full bg-amber px-4 py-2 text-sm font-semibold text-charcoal shadow-glow transition hover:scale-105"
               >
-                Search on YouTube ↗
+                <PlayIcon className="h-4 w-4" />
+                Search on YouTube
               </a>
             </div>
           )}

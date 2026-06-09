@@ -25,6 +25,11 @@ const config: Config = {
       borderColor: {
         warm: 'rgba(245, 166, 35, 0.18)',
       },
+      boxShadow: {
+        // Soft, layered elevation for cards and floating controls.
+        card: '0 18px 50px -18px rgba(0, 0, 0, 0.75), 0 4px 14px -6px rgba(0, 0, 0, 0.55)',
+        glow: '0 0 0 1px rgba(245, 166, 35, 0.25), 0 8px 30px -8px rgba(245, 166, 35, 0.35)',
+      },
       keyframes: {
         'drift': {
           '0%, 100%': { transform: 'translate(0, 0)' },
@@ -34,10 +39,20 @@ const config: Config = {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
+        'rise': {
+          from: { opacity: '0', transform: 'translateY(12px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'pulse-ring': {
+          '0%': { transform: 'scale(0.95)', opacity: '0.7' },
+          '70%, 100%': { transform: 'scale(1.25)', opacity: '0' },
+        },
       },
       animation: {
         drift: 'drift 18s ease-in-out infinite',
         'fade-in': 'fade-in 0.4s ease-out both',
+        rise: 'rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'pulse-ring': 'pulse-ring 1.8s cubic-bezier(0.66, 0, 0, 1) infinite',
       },
     },
   },

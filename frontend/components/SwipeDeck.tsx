@@ -9,6 +9,7 @@ import type { DeckApi } from '@/lib/deck';
 import type { Recommendation, SwipeAction } from '@/lib/types';
 import { makeSessionId } from '@/lib/util';
 import ActionBar from './ActionBar';
+import { BookmarkIcon, PlayIcon } from './Icons';
 import KeyHints from './KeyHints';
 import SwipeCard from './SwipeCard';
 
@@ -200,16 +201,19 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
             <button
               type="button"
               onClick={() => decide('saved')}
-              className="pointer-events-auto rounded-full bg-black/55 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-black/75"
+              aria-label="Add to watchlist"
+              title="Add to watchlist"
+              className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-black/45 text-white shadow-card backdrop-blur-md transition hover:scale-105 hover:bg-black/65 active:scale-95"
             >
-              ♡ Watchlist
+              <BookmarkIcon className="h-5 w-5" />
             </button>
             <button
               type="button"
               onClick={() => onOpenCard(deck.currentCard!)}
-              className="pointer-events-auto rounded-full bg-amber/90 px-3 py-1.5 text-sm font-medium text-charcoal transition hover:bg-amber"
+              className="pointer-events-auto flex items-center gap-1.5 rounded-full bg-amber px-3.5 py-2 text-sm font-semibold text-charcoal shadow-glow transition hover:scale-105 active:scale-95"
             >
-              ▶ Trailer
+              <PlayIcon className="h-4 w-4" />
+              Trailer
             </button>
           </div>
         )}

@@ -60,8 +60,8 @@ function Stamp({ action, opacity }: { action: SwipeAction; opacity: MotionValue<
   const cfg = ACTION_CONFIG[action];
   return (
     <motion.div
-      style={{ opacity, color: cfg.color, borderColor: cfg.color }}
-      className="pointer-events-none absolute left-6 top-6 -rotate-12 rounded-md border-4 px-4 py-1 text-3xl font-extrabold tracking-widest"
+      style={{ opacity, color: cfg.color, borderColor: cfg.color, boxShadow: `0 0 30px -4px ${cfg.color}` }}
+      className="pointer-events-none absolute left-6 top-6 -rotate-12 rounded-xl border-[3px] bg-black/30 px-4 py-1.5 text-3xl font-extrabold uppercase tracking-[0.15em] backdrop-blur-sm"
     >
       {cfg.label}
     </motion.div>
@@ -155,7 +155,7 @@ export default function SwipeCard({
       exit="exit"
       transition={{ type: 'spring', stiffness: 300, damping: 26 }}
     >
-      <div className="group relative h-full w-full overflow-hidden rounded-2xl border border-warm bg-surface shadow-[0_10px_40px_-12px_rgba(0,0,0,0.7)]">
+      <div className="group relative h-full w-full overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-card ring-1 ring-black/40">
         {hasPoster ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -174,7 +174,7 @@ export default function SwipeCard({
           </div>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black via-black/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[68%] bg-gradient-to-t from-black via-black/65 to-transparent" />
 
         {isTop && (
           <>
@@ -186,26 +186,33 @@ export default function SwipeCard({
           </>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 space-y-1.5 p-5">
-          <h2 className="font-serif text-3xl leading-tight text-ink drop-shadow">{rec.title}</h2>
-          <div className="flex flex-wrap gap-1.5">
-            {rec.year ? (
-              <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-white/70">{rec.year}</span>
-            ) : null}
+        <div className="absolute inset-x-0 bottom-0 space-y-2 p-5 sm:p-6">
+          <h2 className="font-serif text-[2rem] leading-[1.05] tracking-tight text-ink drop-shadow-lg">
+            {rec.title}
+          </h2>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {rec.year ? <span className="chip tabular-nums">{rec.year}</span> : null}
             {rec.genres.slice(0, 3).map((g) => (
-              <span key={g} className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-white/70">
+              <span key={g} className="chip">
                 {g}
               </span>
             ))}
           </div>
           {rec.cast.length > 0 && (
-            <p className="truncate text-xs text-white/70">{rec.cast.join(' · ')}</p>
+            <p className="truncate text-xs text-white/60">{rec.cast.join(' · ')}</p>
           )}
           {rec.overview && (
-            <p className={`text-sm text-white/80 ${expanded ? '' : 'line-clamp-2'}`}>{rec.overview}</p>
+            <p className={`text-sm leading-relaxed text-white/80 ${expanded ? '' : 'line-clamp-2'}`}>
+              {rec.overview}
+            </p>
           )}
-          {expanded && rec.why && <p className="text-xs italic text-amber/90">{rec.why}</p>}
-          <div className="pt-1.5">
+          {expanded && rec.why && (
+            <p className="flex items-start gap-1.5 text-xs italic text-amber/90">
+              <span aria-hidden className="not-italic">✨</span>
+              {rec.why}
+            </p>
+          )}
+          <div className="pt-1">
             <ScoreBar score={rec.score} />
           </div>
         </div>

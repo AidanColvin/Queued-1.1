@@ -17,6 +17,21 @@
 
   body {
     @apply bg-charcoal text-ink font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Warm amber selection to match the accent. */
+  ::selection {
+    background: rgba(245, 166, 35, 0.28);
+    color: #fffdf8;
+  }
+
+  /* Kill the blue tap flash + iOS callout on the interactive controls so taps
+     feel native-app crisp rather than web-page clunky. */
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
 
   /* App shell sized to the *visible* viewport. `dvh` tracks the mobile URL bar
@@ -46,9 +61,15 @@
   /* Slow, subtle animated backdrop — pure CSS, no images. */
   .backdrop-grain {
     background:
-      radial-gradient(60% 50% at 20% 10%, rgba(245, 166, 35, 0.08), transparent 60%),
-      radial-gradient(50% 50% at 85% 80%, rgba(74, 168, 255, 0.06), transparent 60%),
-      #0d0f12;
+      radial-gradient(55% 45% at 18% 8%, rgba(245, 166, 35, 0.10), transparent 62%),
+      radial-gradient(50% 50% at 88% 12%, rgba(62, 207, 142, 0.05), transparent 60%),
+      radial-gradient(60% 55% at 85% 88%, rgba(74, 168, 255, 0.07), transparent 62%),
+      #0a0c0f;
+  }
+
+  /* Frosted glass pill — used for the metadata chips on a poster. */
+  .chip {
+    @apply rounded-full border border-white/10 bg-white/10 px-2.5 py-0.5 text-[11px] font-medium text-white/80 backdrop-blur-md;
   }
 
   /* Thin scrollbars to match the dark theme. */
