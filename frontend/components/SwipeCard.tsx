@@ -38,7 +38,20 @@ function actionForOffset(offset: { x: number; y: number }, threshold: number): S
 const cardVariants = {
   exit: (action: SwipeAction | null) =>
     action
-      ? { ...ACTION_CONFIG[action].exit, opacity: 0, transition: { duration: 0.22, ease: 'easeOut' } }
+      ? {
+          ...ACTION_CONFIG[action].exit,
+          opacity: 0,
+          transition: {
+            duration: 0.22,
+            ease: 'easeOut',
+            // Hold the card fully opaque while it slides clear of the deck, then
+            // cut its opacity only at the very end. A leaving card must never be
+            // semi-transparent over the card behind it — that cross-fade is what
+            // made posters look see-through and made one swipe look like two
+            // cards moving at once.
+            opacity: { delay: 0.2, duration: 0.02 },
+          },
+        }
       : { opacity: 0, scale: 0.9, transition: { duration: 0.18 } },
 };
 
@@ -134,8 +147,11 @@ export default function SwipeCard({
         if (action) onCommit(action);
       }}
       variants={cardVariants}
-      initial={isTop ? false : { scale: scale - 0.04, y: offsetY + 10, opacity: 0 }}
-      animate={isTop ? { scale: 1 } : { scale, y: offsetY, opacity: 1 }}
+      // Cards behind the top stay fully opaque — they slide/scale into place but
+      // never fade in. A peek card fading from transparent reads as a second
+      // ghosted poster behind the current one.
+      initial={isTop ? false : { scale: scale - 0.04, y: offsetY + 10 }}
+      animate={isTop ? { scale: 1 } : { scale, y: offsetY }}
       exit="exit"
       transition={{ type: 'spring', stiffness: 300, damping: 26 }}
     >
