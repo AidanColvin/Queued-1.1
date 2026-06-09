@@ -12,7 +12,6 @@ interface ActionBarProps {
 }
 
 export default function ActionBar({
-  swiped,
   canUndo,
   onAction,
   onUndo,
@@ -24,13 +23,14 @@ export default function ActionBar({
         type="button"
         onClick={onUndo}
         disabled={!canUndo}
-        className="flex h-12 min-w-12 items-center justify-center rounded-full border border-white/10 px-3 text-sm text-ink transition enabled:hover:border-warm disabled:opacity-30"
+        className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-muted transition enabled:hover:bg-surface-2 enabled:active:scale-95 disabled:opacity-25"
         aria-label="Undo last swipe"
+        title="Undo"
       >
-        ↶<span className="ml-1 hidden sm:inline">Undo</span>
+        ↶
       </button>
 
-      <div className="flex items-center gap-1.5 sm:gap-2">
+      <div className="flex items-center gap-2.5 sm:gap-3">
         {ACTION_BAR_ORDER.map((action) => {
           const cfg = ACTION_CONFIG[action];
           return (
@@ -40,8 +40,8 @@ export default function ActionBar({
               onClick={() => onAction(action)}
               aria-label={cfg.label}
               title={cfg.label}
-              className="flex h-11 w-11 items-center justify-center rounded-full border bg-surface text-xl transition hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
-              style={{ borderColor: cfg.color, color: cfg.color }}
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-xl font-semibold ring-1 ring-black/[0.06] shadow-soft transition hover:scale-110 hover:ring-black/10 active:scale-95 sm:h-[52px] sm:w-[52px]"
+              style={{ color: cfg.color }}
             >
               {cfg.arrow}
             </button>
@@ -49,19 +49,15 @@ export default function ActionBar({
         })}
       </div>
 
-      <div className="flex items-center gap-2">
-        <span className="hidden tabular-nums text-sm text-muted sm:inline" aria-label="Swiped count">
-          {swiped} swiped
-        </span>
-        <button
-          type="button"
-          onClick={onToggleDetails}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-ink transition hover:border-warm"
-          aria-label="Toggle details"
-        >
-          ⋯
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={onToggleDetails}
+        className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-muted transition hover:bg-surface-2 active:scale-95"
+        aria-label="Toggle details"
+        title="Details"
+      >
+        ⓘ
+      </button>
     </div>
   );
 }

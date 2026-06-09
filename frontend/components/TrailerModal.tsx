@@ -75,26 +75,26 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4 backdrop-blur-md"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`${rec.title} trailer`}
     >
       <div
-        className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-warm bg-surface shadow-2xl"
+        className="relative w-full max-w-3xl overflow-hidden rounded-3xl bg-surface shadow-card"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <h2 className="truncate font-serif text-xl text-ink">
+        <div className="flex items-center justify-between gap-3 px-5 py-3.5">
+          <h2 className="truncate text-lg font-semibold tracking-tight text-ink">
             {rec.title}
-            {rec.year ? <span className="ml-2 text-sm text-muted">{rec.year}</span> : null}
+            {rec.year ? <span className="ml-2 text-sm font-normal text-muted">{rec.year}</span> : null}
           </h2>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close trailer"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-ink transition hover:border-warm"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-2 text-ink transition hover:brightness-95"
           >
             ✕
           </button>
@@ -103,7 +103,7 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
         <div className="relative aspect-video w-full bg-black">
           {phase.state === 'loading' && (
             <div className="absolute inset-0 flex items-center justify-center">
-              <p className="animate-pulse text-muted">Loading trailer…</p>
+              <p className="animate-pulse text-white/70">Loading trailer…</p>
             </div>
           )}
 
@@ -123,12 +123,12 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
 
           {phase.state === 'unavailable' && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
-              <p className="text-muted">No in-app trailer available for this title.</p>
+              <p className="text-white/70">No in-app trailer available for this title.</p>
               <a
                 href={youtubeTrailerUrl(rec.title, rec.year)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-amber/90 px-4 py-2 text-sm font-medium text-charcoal transition hover:bg-amber"
+                className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:brightness-110"
               >
                 Search on YouTube ↗
               </a>
@@ -137,7 +137,7 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
         </div>
 
         {rec.overview && (
-          <p className="max-h-32 overflow-y-auto px-4 py-3 text-sm text-white/80">{rec.overview}</p>
+          <p className="max-h-32 overflow-y-auto px-5 py-4 text-sm leading-relaxed text-ink/80">{rec.overview}</p>
         )}
       </div>
     </div>

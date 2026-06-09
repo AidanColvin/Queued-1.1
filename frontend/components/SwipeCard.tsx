@@ -10,6 +10,7 @@ import {
 import { useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 
 import { ACTION_CONFIG } from '@/lib/actions';
+import { useCardPoster } from '@/lib/posters';
 import type { Recommendation, SwipeAction } from '@/lib/types';
 import ScoreBar from './ScoreBar';
 
@@ -102,7 +103,11 @@ export default function SwipeCard({
   const skipOpacity = useTransform(y, [0, threshold], [0, 0.85]);
 
   const [imgFailed, setImgFailed] = useState(false);
-  const hasPoster = rec.poster_url && !imgFailed;
+  // The real (Wikipedia) poster when present, else a keyless TVmaze poster for
+  // TV titles the dataset is missing one for (resolves async). null → tile.
+  const resolvedPoster = useCardPoster(rec);
+  const posterUrl = !imgFailed ? resolvedPoster : null;
+  const hasPoster = Boolean(posterUrl);
 
   // Distinguish a tap (open trailer) from a swipe (commit a decision) from the
   // raw pointer positions rather than framer's `onTap` — which fires on
@@ -155,11 +160,11 @@ export default function SwipeCard({
       exit="exit"
       transition={{ type: 'spring', stiffness: 300, damping: 26 }}
     >
-      <div className="group relative h-full w-full overflow-hidden rounded-2xl border border-warm bg-surface shadow-[0_10px_40px_-12px_rgba(0,0,0,0.7)]">
+      <div className="group relative h-full w-full overflow-hidden rounded-[28px] bg-surface shadow-card ring-1 ring-black/5">
         {hasPoster ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={rec.poster_url as string}
+            src={posterUrl as string}
             alt={`${rec.title} poster`}
             loading="lazy"
             draggable={false}
@@ -167,14 +172,13 @@ export default function SwipeCard({
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-surface-2 via-charcoal to-black">
-            <div className="flex h-full items-center justify-center p-8">
-              <span className="text-center font-serif text-3xl text-white/25">{rec.title}</span>
-            </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#d2d2d7] to-[#8e8e93] p-8 text-center">
+            <span className="text-3xl">🎬</span>
+            <span className="text-2xl font-semibold leading-tight tracking-tight text-white">{rec.title}</span>
           </div>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black via-black/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/95 via-black/65 to-transparent" />
 
         {isTop && (
           <>
@@ -186,25 +190,34 @@ export default function SwipeCard({
           </>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 space-y-1.5 p-5">
-          <h2 className="font-serif text-3xl leading-tight text-ink drop-shadow">{rec.title}</h2>
+        <div className="absolute inset-x-0 bottom-0 space-y-2 p-5">
+          <h2 className="text-[28px] font-bold leading-tight tracking-tight text-white drop-shadow-sm">
+            {rec.title}
+          </h2>
           <div className="flex flex-wrap gap-1.5">
             {rec.year ? (
-              <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-white/70">{rec.year}</span>
+              <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-medium text-white backdrop-blur-sm">
+                {rec.year}
+              </span>
             ) : null}
             {rec.genres.slice(0, 3).map((g) => (
-              <span key={g} className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-white/70">
+              <span
+                key={g}
+                className="rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-medium text-white backdrop-blur-sm"
+              >
                 {g}
               </span>
             ))}
           </div>
           {rec.cast.length > 0 && (
-            <p className="truncate text-xs text-white/70">{rec.cast.join(' · ')}</p>
+            <p className="truncate text-xs text-white/75">{rec.cast.join(' · ')}</p>
           )}
           {rec.overview && (
-            <p className={`text-sm text-white/80 ${expanded ? '' : 'line-clamp-2'}`}>{rec.overview}</p>
+            <p className={`text-[13px] leading-relaxed text-white/85 ${expanded ? '' : 'line-clamp-2'}`}>
+              {rec.overview}
+            </p>
           )}
-          {expanded && rec.why && <p className="text-xs italic text-amber/90">{rec.why}</p>}
+          {expanded && rec.why && <p className="text-xs italic text-white/70">{rec.why}</p>}
           <div className="pt-1.5">
             <ScoreBar score={rec.score} />
           </div>

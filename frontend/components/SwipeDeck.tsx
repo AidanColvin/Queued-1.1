@@ -200,16 +200,17 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
             <button
               type="button"
               onClick={() => decide('saved')}
-              className="pointer-events-auto rounded-full bg-black/55 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-black/75"
+              aria-label="Add to watchlist"
+              className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-black/30 text-base text-white backdrop-blur-md transition hover:bg-black/50 active:scale-95"
             >
-              ♡ Watchlist
+              ♡
             </button>
             <button
               type="button"
               onClick={() => onOpenCard(deck.currentCard!)}
-              className="pointer-events-auto rounded-full bg-amber/90 px-3 py-1.5 text-sm font-medium text-charcoal transition hover:bg-amber"
+              className="pointer-events-auto flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-2 text-sm font-medium text-ink backdrop-blur-md transition hover:bg-white active:scale-95"
             >
-              ▶ Trailer
+              <span className="text-[11px]">▶</span> Trailer
             </button>
           </div>
         )}

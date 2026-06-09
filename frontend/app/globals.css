@@ -1,5 +1,6 @@
-/* Remote @import (left native by the build — no build-time font fetch). */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap');
+/* Inter as a cross-platform stand-in for SF Pro (Apple devices use the system
+   font first; this only loads on non-Apple platforms in practice). */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +8,7 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   html,
@@ -16,7 +17,9 @@
   }
 
   body {
-    @apply bg-charcoal text-ink font-sans antialiased;
+    @apply bg-canvas text-ink font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   /* App shell sized to the *visible* viewport. `dvh` tracks the mobile URL bar
@@ -25,8 +28,7 @@
 
      Padding is `max(base, safe-area-inset)` so on edge-to-edge iPhones the
      header/action bar clear the notch + home indicator, while desktop and
-     non-notched devices keep the original 1rem / 0.75rem gutters. This replaces
-     the px/py utilities the shell used to carry. */
+     non-notched devices keep the original 1rem / 0.75rem gutters. */
   .app-shell {
     height: 100vh;
     height: 100dvh;
@@ -43,21 +45,13 @@
     }
   }
 
-  /* Slow, subtle animated backdrop — pure CSS, no images. */
-  .backdrop-grain {
-    background:
-      radial-gradient(60% 50% at 20% 10%, rgba(245, 166, 35, 0.08), transparent 60%),
-      radial-gradient(50% 50% at 85% 80%, rgba(74, 168, 255, 0.06), transparent 60%),
-      #0d0f12;
-  }
-
-  /* Thin scrollbars to match the dark theme. */
+  /* Thin, light scrollbars to match the bright theme. */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(245, 243, 238, 0.12);
+    background: rgba(0, 0, 0, 0.18);
     border-radius: 9999px;
   }
 }

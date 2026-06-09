@@ -115,53 +115,63 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     setTrailerRec(rec);
   }, []);
 
-  const navBtn = (active: boolean) =>
-    `rounded-full px-3 py-1.5 text-sm font-medium transition ${
-      active ? 'bg-amber text-charcoal' : 'border border-warm text-ink hover:border-amber'
+  // Apple-style segmented control: a single pill track with the active segment
+  // lifted onto a white, softly-shadowed chip.
+  const segBtn = (active: boolean) =>
+    `rounded-full px-4 py-1.5 text-sm font-medium transition ${
+      active ? 'bg-white text-ink shadow-soft ring-1 ring-black/[0.04]' : 'text-muted hover:text-ink'
     }`;
 
   return (
-    <main className="app-shell mx-auto flex w-full max-w-3xl flex-col">
-      <header className="mb-3 flex items-center justify-between gap-2">
+    <main className="app-shell mx-auto flex w-full max-w-md flex-col">
+      <header className="mb-4 flex items-center justify-between gap-2">
+        <span className="text-[17px] font-semibold tracking-tight text-ink">NextWatch</span>
+
         <div className="flex items-center gap-2">
-          <button type="button" onClick={() => switchStack('movie')} className={navBtn(stack === 'movie')}>
-            Movies
-          </button>
-          <button type="button" onClick={() => switchStack('tv')} className={navBtn(stack === 'tv')}>
-            TV
-          </button>
+          <div className="flex items-center rounded-full bg-black/[0.04] p-0.5">
+            <button type="button" onClick={() => switchStack('movie')} className={segBtn(stack === 'movie')}>
+              Movies
+            </button>
+            <button type="button" onClick={() => switchStack('tv')} className={segBtn(stack === 'tv')}>
+              TV
+            </button>
+          </div>
           <button
             type="button"
             onClick={() => setWishlistOpen(true)}
-            className="rounded-full border border-warm px-3 py-1.5 text-sm font-medium text-ink transition hover:border-amber"
+            aria-label="Open watchlist"
+            className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-sm font-medium text-ink ring-1 ring-black/[0.08] transition hover:ring-black/20 active:scale-95"
           >
-            ♡ Watchlist{deck.wishlist.length ? ` ${deck.wishlist.length}` : ''}
+            <span className="text-base leading-none">♡</span>
+            {deck.wishlist.length ? (
+              <span className="tabular-nums">{deck.wishlist.length}</span>
+            ) : (
+              <span className="hidden sm:inline">Watchlist</span>
+            )}
           </button>
         </div>
-        <span className="hidden text-sm font-semibold uppercase tracking-[0.25em] text-amber/80 sm:inline">
-          NextWatch
-        </span>
       </header>
 
       <div className="flex min-h-0 flex-1 flex-col">
         {status === 'loading' && (
-          <div className="flex flex-1 items-center justify-center">
-            <p className="animate-pulse font-serif text-2xl text-muted">Finding something to watch…</p>
+          <div className="flex flex-1 flex-col items-center justify-center gap-4">
+            <div className="h-7 w-7 animate-spin rounded-full border-[3px] border-surface-2 border-t-accent" />
+            <p className="text-[15px] text-muted">Finding something to watch…</p>
           </div>
         )}
 
         {status === 'error' && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center">
-            <p className="text-pass">Couldn&apos;t reach the recommender.</p>
+            <p className="text-[15px] text-muted">Couldn&apos;t reach the recommender.</p>
             <button
               type="button"
               onClick={() => {
                 setStatus('loading');
                 void fetchMore(true, stack);
               }}
-              className="rounded-full border border-warm px-5 py-2.5 text-ink transition hover:border-amber"
+              className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition hover:brightness-110 active:scale-95"
             >
-              Retry
+              Try again
             </button>
           </div>
         )}
@@ -171,7 +181,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             <SwipeDeck deck={deck} onOpenCard={openCard} />
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-3 text-center">
-              <p className="font-serif text-2xl text-muted">
+              <p className="text-[17px] font-medium text-ink">
                 {exhaustedRef.current
                   ? `That's every popular ${stack === 'tv' ? 'show' : 'title'} — nice swiping.`
                   : 'Lining up more picks…'}
@@ -180,7 +190,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
                 <button
                   type="button"
                   onClick={() => switchStack(stack === 'tv' ? 'movie' : 'tv')}
-                  className="rounded-full border border-warm px-5 py-2.5 text-sm text-ink transition hover:border-amber"
+                  className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition hover:brightness-110 active:scale-95"
                 >
                   Try {stack === 'tv' ? 'Movies' : 'TV'} →
                 </button>
@@ -189,9 +199,8 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           ))}
       </div>
 
-      <p className="mt-3 text-center text-xs text-muted/70">
-        → like · ← dislike · ↑ watchlist · ↓ haven&apos;t seen — it learns as you go. Tap a card for
-        details + the trailer.
+      <p className="mt-4 text-center text-xs text-faint">
+        Swipe or tap the arrows — it learns as you go. Tap a card to watch the trailer.
       </p>
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />

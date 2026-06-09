@@ -1,42 +1,64 @@
 import type { Config } from 'tailwindcss';
 
-// Dark, opinionated palette: deep charcoal, warm off-white text, saturated amber
-// accent. Swipe-direction colors map to the four actions.
+// Clean, Apple-inspired light palette: soft off-white canvas (#f5f5f7), pure
+// white surfaces, near-black ink, and Apple system colors for the four swipe
+// actions. The whole feel is bright, calm, and high-contrast.
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        charcoal: '#0d0f12',
-        surface: '#16191e',
-        'surface-2': '#1d2128',
-        ink: '#f5f3ee',
-        muted: '#9aa0a6',
-        amber: '#f5a623',
-        like: '#3ecf8e',
-        pass: '#ff5e5b',
-        save: '#4aa8ff',
-        skip: '#8a9099',
+        // Surfaces & canvas
+        canvas: '#ffffff', // pure white background
+        surface: '#ffffff', // cards, panels, drawers
+        'surface-2': '#f5f5f7', // very light raised fills (chips, hover)
+        // Text
+        ink: '#1d1d1f', // primary near-black
+        muted: '#6e6e73', // secondary gray
+        faint: '#86868b', // tertiary gray
+        // Accent + actions (Apple system colors)
+        accent: '#0071e3', // Apple link blue
+        like: '#34c759', // green
+        pass: '#ff3b30', // red
+        save: '#0a84ff', // blue
+        skip: '#8e8e93', // gray
       },
       fontFamily: {
-        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
-        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        // SF Pro on Apple devices, Inter as the cross-platform stand-in.
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          '"SF Pro Text"',
+          'Inter',
+          'system-ui',
+          'sans-serif',
+        ],
+        // Display headings reuse the same SF/Inter stack — kept as a separate
+        // token so call-sites read intentionally, no serif anywhere.
+        display: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          'Inter',
+          'system-ui',
+          'sans-serif',
+        ],
       },
       borderColor: {
-        warm: 'rgba(245, 166, 35, 0.18)',
+        hairline: 'rgba(0, 0, 0, 0.08)', // Apple-style 1px separators
+      },
+      boxShadow: {
+        card: '0 10px 34px -14px rgba(0, 0, 0, 0.22)',
+        soft: '0 1px 3px rgba(0, 0, 0, 0.08)',
       },
       keyframes: {
-        'drift': {
-          '0%, 100%': { transform: 'translate(0, 0)' },
-          '50%': { transform: 'translate(-2%, 2%)' },
-        },
         'fade-in': {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
       },
       animation: {
-        drift: 'drift 18s ease-in-out infinite',
         'fade-in': 'fade-in 0.4s ease-out both',
       },
     },

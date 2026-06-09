@@ -22,11 +22,11 @@ export default function KeyHints({ visible }: KeyHintsProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
-          className="pointer-events-none absolute inset-x-0 bottom-2 flex justify-center gap-3 text-[11px] text-muted"
+          className="pointer-events-none absolute inset-x-0 bottom-3 flex flex-wrap justify-center gap-2 px-3 text-[11px] text-white/80"
         >
           {hints.map(([key, label]) => (
-            <span key={key} className="rounded bg-black/40 px-2 py-1 backdrop-blur-sm">
-              <span className="font-semibold text-ink/80">{key}</span> {label}
+            <span key={key} className="rounded-md bg-black/45 px-2 py-1 backdrop-blur-md">
+              <span className="font-semibold text-white">{key}</span> {label}
             </span>
           ))}
         </motion.div>

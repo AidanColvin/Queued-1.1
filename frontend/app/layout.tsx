@@ -13,17 +13,17 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   // Adds the apple-mobile-web-app-* meta so "Add to Home Screen" launches a
-  // chromeless, standalone app with our title and a translucent dark status bar
-  // (the app shell already pads content out of the safe areas).
+  // chromeless, standalone app with our title. `default` gives a light status
+  // bar (dark text) to match the bright app (the shell pads out of safe areas).
   appleWebApp: {
     capable: true,
     title: 'NextWatch',
-    statusBarStyle: 'black-translucent',
+    statusBarStyle: 'default',
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0d0f12',
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="backdrop-grain min-h-full">{children}</body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }
