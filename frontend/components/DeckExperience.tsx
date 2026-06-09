@@ -6,6 +6,7 @@ import { getPopular, getRecommendations, getTv } from '@/lib/api';
 import { useDeck } from '@/lib/deck';
 import { resolvePoster } from '@/lib/posters';
 import type { Recommendation } from '@/lib/types';
+import SplashScreen from './SplashScreen';
 import SwipeDeck from './SwipeDeck';
 import TrailerModal from './TrailerModal';
 import WishlistDrawer from './WishlistDrawer';
@@ -148,6 +149,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
 
   return (
     <main className="app-shell mx-auto flex w-full max-w-md flex-col">
+      <SplashScreen />
       <header className="mb-4 flex items-center justify-between gap-2">
         <span className="text-[17px] font-semibold tracking-tight text-ink">NextWatch</span>
 
