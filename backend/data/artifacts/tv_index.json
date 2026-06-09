@@ -1,7 +1,7 @@
 {
  "meta": {
   "source": "wikidata-keyless",
-  "n_series": 411,
+  "n_series": 625,
   "tv_essentials_added": 46,
   "tvmaze_added": 145,
   "all_have_poster": true
@@ -6783,6 +6783,4309 @@
    ],
    "overview": "The story of five German friends in the years from 1941 to 1945. Their friendship was meant to last their whole lives, but the war changed everything.",
    "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/7/17646.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900194,
+   "title": "1923",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Western"
+   ],
+   "cast": [
+    "Brandon Sklenar",
+    "Julia Schlaepfer",
+    "Helen Mirren",
+    "Harrison Ford",
+    "Darren Mann"
+   ],
+   "overview": "1923 focuses on the Dutton family's next two generations as they struggle to survive historic drought, lawlessness and prohibition, and an epidemic of cattle theft; all battled beneath the cloud of Montana's great depression, which preceded the nation by almost a decade.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/557/1392576.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900195,
+   "title": "1883",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Adventure",
+    "Western"
+   ],
+   "cast": [
+    "Sam Elliott",
+    "Tim McGraw",
+    "Faith Hill",
+    "Isabel May",
+    "LaMonica Garrett"
+   ],
+   "overview": "1883 follows the Dutton family as they embark on a journey west through the Great Plains toward the last bastion of untamed America. It is a stark retelling of Western expansion, and an intense study of one family fleeing poverty to seek a better future in America's promised land - Montana.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/486/1215657.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900196,
+   "title": "3 Body Problem",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Thriller"
+   ],
+   "cast": [
+    "Eiza González",
+    "Jess Hong",
+    "Jovan Adepo",
+    "Benedict Wong",
+    "Liam Cunningham"
+   ],
+   "overview": "Across continents and decades, five brilliant friends make earth-shattering discoveries as the laws of science unravel and an existential threat emerges.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/507/1268925.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900197,
+   "title": "3rd Rock from the Sun",
+   "year": 1996,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "John Lithgow",
+    "Kristen Johnston",
+    "French Stewart",
+    "Jane Curtin",
+    "Joseph Gordon-Levitt"
+   ],
+   "overview": "Sent to Earth to investigate civilization, an alien high commander and his quirky crew -- military officer Sally, information expert Tommy and transmitter Harry -- assume human identities to blend in. Although they possess superior intelligence, their naïveté about the human condition turns everyday events into farcical fun.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/16980.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900198,
+   "title": "8 Simple Rules",
+   "year": 2002,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Katey Sagal",
+    "Kaley Cuoco",
+    "Amy Davidson",
+    "Martin Spanjers",
+    "James Garner"
+   ],
+   "overview": "Legendary sitcom stars John Ritter and Katey Sagal team up in 8 Simple Rules, ABC's hit family comedy that is laugh-out-loud funny. \"If you make my daughters cry, I'll make you cry.\" That's the rallying cry of Paul Hennessy. A little rusty in the parenting department, Paul is forced to meet fatherhood head-on when his wife Cate returns to work. Two teenage daughters and a wisecracking son make Paul's new situation daunting but never dull.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/64/161760.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900199,
+   "title": "9-1-1",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Angela Bassett",
+    "Aisha Hinds",
+    "Oliver Stark",
+    "Kenneth Choi",
+    "Peter Krause"
+   ],
+   "overview": "9-1-1 is a fast-paced exploration into the lives and careers of first responders – cops, paramedics, firefighters – the people who put their lives on the line to save others.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/600/1501058.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900200,
+   "title": "9-1-1: Lone Star",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Rob Lowe",
+    "Jim Parrack",
+    "Ronen Rubinstein",
+    "Brian Michael Smith",
+    "Julian Works"
+   ],
+   "overview": "9-1-1: Lone Star follows a sophisticated New York firefighter who, along with his son, relocates to Austin, and must try to balance saving those who are at their most vulnerable with solving the problems in his own life.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/534/1335954.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900201,
+   "title": "9JKL",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "David Walton",
+    "Liza Lapira",
+    "Elliott Gould",
+    "Linda Lavin",
+    "Matt Murray"
+   ],
+   "overview": "9JKL stars Mark Feuerstein in a family comedy inspired by his real life. Josh Roberts is a new divorcé and actor between projects who moves home to New York to regroup, living in an apartment sandwiched between his doting, meddlesome parents on one side and his brother, sister-in-law and their new baby on the other. Josh's well-intentioned mom, Judy, is so excited to have her beloved son home after his 12 years in Los Angeles that she bribes their doorman, Nick, to secretly call her every time Josh comes up the elevator so she can greet him in the hallway. Also thrilled is Josh's larger-than-l",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/131/327506.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900202,
+   "title": "Abbott Elementary",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Quinta Brunson",
+    "Tyler James Williams",
+    "Janelle James",
+    "Chris Perfetti",
+    "Lisa Ann Walter"
+   ],
+   "overview": "In this workplace comedy, a group of dedicated, passionate teachers — and a slightly tone-deaf principal — are brought together in a Philadelphia public school where, despite the odds stacked against them, they are determined to help their students succeed in life. Though these incredible public servants may be outnumbered and underfunded, they love what they do — even if they don't love the school district's less-than-stellar attitude toward educating children.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/586/1467109.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900203,
+   "title": "Abby's",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Natalie Morales",
+    "Nelson Franklin",
+    "Jessica Chaffin",
+    "Leonard Ouzts",
+    "Neil Flynn"
+   ],
+   "overview": "This unlicensed, makeshift establishment in Abby's backyard is the perfect gathering place for locals to find camaraderie and sanctuary. To maintain the perfect bar ecosystem, all patrons must abide by a specific set of rules. This includes no cell phones (not even to look something up), understanding that earning a seat at the bar takes time to rise through the hierarchy and knowing that losing a challenge may have some unpleasant and unpalatable drink-related repercussions.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/200/501668.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900204,
+   "title": "According to Jim",
+   "year": 2001,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Jim Belushi",
+    "Courtney Thorne-Smith",
+    "Larry Joe Campbell",
+    "Taylor Atelian",
+    "Billi Bruno"
+   ],
+   "overview": "In this earthy family comedy, Jim is the macho Everyman who challenges his gorgeous and feisty wife, Cheryl, with his stubborn manliness but contagious charm. Tagging along with this duo of happily married opposites are their three precocious kids. A success at his construction business and the family breadwinner at home, Jim feeds his other passion - blues music - playing with his six-man garage band. He keeps Cheryl in turmoil with his boyish bravado and ever willful antics, but their underlying love guarantees that they are in this marriage for keeps.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/15811.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900205,
+   "title": "All American",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Sports"
+   ],
+   "cast": [
+    "Michael Evans Behling",
+    "Greta Onieogou",
+    "Bre-Z",
+    "Samantha Logan",
+    "Daniel Ezra"
+   ],
+   "overview": "When a rising high school football player from South Central L.A. is recruited to play for Beverly Hills High, the wins, losses and struggles of two families from vastly different worlds — Compton and Beverly Hills — begin to collide. Inspired by the life of pro football player Spencer Paysinger.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/564/1411813.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900206,
+   "title": "All American: Homecoming",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Sports"
+   ],
+   "cast": [
+    "Geffri Maya",
+    "Sylvester Powell",
+    "Mitchell Edwards",
+    "Cory Hardrict",
+    "Netta Walker"
+   ],
+   "overview": "All American: Homecoming follows a young tennis hopeful from Beverly Hills and an elite baseball player from Chicago as they contend with the high stakes of college sports, while also navigating the highs, lows and sexiness of unsupervised early adulthood at a prestigious Historically Black College.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/425/1064743.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900207,
+   "title": "Allegiance",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+   ],
+   "cast": [
+    "Supinder Wraich",
+    "Enrico Colantoni",
+    "Adolyn H. Dar",
+    "Samer Salem",
+    "Stephen Lobo"
+   ],
+   "overview": "Allegiance follows on identity and belonging, policing and politics, and finding truth within the heart of a flawed justice system. Sabrina Sohal is a star rookie police officer who must grapple with the limits of the justice system as she fights to exonerate her politician father Ajeet Sohal. Sohal serves her diverse hometown of Surrey alongside Vince Brambilla, a veteran training officer who sees her potential but doesn't always agree with her forward-thinking methods. Allegiance is the story of a young woman caught between her allegiance to her flag, to her badge, and to her family.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/605/1514891.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900208,
+   "title": "Almost Human",
+   "year": 2013,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Karl Urban",
+    "Michael Ealy",
+    "Minka Kelly",
+    "Mackenzie Crook",
+    "Lili Taylor"
+   ],
+   "overview": "Almost Human is an action-packed police drama set 35 years in the future, when police officers are partnered with highly evolved human-like androids. The year is 2048. Meet John Kennex a cop who survived one of the most catastrophic attacks ever made against the police department. After waking up from a 17-month coma, he can't remember much - except that his partner was killed; his girlfriend, Anna Moore, left him after the attack; and he lost one of his legs and is now outfitted with a highly sophisticated synthetic appendage. Suffering from depression, mental atrophy, trauma-onset OCD, PTSD ",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/1/3020.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900209,
+   "title": "American Housewife",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Diedrich Bader",
+    "Johnny Sequoyah",
+    "Meg Donnelly",
+    "Daniel DiMaggio",
+    "Katy Mixon"
+   ],
+   "overview": "Katie Otto, a confident, unapologetic wife and mother of three, raises her flawed family in the wealthy town of Westport, Connecticut, filled with \"perfect\" mommies and their \"perfect\" offspring. Katie's perfectly imperfect world is upended when her neighbor's decision to move notches her up from her ideal social standing and sets her on a path to ensure that doesn't happen, regardless of the consequences.Luckily, her husband, Greg Otto, supports her in every way possible, but with a dash of reality thrown in as they work to ensure their children do not end up like everyone else. However, that",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/278/696926.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900210,
+   "title": "Animal Control",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Joel McHale",
+    "Vella Lovell",
+    "Ravi V. Patel",
+    "Michael Rowland",
+    "Grace Palmer"
+   ],
+   "overview": "Animal Control is a workplace comedy following a group of Animal Control workers whose lives are complicated by the fact that animals are simple, but humans are not.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/605/1513832.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900211,
+   "title": "Atypical",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Keir Gilchrist",
+    "Jennifer Jason Leigh",
+    "Brigette Lundy-Paine",
+    "Michael Rapaport",
+    "Amy Okuda"
+   ],
+   "overview": "Atypical is a coming of age story that follows Sam, an 18-year-old on the autistic spectrum as he searches for love and independence. While Sam is on his funny yet emotional journey of self-discovery, the rest of his family must grapple with change in their own lives as they all struggle with the central theme: what does it really mean to be normal?",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/339/849013.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900212,
+   "title": "Bad Judge",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "John Ducey",
+    "Kate Walsh",
+    "Miguel Sandoval",
+    "Tone Bell",
+    "Ryan Hansen"
+   ],
+   "overview": "No excuses, no apologies, no compromises. Wild child Rebecca Wright knows how to have a good time, but she also happens to be one of L.A.'s toughest and most respected criminal court judges. She has a reputation for unorthodox behavior in the courtroom, including creative rulings and saying exactly what's on her mind. Her private life, on the other hand, is anything but innocent. She parties too much and rocks out on the drums in a band with her best friend, Jenny. While there's no shortage of male admirers who would love to spend time with her, she's not ready to settle down... except when an",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/678.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900213,
+   "title": "Bad Monkey",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Crime"
+   ],
+   "cast": [
+    "Vince Vaughn",
+    "Michelle Monaghan",
+    "Jodie Turner-Smith",
+    "Meredith Hagner",
+    "Natalie Martinez"
+   ],
+   "overview": "Bad Monkey tells the story of Andrew Yancy, a one-time detective demoted to restaurant inspector in Southern Florida. A severed arm found by a tourist out fishing pulls Yancy into the world of greed and corruption that decimates the land and environment in both Florida and the Bahamas. And yes, there's a monkey.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/528/1321882.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900214,
+   "title": "Bad Sisters",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Thriller"
+   ],
+   "cast": [
+    "Sharon Horgan",
+    "Eve Hewson",
+    "Eva Birthistle",
+    "Saise Ní Chuinn",
+    "Sarah Greene"
+   ],
+   "overview": "Set in the breath-taking coast of Ireland, Bad Sisters follows the lives of the Garvey sisters, who are bound together by the premature death of their parents and a promise to always protect one another. The tight-knit Garvey sisters have always looked out for each other. When their brother-in-law winds up dead, his life insurers launch an investigation to prove malicious intent - and set their sights on the sisters, all of whom had ample reason to kill him.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/540/1351090.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900215,
+   "title": "Barney Miller",
+   "year": 1975,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Hal Linden",
+    "Max Gail",
+    "Ron Glass",
+    "Steve Landesberg",
+    "Ron Carey"
+   ],
+   "overview": "Barney Miller is the kind of cop we'd all like to run into. He is always sensible. He maintains order over a squad room of detectives who gamble for a hobby, get hit on by anything in skirts, go to renaissance philosophy conventions for fun, and would really prefer to be writing.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/206/515173.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900216,
+   "title": "Beavis and Butt-Head",
+   "year": 1992,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Music"
+   ],
+   "cast": [
+    "Mike Judge",
+    "Mike Judge",
+    "Mike Judge",
+    "Mike Judge",
+    "Mike Judge"
+   ],
+   "overview": "A national treasure in an age of idiocy… When Beavis and Butt-Head first appeared on MTV more than a decade ago, critics dismissed them as brainless couch potatoes who did nothing but watch TV and make lewd jokes about bodily functions. Today we know they were ahead of their time. Beavis and Butt-Head's unique idiocy profoundly changed television, movies, pop culture and the world.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/16043.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900217,
+   "title": "Black Bird",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Thriller"
+   ],
+   "cast": [
+    "Paul Walter Hauser",
+    "Taron Egerton",
+    "Ray Liotta",
+    "Greg Kinnear",
+    "Sepideh Moafi"
+   ],
+   "overview": "Inspired by actual events, when high school football hero, decorated policeman's son and convicted drug dealer Jimmy Keene is sentenced to 10 years in a minimum security prison, he is given the choice of a lifetime — enter a maximum-security prison for the criminally insane and befriend suspected serial killer Larry Hall, or stay where he is and serve his full sentence with no possibility of parole. Keene quickly realizes his only way out is to elicit a confession and find out where the bodies of several young girls are buried before Hall's appeal goes through. But is this suspected killer tel",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/501/1254750.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900218,
+   "title": "black-ish",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Anthony Anderson",
+    "Marcus Scribner",
+    "Marsai Martin",
+    "Miles Brown",
+    "Tracee Ellis Ross"
+   ],
+   "overview": "Andre 'Dre' Johnson has a great job, a beautiful wife, Rainbow, four kids, and a colonial home in the 'burbs. But has success brought too much assimilation for this black family? With a little help from his dad, Dre sets out to establish a sense of cultural identity for his family that honors their past while embracing the future.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/388/970329.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900219,
+   "title": "Bless the Harts",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Kristen Wiig",
+    "Maya Rudolph",
+    "Jillian Bell",
+    "Ike Barinholtz",
+    "Fortune Feimster"
+   ],
+   "overview": "Bless the Harts follows a group of Southerners who are always broke as a joke, and struggling for the American dream of status and wealth. What they don't realize is that they're already rich, in friends, family and laughter.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/309/773274.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900220,
+   "title": "Bless This Mess",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Dax Shepard",
+    "Lake Bell",
+    "Ed Begley Jr.",
+    "Pam Grier",
+    "JT Neal"
+   ],
+   "overview": "Bless This Mess centers on a newlywed couple, that gives up their drab and unfulfilling lives in NYC and moves to Nebraska to live a simpler life. But it doesn't work out like they planned.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/217/542684.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900221,
+   "title": "Blindspot",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Thriller"
+   ],
+   "cast": [
+    "Sullivan Stapleton",
+    "Jaimie Alexander",
+    "Ashley Johnson",
+    "Audrey Esparza",
+    "Rob Brown"
+   ],
+   "overview": "A beautiful woman, with no memories of her past, is found naked in Times Square with her body fully covered in intricate tattoos. Her discovery sets off a vast and complex mystery that immediately ignites the attention of the FBI, which begins to follow the road map on her body into a larger conspiracy of crime, while bringing her closer to discovering the truth about her identity.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/486/1215674.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900222,
+   "title": "Blossom",
+   "year": 1990,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Mayim Bialik",
+    "Joey Lawrence",
+    "Jenna Von Oÿ",
+    "Ted Wass",
+    "Richard Masur"
+   ],
+   "overview": "The series changed the face of prime-time sitcoms by introducing young audiences to an eccentric teenaged girl from a broken home on the mend. A video blogger predating the Internet, Blossom Russo chronicled the events of her teenage life in full, hilarious and sometimes heartbreaking detail, providing inspiration to youngsters and their families for five very special seasons.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/7/17907.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900223,
+   "title": "Blue Bloods",
+   "year": 2010,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Donnie Wahlberg",
+    "Will Estes",
+    "Len Cariou",
+    "Tom Selleck",
+    "Bridget Moynahan"
+   ],
+   "overview": "Blue Bloods is a drama about a multi-generational family of cops dedicated to New York City law enforcement. Frank Reagan is the New York Police Commissioner and heads both the police force and the Reagan brood. He runs his department as diplomatically as he runs his family, even when dealing with the politics that plagued his unapologetically bold father, Henry, during his stint as Chief. A source of pride and concern for Frank is his eldest son Danny, a seasoned detective, family man and Iraq War vet who on occasion uses dubious tactics to solve cases with his loyal and tough partner, Detect",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/593/1482537.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900224,
+   "title": "Burn Notice",
+   "year": 2007,
+   "type": "tv",
+   "genres": [
+    "Action",
+    "Crime",
+    "Espionage"
+   ],
+   "cast": [
+    "Jeffrey Donovan",
+    "Bruce Campbell",
+    "Gabrielle Anwar",
+    "Sharon Gless",
+    "Coby Bell"
+   ],
+   "overview": "My name is Michael Westen. I used to be a spy. Until I got a burn notice, I was blacklisted. When you're burned, you've got nothing: no cash, no credit, no job history. You're stuck in whatever city they decide to dump you in. Miami. You do whatever work comes your way. You rely on anyone who's still talking to you. A trigger-happy ex-girlfriend... An old friend who used to inform on you to the FBI... Family too... if you're desperate... Bottom line? Until you figure out who burned you... you're not going anywhere.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/5/14749.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900225,
+   "title": "Call the Midwife",
+   "year": 2012,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Medical",
+    "History"
+   ],
+   "cast": [
+    "Jenny Agutter",
+    "Vanessa Redgrave",
+    "Laura Main",
+    "Judy Parfitt",
+    "Stephen McGann"
+   ],
+   "overview": "Drama following the lives of a group of midwives working in the poverty-stricken East End of London during the 1950s & decades following.  Based on the best-selling memoirs of Jennifer Worth.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/608/1520011.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900226,
+   "title": "Call Your Mother",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Kyra Sedgwick",
+    "Rachel Sennott",
+    "Joey Bragg",
+    "Patrick Brammall",
+    "Emma Caymares"
+   ],
+   "overview": "Call Your Mother follows an empty-nester mom who wonders how she ended up alone while her children live their best lives thousands of miles away. She decides her place is with her family and as she reinserts herself into their lives, her kids realize they might actually need her more than they thought.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/292/731061.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900227,
+   "title": "Carol's Second Act",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Medical"
+   ],
+   "cast": [
+    "Kyle MacLachlan",
+    "Ito Aghayere",
+    "Patricia Heaton",
+    "Jean-Luc Bilodeau",
+    "Sabrina Jalees"
+   ],
+   "overview": "Carol's Second Act is a comedy about a woman who embarks on a unique second act after raising her children, getting divorced, and retiring from teaching: pursuing her dream of becoming a doctor. At age 50, Carol is a medical intern and must sink or swim with peers who are half her age. It's her enthusiasm, perspective, and yes, even her age that may be exactly what will make her second act a great success.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/209/523144.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900228,
+   "title": "Champions",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Anders Holm",
+    "Andy Favreau",
+    "Josie Totah",
+    "Fortune Feimster",
+    "Mouzam Makkar"
+   ],
+   "overview": "Champions centers on Vince, a charismatic gym owner with no ambition, who lives with his younger brother Matthew, a gorgeous idiot. Their simple life of women and working out is put on hold when the teenage son of Vince is dropped off on their doorstep by Priya, one of his old high school flings.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/145/362707.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900229,
+   "title": "Chilling Adventures of Sabrina",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Horror",
+    "Romance",
+    "Supernatural"
+   ],
+   "cast": [
+    "Lucy Davis",
+    "Tati Gabrielle",
+    "Chance Perdomo",
+    "Kiernan Shipka",
+    "Jaz Sinclair"
+   ],
+   "overview": "Chilling Adventures of Sabrina reimagines the origin & adventures of Sabrina the Teenage Witch as a dark coming-of-age story that traffics in horror, the occult and, of course, witchcraft. This adaptation finds Sabrina wrestling to reconcile her dual nature —half-witch, half-mortal — while standing against the evil forces that threaten her, her family and the daylight world humans inhabit.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/291/728576.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900230,
+   "title": "City on Fire",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Thriller"
+   ],
+   "cast": [
+    "Wyatt Oleff",
+    "Chase Sui Wonders",
+    "Jemima Kirke",
+    "Nico Tortorella",
+    "Ashley Zukerman"
+   ],
+   "overview": "In City on Fire, a NYU student is shot in Central Park on the Fourth of July, 2003. Samantha Yeung is alone; there are no witnesses and very little physical evidence. Her friends' band is playing her favorite downtown club but she leaves to meet someone, promising to return. She never does. As the crime against Samantha is investigated, she's revealed to be the crucial connection between a series of mysterious citywide fires, the downtown music scene, and a wealthy uptown real estate family fraying under the strain of the many secrets they keep.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/464/1161713.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900231,
+   "title": "Marvel's Cloak & Dagger",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Adventure",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Olivia Holt",
+    "Aubrey Joseph",
+    "Gloria Reuben",
+    "Emma Lahana",
+    "Andrea Roth"
+   ],
+   "overview": "Marvel's Cloak & Dagger is an adaptation of the beloved Marvel characters whose story is aimed squarely at young adults. This live-action interracial romance follows Tandy Bowen and Tyrone Johnson, two teenagers from very different backgrounds, who find themselves burdened and awakened to newly acquired superpowers while falling in love. Tandy can emit light daggers and Tyrone has the ability to engulf others in darkness. They quickly learn they are better together than apart -- but their feelings for each other make their already complicated world even more challenging.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/187/468732.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900232,
+   "title": "Coach",
+   "year": 1989,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Sports"
+   ],
+   "cast": [
+    "Craig T. Nelson",
+    "Jerry Van Dyke",
+    "Shelley Fabares",
+    "Bill Fagerbakke",
+    "Clare Carey"
+   ],
+   "overview": "Hayden Fox is the head coach of a university football team, and eats, sleeps and lives football. His partner, however, does not share his passion for the sport, which frequently causes friction in their relationship. While Hayden often fits the stereotype of dumb jock (as do his co-workers Luther and Dauber), he sincerely cares about his friends and family, and tries his best to make things work out.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/599/1498871.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900233,
+   "title": "Colony",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Josh Holloway",
+    "Sarah Wayne Callies",
+    "Alex Neustaedter",
+    "Peter Jacobson",
+    "Isabella Crovetti"
+   ],
+   "overview": "Colony is a naturalistic drama about a family that's torn by opposing forces and makes difficult decisions as its members balance staying together with surviving the struggle of the human race. Set in the near future, the story takes place in Los Angeles, which exists in a state of occupation by a force of outside intruders. Some people choose to collaborate with the authorities and benefit from the new order, while others rebel and suffer the consequences. Josh Holloway stars in Colony as Will Bowman a former FBI agent who — in a bid to protect his family — is forced to collaborate with the o",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/156/391152.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900234,
+   "title": "Covert Affairs",
+   "year": 2010,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Espionage"
+   ],
+   "cast": [
+    "Piper Perabo",
+    "Christopher Gorham",
+    "Kari Matchett",
+    "Peter Gallagher",
+    "Hill Harper"
+   ],
+   "overview": "New jobs are tough—especially when your new employer is the CIA. Annie Walker is fluent in six languages, has traveled the world and is besting her fellow CIA trainees in every test. But that doesn't explain why she's suddenly summoned by CIA headquarters to report for active duty as a field operative one month before her training is over. She doesn't know there may be something—or someone—from her past that her CIA bosses are really after. Annie's unofficial guide to the CIA is Auggie Anderson, a tech ops expert who was blinded while on assignment. As Annie navigates this new world of intrigu",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/545/1362912.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900235,
+   "title": "Cristela",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Legal"
+   ],
+   "cast": [
+    "Andrew Leeds",
+    "Carlos Ponce",
+    "Maria Canals-Barrera",
+    "Terri Hoyos",
+    "Cristela Alonzo"
+   ],
+   "overview": "Cristela's dream of becoming a lawyer is something her traditional Mexican-American family doesn't quite understand. She's entering her sixth year of law school after juggling home obligations and working multiple jobs to pay her way.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/1932.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900236,
+   "title": "CSI: Vegas",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Paula Newsome",
+    "Matt Lauria",
+    "Mandeep Dhillon",
+    "Lex Medlin",
+    "Ariana Guerra"
+   ],
+   "overview": "With CSI: Vegas, the most watched drama series of the 21st century, CSI, opens a brand new chapter in Las Vegas, the city where it all began. Facing an existential threat that could bring down the Crime Lab, a brilliant team of forensic investigators must welcome back old friends and deploy new techniques to preserve and serve justice in Sin City.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/504/1260399.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900237,
+   "title": "Dead to Me",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+   ],
+   "cast": [
+    "Christina Applegate",
+    "Linda Cardellini",
+    "Sam McCarthy",
+    "Luke Roessler",
+    "James Marsden"
+   ],
+   "overview": "Dead to Me is about a powerful friendship that blossoms between a tightly wound widow and a free spirit with a shocking secret.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/429/1072654.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900238,
+   "title": "Dear Edward",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama"
+   ],
+   "cast": [
+    "Colin O'Brien",
+    "Connie Britton",
+    "Taylor Schilling",
+    "Anna Uzele",
+    "Idris Debrand"
+   ],
+   "overview": "Edward Adler, a 12-year-old boy, survives a devastating commercial plane crash that kills every other passenger on the flight, including his family. As Edward and a diverse ensemble of others affected by the tragedy try to make sense of life after the crash, unexpected friendships, romances and communities are formed.The 10-episode drama series is based on the 2020 novel by Ann Napolitano.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/445/1112792.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900239,
+   "title": "Defending Jacob",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Thriller",
+    "Legal"
+   ],
+   "cast": [
+    "Michelle Dockery",
+    "Chris Evans",
+    "Jaeden Martell",
+    "Pablo Schreiber",
+    "Betty Gabriel"
+   ],
+   "overview": "Defending Jacob unfolds around a shocking crime that rocks a small Massachusetts town and one family in particular, forcing an assistant district attorney to choose between his sworn duty to uphold justice and his unconditional love for his son.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/248/620716.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900240,
+   "title": "Defiance",
+   "year": 2013,
+   "type": "tv",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Grant Bowler",
+    "Julie Benz",
+    "Stephanie Leonidas",
+    "Jaime Murray",
+    "Tony Curran"
+   ],
+   "overview": "Set on a future Earth, Defiance introduces players and viewers to a world where humans and aliens live together on a planet ravaged by decades of war and transformed by alien terra-forming machines. It centers on Jeb Nolan, the law-keeper in a bustling frontier boomtown that is one of the new world's few oasis of civility and inclusion. Nolan is a former Marine who fought in the alien conflict and suffered the loss of his wife and child in the war. The trauma transformed him into a lone wanderer in the wilds of this new and dangerous world.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/700.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900241,
+   "title": "Designing Women",
+   "year": 1986,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Annie Potts",
+    "Dixie Carter",
+    "Delta Burke",
+    "Jean Smart",
+    "Meshach Taylor"
+   ],
+   "overview": "Julia Sugarbaker, Mary Jo Shively, Charlene Frazier-Stillfield, and Suzanne Sugarbaker are associates at their design firm, Sugarbaker and Associates. Julia is the owner of and is very outspoken and strong-willed. Mary Jo Shively is a divorced single-parent who is just as strong-willed as Julia, but isn't as self-confident. Charlene is a naive and trusting farm girl from Poplar Bluff, Missouri. Suzanne Sugarbaker is a self-centered ex-beauty queen who has a number of wealthy ex-husbands.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/206/515181.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900242,
+   "title": "Dharma & Greg",
+   "year": 1997,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family",
+    "Romance"
+   ],
+   "cast": [
+    "Jenna Elfman",
+    "Thomas Gibson",
+    "Mimi Kennedy",
+    "Susan Sullivan",
+    "Mitchell Ryan"
+   ],
+   "overview": "When free-spirited yoga instructor Dharma Finkelstein meets conservative attorney Greg Montgomery, it's love at first sight. Unfortunately, there is absolutely no love in the air when Dharma's hippie parents and Greg's blue-blood establishment parents finally meet after their children have already married at a drive-thru chapel in Reno. With friends and family all suggesting that a quick annulment would be best, it's no surprise that the couple begins to second-guess their impulsive nuptials. But it's soon evident that nothing can stand in the way of true love!",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11770.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900243,
+   "title": "Diagnosis: Murder",
+   "year": 1992,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Medical"
+   ],
+   "cast": [
+    "Dick Van Dyke",
+    "Barry Van Dyke",
+    "Victoria Rowell",
+    "Charlie Schlatter",
+    "Michael Tucci"
+   ],
+   "overview": "Dr. Mark Sloan is chief of internal medicine at Community General Hospital in Los Angeles and a L.A.P.D. consultant, Sloan has a knack for getting into trouble, negotiating the twists and turns of mysteries and solving crimes with the help of his homicide detective son Steve.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/17/44006.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900244,
+   "title": "Disclaimer",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Thriller",
+    "Mystery"
+   ],
+   "cast": [
+    "Cate Blanchett",
+    "Kevin Kline",
+    "Kodi Smit-McPhee",
+    "Sacha Baron Cohen",
+    "Lesley Manville"
+   ],
+   "overview": "Acclaimed journalist Catherine Ravenscroft built her reputation revealing the misdeeds and transgressions of others. When she receives a novel from an unknown author, she is horrified to realize she is now the main character in a story that exposes her darkest secrets. As Catherine races to uncover the writer's true identity, she is forced to confront her past before it destroys her life and her relationships with her husband and their son Nicholas.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/538/1347291.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900245,
+   "title": "Don't Trust the B---- in Apartment 23",
+   "year": 2012,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Krysten Ritter",
+    "Dreama Walker",
+    "James Van Der Beek",
+    "Eric André",
+    "Ray Ford"
+   ],
+   "overview": "After a naive Midwestern girl's big city dreams are dashed during her first week in New York, she finds herself living with her worst nightmare, in a hilarious, contemporary comedy about a female odd couple who are surrounded by an outrageous cast of characters.On May 23 2012, the first season ended its broadcast run; seven episodes were aired, although the initial order consisted of 13 episodes. Thus, six episodes were carried over into the following broadcast run, bringing the second season to 19 episodes. ABC elected to air the six remaining episodes out of order, interspersing first and se",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/2/6145.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900246,
+   "title": "Doom Patrol",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Matt Bomer",
+    "Matthew Zuk",
+    "Brendan Fraser",
+    "Riley Shanahan",
+    "April Bowlby"
+   ],
+   "overview": "A re-imagining of one of DC's most beloved group of outcast super heroes: Robotman, Negative Man, Elasti-Woman and Crazy Jane, led by modern-day mad scientist Dr. Niles Caulder (The Chief). The Doom Patrol's members each suffered horrible accidents that gave them superhuman abilities - but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence - and to protect Earth from what they find. Part support group, part Super Hero team, the Doom Patrol is a band of super-p",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/481/1204053.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900247,
+   "title": "Dr. Ken",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family",
+    "Medical"
+   ],
+   "cast": [
+    "Ken Jeong",
+    "Albert Tsai",
+    "Dave Foley",
+    "Jonathan Slavin",
+    "Krista Marie Yu"
+   ],
+   "overview": "Doctor turned actor/comedian Ken Jeong plays Dr. Ken, a brilliant physician with no bedside manner. He is always trying to be a good doctor, as well as a good husband and dad to his two kids. However, these good intentions have a way of driving everyone crazy at both work and at home. Luckily, his therapist wife Allison is just the right partner to keep things sane.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/20/52350.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900248,
+   "title": "Duncanville",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Amy Poehler",
+    "Ty Burrell",
+    "Riki Lindhome",
+    "Betsy Sodaro",
+    "Yassir Lester"
+   ],
+   "overview": "The series centers on the life of Duncan, a spectacularly average 15-year-old boy, his family and friends.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/423/1058271.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900249,
+   "title": "Echo 3",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Action",
+    "Thriller"
+   ],
+   "cast": [
+    "Jessica Ann Collins",
+    "Luke Evans",
+    "Michiel Huisman"
+   ],
+   "overview": "Echo 3 follows Amber Chesborough, a brilliant young scientist who is the emotional heart of a small American family. When Amber goes missing along the Colombia-Venezuela border, her brother, Bambi, and her husband, Prince - two men with deep military experience and complicated pasts - struggle to find her in a layered personal drama, set against the explosive backdrop of a secret war.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/428/1071012.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900250,
+   "title": "Elsbeth",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Crime"
+   ],
+   "cast": [
+    "Carrie Preston",
+    "Wendell Pierce",
+    "Carra Patterson"
+   ],
+   "overview": "Elsbeth follows Elsbeth Tascioni, an astute but unconventional attorney who utilizes her singular point of view to make unique observations and corner brilliant criminals alongside the NYPD. After leaving her successful legal career in Chicago to tackle a new investigative role in New York City, Elsbeth finds herself jockeying with the toast of the NYPD, Captain C.W. Wagner, a charismatic and revered leader. Working alongside Elsbeth is Officer Kaya Blanke, a stoic and ethical officer who quickly develops an appreciation for Elsbeth's insightful and offbeat ways.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/591/1479795.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900251,
+   "title": "Eureka",
+   "year": 2006,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Colin Ferguson",
+    "Erica Cerra",
+    "Salli Richardson-Whitfield",
+    "Joe Morton",
+    "Neil Grayston"
+   ],
+   "overview": "With the help of Albert Einstein and other trusted advisors, President Harry S. Truman commissioned a top-secret residential development in a remote area of the Pacific Northwest, one that would serve to protect and nurture America's most valuable intellectual resources. There our nation's greatest thinkers, the über-geniuses working on the next era of scientific achievement, would be able to live and work in a supportive environment.The best architects and planners were commissioned to design a welcoming place for these superlative geniuses to reside, an area that would offer the best educati",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/183/459344.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900252,
+   "title": "Everybody Hates Chris",
+   "year": 2005,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Terry Crews",
+    "Tichina Arnold",
+    "Tequan Richmond",
+    "Imani Hakim",
+    "Tyler James Williams"
+   ],
+   "overview": "Inspired by his childhood experiences, comedian Chris Rock narrates the hilarious, touching story of a teenager growing up as the eldest of children in Brooklyn, New York during the early 1980s.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/5/14969.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900253,
+   "title": "Extended Family",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Abigail Spencer",
+    "Finn Sweeney",
+    "Jon Cryer",
+    "Sofia Capanna",
+    "Donald Faison"
+   ],
+   "overview": "After an amicable divorce, Jim and Julia decide to continue to raise their kids at the family home while taking turns on who gets to stay with them. Navigating the waters of divorce and child-sharing gets more complicated for Jim when Trey, the owner of his favorite sports team, enters the picture and wins Julia's heart.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/489/1224333.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900254,
+   "title": "Falling Skies",
+   "year": 2011,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Noah Wyle",
+    "Maxim Knight",
+    "Will Patton",
+    "Drew Roy",
+    "Sarah Carter"
+   ],
+   "overview": "The series tells the story of the aftermath of a global invasion by several races of extraterrestrials that neutralizes the world's power grid and technology, quickly destroys the combined militaries of all the world's countries, and apparently kills over 90% of the human population within a few days.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/498/1246070.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900255,
+   "title": "Fire Country",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action"
+   ],
+   "cast": [
+    "Max Thieriot",
+    "Jordan Calloway",
+    "Kevin Alejandro",
+    "Diane Farr",
+    "Jules Latimer"
+   ],
+   "overview": "In Fire Country, seeking redemption and a shortened prison sentence, young convict Bode Donovan joins a firefighting program that returns him to his small Northern California hometown, where he and other inmates work alongside elite firefighters to extinguish massive blazes across the region.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/591/1479862.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900256,
+   "title": "For All Mankind",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Joel Kinnaman",
+    "Wrenn Schmidt",
+    "Coral Peña",
+    "Cynthy Wu",
+    "Krys Marshall"
+   ],
+   "overview": "Imagine a world where the global space race never ended. This thrilling \"what if\" take on history from Ronald D. Moore (Outlander, Battlestar Galactica) spotlights the high-stakes lives of NASA astronauts and their families.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/616/1541416.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900257,
+   "title": "Foundation",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Mystery"
+   ],
+   "cast": [
+    "Lee Pace",
+    "Lou Llobell",
+    "Laura Birn",
+    "Terrence Mann",
+    "Jared Harris"
+   ],
+   "overview": "When revolutionary Dr. Hari Seldon predicts the impending fall of the Empire, he and a band of loyal followers venture to the far reaches of the galaxy to establish The Foundation in an attempt to rebuild and preserve the future of civilization. Enraged by Hari's claims, the ruling Cleons – a long line of emperor clones – fear their grasp on the galaxy may be weakening as they're forced to reckon with the potential reality of losing their legacy forever.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/573/1433544.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900258,
+   "title": "Fresh Off the Boat",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Constance Wu",
+    "Hudson Yang",
+    "Randall Park",
+    "Forrest Wheeler",
+    "Ian Chen"
+   ],
+   "overview": "It's the '90s and 12 year old, hip-hop loving Eddie just moved to suburban Orlando from DC's Chinatown with his parents. It's culture shock for his immigrant family in this comedy about pursuing the American Dream. Fresh Off the Boat is based on Chef Eddie Huang's memoir \"Fresh Off the Boat\".",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/211/528833.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900259,
+   "title": "Frontier",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Adventure"
+   ],
+   "cast": [
+    "Jason Momoa",
+    "Alun Armstrong",
+    "Landon Liboiron",
+    "Zoe Boyle",
+    "Jessica Matten"
+   ],
+   "overview": "Set against the stunning, raw backdrop of 1700s Canada, Frontier is revolving around warring factions vying for control of the fur trade in a ruthless game of wealth and power. Irish stowaway Michael Smyth has barely stepped foot into the New World when he becomes embroiled in a dangerous battle between the fearless and violent Declan Harp and the formidable Lord Benton of the Hudson's Bay Company. A dramatic story of revenge and riches, betrayal and brutality, and survival of the fittest in the James Bay fur trade, everyone is gunning to be the last man standing – from the combustible Scottis",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/173/434300.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900260,
+   "title": "FUBAR",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Action",
+    "Espionage"
+   ],
+   "cast": [
+    "Arnold Schwarzenegger",
+    "Monica Barbaro",
+    "Fabiana Udenio",
+    "Milan Carter",
+    "Fortune Feimster"
+   ],
+   "overview": "Luke and his daughter Emma have lied to each other for years, both of them not knowing the other is a CIA operative. Once they both learn the truth, they realize they don't actually know anything about each other.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/565/1414236.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900261,
+   "title": "Ghosted",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Mystery",
+    "Supernatural"
+   ],
+   "cast": [
+    "Adam Scott",
+    "Adeel Akhtar",
+    "Ally Walker",
+    "Craig Robinson",
+    "Amber Stevens West"
+   ],
+   "overview": "Described as a sort of comedic X-Files, Ghosted centers on Leroy Wright, a cynical, hilarious skeptic, and Max Allison, a genius \"true believer\" in the paranormal, who are hired by the Underground Investigative Service to look into the rampant \"unexplained\" activity in Los Angeles — all while uncovering a larger mystery that could threaten the existence of the human race.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/121/302697.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900262,
+   "title": "Ghosts",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Supernatural"
+   ],
+   "cast": [
+    "Brandon Scott Jones",
+    "Rose McIver",
+    "Utkarsh Ambudkar",
+    "Richie Moriarty",
+    "Danielle Pinnock"
+   ],
+   "overview": "Samantha and Jay throw caution to the wind when they convert their recently inherited country estate into a bed-and-breakfast. Call it mislaid plans. Not only is the place falling apart, but it's also inhabited by spirits of previous residents -- whom only Samantha can see and hear. Ghosts spins the funny, heartfelt story about a newfound dream that reveals connection and self-discovery aren't just for the living.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/590/1475093.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900263,
+   "title": "Ginny & Georgia",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Crime"
+   ],
+   "cast": [
+    "Brianne Howey",
+    "Antonia Gentry",
+    "Diesel La Torraca",
+    "Felix Mallard",
+    "Sara Waisglass"
+   ],
+   "overview": "Free-spirited Georgia and her two kids, Ginny and Austin, move north in search of a fresh start but find that the road to new beginnings can be bumpy.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/570/1427139.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900264,
+   "title": "Good Omens",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Fantasy",
+    "Supernatural"
+   ],
+   "cast": [
+    "Michael Sheen",
+    "David Tennant",
+    "Jon Hamm",
+    "Doon Mackichan",
+    "Gloria Obianyo"
+   ],
+   "overview": "According to The Nice and Accurate Prophecies of Agnes Nutter, Witch (the world's only completely accurate book of prophecies), the world will end on a Saturday. Next Saturday, in fact. Just before dinner.So the armies of Good and Evil are amassing, Atlantis is rising, tempers are flaring. Everything appears to be going according to Divine Plan. Except Aziraphale, a somewhat fussy angel, and Crowley, a fast-living demon--both of whom have lived among Earth's mortals since The Beginning and have grown rather fond of the lifestyle--are not actually looking forward to the coming war.And someone s",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/625/1563341.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900265,
+   "title": "Gotham",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Ben McKenzie",
+    "Donal Logue",
+    "David Mazouz",
+    "Robin Lord Taylor",
+    "Cory Michael Smith"
+   ],
+   "overview": "The good. The evil. The beginning.Everyone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker?Gotham is an origin story ",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/189/474715.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900266,
+   "title": "Grace and Frankie",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Jane Fonda",
+    "Lily Tomlin",
+    "Martin Sheen",
+    "Sam Waterston",
+    "June Diane Raphael"
+   ],
+   "overview": "Two nemeses become bonded jilted wives after their husbands reveal they have been having an affair with each other since the 1990s and now plan to get married.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/403/1007533.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900267,
+   "title": "Graceland",
+   "year": 2013,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Daniel Sunjata",
+    "Aaron Tveit",
+    "Vanessa Ferlito",
+    "Brandon Jay McLaren",
+    "Manny Montana"
+   ],
+   "overview": "Every year, the top graduates from the FBI Academy move from their classrooms at Quantico to their first assignments in the real world. For Agent Mike Warren, the dream has always been a post in Washington D.C. But the powers that be have other plans, and the young rookie is soon packing his bags for Graceland, a palatial beachfront mansion in Southern California that has become a cross-departmental boarding house for top undercover agents in the FBI, DEA and ICE.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/54/137054.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900268,
+   "title": "Great News",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Briga Heelan",
+    "Andrea Martin",
+    "Adam Campbell",
+    "Nicole Richie",
+    "John Michael Higgins"
+   ],
+   "overview": "Getting along with some colleagues can be rough, but working with your mom? That's a whole other story. When Katie, an up-and-coming news producer, finds out her overbearing mom has rejoined the workforce as an intern at Katie's TV station, it might just be the worst news ever. But, with her biggest cheerleader at her side, Katie might finally get the recognition she deserves!",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/147/368720.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900269,
+   "title": "Grounded for Life",
+   "year": 2001,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Donal Logue",
+    "Megyn Price",
+    "Lynsey Bartilson",
+    "Kevin Corrigan",
+    "Griffin Frazen"
+   ],
+   "overview": "Raising kids is tough, especially when you're Grounded for Life! Sean and Claudia Finnerty, a fun-loving Staten Island couple got pregnant and married by age 18. Now in their 30s, they aren't bad parents, but they're still just kids themselves.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/8/21106.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900270,
+   "title": "Hacks",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Romance"
+   ],
+   "cast": [
+    "Jean Smart",
+    "Hannah Einbinder",
+    "Paul W. Downs",
+    "Mark Indelicato",
+    "Carl Clemons-Hopkins"
+   ],
+   "overview": "Hacks explores a dark mentorship that forms between Deborah Vance, a legendary Las Vegas comedian, and an entitled, outcast 25-year-old.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/621/1552621.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900271,
+   "title": "Happy Endings",
+   "year": 2011,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Eliza Coupe",
+    "Elisha Cuthbert",
+    "Zachary Knighton",
+    "Adam Pally",
+    "Damon Wayans Jr."
+   ],
+   "overview": "Forget who gets to keep the ring - when a couple splits, the real question is, who gets to keep the friends? Alex and Dave's wedding was supposed to be the happiest day of their lives, for them and their long-time friends - until Alex leaves groom-to-be Dave at the altar. The breakup, in the words of one pal, is a \"huge game changer\" that will complicate everyone's lives and make everyone question their own choices.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/481/1202649.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900272,
+   "title": "Happy Together",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Damon Wayans Jr.",
+    "Amber Stevens West",
+    "Felix Mallard",
+    "Stephnie Weir",
+    "Victor Williams"
+   ],
+   "overview": "Jake, an accountant, and his dream wife, Claire, a restaurant and bar designer, are very comfortably settled into their marriage, enjoying evenings together on the couch watching TV and scheduling time to change their outgoing voicemail message. Their tame routine gets a makeover when Jake's client, exuberant music superstar Cooper James, arrives on their doorstep looking for refuge from the paparazzi following a high-profile break-up with his girlfriend. Jake and Claire quickly discover there's no way they can keep up with their world-famous houseguest's effortlessly cool, fast-paced lifestyl",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/176/441752.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900273,
+   "title": "Happyish",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Steve Coogan",
+    "Kathryn Hahn",
+    "Bradley Whitford",
+    "Sawyer Shipman"
+   ],
+   "overview": "Happyish is a scathing examination of our pursuit of happiness, a pursuit that might just be the very thing causing our unhappiness in the first place. The new half-hour pilot stars Steve Coogan as Thom Payne, a 44 year-old man whose world is thrown into disarray when his 25 year-old \"wunderkind\" boss arrives, saying things like \"digital,\" \"social\" and \"viral.\" Is he in need of a \"rebranding,\" as his mentor insists, or does he just have a \"low joy ceiling,\" as his corporate headhunter suggests? Maybe pursuing happiness is a fool's errand? Maybe, after 44 years on this ludicrous planet, settlin",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/9/24094.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900274,
+   "title": "Heartbeat",
+   "year": 1992,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "History"
+   ],
+   "cast": [
+    "William Simons",
+    "Derek Fowlds",
+    "Tricia Penrose",
+    "Mark Jordon",
+    "David Lonsdale"
+   ],
+   "overview": "Sixties-set police drama set in Yorkshire. Expect local coppers catching lovable village rogues, whilst juggling their own love lives.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/536/1341320.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900275,
+   "title": "Home Improvement",
+   "year": 1991,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Tim Allen",
+    "Patricia Richardson",
+    "Earl Hindman",
+    "Zachery Ty Bryan",
+    "Richard Karn"
+   ],
+   "overview": "The universal themes of family, parenting, the battle of the sexes -- and of course, man's need for \"more power\" -- come to play each and every weekday on Home Improvement. Every episode finds Tim the \"Tool Man\" Taylor causing his share of goof-ups and mishaps and leaving his long-suffering wife, Jill, family and friends to mop up the mess.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11457.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900276,
+   "title": "I Feel Bad",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Sarayu Blue",
+    "Paul Adelstein",
+    "Madhur Jaffrey",
+    "James Buckley",
+    "Zach Cherry"
+   ],
+   "overview": "Emet is the perfect mom, boss, wife, friend and daughter. OK, she's not perfect. In fact, she's just figuring it out like the rest of us. Sure, she feels bad when she has a sexy dream about someone other than her husband, or when she pretends not to know her kids when they misbehave in public, or when she uses her staff to help solve personal problems. But that's OK, right? Nobody can have it all and do it perfectly.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/155/389009.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900277,
+   "title": "I'm a Virgo",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Fantasy"
+   ],
+   "cast": [
+    "Jharrel Jerome",
+    "Brett Gray",
+    "Kara Young",
+    "Olivia Washington",
+    "Allius Barnes"
+   ],
+   "overview": "I'm a Virgo is a darkly-comedic fantastical coming-of-age joyride about Cootie, a 13-foot-tall young Black man in Oakland, CA. Having grown up hidden away, passing time on a diet of comic books and TV shows, he escapes to experience the beauty and contradictions of the real world. He forms friendships, finds love, navigates awkward situations, and encounters his idol, the real life superhero named The Hero. I'm a Virgo is a mythical odyssey that questions the purpose of the mythical odyssey.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/463/1158673.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900278,
+   "title": "Invincible",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Steven Yeun",
+    "Sandra Oh",
+    "J.K. Simmons"
+   ],
+   "overview": "Based on the eponymous comic book, Invincible revolves around Mark Grayson, a normal teenager except for the fact that his father is the most powerful superhero on the planet. Shortly after his 17th birthday, Mark begins to develop powers of his own and enters into his father's tutelage.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/618/1545777.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900279,
+   "title": "JAG",
+   "year": 1995,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Legal"
+   ],
+   "cast": [
+    "David James Elliott",
+    "Patrick Labyorteaux",
+    "Catherine Bell",
+    "John M. Jackson",
+    "Karri Turner"
+   ],
+   "overview": "Lieutenant Commander \"Harm\" Rabb, Jr., a brave, outstanding Navy Lawyer and officer in the Judge Advocate General (J.A.G.) Corps, investigates and prosecutes all crimes, accidents, acts of terrorism and espionage related to the Navy and Marine Corps.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/292/730789.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900280,
+   "title": "Jury Duty",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Legal"
+   ],
+   "cast": [
+    "James Marsden",
+    "Ishmel Sahid",
+    "Edy Modica",
+    "Mekki Leeper",
+    "Ron Song"
+   ],
+   "overview": "Jury Duty chronicles the inner workings of an American jury trial through the eyes of one particular juror, Ronald Gladden. Gladden is unaware the entire case is fake, everyone except him is an actor, including Marsden, and everything that happens — inside the courtroom and out — is carefully planned.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/619/1547538.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900281,
+   "title": "Just Shoot Me!",
+   "year": 1997,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "George Segal",
+    "Wendie Malick",
+    "Laura San Giacomo",
+    "Enrico Colantoni",
+    "David Spade"
+   ],
+   "overview": "Following her on-air sabotage of a testy television news anchorwoman, writer Maya Gallo suddenly finds herself out on the street. Unable to find a job and facing eviction from her apartment, she takes the advice of her roommate Wally and goes to see her estranged father, women's magazine editor Jack Gallo, for help. However, in order to see him, she must first run a gauntlet created by Jack's staff at Blush, including his assistant Dennis Finch, former model Nina Van Horn and head photographer Elliot Dimauro.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/312/782287.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900282,
+   "title": "Kenan",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Kenan Thompson",
+    "Chris Redd",
+    "Kimrie Lewis",
+    "Don Johnson",
+    "Dannah Lane"
+   ],
+   "overview": "Beloved Saturday Night Live cast and NBC family member, the irresistibly funny Kenan Thompson stars in a new family comedy that delivers on his undeniably charming and wondrously magnetic personality. In the series, Kenan strives to be a super dad to his two adorable daughters, while balancing his job and a father-in-law who \"helps\" often in the most unhelpful ways. Kenan's got a lot to juggle, but if anyone can do it, he can!",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/387/969752.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900283,
+   "title": "Killer Instinct",
+   "year": 2005,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Johnny Messner",
+    "Chi McBride",
+    "Kristin Lehman"
+   ],
+   "overview": "Detective Jack Hale took a hiatus from the force when his partner died in the line of duty. Now back at work for the San Francisco Police Department's Deviant Crime Unit, Hale is taking on the bizarre and deviant crimes committed by San Francisco's most aberrant criminals.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/19/48271.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900284,
+   "title": "King of the Hill",
+   "year": 1997,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Mike Judge",
+    "Kathy Najimy",
+    "Johnny Hardwick",
+    "Toby Huss",
+    "Pamela Adlon"
+   ],
+   "overview": "King of the Hill follows the life of Hank Hill, his wife Peggy, their 13-year-old son Bobby, their 18-year-old niece Luanne, her husband Lucky, their newborn baby girl Gracie and his beer guzzling neighborhood buddies, Dale, Bill and Boomhauer.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/592/1480199.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900285,
+   "title": "Kung Fu",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Adventure"
+   ],
+   "cast": [
+    "Jon Prasida",
+    "Shannon Dang",
+    "Eddie Liu",
+    "Tzi Ma",
+    "Kheng Hua Tan"
+   ],
+   "overview": "A quarter-life crisis causes a young Chinese-American woman to drop out of college and go on a life-changing journey to an isolated monastery in China. But when she returns to find her hometown overrun with crime and corruption, she uses her martial arts skills and Shaolin values to protect her community and bring criminals to justice…all while searching for the assassin who killed her Shaolin mentor and is now targeting her.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/424/1061057.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900286,
+   "title": "Last Man Standing",
+   "year": 2011,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Tim Allen",
+    "Nancy Travis",
+    "Molly McCook",
+    "Molly Ephraim",
+    "Hector Elizondo"
+   ],
+   "overview": "Last Man Standing follows Mike Baxter, a married father of three girls, who tries to maintain his manliness, despite being surrounded by women.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/419/1049994.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900287,
+   "title": "Lawmen: Bass Reeves",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Western"
+   ],
+   "cast": [
+    "David Oyelowo",
+    "Lauren E. Banks",
+    "Demi Singleton",
+    "Forrest Goodluck",
+    "Dennis Quaid"
+   ],
+   "overview": "Bass Reeves was known as the greatest frontier hero in American history and also believed to be the inspiration for \"The Lone Ranger\". He worked in the post-Reconstruction era as a federal peace officer in the Indian Territory, capturing over 3,000 of the most dangerous criminals without ever being wounded.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/485/1214376.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900288,
+   "title": "Laverne & Shirley",
+   "year": 1976,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Penny Marshall",
+    "Cindy Williams",
+    "David L. Lander",
+    "Michael McKean",
+    "Betty Garrett"
+   ],
+   "overview": "This spin-off of the classic sitcom Happy Days focused on Milwaukee's Sweethearts, Laverne De Fazio and Shirley Feeney, two lower class girls who shared an apartment and worked together at Shotz Brewery as bottle-cappers. The two girls were as different as night and day: Laverne was feisty, quick-tempered and man-hungry while Shirley was more naive and trusting and quite inexperienced when it came to romance. The two shared their apartment building with Leonard \"Lenny\" Kosnowski and Andrew \"Squiggy\" Squigman, two wannabe greasers who always visited at the most inconvenient times and drove the ",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/226/565472.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900289,
+   "title": "Lie to Me",
+   "year": 2009,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+   ],
+   "cast": [
+    "Tim Roth",
+    "Kelli Williams",
+    "Monica Raymund",
+    "Brendan Hines",
+    "Hayley McFarland"
+   ],
+   "overview": "This compelling new drama series stars Tim Roth as Dr. Cal Lightman, the world's leading deception expert who studies facial expressions and involuntary body language to discover not only if someone is lying, but why. Based on the real-life scientific discoveries of Dr. Paul Ekman, the series follows Lightman and his team of deception experts as they assist law enforcement and government agencies to expose the truth behind the lies.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11275.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900290,
+   "title": "Life",
+   "year": 2007,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Damian Lewis",
+    "Sarah Shahi",
+    "Adam Arkin",
+    "Brent Sexton",
+    "Donal Logue"
+   ],
+   "overview": "A detective gets a second chance after serving twelve years in prison for a crime he did not commit.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/16786.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900291,
+   "title": "Living Biblically",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Jay R. Ferguson",
+    "Lindsey Kraft",
+    "Ian Gomez",
+    "Tony Rock",
+    "David Krumholtz"
+   ],
+   "overview": "Chip is determined to live a better life after a couple of life-altering events blindside him: finding out his wife is pregnant and losing his best friend. While searching for answers, he turns to the world's most popular book, The Bible. With nothing to lose, Chip decides to give living biblically a shot. He quickly discovers it may be harder to do in today's world than he thought. Knowing he'll need some practical advice, he and his wife assemble a \"God Squad\" to help him along the way. In a comedy of biblical proportions, we may finally answer the burning question: what happens when a pries",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/143/359278.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900292,
+   "title": "Living Single",
+   "year": 1993,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Queen Latifah",
+    "Kim Coles",
+    "Erika Alexander",
+    "T.C. Carson",
+    "John Henton"
+   ],
+   "overview": "Six black 20-somethings -- four women and two men -- share their lives and loves in a Brooklyn brownstone. A trio of women share one of the apartments, receiving frequent visits from a fourth pal; meanwhile, two men who've been friends for years share an apartment one floor up.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/41/104400.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900293,
+   "title": "Loot",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Maya Rudolph",
+    "Ron Funches",
+    "Michaela Jaé Rodriguez",
+    "Joel Kim Booster",
+    "Nat Faxon"
+   ],
+   "overview": "In Loot, billionaire Molly Novak has a dream life, complete with private jets, a sprawling mansion and a gigayacht — anything her heart desires. But when her husband of 20 years betrays her, she spirals publicly, becoming fuel for tabloid fodder. She's reaching rock bottom when she learns, to her surprise, that she has a charity foundation run by the no-nonsense Sofia Salinas, who pleads with Molly to stop generating bad press. With her devoted assistant Nicholas by her side, and with the help of Sofia and team — including mild-mannered accountant Arthur and her optimistic, pop-culture-loving ",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485065.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900294,
+   "title": "Lopez vs Lopez",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "George Lopez",
+    "Mayan Lopez",
+    "Selenis Leyva",
+    "Matt Shively",
+    "Brice Gonzalez"
+   ],
+   "overview": "Lopez vs Lopez is a working-class family comedy about dysfunction, reconnection and all the pain and joy in between.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/539/1348210.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900295,
+   "title": "Lost in Space",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Taylor Russell",
+    "Maxwell Jenkins",
+    "Molly Parker",
+    "Parker Posey",
+    "Mina Sundwall"
+   ],
+   "overview": "Lost in Space is a remake of sci-fi master Irwin Allen's 1965 cult TV classic and is an epic but grounded science fiction saga focusing on an explorer family from Earth lost in an alien universe and the challenges they face in staying together against seemingly insurmountable odds.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/372/930999.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900296,
+   "title": "Marvel's Luke Cage",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Action",
+    "Crime",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Mike Colter",
+    "Simone Missick",
+    "Alfre Woodard",
+    "Theo Rossi",
+    "Rosario Dawson"
+   ],
+   "overview": "After a sabotaged experiment leaves him with super strength and unbreakable skin, Luke Cage becomes a fugitive trying to rebuild his life in modern day Harlem, New York City. But he is soon pulled out of the shadows and must fight a battle for the heart of his city – forcing him to confront a past he had tried to bury.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/155/389198.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900297,
+   "title": "Marvel's M.O.D.O.K.",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Patton Oswalt",
+    "Aimee Garcia",
+    "Ben Schwartz",
+    "Melissa Fumero",
+    "Wendi McLendon-Covey"
+   ],
+   "overview": "In Marvel's M.O.D.O.K., the megalomaniacal supervillain M.O.D.O.K. has long pursued his dream of one day conquering the world. But after years of setbacks and failures fighting the Earth's mightiest heroes, M.O.D.O.K. has run his evil organization A.I.M. into the ground. Ousted as A.I.M.'s leader, while also dealing with his crumbling marriage and family life, the Mental Organism Designed Only for Killing is set to confront his greatest challenge yet: a midlife crisis!",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/309/774997.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900298,
+   "title": "Magnum P.I.",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Mystery"
+   ],
+   "cast": [
+    "Jay Hernandez",
+    "Perdita Weeks",
+    "Zachary Knighton",
+    "Stephen Hill",
+    "Tim Kang"
+   ],
+   "overview": "Magnum P.I. returns with all-new sun-drenched adventures as our hero takes jobs no one else will with the help of fellow vets T.C. Calvin and Rick Wright and the former MI6 agent with a familiar last name (but now a female) - Higgins.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/481/1204250.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900299,
+   "title": "Major Crimes",
+   "year": 2012,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "G.W. Bailey",
+    "Tony Denison",
+    "Phillip P. Keene",
+    "Kearran Giovanni",
+    "Graham Patrick Martin"
+   ],
+   "overview": "Captain Sharon Raydor faces the challenge of earning the trust and loyalty of her officers in Major Crimes, who are still in shock over their former Deputy Chief's exit, while trying to close the department's highest-profile cases. Raydor decides to house Rusty Beck, the key witness for a murder case, in her own home, paying for him to attend the Catholic high school her children attended.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/136/340671.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900300,
+   "title": "Man with a Plan",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Matt LeBlanc",
+    "Liza Snyder",
+    "Kevin Nealon",
+    "Matt Cook",
+    "Grace Kaufman"
+   ],
+   "overview": "Man With a Plan is a comedy about an old-school guy confronting the modern challenges of parenting, marriage, and family. Adam's self-assured wife, Andi, has gone back to work, forcing him to deal with the startling discovery that his three school-age \"little angels\" are maniacs, all the while trying to run a contracting business with his troublemaker brother, Don. In the midst of all this, Adam also has to deal with his strong-willed and opinionated father, Joe, who enjoys giving him terrible advice about how to run his life. With Andi's encouragement, and help from an unlikely friend Lowell,",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/189/473901.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900301,
+   "title": "Manhattan Love Story",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Romance"
+   ],
+   "cast": [
+    "Lio Tipton",
+    "Jake McDorman",
+    "Ajay Naidu",
+    "Chloe Wepper",
+    "Jade Catta-Preta"
+   ],
+   "overview": "Have you ever wondered what your date was thinking? This romantic comedy exposes the differences between men and women through the unfiltered thoughts, and often contradictory actions, of a new couple who have just begun dating.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/729.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900302,
+   "title": "Manhunt",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Gethin Anthony",
+    "Arliss Howard",
+    "Kelly Jenrette",
+    "Cameron Britton",
+    "Paul Bettany"
+   ],
+   "overview": "Manhunt explores how the FBI caught infamous criminal masterminds, with each closed-ended season following a different case.The show, heavily serialized and darkly psychological in the vein of True Detective, provides insight into the criminal and the case but also the psychological effects the cases have on the FBI agents assigned to hunt down the most dangerous criminals who often delve into a kind of madness of their own, becoming totally absorbed in the crimes and forced to live inside the darkest minds imaginable for years.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/236/591453.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900303,
+   "title": "Martin",
+   "year": 1992,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Tisha Campbell",
+    "Carl Anthony Payne II",
+    "Thomas Mikal Ford",
+    "Martin Lawrence",
+    "Tichina Arnold"
+   ],
+   "overview": "Martin is a sassy sitcom centering on a radio-and-television personality named Martin Payne. The series focuses on Martin's romantic relationship with girlfriend Gina Waters, his job changes from a radio personality to a television personality, and the variety of friends Martin hangs out with along the way: the loud-mouthed and sassy Pam James and his best friends Tommy Strong and Cole Brown. Star, Martin Lawrence, also portrays of host of wild characters on the show. His neighbor Sheneneh; his mother Mama Payne; Otis the security guard; Jerome the gold-toothed player; Roscoe the snot-nosed ki",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/28/72341.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900304,
+   "title": "Matlock",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Mystery",
+    "Legal"
+   ],
+   "cast": [
+    "Kathy Bates",
+    "Skye P. Marshall",
+    "Leah Lewis",
+    "Jason Ritter",
+    "Sam Anderson"
+   ],
+   "overview": "After achieving success in her younger years, the brilliant septuagenarian Madeline Matlock rejoins the work force at a prestigious law firm where she uses her unassuming demeanor and wily tactics to win cases and expose corruption from within.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/591/1479764.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900305,
+   "title": "Moesha",
+   "year": 1996,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Brandy Norwood",
+    "William Allen Young",
+    "Lamont Bentley",
+    "Shar Jackson",
+    "Countess Vaughn"
+   ],
+   "overview": "Set in the Leimert Park section of Los Angeles, Moesha follows the life of a happy-go-lucky family through the eyes of a typical teenage girl. Her father, Frank, a Saturn car salesman, has remarried Dee, a teacher at her school, much to Moesha's dismay. As Dee makes real headway becoming a mother to Moesha's little brother, Myles, Moesha's fond memories of her real mother have inhibited her from opening up completely to Dee.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/47/119079.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900306,
+   "title": "Mom",
+   "year": 2013,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Allison Janney",
+    "Anna Faris",
+    "Mimi Kennedy",
+    "Beth Hall",
+    "Jaime Pressly"
+   ],
+   "overview": "Christy is a single mom who, after years of questionable choices, is now sober and trying to get her life on track. She's tested daily by her newly sober mother, Bonnie, who is trying to make up for all the ways she's let Christy down. Christy is further challenged by her relationships with her own kids. Her daughter Violet is engaged to a man twice her age and her ten-year-old son, Roscoe, would rather live with his father Baxter, a former slacker who has only recently gotten himself together. To help her stay sober, Christy relies on her support system from AA, comprised of her sponsor Marjo",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/47/119089.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900307,
+   "title": "Murphy Brown",
+   "year": 1988,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Candice Bergen",
+    "Faith Ford",
+    "Joe Regalbuto",
+    "Charles Kimbrough",
+    "Grant Shaud"
+   ],
+   "overview": "Murphy Brown is the star reporter on a news magazine show called FYI. She lives in a townhouse that she is having repainted; Eldin the painter may never finish the job. Jim Dial is the uptight senior anchor, a seasoned veteran. Frank is a single guy and constantly looking for a girlfriend, he is also Murphy's best friend. Corky is a former Miss America turned newsperson, she covers all the \"hard\" news.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/169/423518.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900308,
+   "title": "Mythic Quest",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Rob McElhenney",
+    "Ashly Burch",
+    "Charlotte Nicdao",
+    "Imani Hakim",
+    "David Hornsby"
+   ],
+   "overview": "Mythic Quest follows a team of video game developers as they navigate the challenges of running a popular video game.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/564/1412475.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900309,
+   "title": "NCIS",
+   "year": 2003,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Sean Murray",
+    "Mark Harmon",
+    "David McCallum",
+    "Pauley Perrette",
+    "Rocky Carroll"
+   ],
+   "overview": "NCIS (Naval Criminal Investigative Service) is more than just an action drama. With liberal doses of humor, it's a show that focuses on the sometimes complex and always amusing dynamics of a team forced to work together in high-stress situations. Leroy Jethro Gibbs, a former Marine gunnery sergeant, whose skills as an investigator are unmatched, leads this troupe of colorful personalities. Rounding out the team are Anthony DiNozzo, an ex-homicide detective whose instincts in the field are unparalleled and whose quick wit and humorous take on life make him a team favorite; the youthful and ener",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/591/1479851.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900310,
+   "title": "NCIS: Los Angeles",
+   "year": 2009,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "LL Cool J",
+    "Chris O'Donnell",
+    "Daniela Ruah",
+    "Eric Christian Olsen",
+    "Barrett Foa"
+   ],
+   "overview": "NCIS: Los Angeles is a drama about the high-stakes world of a division of NCIS that is charged with apprehending dangerous and elusive criminals that pose a threat to the nation's security. By assuming false identities and utilizing the most advanced technology, this team of highly-trained agents goes deep undercover, putting their lives on the line in the field to bring down their targets.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/444/1110924.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900311,
+   "title": "NCIS: New Orleans",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Scott Bakula",
+    "Rob Kerkovich",
+    "CCH Pounder",
+    "Lucas Black",
+    "Daryl Mitchell"
+   ],
+   "overview": "NCIS: New Orleans is a drama about the local field office that investigates criminal cases involving military personnel in The Big Easy, a city known for its music, entertainment and decadence. Leading the team is Special Agent Dwayne Pride, a.k.a. \"King,\" a native of New Orleans who is driven by his need to do what is right. Working with Pride is Special Agent Christopher LaSalle, who plays hard but works harder and former ATF agent Sonja Percy, who is still adjusting to the team after years of solo undercover assignments. Supporting them is coroner Dr. Loretta Wade, who is as eccentric as sh",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/280/701985.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900312,
+   "title": "NCIS: Origins",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Austin Stowell",
+    "Mariel Molino",
+    "Kyle Schmid",
+    "Tyla Abercrumbie",
+    "Caleb Foote"
+   ],
+   "overview": "In NCIS: Origins, young Leroy Jethro Gibbs starts his career as a newly minted special agent at the fledgling NCIS Camp Pendleton office where he forges his place on a gritty, ragtag team led by NCIS legend Mike Franks.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/591/1479858.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900313,
+   "title": "NCIS: Sydney",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Todd Lasance",
+    "Olivia Swann",
+    "Sean Sagar",
+    "Tuuli Narkle",
+    "Mavournee Hazel"
+   ],
+   "overview": "With rising international tensions in the Indo-Pacific, a brilliant and eclectic team of U.S. NCIS agents and the Australian Federal Police (AFP) are grafted into a multinational taskforce to keep naval crimes in check in the most contested patch of ocean on the planet.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/591/1479848.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900314,
+   "title": "New Amsterdam",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Medical"
+   ],
+   "cast": [
+    "Ryan Eggold",
+    "Tyler Labine",
+    "Janet Montgomery",
+    "Jocko Sims",
+    "Freema Agyeman"
+   ],
+   "overview": "Inspired by Bellevue, the oldest public hospital in America, New Amsterdam follows the brilliant and charming Dr. Max Goodwin, the institution's newest medical director, who sets out to tear up the bureaucracy and provide exceptional care. How can he help? Well, the doctors and staff have heard this before. Not taking \"no\" for an answer, Dr. Goodwin must disrupt the status quo and prove he will stop at nothing to breathe new life into this understaffed, underfunded and underappreciated hospital - the only one in the world capable of treating Ebola patients, prisoners from Rikers and the presid",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/426/1065220.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900315,
+   "title": "NewsRadio",
+   "year": 1995,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Dave Foley",
+    "Stephen Root",
+    "Andy Dick",
+    "Maura Tierney",
+    "Joe Rogan"
+   ],
+   "overview": "NewsRadio showcases the hilarious antics of the whimsical #2 news radio station in New York City. The corral of characters are eccentric and witty, and they surprise each other with their back-and-forth banter. Their workplace humor also supplies an abundance of laughs amidst this unlikely bunch of colleagues.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/20/50224.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900316,
+   "title": "Night Court",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Legal"
+   ],
+   "cast": [
+    "John Larroquette",
+    "Melissa Rauch",
+    "Lacretta",
+    "India de Beaufort",
+    "Nyambi Nyambi"
+   ],
+   "overview": "Night Court centers on the unapologetic optimist judge Abby Stone, daughter of the late Harry Stone, who follows in her father's footsteps as she presides over the night shift of a Manhattan arraignment court and tries to bring order to its crew of oddballs and cynics, most notably former night court prosecutor Dan Fielding.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/548/1372474.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900317,
+   "title": "Nurse Jackie",
+   "year": 2009,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Edie Falco",
+    "Merritt Wever",
+    "Paul Schulze",
+    "Stephen Wallem",
+    "Peter Facinelli"
+   ],
+   "overview": "Every day is a matter of life and death in a hectic New York City hospital, but for Nurse Jackie that's the easiest part. Between chronic back pain that won't quit, and a personal life on the constant edge of collapse, it's going to take a white lie here, a bent rule there, and a handful of secret strategies to relieve the pain, and stay one step ahead of total disaster.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/2021.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900318,
+   "title": "Only Murders in the Building",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Crime",
+    "Mystery"
+   ],
+   "cast": [
+    "Steve Martin",
+    "Martin Short",
+    "Selena Gomez",
+    "Michael Cyril Creighton",
+    "Amy Ryan"
+   ],
+   "overview": "Only Murders in the Building follows three New Yorkers who find they have a mutual interest in solving true crime – but limit their amateur sleuthing to only murders in their building.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/586/1466415.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900319,
+   "title": "OutMatched",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Jason Biggs",
+    "Connor Kalopsis",
+    "Ashley Boettcher",
+    "Jack Stanton",
+    "Oakley Bull"
+   ],
+   "overview": "OutMatched is about a blue-collar couple in South Jersey trying to get by and raise four kids, three of whom just happen to be certified geniuses.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/231/577796.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900320,
+   "title": "PEN15",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Maya Erskine",
+    "Anna Konkle",
+    "Melora Walters",
+    "Mutsoko Erskine",
+    "Taylor Nichols"
+   ],
+   "overview": "PEN15 is middle school as it really happened. Maya Erskine and Anna Konkle star in this adult comedy, playing versions of themselves as thirteen-year-old outcasts in the year 2000, surrounded by actual thirteen-year-olds, where the best day of your life can turn into your worst with the stroke of a gel pen.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/272/681487.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900321,
+   "title": "Pennyworth: The Origin of Batman's Butler",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Jack Bannon",
+    "Ryan Fletcher",
+    "Dorothy Atkinson",
+    "Ben Aldridge",
+    "Emma Paetz"
+   ],
+   "overview": "Pennyworth: The Origin of Batman's Butler follows Alfred Pennyworth, a former British SAS soldier, who forms a security company in 1960s London and goes to work with young billionaire Thomas Wayne and his wife Martha, before they become Bruce Wayne's parents.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/426/1065796.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900322,
+   "title": "Perfect Harmony",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Bradley Whitford",
+    "Anna Camp",
+    "Tymberlee Hill",
+    "Rizwan Manji",
+    "Will Greenberg"
+   ],
+   "overview": "When former Princeton music professor Arthur Cochran unexpectedly stumbles into choir practice at a small-town church, he finds a group of singers that are out of tune in more ways than one. Despite the ultimate clash of sensibilities, Arthur and his newfound cohorts may just be the perfect mix of individuals to help each other reinvent and rediscover a little happiness, just when they all need it most.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/212/531360.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900323,
+   "title": "Perry Mason",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Legal"
+   ],
+   "cast": [
+    "Matthew Rhys",
+    "Juliet Rylance",
+    "Eric Lange",
+    "Shea Whigham",
+    "Chris Chalk"
+   ],
+   "overview": "1932, Los Angeles. While the rest of the country recovers from the Great Depression, this city is booming! Oil! Olympic Games! Talking Pictures! Evangelical Fervor! And a child kidnapping gone very, very wrong! Based on characters created by Erle Stanley Gardner, this limited series follows the origins of American Fiction's most legendary criminal defense lawyer, Perry Mason. When the case of the decade breaks down his door, Mason's relentless pursuit of the truth reveals a fractured city and just maybe, a pathway to redemption for himself.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/450/1126198.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900324,
+   "title": "Physical",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Rose Byrne",
+    "Rory Scovel",
+    "Dierdre Friel",
+    "Paul Sparks",
+    "Della Saba"
+   ],
+   "overview": "Physical is about a struggling housewife living in a '80s California beach community who finds an unconventional path to power through an unlikely source - the world of aerobics.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/475/1189116.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900325,
+   "title": "Pivoting",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Eliza Coupe",
+    "Maggie Q",
+    "Ginnifer Goodwin",
+    "Tommy Dewey",
+    "JT Neal"
+   ],
+   "overview": "Pivoting follows three women, Amy, Jodie and Sarah, after the death of their childhood best friend. Faced with the reality that life is short, in desperate attempts to find happiness, they make a series of impulsive, ill-advised and self-indulgent decisions, strengthening their bond proving it's never too late to screw up your life.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006401.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900326,
+   "title": "Platonic",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Seth Rogen",
+    "Rose Byrne",
+    "Luke Macfarlane",
+    "Carla Gallo",
+    "Andrew Lopez"
+   ],
+   "overview": "Platonic is a 10-episode, half-hour comedy which explores the inner workings of platonic friendship. A pair of former best friends who met in their youth reconnect as adults and try to mend the rift that led to their falling out. As their friendship becomes more consuming, it destabilizes their lives and causes them to reevaluate their choices.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/589/1473711.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900327,
+   "title": "Poker Face",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+   ],
+   "cast": [
+    "Natasha Lyonne",
+    "Melanie Lynskey",
+    "John Cho"
+   ],
+   "overview": "Poker Face is a \"mystery-of-the-week\" series following Natasha Lyonne's Charlie Cale, who has an extraordinary ability to determine when someone is lying. She hits the road with her Plymouth Barracuda and with every stop encounters a new cast of characters and strange crimes she can't help but solve.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/567/1419482.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900328,
+   "title": "Portlandia",
+   "year": 2011,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Carrie Brownstein",
+    "Fred Armisen"
+   ],
+   "overview": "Portlandia is a follow up to the Fred Armisen (SNL)/Carrie Brownstein comedy collaboration, Thunderant. In the new IFC series (executive- produced by Lorne Michaels), the pair lovingly skewer the people and values of Portland, Ore. by introducing us to Portland archetypes like a militant bike messenger, feminist bookstore owners and an arts & crafts couple who \"put birds on things.\"",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/150/375346.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900329,
+   "title": "Powerless",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Vanessa Hudgens",
+    "Alan Tudyk",
+    "Danny Pudi",
+    "Christina Kirk",
+    "Ron Funches"
+   ],
+   "overview": "Emily is a spunky young insurance adjuster specializing in regular-people coverage against damage caused by the crime-fighting superheroes. It's when she stands up to one of these larger-than-life figures (after an epic battle messes with her commute) that she accidentally becomes a cult \"hero\" in her own right … even if it's just to her group of lovably quirky co-workers. Now, while she navigates her normal, everyday life against an explosive backdrop, Emily might just discover that being a hero doesn't always require superpowers.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/91/229096.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900330,
+   "title": "Private Practice",
+   "year": 2007,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Romance",
+    "Medical"
+   ],
+   "cast": [
+    "Taye Diggs",
+    "Paul Adelstein",
+    "Tim Daly",
+    "KaDee Strickland",
+    "Kate Walsh"
+   ],
+   "overview": "Private Practice is the story of a team of gifted doctors working together to change the lives of their patients for the better as they look to one another for friendship and love. The doctors of Seaside Health and Wellness work on the most difficult cases, patients whose medical needs often pose moral and ethical dilemmas. Though they may heatedly disagree at work, and their personal lives may complicate matters, at the end of the day, they are the best of friends, always ready to be there for one another.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/15330.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900331,
+   "title": "Raising Hope",
+   "year": 2010,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Lucas Neff",
+    "Martha Plimpton",
+    "Garret Dillahunt",
+    "Shannon Woodward",
+    "Cloris Leachman"
+   ],
+   "overview": "At 23 years old, Jimmy Chance is going nowhere in life. He skims pools for a living, parties every night and still lives at home with his family, including his parents and his cousin, Mike. Jimmy's life takes a drastic turn when a chance romantic encounter with Lucy goes awry once he discovers she is a wanted felon. Months later, when Jimmy pays a visit to the local prison, he discovers Lucy gave birth to their baby, who he is now charged with raising.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/4/11870.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900332,
+   "title": "ReBoot",
+   "year": 1994,
+   "type": "tv",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Michael Benyaer",
+    "Shirley Millner",
+    "Tony Jay",
+    "Kathleen Barr",
+    "Scott McNeil"
+   ],
+   "overview": "In the inner computer world of Mainframe, a guardian program sprite and his friends defend the system from threats from viruses and the User.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/9/22952.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900333,
+   "title": "Red Band Society",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Astro",
+    "Charlie Rowe",
+    "Ciara Bravo",
+    "Dave Annable",
+    "Griffin Gluck"
+   ],
+   "overview": "What if a hospital was your high school, boarding school and summer camp rolled into one? What if it was the place where you fell in love for the first time and made friendships that lasted a lifetime? And what if it was all weirdly hilarious and the most fun you ever had in your entire life? This is the world of Red Band Society.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/441.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900334,
+   "title": "Reservation Dogs",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "D'Pharaoh Woon-A-Tai",
+    "Devery Jacobs",
+    "Paulina Alexis",
+    "Lane Factor"
+   ],
+   "overview": "Reservation Dogs follows four Native teenagers in rural Oklahoma who spend their days committing crime... and fighting it.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/475/1189118.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900335,
+   "title": "Rizzoli & Isles",
+   "year": 2010,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Angie Harmon",
+    "Sasha Alexander",
+    "Bruce McGill",
+    "Lorraine Bracco",
+    "Jordan Bridges"
+   ],
+   "overview": "On Rizzoli & Isles, Boston detective Jane Rizzoli and medical examiner Maura Isles are complete opposites and good friends who solve crimes and bust some of Boston's most notorious criminals. Jane, the only female detective in Boston's homicide division, is a tough and gutsy cop who doesn't let her guard down (except with Maura), dodges her overprotective mother, and is better at basketball than her brother. Maura, meanwhile, is usually more comfortable among the dead than the living. She is always impeccably dressed in designer duds with a steady, sometimes icy temperament. Jane and Maura oft",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/2/5342.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900336,
+   "title": "Roseanne",
+   "year": 1988,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Roseanne Barr",
+    "John Goodman",
+    "Laurie Metcalf",
+    "Sara Gilbert",
+    "Michael Fishman"
+   ],
+   "overview": "A groundbreaking American television sitcom, following the fortunes of the down-to-earth, blue collar Conner family in the small town of Lanford, Illinois.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/146/365953.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900337,
+   "title": "Royal Pains",
+   "year": 2009,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Mark Feuerstein",
+    "Paulo Costanzo",
+    "Reshma Shetty",
+    "Brooke D'Orsay",
+    "Jill Flint"
+   ],
+   "overview": "Royal Pains centers on young doctor Hank Lawson who seems to have it all... thriving career, beautiful girlfriend, and swank NYC apartment. With one fateful and principled decision in the ER, Hank loses it all. Months later, single and blackballed from the medical community, Hank goes for a weekend in the Hamptons with his best friend. Crashing a party at a mega-mansion on the beach, Hank jumps into action when a guest requires medical attention that only he is able to diagnose. The next morning, Hank is summoned to another mansion. And then another. Hank's career is revived, but in a way he's",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/15355.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900338,
+   "title": "Rules of Engagement",
+   "year": 2007,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Romance"
+   ],
+   "cast": [
+    "Patrick Warburton",
+    "Megyn Price",
+    "Oliver Hudson",
+    "Bianca Kajlich",
+    "David Spade"
+   ],
+   "overview": "A comedy that follows two couples and a single guy as they navigate the jungles of dating, engagement and marriage.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/42/107168.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900339,
+   "title": "Scandal",
+   "year": 2012,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Thriller"
+   ],
+   "cast": [
+    "Kerry Washington",
+    "Darby Stanchfield",
+    "Katie Lowes",
+    "Guillermo Diaz",
+    "Tony Goldwyn"
+   ],
+   "overview": "Everyone has secrets… and Olivia Pope has dedicated her life to protecting and defending the public images of the nation's elite by keeping those secrets under wraps. Pope's team are at the top of their game when it comes to getting the job done for their clients, but it becomes apparent that these \"gladiators in suits\", who specialize in fixing the lives of other people, have trouble fixing those closest at hand -- their own.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/303/758518.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900340,
+   "title": "See",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Jason Momoa",
+    "Sylvia Hoeks",
+    "Hera Hilmar",
+    "Nesta Cooper",
+    "Christian Camargo"
+   ],
+   "overview": "See is an epic, world-building drama set in the future, when the human race has lost the sense of sight, and society has had to find new ways to interact, to build, to hunt, to survive. All of that is challenged when a set of twins with sight is born.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/416/1042167.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900341,
+   "title": "Sense8",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Thriller"
+   ],
+   "cast": [
+    "Jamie Clayton",
+    "Max Riemelt",
+    "Brian J. Smith",
+    "Tuppence Middleton",
+    "Aml Ameen"
+   ],
+   "overview": "A group of people around the world are suddenly linked mentally, and must find a way to survive being hunted by those who see them as a threat to the world's order.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/154/387311.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900342,
+   "title": "Sharp Objects",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Mystery"
+   ],
+   "cast": [
+    "Amy Adams",
+    "Patricia Clarkson",
+    "Eliza Scanlen",
+    "Chris Messina",
+    "Matt Craven"
+   ],
+   "overview": "Sharp Objects centers on reporter Camille Preaker who, fresh from a brief stay at a psychiatric hospital, must return to her tiny hometown to cover the murders of two preteen girls. Trying to put together a psychological puzzle from her past, Camille finds herself identifying with the young victims a bit too closely.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/156/391025.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900343,
+   "title": "Sister, Sister",
+   "year": 1994,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Tia Mowry",
+    "Tamera Mowry-Housley",
+    "Jackée Harry",
+    "Tim Reid",
+    "Marques Houston"
+   ],
+   "overview": "Tia and Tamera Mowry play twins who were separated at birth and by chance meet each other in a shopping mall. Ray Campbell, Tamera's adopted father, is very different from Tia's adopted mother, Lisa Landry, but the twins don't want to be separated so Ray and Lisa end up living together. The series often focuses on the trouble the twins get into due to their identical appearance and the love-hate relationship between Lisa and Ray.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/28/70353.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900344,
+   "title": "Snowpiercer",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Thriller"
+   ],
+   "cast": [
+    "Daveed Diggs",
+    "Mickey Sumner",
+    "Alison Wright",
+    "Iddo Goldberg",
+    "Roberto Urbina"
+   ],
+   "overview": "Snowpiercer is set seven years after the world has become a frozen wasteland, and the remnants of humanity inhabit a gigantic, perpetually moving train that circles the globe. Class warfare, social injustice and the politics of survival are questioned in this riveting television adaptation.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/528/1320417.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900345,
+   "title": "So Help Me Todd",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Skylar Astin",
+    "Marcia Gay Harden",
+    "Tristen J. Winger",
+    "Inga Schlingmann",
+    "Madeline Wise"
+   ],
+   "overview": "So Help Me Todd follows Todd, a talented but directionless P.I. who is the black sheep of his family. Despite their opposing personalities, he agrees to work as the in-house investigator for his overbearing mother, Margaret, a successful attorney reeling from the recent dissolution of her marriage.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/504/1260388.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900346,
+   "title": "Lioness",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Thriller",
+    "Espionage"
+   ],
+   "cast": [
+    "Zoe Saldaña",
+    "Dave Annable",
+    "Nicole Kidman",
+    "James Jordan",
+    "LaMonica Garrett"
+   ],
+   "overview": "Lioness, inspired by an actual U.S. Military program, follows the life of Joe while she attempts to balance her personal and professional life as the tip of the CIA's spear in the war on terror. The Lioness Program, overseen by Kaitlyn Meade and Donald Westfield, enlists an aggressive Marine Raider named Cruz to operate undercover alongside Joe among the power brokers of State terrorism in the CIA's efforts to thwart the next 9/11.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/542/1355074.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900347,
+   "title": "Speechless",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Cedric Yarbrough",
+    "John Ross Bowie",
+    "Minnie Driver",
+    "Mason Cook",
+    "Kyla Kenedy"
+   ],
+   "overview": "Maya DiMeo is a mom on a mission who will do anything for her husband Jimmy, her kids Ray, Dylan, and JJ, her eldest son with cerebral palsy. As Maya fights injustices both real and imagined, the family works to make a new home for themselves, and searches for just the right person to give JJ his \"voice\".",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/138/346144.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900348,
+   "title": "Spin City",
+   "year": 1996,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Connie Britton",
+    "Richard Kind",
+    "Alan Ruck",
+    "Michael Boatman",
+    "Barry Bostwick"
+   ],
+   "overview": "Spin City is a smart, sophisticated sitcom about the behind-the-scenes workings of City Hall in the biggest city in America. Workaholic Mike Flaherty is the Deputy Mayor of New York City, serving as Mayor Randall Winston's key strategist and much-needed handler. Mike runs the city with the help of his oddball staff: an anxious and insecure press secretary; a sexist, boorish chief of staff; an impeccably groomed gay activist running minority affairs; a sharp and efficient, man-crazy accountant; and an idealistic young speechwriter. Like Mike, they are all professionally capable but personally c",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/5/13641.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900349,
+   "title": "Splitting Up Together",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Romance"
+   ],
+   "cast": [
+    "Jenna Fischer",
+    "Oliver Hudson",
+    "Olivia Keville",
+    "Van Crosby",
+    "Bobby Lee"
+   ],
+   "overview": "Based on the 2016 Danish series created by Mette Heeno, Splitting Up Together is the story of a couple whose marriage is reignited by their divorce.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/169/424614.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900350,
+   "title": "DC's Stargirl",
+   "year": 2020,
+   "type": "tv",
+   "genres": [
+    "Action",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Brec Bassinger",
+    "Luke Wilson",
+    "Amy Smart",
+    "Trae Romano",
+    "Anjelika Washington"
+   ],
+   "overview": "Stargirl follows high school sophomore Courtney Whitmore, who moves to Blue Valley, Nebraska after her mother remarries Pat Dugan, a former member of the Justice Society of America. She uncovers dark secrets from her family's past, receives Starman's very useful cosmic staff, joins the Justice Society of America and inspires the unlikely group of young heroes to stop the villains of the past.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/426/1065456.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900351,
+   "title": "Station 19",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Romance"
+   ],
+   "cast": [
+    "Jason George",
+    "Jaina Lee Ortiz",
+    "Barrett Doss",
+    "Danielle Savre",
+    "Jay Hayden"
+   ],
+   "overview": "In Seattle, all firefighters are also trained EMTs and the crew at Station 19 is second to none. Working in 24-hour shifts, these professionals spend so much time together that they build relationships unlike any others.Station 19 follows a group of heroic firefighters at Seattle Fire Station 19 - from captain to newest recruit - as they risk their lives and hearts both in the line of duty and off the clock. These brave men and women are like family, literally and figuratively, and together they put their own lives in jeopardy as first responders to save the lives of others.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/507/1267852.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900352,
+   "title": "Still Standing",
+   "year": 2002,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Mark Addy",
+    "Jami Gertz",
+    "Jennifer Irwin",
+    "Taylor Ball",
+    "Renee Olstead"
+   ],
+   "overview": "Still Standing is a comedy about a blue-collar Chicago couple working to raise their three children responsibly and not lose sight of their own youthfulness. After 18 years of marriage, high school sweethearts Bill and Judy Miller still make each other laugh and try to keep their marriage intact, even when their family pulls them in different directions. Judy's married sister, Linda, butts heads with Bill, and the Millers' precocious teenage daughter, Lauren, thinks her parents are uncool. Meanwhile, their uptight, studious son, Brian, is discovering girls, and their youngest child, Tina, woul",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/8/21228.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900353,
+   "title": "Suits",
+   "year": 2011,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Legal"
+   ],
+   "cast": [
+    "Gabriel Macht",
+    "Rick Hoffman",
+    "Sarah Rafferty",
+    "Patrick J. Adams",
+    "Meghan Markle"
+   ],
+   "overview": "Suits delves into the fast-paced, high-stakes world of a top Manhattan corporate law firm where hotshot associate Harvey Specter makes a risky move by hiring Mike Ross a brilliant but unmotivated college dropout, as his associate. As he becomes enmeshed in this unfamiliar world, Mike relies heavily on the firm's best paralegal Rachel Zane and Harvey's no-nonsense assistant Donna Paulsen to help him serve justice. With a photographic memory and the street smarts of a hustler, Mike proves to be a legal prodigy despite the absence of bonafide legal credentials.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/393/983536.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900354,
+   "title": "Tales of the Walking Dead",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Horror",
+    "Thriller"
+   ],
+   "cast": [],
+   "overview": "Tales of the Walking Dead is an episodic anthology with individual episodes or arcs of episodes focused on new or existing characters, backstories or other stand-alone experiences in The Walking Dead universe.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/417/1043015.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900355,
+   "title": "The Affair",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "cast": [
+    "Dominic West",
+    "Maura Tierney",
+    "Jadon Sand",
+    "Ruth Wilson",
+    "Julia Goldani Telles"
+   ],
+   "overview": "At once deeply observed and intriguingly elusive, The Affair explores the emotional effects of an extramarital relationship.Noah is a New York City schoolteacher and novelist who is happily married, but resents his dependence on his wealthy father-in-law. Alison is a young waitress trying to piece her life and marriage back together in the wake of a tragedy. The provocative drama unfolds when Alison and Noah meet in Montauk at the end of Long Island.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/494/1235104.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900356,
+   "title": "The Bernie Mac Show",
+   "year": 2001,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Bernie Mac",
+    "Kellita Smith",
+    "Jeremy Suarez",
+    "Dee Dee Davis",
+    "Camille Winbush"
+   ],
+   "overview": "Bernie (Bernie Mac) and his wife Wanda never wanted to raise kids, but when Bernie's sister is sent to jail, her kids have to move in with Uncle Bernie. Since Aunt Wanda (Kellita Smith) is a busy executive at AT&T, Vanessa (Camille Winbush), Jordan (Jeremy Suarez, \"Built To Last\") and Bryanna (Dee Dee Davis), are about to discover that life with Uncle Bernie is no cake walk. Bernie's first rule of business is to set down some house rules and he only has two. First rule: It's his house. Second rule: All the stuff in the house is his and no one touches anything without permission. That goes for ",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/25/64590.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900357,
+   "title": "The Big Door Prize",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Mystery",
+    "Supernatural"
+   ],
+   "cast": [
+    "Chris O'Dowd",
+    "Gabrielle Dennis",
+    "Sammy Fourlas",
+    "Djouliet Amara",
+    "Josh Segarra"
+   ],
+   "overview": "The Big Door Prize tells the story of a small town that is forever changed when a mysterious machine appears in the general store, promising to reveal each resident's true life potential.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/512/1281559.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900358,
+   "title": "The Blacklist",
+   "year": 2013,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Thriller"
+   ],
+   "cast": [
+    "James Spader",
+    "Diego Klattenhoff",
+    "Harry Lennix",
+    "Hisham Tawfiq",
+    "Amir Arison"
+   ],
+   "overview": "The Blacklist is a crime drama involving a former government agent who turned into a high-profile criminal turning himself in to the FBI offering to help catch criminals.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/445/1113538.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900359,
+   "title": "The Brink",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "War"
+   ],
+   "cast": [
+    "Aasif Mandvi",
+    "Eric Ladin",
+    "Esai Morales",
+    "Geoff Pierson",
+    "Jack Black"
+   ],
+   "overview": "The Brink focuses on a geopolitical crisis and its effect on three disparate and desperate men: Walter Larson, the US Secretary of State; Alex Talbot, a lowly Foreign Service officer; and Zeke Tilson, an ace Navy fighter pilot. These three compromised souls must pull through the chaos around them to save the planet from World War Three.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/11/29606.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900360,
+   "title": "The Carmichael Show",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Tiffany Haddish",
+    "Lil Rel Howery",
+    "Jerrod Carmichael",
+    "David Alan Grier",
+    "Loretta Devine"
+   ],
+   "overview": "The Carmichael Show follows a young couple, Jerrod and Maxine, who decide to move in together but when it comes time to tell Jerrod's parents, Jerrod finds every reason in the world to hold off on breaking the news to his mom and dad.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/330/825918.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900361,
+   "title": "The Closer",
+   "year": 2005,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+   ],
+   "cast": [
+    "Kyra Sedgwick",
+    "J.K. Simmons",
+    "Corey Reynolds",
+    "Robert Gossett",
+    "G.W. Bailey"
+   ],
+   "overview": "Deputy Police Chief Brenda Leigh Johnson transfers from Atlanta to Los Angeles to head up a special unit of the LAPD that handles sensitive, high-profile murder cases. Despite a tendency to step on people's toes, Johnson manages to convert even her strongest adversaries with her unique ability to get to the truth, and more importantly, to close cases.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/83/209825.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900362,
+   "title": "The Conners",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "John Goodman",
+    "Laurie Metcalf",
+    "Sara Gilbert",
+    "Lecy Goranson",
+    "Emma Kenney"
+   ],
+   "overview": "After a sudden turn of events, the Conners are forced to face the daily struggles of life in Lanford in a way they never have before. This iconic family – Dan, Jackie, Darlene, Becky and D.J. – grapples with parenthood, dating, an unexpected pregnancy, financial pressures, aging and in-laws in working-class America. Through it all, the fights, the coupon cutting, the hand-me-downs, the breakdowns – with love, humor and perseverance, the family prevails.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/560/1401889.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900363,
+   "title": "The Cool Kids",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Vicki Lawrence",
+    "Martin Mull",
+    "David Alan Grier",
+    "Leslie Jordan"
+   ],
+   "overview": "The Cool Kids is a multi-camera comedy about a rowdy, rag-tag group of friends living in a retirement community who are willing to break every rule in order to have fun – because, at their age, what do they really have to lose?",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/163/408001.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900364,
+   "title": "The Defenders",
+   "year": 2010,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Legal"
+   ],
+   "cast": [
+    "Jerry O'Connell",
+    "Jim Belushi",
+    "Tanya Fischer",
+    "Jurnee Smollett"
+   ],
+   "overview": "The Defenders is a drama about two colorful Las Vegas defense attorneys who go all-in when it comes to representing their clients. Nick and Pete are the local go-to guys with an eclectic client list who are still looking to hit their own jackpot. Leading the law firm of Morelli & Kaczmarek are Nick Morelli, an earnest, hard-charging attorney who represents his clients to the best of his ability, no matter how big or small the case; and his partner, Pete Kaczmarek, whose passion for the law is matched only by his love of fast cars, beautiful women and expensive clothes. Joining them in their gr",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/7/17604.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900365,
+   "title": "The Equalizer",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Queen Latifah",
+    "Liza Lapira",
+    "Adam Goldberg",
+    "Lorraine Toussaint",
+    "Laya DeLeon Hayes"
+   ],
+   "overview": "A reimagining of the classic series, The Equalizer centers on enigmatic woman with a mysterious background who uses her extensive skills to help those with nowhere else to turn.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/540/1350125.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900366,
+   "title": "The Four",
+   "year": 2008,
+   "type": "tv",
+   "genres": [
+    "Action",
+    "Mystery"
+   ],
+   "cast": [
+    "Dominic Lam",
+    "Sammul Chan",
+    "Raymond Lam",
+    "Selena Li",
+    "Kenneth Ma"
+   ],
+   "overview": "Based on the novel by Wen Rui An, The Four is centered around four extremely skilled assassins/detectives who are hired by the Chinese Emperor to arrest and execute any criminals roaming through the country.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/91/228540.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900367,
+   "title": "The Game",
+   "year": 2025,
+   "type": "tv",
+   "genres": [
+    "Thriller"
+   ],
+   "cast": [
+    "Jason Watkins",
+    "Robson Green",
+    "Sunetra Sarker",
+    "Amber James",
+    "Simon Harrison"
+   ],
+   "overview": "A retired detective believes he's finally found the stalker from his unsolved case—but is he right, or losing his grip on what's real?",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/567/1419867.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900368,
+   "title": "The Gilded Age",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "History"
+   ],
+   "cast": [
+    "Christine Baranski",
+    "Cynthia Nixon",
+    "Carrie Coon",
+    "Morgan Spector",
+    "Taissa Farmiga"
+   ],
+   "overview": "The American Gilded Age was a period of immense economic change, of huge fortunes made and lost, and the rise of disparity between old money and new.Against this backdrop of change, the story begins in 1882 — introducing young Marian Brook, the orphaned daughter of a Union general, who moves into the New York City home of her thoroughly old money aunts Agnes van Rhijn and Ada Brook. Accompanied by Peggy Scott, an accomplished African-American woman, Marian inadvertently becomes enmeshed in a social war between one of her aunts, a scion of the old money set, and her stupendously rich neighbors,",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/572/1431317.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900369,
+   "title": "The Gifted",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Adventure",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Amy Acker",
+    "Stephen Moyer",
+    "Jamie Chung",
+    "Sean Teale",
+    "Natalie Alyn Lind"
+   ],
+   "overview": "The Gifted tells the story of a suburban couple whose ordinary lives are rocked by the sudden discovery that their children possess mutant powers. Forced to go on the run from a hostile government, the family joins up with an underground network of mutants and must fight to survive.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/165/414995.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900370,
+   "title": "The Great Indoors",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Chris Williams",
+    "Christopher Mintz-Plasse",
+    "Christine Ko",
+    "Susannah Fielding",
+    "Joel McHale"
+   ],
+   "overview": "Jack has led a thrilling \"outdoorsy\" life exploring the edges of the earth while chronicling his adventures for Outdoor Limits. But his globe-trotting days end when the magazine's charismatic founder and outdoor legend, Roland, announces the publication's move to web-only and assigns Jack to supervise their online team of \"journalists.\" Jack's eager 20-something colleagues include Clark, a tech nerd who knows everything about surviving on Mars and a zombie apocalypse; Emma, their social media expert who views Jack as the human version of dial-up; and Mason, a hipster-lumberjack who hasn't spen",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/104/260145.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900371,
+   "title": "The Idol",
+   "year": 2023,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Music"
+   ],
+   "cast": [
+    "Lily-Rose Depp",
+    "The Weeknd",
+    "Suzanna Son",
+    "Troye Sivan",
+    "Jane Adams"
+   ],
+   "overview": "After a nervous breakdown derailed Jocelyn's last tour, she's determined to claim her rightful status as the greatest and sexiest pop star in America. Her passions are reignited by Tedros, a nightclub impresario with a sordid past. Will her romantic awakening take her to glorious new heights or the deepest and darkest depths of her soul?",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/463/1158728.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900372,
+   "title": "The Kids Are Alright",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Michael Cudlitz",
+    "Mary McCormack",
+    "Jack Gore",
+    "Caleb Foote",
+    "Andy Walken"
+   ],
+   "overview": "Set in the 1970s, this ensemble comedy follows a traditional Irish-Catholic family, the Clearys, as they navigate big and small changes during one of America's most turbulent decades. In a working-class neighborhood outside Los Angeles, Mike and Peggy raise eight boisterous boys who live out their days with little supervision. The household is turned upside down when oldest son Lawrence returns home and announces he's quitting the seminary to go off and \"save the world.\" Times are changing and this family will never be the same. There are 10 people, three bedrooms, one bathroom and everyone in",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/172/431202.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900373,
+   "title": "The McCarthys",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Jack McGee",
+    "Jimmy Dunn",
+    "Joey McIntyre",
+    "Kelen Coleman",
+    "Laurie Metcalf"
+   ],
+   "overview": "The McCarthys is a multi-camera comedy about a close-knit, sports-crazed Boston family whose somewhat athletically challenged son, Ronny, is chosen by his father to be his assistant high school basketball coach, much to the surprise of his more qualified siblings. Ronny wants nothing more than to move away, join the singles scene and find a partner. His distraught mother, Marjorie is not upset that her favorite son is gay, but that he wants to leave Boston and his family.Ronny's plans change, however, when his politically incorrect and outspoken father, Arthur stuns everyone with his choice fo",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/0/1900.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900374,
+   "title": "The Middle",
+   "year": 2009,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Patricia Heaton",
+    "Charlie McDermott",
+    "Eden Sher",
+    "Atticus Shaffer",
+    "Neil Flynn"
+   ],
+   "overview": "Forget about athletes, movie stars and politicians. Parents are the real heroes - but we think Frankie Heck, must be some kind of superhero. A loving wife and mother of three, she's middle class in the middle of the country and is rapidly approaching middle age.Frankie and her husband, Mike, have lived in Orson, Indiana, their whole lives. A man of few words (every one a zinger), Mike is a manager at the town quarry and Frankie is the third-best used car salesman (out of the three) at the local dealership. She may not be a high-powered career woman, but when it comes to her family, she'll go t",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/605/1514143.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900375,
+   "title": "The Mindy Project",
+   "year": 2012,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Romance",
+    "Medical"
+   ],
+   "cast": [
+    "Mindy Kaling",
+    "Ike Barinholtz",
+    "Ed Weeks",
+    "Chris Messina",
+    "Xosha Roquemore"
+   ],
+   "overview": "The Mindy Project is a single-camera comedy series which follows a skilled OB/GYN navigating the tricky waters of both her personal and professional life.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/485/1213297.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900376,
+   "title": "The Morning Show",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Drama"
+   ],
+   "cast": [
+    "Jennifer Aniston",
+    "Mark Duplass",
+    "Billy Crudup",
+    "Reese Witherspoon",
+    "Karen Pittman"
+   ],
+   "overview": "Nominated for three Golden Globes®, this unapologetically candid drama looks at the modern workplace through the lens of the people who help America wake up. Pull back the curtain on early morning TV.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485135.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900377,
+   "title": "The Neighborhood",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Beth Behrs",
+    "Max Greenfield",
+    "Cedric the Entertainer",
+    "Tichina Arnold",
+    "Sheaun McKinney"
+   ],
+   "overview": "The Neighborhood telling about what happens when the friendly guy in the Midwest moves his family to a neighborhood in Los Angeles where not everyone looks like him or appreciates his extreme neighborliness. When Dave Johnson and his family arrive from Michigan, they're unfazed that their new dream home is located in a community quite different from their small town. However, their opinionated next-door neighbor, Calvin Butler, is wary of the newcomers, certain that they'll disrupt the culture on the block. Dave realizes that fitting into their new community is more complex than he expected, b",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/594/1487301.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900378,
+   "title": "The Penguin",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Colin Farrell",
+    "Cristin Milioti",
+    "Rhenzy Feliz",
+    "Deirdre O'Connell",
+    "Carmen Ejogo"
+   ],
+   "overview": "Starring Colin Farrell as Oz Cobb (aka The Penguin), the DC Studios series continues filmmaker Matt Reeves' The Batman epic crime saga that began with Warner Bros. Pictures' global blockbuster The Batman. Developed by showrunner Lauren LeFranc, the series centers on the character played by Farrell in the film.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/536/1340329.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900379,
+   "title": "The Real O'Neals",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Martha Plimpton",
+    "Jay R. Ferguson",
+    "Noah Galvin",
+    "Matt Shively",
+    "Bebe Wood"
+   ],
+   "overview": "The Real O'Neals is a fresh take on a seemingly perfect Catholic family whose lives take an unexpected turn when surprising truths are revealed. Instead of ruining their family, the honesty triggers a new, messier chapter where everyone stops pretending to be perfect and actually starts being real.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/79/198740.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900380,
+   "title": "The Resident",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Thriller",
+    "Medical"
+   ],
+   "cast": [
+    "Matt Czuchry",
+    "Manish Dayal",
+    "Bruce Greenwood",
+    "Malcolm-Jamal Warner",
+    "Emily VanCamp"
+   ],
+   "overview": "The Resident is a powerful new medical drama focusing on the final years of a young doctor's training that rips back the curtain to reveal the truth of what really happens, both good and bad, in hospitals across the country.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/424/1061883.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900381,
+   "title": "The Sandman",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Fantasy"
+   ],
+   "cast": [
+    "Tom Sturridge",
+    "Vivienne Acheampong",
+    "Patton Oswalt",
+    "Boyd Holbrook"
+   ],
+   "overview": "A rich blend of modern myth and dark fantasy in which contemporary fiction, historical drama and legend are seamlessly interwoven, The Sandman follows the people and places affected by Morpheus, the Dream King, as he mends the cosmic — and human — mistakes he's made during his vast existence.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/423/1059631.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900382,
+   "title": "The Sex Lives of College Girls",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Pauline Chalamet",
+    "Amrit Kaur",
+    "Alyah Chanelle Scott",
+    "Renika Williams",
+    "Christopher Meyer"
+   ],
+   "overview": "The Sex Lives of College Girls follows four lovably chaotic suite mates on a mission to grow into their truest, freest selves while attending Vermont's prestigious Essex College.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/544/1361968.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900383,
+   "title": "The Society",
+   "year": 2019,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Mystery"
+   ],
+   "cast": [
+    "Kathryn Newton",
+    "Gideon Adlon",
+    "Jacques Colimon",
+    "Olivia DeJonge",
+    "Alex Fitzalan"
+   ],
+   "overview": "The Society follows a group of teenagers who are mysteriously transported to a facsimile of their wealthy New England town, left without any trace of their parents. As they struggle to figure out what has happened to them and how to get home, they must establish order and form alliances if they want to survive. The series is a modern take on Lord of the Flies.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/191/478974.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900384,
+   "title": "The Staircase",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+   ],
+   "cast": [
+    "Colin Firth",
+    "Toni Collette",
+    "Sophie Turner",
+    "Michael Stuhlbarg",
+    "Patrick Schwarzenegger"
+   ],
+   "overview": "The Staircase tells the story of Michael Peterson, a crime novelist accused of killing his wife Kathleen after she is found dead at the bottom of a staircase in their home, and the 16-year judicial battle that followed.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/406/1015974.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900385,
+   "title": "The Strain",
+   "year": 2014,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Horror",
+    "Thriller"
+   ],
+   "cast": [
+    "Corey Stoll",
+    "David Bradley",
+    "Kevin Durand",
+    "Richard Sammel",
+    "Ben Hyland"
+   ],
+   "overview": "The Strain is a high-concept thriller that tells the story of Dr. Ephraim Goodweather, the head of the Center for Disease Control Canary Team in New York City. He and his team are called upon to investigate a mysterious viral outbreak with hallmarks of an ancient and evil strain of vampirism. As the strain spreads, Goodweather, his team, and an assembly of everyday New Yorkers wage war for the fate of humanity itself.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/444/1111710.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900386,
+   "title": "The Wayans Bros.",
+   "year": 1995,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Marlon Wayans",
+    "Shawn Wayans",
+    "John Witherspoon"
+   ],
+   "overview": "Brothers Shawn and Marlon are on the lookout for money and success, though the two are complete opposites. Shawn is responsible and conservative while Marlon is free-spirited and liberal. They are not immune to sibling rivalry, but frequently enjoy being each other's partner in crime.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/41/104423.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900387,
+   "title": "The White Lotus",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Natasha Rothwell",
+    "Jennifer Coolidge",
+    "Jon Gries",
+    "Leslie Bibb",
+    "Carrie Coon"
+   ],
+   "overview": "A social satire set at an exclusive tropical resort, The White Lotus follows the exploits of various guests and employees over the span of a week.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/557/1393876.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900388,
+   "title": "Titans",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Science-Fiction"
+   ],
+   "cast": [
+    "Brenton Thwaites",
+    "Anna Diop",
+    "Ryan Potter",
+    "Teagan Croft",
+    "Joshua Orpin"
+   ],
+   "overview": "Titans follows young heroes from across the DC Universe as they come of age and find belonging in a gritty take on the classic Teen Titans franchise. Dick Grayson and Rachel Roth, a special young girl possessed by a strange darkness, get embroiled in a conspiracy that could bring Hell on Earth. Joining them along the way are the hot-headed Starfire and loveable Beast Boy. Together they become a surrogate family and team of heroes.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/457/1143752.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900389,
+   "title": "Tokyo Vice",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "cast": [
+    "Ansel Elgort",
+    "Ken Watanabe",
+    "Rachel Keller",
+    "Rinko Kikuchi",
+    "Shô Kasamatsu"
+   ],
+   "overview": "Loosely inspired by American journalist Jake Adelstein's non-fiction first-hand account of the Tokyo Metropolitan Police beat, the crime drama series, filmed on location in Tokyo, captures Adelstein's daily descent into the neon-soaked underbelly of Tokyo in the late ‘90s, where nothing and no one is truly what or who they seem.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/502/1256479.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900390,
+   "title": "Tracker",
+   "year": 2024,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Justin Hartley",
+    "Fiona Rene",
+    "Chris Lee",
+    "Abby McEnany",
+    "Eric Graise"
+   ],
+   "overview": "Tracker features lone-wolf survivalist Colter Shaw, who roams the country as a \"reward seeker,\" using his expert tracking skills to help private citizens and law enforcement to solve all manner of mysteries while contending with his own fractured family.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/591/1479867.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900391,
+   "title": "Trial & Error",
+   "year": 2017,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Crime",
+    "Legal"
+   ],
+   "cast": [
+    "Jayma Mays",
+    "Sherri Shepherd",
+    "Steven Boyer",
+    "Nick D'Agosto",
+    "John Lithgow"
+   ],
+   "overview": "In the spirit of true crime documentaries, this outrageous fish-out-of-water comedy centers on bright-eyed New York lawyer Josh Simon, who heads to a tiny Southern town for his first big case. His mission? To defend an eccentric \"rollercizing\" poetry professor accused of the bizarre murder of his beloved wife. Settling into his makeshift office behind a taxidermy shop and meeting his quirky team of local misfits, Josh suspects that winning his first big case will not be easy, especially when his client is always making himself look guilty.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/162/407242.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900392,
+   "title": "Tulsa King",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Crime"
+   ],
+   "cast": [
+    "Sylvester Stallone",
+    "Jay Will",
+    "Martin Starr",
+    "Garrett Hedlund",
+    "Chris Caldovino"
+   ],
+   "overview": "Tulsa King follows New York mafia capo Dwight \"The General\" Manfredi, just after he is released from prison after 25 years and unceremoniously exiled by his boss to set up shop in Tulsa, Oklahoma. Realizing that his mob family may not have his best interests in mind, Dwight slowly builds a \"crew\" from a group of unlikely characters, to help him establish a new criminal empire in a place that, to him, might as well be another planet.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/588/1471782.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900393,
+   "title": "Two and a Half Men",
+   "year": 2003,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Jon Cryer",
+    "Angus T. Jones",
+    "Conchata Ferrell",
+    "Charlie Sheen",
+    "Holland Taylor"
+   ],
+   "overview": "Charlie is a well-to-do bachelor with a house at the beach, a Jaguar in the front, and an easy way with women. His casual Malibu lifestyle is interrupted when his tightly wound brother Alan, who's facing a divorce, and his son Jake, come to live with him. Together, these two and a half men confront the challenges of growing up; finally. Complicating matters are the brothers' self-obsessed, controlling mother, Evelyn, Alan's estranged wife, Judith and Charlie's crazy neighbor Rose, who wants to be a part of his life and is willing to do anything to be around. After the death of his brother, Ala",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/118/296850.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900394,
+   "title": "Uncle Buck",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Aalyrah Caldwell",
+    "Mike Epps",
+    "Iman Benson",
+    "James Lesure",
+    "Sayeed Shahidi"
+   ],
+   "overview": "Based on the hit movie of the same name, Uncle Buck is a charismatic hustler who has gotten by on his charm for years. But when his brother Will and sister-in-law Alexis move to town and need help with their kids, he steps up to become their \"manny\" and their lives will never be the same. Will and Alexis are wary of Buck's questionable parenting skills, but his unique perspective and street smarts provide some unconventional solutions to raising their three rambunctious kids, who typically make a hobby out of terrorizing their nannies.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/330/827182.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900395,
+   "title": "Unbreakable Kimmy Schmidt",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Ellie Kemper",
+    "Tituss Burgess",
+    "Carol Kane",
+    "Jane Krakowski",
+    "Sara Chase"
+   ],
+   "overview": "When a woman is rescued from a doomsday cult and lands in New York City, she must navigate a world she didn't think even existed anymore.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/182/456853.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900396,
+   "title": "United States of Tara",
+   "year": 2009,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy"
+   ],
+   "cast": [
+    "Toni Collette",
+    "John Corbett",
+    "Keir Gilchrist",
+    "Brie Larson",
+    "Rosemarie DeWitt"
+   ],
+   "overview": "She's got a husband, two kids and multiple personalities. Emmy® and Golden Globe® winner Toni Collette never knows what or who will happen in this smart, unique and totally unpredictable Showtime Original Comedy Series from executive producer Steven Spielberg. Tara's Alters include \"T\" the wild-child teenager, \"Buck\" the rough and tumble biker dude, and \"Alice\" the type-A homemaker. But with a family that loves her just the way she is. Tara never gives up hope that someday she can just be herself.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/6/16409.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900397,
+   "title": "Victoria",
+   "year": 2016,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "History"
+   ],
+   "cast": [
+    "Jenna Coleman",
+    "Tommy Knight",
+    "Jordan Waller",
+    "Adrian Schiller",
+    "Tom Hughes"
+   ],
+   "overview": "Victoria comes to the throne at a time of great economic turbulence and resurgent republicanism – and died 64 years later the head of the largest empire the world had ever seen, having revitalised the throne's public image and become ‘grandmother of Europe'. The first series of Victoria, will tell the story of the first years of the reign, beginning with the moment of the Queen's accession in 1837, following her first faltering steps from capricious, hormonal teenager with a weak grasp on her duties and responsibilities to her marriage to Albert. The show is a saga of interlocking circles – th",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/179/448340.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900398,
+   "title": "Walker",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+   ],
+   "cast": [
+    "Jared Padalecki",
+    "Keegan Allen",
+    "Violet Brinson",
+    "Kale Culley",
+    "Jeff Pierre"
+   ],
+   "overview": "Walker centers on Cordell Walker, a widower and father of two with his own moral code, who returns home to Austin after being undercover for two years, only to discover there's harder work to be done at home. He attempts to reconnect with his children, navigate clashes with his conservative family, and find unexpected common ground with his new partner (one of the first women in Texas Rangers' history), while growing increasingly suspicious about the circumstances surrounding his wife's death.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/424/1061062.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900399,
+   "title": "Watson",
+   "year": 2025,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Mystery",
+    "Medical"
+   ],
+   "cast": [
+    "Morris Chestnut",
+    "Eve Harlow",
+    "Inga Schlingmann",
+    "Peter Mark Kendall",
+    "Peter Mark Kendall"
+   ],
+   "overview": "In Watson a year after the death of his friend and partner Sherlock Holmes at the hands of Moriarty, Dr. John Watson resumes his medical career as the head of a clinic dedicated to treating rare disorders. Watson's old life isn't done with him, though — Moriarty and Watson are set to write their own chapter of a story that has fascinated audiences for more than a century. Watson is a medical show with a strong investigative spine, featuring a modern version of one of history's greatest detectives as he turns his attention from solving crimes to addressing the greatest mystery of all: illness, ",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/590/1476556.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900400,
+   "title": "The Wheel of Time",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Adventure",
+    "Fantasy"
+   ],
+   "cast": [
+    "Rosamund Pike",
+    "Madeleine Madden",
+    "Marcus Rutherford",
+    "Zoë Robins",
+    "Josha Stradowski"
+   ],
+   "overview": "The Wheel of Time is set in a sprawling, epic world where magic exists, but only women can use it safely. Meaning that in this series — women hold the keys to power. The story follows Moiraine, a member of the shadowy and influential all-female organization called the ‘Aes Sedai' as she embarks on a dangerous, world-spanning journey with five young men and women. Moiraine's interested in these five because she believes one of them might be the reincarnation of an incredibly powerful individual, whom prophecies say will either save humanity or destroy it. The series draws on numerous elements o",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/564/1411765.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900401,
+   "title": "White Collar",
+   "year": 2009,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Crime"
+   ],
+   "cast": [
+    "Matt Bomer",
+    "Tim DeKay",
+    "Sharif Atkins",
+    "Willie Garson",
+    "Tiffani Thiessen"
+   ],
+   "overview": "The series focuses on the unlikely partnership between the very intelligent and charming con-artist Neal Caffrey and the hard-working and earnest FBI agent Peter Burke. In exchange for his freedom, and on the condition that he wear an ankle bracelet at all times, Caffrey provides his expertise in thievery to help Burke and agents Clinton Jones and Diana Berrigan catch other elusive white collar criminals.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/2/5238.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900402,
+   "title": "Winning Time: The Rise of the Lakers Dynasty",
+   "year": 2022,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Sports"
+   ],
+   "cast": [
+    "Quincy Isaiah",
+    "John C. Reilly",
+    "Jason Clarke",
+    "Hadley Robinson",
+    "Spencer Garrett"
+   ],
+   "overview": "The drama series that goes back in time to chronicle the professional and personal lives of the 1980s Los Angeles Lakers, one of sports' most revered and dominant dynasties. The show takes a look at a team that defined its era, both on and off the court. Based on Jeff Pearlman's book, Showtime: Magic, Kareem, Riley, and the Los Angeles Lakers, and executive produced by Adam McKay",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/473/1183737.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900403,
+   "title": "WKRP in Cincinnati",
+   "year": 1978,
+   "type": "tv",
+   "genres": [
+    "Comedy"
+   ],
+   "cast": [
+    "Gordon Jump",
+    "Gary Sandy",
+    "Howard Hesseman",
+    "Loni Anderson",
+    "Richard Sanders"
+   ],
+   "overview": "When a Cincinnati radio station switches from sedate music to top-40 rock 'n' roll, its staff of oddball characters is forced to switch gears quickly. New programming director Andy Travis brings in a new DJ named Venus Flytrap to work with the station's burned-out veteran, Dr. Johnny Fever. Neurotic newsman Les Nessman, eager beaver Jan Smithers, sleazy salesman Herb Tarlek, blonde bombshell Jennifer Marlowe, who serves as the station's ultra-capable receptionist, and station manager Arthur Carlson, whose domineering mother owns WKRP, round out the eccentric bunch.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/615/1539052.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900404,
+   "title": "Yes, Dear",
+   "year": 2000,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "cast": [
+    "Anthony Clark",
+    "Jean Louisa Kelly",
+    "Liza Snyder",
+    "Mike O'Malley",
+    "Joel Homan"
+   ],
+   "overview": "Yes, Dear is a comedy about two young couples and their outrageously contrasting views on parenting. Greg and Kim Warner struggle on a daily basis to become perfect at the job. Kim is a neurotic, stay-at-home mother, and although her husband, Greg, is a success in his career, his more difficult job is keeping his wife calm as they raise their two young children. While Kim is determined to be the perfect mother and perfect wife and to raise the perfect children, her sister, Christine Hughes, a very down-to-earth mother of two, continually reminds her that life will never be perfect. Christine's",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/8/21260.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900405,
+   "title": "You",
+   "year": 2018,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Romance",
+    "Thriller"
+   ],
+   "cast": [
+    "Penn Badgley",
+    "Victoria Pedretti",
+    "Charlotte Ritchie",
+    "Tati Gabrielle",
+    "Elizabeth Lail"
+   ],
+   "overview": "A dangerously charming, intensely obsessive young man goes to extreme measures to insert himself into the lives of those he is transfixed by.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/564/1412472.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900406,
+   "title": "Young Rock",
+   "year": 2021,
+   "type": "tv",
+   "genres": [
+    "Comedy",
+    "Family",
+    "Sports"
+   ],
+   "cast": [
+    "Stacey Leilua",
+    "Joseph Lee Anderson",
+    "Dwayne Johnson",
+    "Ana Tuisila",
+    "Fasitua Amosa"
+   ],
+   "overview": "Every legend has a beginning. Dwayne \"The Rock\" Johnson stars in a larger-than-life family comedy based on outrageous stories of his youth. This coming-of-age journey highlights the unforgettable moments and incredible relationships that took Dwayne from ordinary kid to extraordinary superstar - revealing he's more like us than we know.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/427/1068374.jpg",
+   "tmdb_id": null
+  },
+  {
+   "id": 8900407,
+   "title": "Zoo",
+   "year": 2015,
+   "type": "tv",
+   "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Thriller"
+   ],
+   "cast": [
+    "James Wolk",
+    "Billy Burke",
+    "Kristen Connolly",
+    "Nonso Anozie",
+    "Alyssa Diaz"
+   ],
+   "overview": "Zoo is a global thriller about a wave of violent animal attacks against humans sweeping the planet. Jackson Oz is a young, renegade American zoologist who spends his days running safaris in the wilds of Africa when he begins noticing the strange behavior of the animals. As the assaults become more cunning, coordinated and ferocious, he is thrust into the race to unlock the mystery of the pandemic before there's no place left for people to hide.Based on James Patterson's #1 bestselling novel.",
+   "poster_url": "https://static.tvmaze.com/uploads/images/original_untouched/213/532577.jpg",
    "tmdb_id": null
   }
  ]
