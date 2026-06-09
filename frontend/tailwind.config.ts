@@ -17,6 +17,12 @@ const config: Config = {
         pass: '#ff5e5b',
         save: '#4aa8ff',
         skip: '#8a9099',
+        // Light theme: a white page with soft neutral surfaces and dark ink.
+        paper: '#ffffff',
+        cloud: '#f3f3f1',
+        'cloud-2': '#e9e8e4',
+        graphite: '#1b1e24',
+        slate: '#6b7280',
       },
       fontFamily: {
         serif: ['"DM Serif Display"', 'Georgia', 'serif'],
@@ -26,9 +32,11 @@ const config: Config = {
         warm: 'rgba(245, 166, 35, 0.18)',
       },
       boxShadow: {
-        // Soft, layered elevation for cards and floating controls.
-        card: '0 18px 50px -18px rgba(0, 0, 0, 0.75), 0 4px 14px -6px rgba(0, 0, 0, 0.55)',
-        glow: '0 0 0 1px rgba(245, 166, 35, 0.25), 0 8px 30px -8px rgba(245, 166, 35, 0.35)',
+        // Heavy elevation for the poster card so it lifts off the white page.
+        card: '0 24px 60px -20px rgba(20, 22, 28, 0.45), 0 6px 18px -8px rgba(20, 22, 28, 0.25)',
+        glow: '0 0 0 1px rgba(245, 166, 35, 0.25), 0 8px 30px -8px rgba(245, 166, 35, 0.45)',
+        // Light, airy lift for floating controls on the white background.
+        soft: '0 6px 20px -8px rgba(20, 22, 28, 0.18), 0 2px 6px -3px rgba(20, 22, 28, 0.12)',
       },
       keyframes: {
         'drift': {

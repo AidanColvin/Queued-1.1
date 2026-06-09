@@ -83,19 +83,19 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
       aria-label={`${rec.title} trailer`}
     >
       <div
-        className="relative w-full max-w-3xl animate-rise overflow-hidden rounded-3xl border border-white/10 bg-surface shadow-card"
+        className="relative w-full max-w-3xl animate-rise overflow-hidden rounded-3xl border border-black/10 bg-paper shadow-card"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <h2 className="truncate font-serif text-xl text-ink">
+          <h2 className="truncate font-serif text-xl text-graphite">
             {rec.title}
-            {rec.year ? <span className="ml-2 text-sm text-muted">{rec.year}</span> : null}
+            {rec.year ? <span className="ml-2 text-sm text-slate">{rec.year}</span> : null}
           </h2>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close trailer"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-warm hover:text-ink"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 text-slate transition hover:border-amber hover:text-graphite"
           >
             <XIcon className="h-5 w-5" />
           </button>
@@ -104,7 +104,7 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
         <div className="relative aspect-video w-full bg-black">
           {phase.state === 'loading' && (
             <div className="absolute inset-0 flex items-center justify-center">
-              <p className="animate-pulse text-muted">Loading trailer…</p>
+              <p className="animate-pulse text-white/70">Loading trailer…</p>
             </div>
           )}
 
@@ -124,12 +124,12 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
 
           {phase.state === 'unavailable' && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
-              <p className="text-muted">No in-app trailer available for this title.</p>
+              <p className="text-white/70">No in-app trailer available for this title.</p>
               <a
                 href={youtubeTrailerUrl(rec.title, rec.year)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-full bg-amber px-4 py-2 text-sm font-semibold text-charcoal shadow-glow transition hover:scale-105"
+                className="flex items-center gap-1.5 rounded-full bg-amber px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:scale-105"
               >
                 <PlayIcon className="h-4 w-4" />
                 Search on YouTube
@@ -139,7 +139,7 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
         </div>
 
         {rec.overview && (
-          <p className="max-h-32 overflow-y-auto px-4 py-3 text-sm text-white/80">{rec.overview}</p>
+          <p className="max-h-32 overflow-y-auto px-4 py-3 text-sm leading-relaxed text-slate">{rec.overview}</p>
         )}
       </div>
     </div>

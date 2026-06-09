@@ -15,7 +15,7 @@ function ResultsInner() {
 // Shareable deck: /results?titles=[...] seeds the deck with specific titles.
 export default function ResultsPage() {
   return (
-    <Suspense fallback={<div className="p-10 text-center text-muted">Loading…</div>}>
+    <Suspense fallback={<div className="p-10 text-center text-slate">Loading…</div>}>
       <ResultsInner />
     </Suspense>
   );

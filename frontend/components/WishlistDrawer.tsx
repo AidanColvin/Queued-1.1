@@ -26,24 +26,24 @@ export default function WishlistDrawer({ open, items, onClose }: WishlistDrawerP
             onClick={onClose}
           />
           <motion.aside
-            className="fixed right-0 top-0 z-50 flex h-full w-[88vw] max-w-sm flex-col border-l border-white/10 bg-surface shadow-card"
+            className="fixed right-0 top-0 z-50 flex h-full w-[88vw] max-w-sm flex-col border-l border-black/10 bg-paper shadow-card"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 320, damping: 34 }}
           >
-            <div className="flex items-center justify-between border-b border-white/10 p-4">
+            <div className="flex items-center justify-between border-b border-black/10 p-4">
               <div className="flex items-baseline gap-2">
-                <h2 className="font-serif text-2xl text-ink">Watchlist</h2>
+                <h2 className="font-serif text-2xl text-graphite">Watchlist</h2>
                 {items.length > 0 && (
-                  <span className="text-sm tabular-nums text-muted">{items.length}</span>
+                  <span className="text-sm tabular-nums text-slate">{items.length}</span>
                 )}
               </div>
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Close watchlist"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-warm hover:text-ink"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-slate transition hover:border-amber hover:text-graphite"
               >
                 <XIcon className="h-5 w-5" />
               </button>
@@ -51,8 +51,8 @@ export default function WishlistDrawer({ open, items, onClose }: WishlistDrawerP
 
             <div className="flex-1 overflow-y-auto p-4">
               {items.length === 0 ? (
-                <p className="mt-10 text-center text-sm text-muted">
-                  Swipe <span className="text-save">up ↑</span> on a title to save it here.
+                <p className="mt-10 text-center text-sm text-slate">
+                  Swipe <span className="font-medium text-save">up</span> on a title to save it here.
                 </p>
               ) : (
                 <ul className="space-y-3">
@@ -65,9 +65,9 @@ export default function WishlistDrawer({ open, items, onClose }: WishlistDrawerP
                           href={youtubeTrailerUrl(rec.title, rec.year)}
                           target="_blank"
                           rel="noreferrer"
-                          className="group flex items-center gap-3 rounded-xl border border-white/10 bg-surface-2/40 p-2 transition hover:border-amber hover:bg-surface-2"
+                          className="group flex items-center gap-3 rounded-xl border border-black/10 bg-cloud p-2 transition hover:border-amber hover:bg-cloud-2"
                         >
-                          <div className="relative h-20 w-14 shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-surface-2 to-black">
+                          <div className="relative h-20 w-14 shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-cloud-2 to-cloud">
                             {rec.poster_url ? (
                               // eslint-disable-next-line @next/next/no-img-element
                               <img src={rec.poster_url} alt={rec.title} className="h-full w-full object-cover" />
@@ -77,12 +77,12 @@ export default function WishlistDrawer({ open, items, onClose }: WishlistDrawerP
                             </span>
                           </div>
                           <div className="min-w-0 flex-1">
-                            <p className="truncate font-medium text-ink">{rec.title}</p>
-                            <p className="text-xs text-muted">
+                            <p className="truncate font-medium text-graphite">{rec.title}</p>
+                            <p className="text-xs text-slate">
                               {rec.year ?? ''} · {rec.genres.slice(0, 2).join(', ')}
                             </p>
                             {rec.cast.length > 0 && (
-                              <p className="mt-0.5 truncate text-xs text-white/50">{rec.cast.join(' · ')}</p>
+                              <p className="mt-0.5 truncate text-xs text-slate/70">{rec.cast.join(' · ')}</p>
                             )}
                           </div>
                         </a>

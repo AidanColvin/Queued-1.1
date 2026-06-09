@@ -40,7 +40,7 @@ export default function ActionBar({
         type="button"
         onClick={onUndo}
         disabled={!canUndo}
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-surface/80 text-muted shadow-card transition enabled:hover:scale-105 enabled:hover:border-warm enabled:hover:text-ink enabled:active:scale-95 disabled:opacity-25"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-paper text-slate shadow-soft transition enabled:hover:scale-105 enabled:hover:text-graphite enabled:active:scale-95 disabled:opacity-30"
         aria-label="Undo last swipe"
         title="Undo"
       >
@@ -59,13 +59,13 @@ export default function ActionBar({
             onClick={() => onAction(action)}
             aria-label={cfg.label}
             title={cfg.label}
-            className={`flex ${size} items-center justify-center rounded-full bg-surface/90 backdrop-blur-sm transition-transform duration-150 hover:scale-110 active:scale-90 ${
-              primary ? 'border-2 shadow-card' : 'border border-white/10'
+            className={`flex ${size} items-center justify-center rounded-full bg-paper shadow-soft transition-transform duration-150 hover:scale-110 active:scale-90 ${
+              primary ? 'border-2' : 'border border-black/10'
             }`}
             style={{
               borderColor: primary ? cfg.color : undefined,
               color: cfg.color,
-              boxShadow: primary ? `0 8px 26px -10px ${cfg.color}` : undefined,
+              boxShadow: primary ? `0 10px 26px -10px ${cfg.color}` : undefined,
             }}
           >
             <Icon className={iconSize} />
@@ -76,7 +76,7 @@ export default function ActionBar({
       <button
         type="button"
         onClick={onToggleDetails}
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-surface/80 text-muted shadow-card transition hover:scale-105 hover:border-warm hover:text-ink active:scale-95"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-paper text-slate shadow-soft transition hover:scale-105 hover:text-graphite active:scale-95"
         aria-label="Toggle details"
         title="Details"
       >

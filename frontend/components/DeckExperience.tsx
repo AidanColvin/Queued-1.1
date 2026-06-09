@@ -102,19 +102,19 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
 
   const segBtn = (active: boolean) =>
     `rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
-      active ? 'bg-amber text-charcoal shadow-sm' : 'text-muted hover:text-ink'
+      active ? 'bg-amber text-white shadow-sm' : 'text-slate hover:text-graphite'
     }`;
 
   return (
     <main className="app-shell mx-auto flex w-full max-w-3xl flex-col">
       <header className="mb-4 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-amber">
-          <FilmIcon className="h-5 w-5" />
-          <span className="font-serif text-xl tracking-tight text-ink">NextWatch</span>
+        <div className="flex items-center gap-2">
+          <FilmIcon className="h-5 w-5 text-amber" />
+          <span className="font-serif text-xl tracking-tight text-graphite">NextWatch</span>
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="flex rounded-full border border-white/10 bg-surface/70 p-1 backdrop-blur-sm">
+          <div className="flex rounded-full border border-black/10 bg-cloud p-1">
             <button type="button" onClick={() => switchStack('movie')} className={segBtn(stack === 'movie')}>
               Movies
             </button>
@@ -126,12 +126,12 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             type="button"
             onClick={() => setWishlistOpen(true)}
             aria-label="Open watchlist"
-            className="relative flex h-10 items-center gap-1.5 rounded-full border border-white/10 bg-surface/70 px-3 text-sm font-medium text-ink backdrop-blur-sm transition hover:border-amber"
+            className="relative flex h-10 items-center gap-1.5 rounded-full border border-black/10 bg-cloud px-3 text-sm font-medium text-graphite transition hover:border-amber hover:bg-cloud-2"
           >
             <HeartIcon className="h-4 w-4 text-save" />
             <span className="hidden sm:inline">Watchlist</span>
             {deck.wishlist.length > 0 && (
-              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-amber px-1.5 text-xs font-bold tabular-nums text-charcoal">
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-amber px-1.5 text-xs font-bold tabular-nums text-white">
                 {deck.wishlist.length}
               </span>
             )}
@@ -146,7 +146,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
               <span className="absolute inset-0 rounded-full border-2 border-amber/60" />
               <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-amber" />
             </div>
-            <p className="animate-pulse font-serif text-2xl text-muted">Finding something to watch…</p>
+            <p className="animate-pulse font-serif text-2xl text-slate">Finding something to watch…</p>
           </div>
         )}
 
@@ -159,7 +159,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
                 setStatus('loading');
                 void fetchMore(true, stack);
               }}
-              className="rounded-full border border-warm px-5 py-2.5 text-ink transition hover:border-amber"
+              className="rounded-full border border-black/15 px-5 py-2.5 text-graphite transition hover:border-amber"
             >
               Retry
             </button>
@@ -171,7 +171,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             <SwipeDeck deck={deck} onOpenCard={openCard} />
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-3 text-center">
-              <p className="font-serif text-2xl text-muted">
+              <p className="font-serif text-2xl text-slate">
                 {exhaustedRef.current
                   ? `That's every popular ${stack === 'tv' ? 'show' : 'title'} — nice swiping.`
                   : 'Lining up more picks…'}
@@ -180,7 +180,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
                 <button
                   type="button"
                   onClick={() => switchStack(stack === 'tv' ? 'movie' : 'tv')}
-                  className="rounded-full border border-warm px-5 py-2.5 text-sm text-ink transition hover:border-amber"
+                  className="rounded-full border border-black/15 px-5 py-2.5 text-sm text-graphite transition hover:border-amber"
                 >
                   Try {stack === 'tv' ? 'Movies' : 'TV'} →
                 </button>
@@ -189,7 +189,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           ))}
       </div>
 
-      <p className="mt-4 text-center text-xs text-muted/60">
+      <p className="mt-4 text-center text-xs text-slate/80">
         Swipe or use the buttons — it learns as you go. Tap a card for the trailer.
       </p>
 
