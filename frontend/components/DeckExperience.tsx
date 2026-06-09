@@ -36,28 +36,44 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     async (initial: boolean, forStack: Stack) => {
       if (fetchingRef.current) return;
       fetchingRef.current = true;
+      // The backend runs as a serverless function, so the very first request
+      // after it's been idle pays a cold start (the ML model loads) and can time
+      // out. Retry the initial load with backoff so the deck always appears —
+      // the user should never be stranded on "Couldn't reach" with nothing to
+      // swipe. Refills only try once (a card is already on screen).
+      const attempts = initial ? 6 : 1;
       try {
-        // Always exclude everything seen — on the initial load this is the
-        // persisted seen set (so reloads never repeat cards), on refills it's
-        // that plus the current queue.
-        const exclude = deck.knownIds;
-        const count = initial ? 20 : REFILL_COUNT;
-        let res;
-        if (forStack === 'tv') {
-          res = await getTv(count, exclude);
-        } else {
-          const seeds = deck.positiveTitles.length ? deck.positiveTitles : seedTitles;
-          // Adaptive when we have movie seeds; fall back to popular if /recommend
-          // can't resolve them (or fails), so the deck never dead-ends.
-          res = seeds.length
-            ? await getRecommendations(seeds, REFILL_COUNT, exclude).catch(() => getPopular(count, exclude))
-            : await getPopular(count, exclude);
+        for (let attempt = 1; attempt <= attempts; attempt += 1) {
+          try {
+            // Always exclude everything seen — on the initial load this is the
+            // persisted seen set (so reloads never repeat cards), on refills it's
+            // that plus the current queue.
+            const exclude = deck.knownIds;
+            const count = initial ? 20 : REFILL_COUNT;
+            let res;
+            if (forStack === 'tv') {
+              res = await getTv(count, exclude);
+            } else {
+              const seeds = deck.positiveTitles.length ? deck.positiveTitles : seedTitles;
+              // Adaptive when we have movie seeds; fall back to popular if /recommend
+              // can't resolve them (or fails), so the deck never dead-ends.
+              res = seeds.length
+                ? await getRecommendations(seeds, REFILL_COUNT, exclude).catch(() => getPopular(count, exclude))
+                : await getPopular(count, exclude);
+            }
+            const added = deck.append(res.recommendations);
+            if (!initial && added === 0) exhaustedRef.current = true; // catalog drained
+            setStatus('ready');
+            return;
+          } catch (err) {
+            if (attempt >= attempts) {
+              if (initial) setStatus('error');
+            } else {
+              // Backoff: 1.2s, 2.4s, 3.6s… ≈ 18s total patience for a cold start.
+              await new Promise((r) => setTimeout(r, 1200 * attempt));
+            }
+          }
         }
-        const added = deck.append(res.recommendations);
-        if (!initial && added === 0) exhaustedRef.current = true; // catalog drained
-        setStatus('ready');
-      } catch {
-        if (initial) setStatus('error');
       } finally {
         fetchingRef.current = false;
       }
