@@ -38,11 +38,9 @@ export default function TrailerModal({ rec, onClose }: TrailerModalProps) {
       setPhase({ state: 'playing', key: rec.trailer_key });
       return;
     }
-    if (rec.tmdb_id == null) {
-      setPhase({ state: 'unavailable' });
-      return;
-    }
-    getTrailer(rec.tmdb_id, rec.type)
+    // Resolve via the backend — TMDB when configured, else a keyless YouTube
+    // search by title/year. Works even when tmdb_id is null.
+    getTrailer(rec.tmdb_id, rec.type, rec.title, rec.year)
       .then((res) => {
         if (cancelled) return;
         setPhase(res.youtube_key ? { state: 'playing', key: res.youtube_key } : { state: 'unavailable' });

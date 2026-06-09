@@ -162,7 +162,7 @@ class TrailerResponse(BaseModel):
 
     youtube_key: str | None = None
     name: str | None = None
-    source: Literal["tmdb", "none", "unconfigured", "error"] = "none"
+    source: Literal["tmdb", "youtube", "none", "unconfigured", "error"] = "none"
 
 
 # --------------------------------------------------------------------------- #

@@ -98,8 +98,17 @@ export async function recordSwipe(req: SwipeRequest): Promise<SwipeResponse> {
   });
 }
 
-/** Resolve a title's YouTube trailer key so it can play in an in-page player. */
-export async function getTrailer(tmdbId: number, type: MediaType): Promise<TrailerResponse> {
+/** Resolve a title's YouTube trailer key so it can play in an in-page player.
+ *  `title`/`year` power the backend's keyless YouTube-search fallback, so a
+ *  trailer resolves even without a TMDB key (or a TMDB id). */
+export async function getTrailer(
+  tmdbId: number | null,
+  type: MediaType,
+  title?: string,
+  year?: number | null,
+): Promise<TrailerResponse> {
   const params = new URLSearchParams({ type });
-  return request<TrailerResponse>(`/trailer/${tmdbId}?${params}`);
+  if (title) params.set('title', title);
+  if (year != null) params.set('year', String(year));
+  return request<TrailerResponse>(`/trailer/${tmdbId ?? 0}?${params}`);
 }
