@@ -111,6 +111,22 @@ export async function getPopular(
   });
 }
 
+/** Fetch the taste-driven movie deck: candidates nearest the visitor's
+ *  accumulated taste vector (likes + dislikes + collaborative signal), with a
+ *  server-side popularity fallback before there's enough signal. `sessionId`
+ *  keys the anonymous taste vector; a signed-in caller is keyed by the cookie. */
+export async function getAdaptive(
+  sessionId: string,
+  count = 20,
+  excludeIds: number[] = [],
+  prefs?: ProviderPrefs,
+): Promise<RecommendResponse> {
+  return request<RecommendResponse>('/recommend/adaptive', {
+    method: 'POST',
+    body: JSON.stringify({ session_id: sessionId, count, exclude_ids: excludeIds, ...providerBody(prefs) }),
+  });
+}
+
 /** Fetch the popularity-ranked TV deck (separate keyless catalog — no ML model). */
 export async function getTv(
   count = 20,

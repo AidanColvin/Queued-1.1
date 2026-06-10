@@ -8,7 +8,7 @@ import { KEY_TO_ACTION } from '@/lib/actions';
 import { hapticImpact } from '@/lib/native';
 import type { DeckApi } from '@/lib/deck';
 import type { ProviderPrefs, Recommendation, SwipeAction } from '@/lib/types';
-import { makeSessionId } from '@/lib/util';
+import { getSessionId } from '@/lib/util';
 import ActionBar from './ActionBar';
 import KeyHints from './KeyHints';
 import SwipeCard from './SwipeCard';
@@ -40,9 +40,10 @@ export default function SwipeDeck({ deck, onOpenCard, onPersistSave, providerPre
 
   const threshold = typeof window !== 'undefined' && window.matchMedia?.('(pointer: coarse)').matches ? 120 : 100;
 
-  // Assign a session id once on the client (avoids SSR hydration mismatch).
+  // Use the persisted anonymous session id (shared with the adaptive deck), set
+  // on the client to avoid an SSR hydration mismatch.
   useEffect(() => {
-    if (!sessionIdRef.current) sessionIdRef.current = makeSessionId();
+    if (!sessionIdRef.current) sessionIdRef.current = getSessionId();
     appearedAtRef.current = Date.now();
   }, []);
 

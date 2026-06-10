@@ -8,6 +8,27 @@ export function makeSessionId(): string {
   return `s-${Date.now().toString(36)}-${Math.floor(Math.random() * 1e9).toString(36)}`;
 }
 
+const SESSION_KEY = 'nextwatch:session';
+
+/** A STABLE anonymous session id, persisted in localStorage. The anonymous taste
+ *  vector is keyed by this server-side, so persisting it (rather than minting a
+ *  fresh id per page load) is what lets an anonymous visitor's taste — and the
+ *  adaptive deck — carry across reloads. Both /swipe and /recommend/adaptive use
+ *  this id so they share one taste profile. */
+export function getSessionId(): string {
+  if (typeof window === 'undefined') return 'anon';
+  try {
+    let id = window.localStorage.getItem(SESSION_KEY);
+    if (!id) {
+      id = makeSessionId();
+      window.localStorage.setItem(SESSION_KEY, id);
+    }
+    return id;
+  } catch {
+    return makeSessionId(); // storage unavailable — fall back to a per-load id
+  }
+}
+
 /** Encode seed titles into a shareable, bookmarkable query string. */
 export function encodeTitles(titles: string[]): string {
   return new URLSearchParams({ titles: JSON.stringify(titles) }).toString();

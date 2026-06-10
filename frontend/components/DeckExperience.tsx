@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import {
+  getAdaptive,
   getHistory,
   getMyProviders,
   getPopular,
@@ -11,6 +12,7 @@ import {
   mergeGuestData,
   saveTitle,
 } from '@/lib/api';
+import { getSessionId } from '@/lib/util';
 import { useAuth } from '@/lib/auth';
 import { useDeck } from '@/lib/deck';
 import { resolvePoster } from '@/lib/posters';
@@ -38,8 +40,9 @@ interface DeckExperienceProps {
 
 type Stack = 'movie' | 'tv';
 
-const REFILL_AT = 5; // fetch more when this few cards remain
+const REFILL_AT = 6; // fetch more when this few cards remain
 const REFILL_COUNT = 15;
+const INITIAL_COUNT = 12; // small first batch so taste-driven picks arrive within a few swipes
 
 export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps) {
   const deck = useDeck();
@@ -106,20 +109,25 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             // persisted seen set (so reloads never repeat cards), on refills it's
             // that plus the current queue.
             const exclude = deck.knownIds;
-            const count = initial ? 20 : REFILL_COUNT;
+            const count = initial ? INITIAL_COUNT : REFILL_COUNT;
             const prefs = prefsRef.current;
             let res;
             if (forStack === 'tv') {
               res = await getTv(count, exclude, prefs);
+            } else if (seedTitles.length) {
+              // A shared/seeded link: rank from those explicit titles, falling
+              // back to the adaptive deck if they can't be resolved.
+              res = await getRecommendations(seedTitles, count, exclude, prefs).catch(() =>
+                getAdaptive(getSessionId(), count, exclude, prefs),
+              );
             } else {
-              const seeds = deck.positiveTitles.length ? deck.positiveTitles : seedTitles;
-              // Adaptive when we have movie seeds; fall back to popular if /recommend
-              // can't resolve them (or fails), so the deck never dead-ends.
-              res = seeds.length
-                ? await getRecommendations(seeds, REFILL_COUNT, exclude, prefs).catch(() =>
-                    getPopular(count, exclude, prefs),
-                  )
-                : await getPopular(count, exclude, prefs);
+              // Taste-driven deck: candidates nearest the visitor's accumulated
+              // taste vector (likes + dislikes + collaborative). The backend falls
+              // back to the popular deck before there's signal; we fall back to it
+              // too if the request fails, so the deck never dead-ends.
+              res = await getAdaptive(getSessionId(), count, exclude, prefs).catch(() =>
+                getPopular(count, exclude, prefs),
+              );
             }
             const fetched = res.recommendations;
             // Drop anything we can't show a poster for before it enters the deck.
