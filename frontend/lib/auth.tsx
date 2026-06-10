@@ -15,6 +15,8 @@ interface AuthContextValue {
   logout: () => Promise<void>;
   /** Kick off the full-page Google OAuth redirect. */
   loginWithGoogle: () => void;
+  /** Permanently delete the account and all of its data, then sign out. */
+  deleteAccount: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -61,8 +63,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     window.location.href = api.googleLoginUrl();
   }, []);
 
+  const deleteAccount = useCallback(async () => {
+    await api.deleteAccount();
+    setUser(null); // the backend already cleared the cookie
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, loginWithGoogle }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, loginWithGoogle, deleteAccount }}>
       {children}
     </AuthContext.Provider>
   );

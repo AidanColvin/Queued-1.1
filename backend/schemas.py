@@ -206,6 +206,32 @@ class UserOut(BaseModel):
     id: int
     email: str
     display_name: str | None = None
+    email_verified: bool = False
+
+
+class PasswordResetRequest(BaseModel):
+    """Body for ``POST /auth/request-password-reset``."""
+
+    email: str = Field(min_length=3, max_length=320)
+
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, value: str) -> str:
+        return value.strip().lower()
+
+
+class PasswordResetConfirm(BaseModel):
+    """Body for ``POST /auth/reset-password``."""
+
+    token: str = Field(min_length=1)
+    # Same bcrypt-driven cap as registration.
+    new_password: str = Field(min_length=8, max_length=72)
+
+
+class VerifyEmailRequest(BaseModel):
+    """Body for ``POST /auth/verify-email``."""
+
+    token: str = Field(min_length=1)
 
 
 class HistoryResponse(BaseModel):

@@ -68,6 +68,47 @@ def create_access_token(user_id: int, email: str) -> str:
     return jwt.encode(payload, settings.jwt_secret, algorithm=_JWT_ALG)
 
 
+def create_action_token(user_id: int, purpose: str, expires_minutes: int, fingerprint: str = "") -> str:
+    """Mint a single-purpose token (email verification / password reset).
+
+    Stateless like the session JWT, but scoped by a ``purpose`` claim so a
+    session token can never be replayed as a reset token (or vice versa).
+
+    Args:
+        user_id: The user the action applies to.
+        purpose: e.g. ``"verify_email"`` or ``"reset_password"``.
+        expires_minutes: Token lifetime.
+        fingerprint: Optional state fingerprint baked into the token. For
+            password resets this is a slice of the *current* password hash, so
+            the token self-invalidates once the password changes (single use
+            without a server-side token table).
+    """
+    now = datetime.now(timezone.utc)
+    payload = {
+        "sub": str(user_id),
+        "purpose": purpose,
+        "fp": fingerprint,
+        "iat": now,
+        "exp": now + timedelta(minutes=expires_minutes),
+    }
+    return jwt.encode(payload, get_settings().jwt_secret, algorithm=_JWT_ALG)
+
+
+def decode_action_token(token: str, purpose: str) -> dict | None:
+    """Decode an action token, returning its claims only if valid *and* minted
+    for ``purpose`` — otherwise ``None``."""
+    claims = decode_token(token)
+    if not claims or claims.get("purpose") != purpose:
+        return None
+    return claims
+
+
+def password_fingerprint(hashed_password: str | None) -> str:
+    """A short, non-reversible fingerprint of the current password hash, baked
+    into reset tokens so they stop working the moment the password changes."""
+    return (hashed_password or "")[-12:]
+
+
 def decode_token(token: str) -> dict | None:
     """Decode and verify a session JWT.
 

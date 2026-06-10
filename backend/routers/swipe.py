@@ -23,7 +23,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from auth.deps import get_optional_user
-from db.database import SwipeEvent, User, UserProfile, get_db
+from db.database import AnonSessionProfile, SwipeEvent, User, UserProfile, get_db
 from dependencies import get_session_store
 from ml.reranker import SessionReranker, SessionStore
 from schemas import SwipeRequest, SwipeResponse
@@ -50,6 +50,28 @@ def _user_reranker(db: Session, store: SessionStore, user: User) -> tuple[Sessio
     return store.reranker_for_user(init_vector, profile.confidence or 0.0), profile
 
 
+def _anon_reranker(db: Session, store: SessionStore, session_id: str) -> tuple[SessionReranker, AnonSessionProfile]:
+    """Return the session's reranker plus its durable DB row.
+
+    The in-memory store is the hot path; on a miss (new session, process
+    restart, or a different instance) the reranker warm-starts from the
+    persisted ``anon_session_profiles`` row, so live re-ranking survives
+    restarts and multi-instance deployments. The row is created lazily and is
+    written back by the caller after each applied swipe.
+    """
+    row = db.get(AnonSessionProfile, session_id)
+    if row is None:
+        row = AnonSessionProfile(session_id=session_id)
+        db.add(row)
+
+    reranker = store.peek(session_id)
+    if reranker is None:
+        vec = row.taste_vector
+        init_vector = np.asarray(vec, dtype=np.float32) if vec and len(vec) == store.dim else None
+        reranker = store.get_or_create(session_id, init_vector, row.confidence or 0.0)
+    return reranker, row
+
+
 @router.post("/swipe", response_model=SwipeResponse)
 def record_swipe(
     payload: SwipeRequest,
@@ -70,22 +92,31 @@ def record_swipe(
         session's current confidence.
     """
     # Build the right reranker: account-scoped + warm-started for a signed-in
-    # user (Layer 2), else the in-memory per-session one (Layer 1).
+    # user (Layer 2), else the session one — in-memory cache backed by a durable
+    # ``anon_session_profiles`` row (Layer 1, restart-safe).
     profile: UserProfile | None = None
+    anon_row: AnonSessionProfile | None = None
     if user is not None:
         reranker, profile = _user_reranker(db, store, user)
     else:
-        reranker = store.get_or_create(payload.session_id)
+        try:
+            reranker, anon_row = _anon_reranker(db, store, payload.session_id)
+        except Exception:  # noqa: BLE001 — DB down: degrade to memory-only
+            db.rollback()
+            logger.exception("Failed to load anon session profile (memory-only fallback)")
+            reranker = store.get_or_create(payload.session_id)
 
     applied = reranker.update(payload.tmdb_id, payload.action, payload.time_on_card_ms)
 
-    # Persist the swipe log (+ the user's updated taste vector). A DB hiccup here
-    # must not break the swipe: the reranked deck is computed from the in-memory
+    # Persist the swipe log (+ the updated taste vector). A DB hiccup here must
+    # not break the swipe: the reranked deck is computed from the in-memory
     # reranker and returned regardless, matching the client's fire-and-forget use.
     try:
-        if applied and profile is not None:
-            profile.taste_vector = reranker.session_vector.tolist()
-            profile.confidence = reranker.confidence
+        if applied:
+            target = profile if profile is not None else anon_row
+            if target is not None:
+                target.taste_vector = reranker.session_vector.tolist()
+                target.confidence = reranker.confidence
         db.add(
             SwipeEvent(
                 session_id=payload.session_id,

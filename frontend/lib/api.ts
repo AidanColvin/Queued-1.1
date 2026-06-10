@@ -147,6 +147,33 @@ export function googleLoginUrl(): string {
   return `${API_URL}/auth/google/login`;
 }
 
+/** Ask for a password-reset email. Always resolves (the backend never reveals
+ *  whether the address has an account). */
+export async function requestPasswordReset(email: string): Promise<void> {
+  await request<unknown>('/auth/request-password-reset', {
+    method: 'POST',
+    body: JSON.stringify({ email }),
+  });
+}
+
+/** Complete a password reset with the emailed token. */
+export async function resetPassword(token: string, newPassword: string): Promise<void> {
+  await request<unknown>('/auth/reset-password', {
+    method: 'POST',
+    body: JSON.stringify({ token, new_password: newPassword }),
+  });
+}
+
+/** Confirm an email address with the emailed verification token. */
+export async function verifyEmail(token: string): Promise<void> {
+  await request<unknown>('/auth/verify-email', { method: 'POST', body: JSON.stringify({ token }) });
+}
+
+/** Permanently delete the signed-in account and all of its data. */
+export async function deleteAccount(): Promise<void> {
+  await request<unknown>('/account', { method: 'DELETE' });
+}
+
 /** Load the signed-in user's saved deck state (liked/wishlist recs + seen ids). */
 export async function getHistory(): Promise<AccountHistory> {
   return request<AccountHistory>('/account/history');

@@ -74,6 +74,7 @@ export interface AuthUser {
   id: number;
   email: string;
   display_name: string | null;
+  email_verified: boolean;
 }
 
 /** A user's server-persisted deck state (mirrors backend ``HistoryResponse``). */

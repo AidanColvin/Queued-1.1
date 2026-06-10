@@ -64,12 +64,44 @@ class Settings(BaseSettings):
     google_client_secret: str | None = None
     google_redirect_uri: str | None = None
 
-    @field_validator("cors_origins", mode="before")
+    # ---- Sign in with Apple (native iOS builds) ------------------------- #
+    # The app's bundle id (and/or Services ID for web). Absent → /auth/apple
+    # reports 503 but every other sign-in path works.
+    apple_client_ids: Annotated[list[str], NoDecode] = []
+
+    # ---- Transactional email (verification + password reset) ------------ #
+    # SMTP host/credentials. When EMAIL_HOST is unset, outgoing mail is logged
+    # to the server console instead — the dev fallback.
+    email_host: str | None = None
+    email_port: int = 587
+    email_username: str | None = None
+    email_password: str | None = None
+    email_from: str = "NextWatch <no-reply@nextwatch.app>"
+
+    # ---- Abuse protection ------------------------------------------------ #
+    # Per-IP rate limiting on the auth endpoints. Disable only in tests.
+    rate_limit_enabled: bool = True
+
+    @field_validator("database_url")
     @classmethod
-    def _split_cors_origins(cls, value: object) -> object:
-        """Allow ``CORS_ORIGINS`` to be a comma-separated string in ``.env``."""
+    def _normalize_database_url(cls, value: str) -> str:
+        """Normalize Postgres URLs to the psycopg3 dialect SQLAlchemy expects.
+
+        Render/Heroku-style ``postgres://`` (and bare ``postgresql://``, which
+        SQLAlchemy would route to the absent psycopg2) both become
+        ``postgresql+psycopg://``.
+        """
+        for prefix in ("postgres://", "postgresql://"):
+            if value.startswith(prefix):
+                return "postgresql+psycopg://" + value[len(prefix):]
+        return value
+
+    @field_validator("cors_origins", "apple_client_ids", mode="before")
+    @classmethod
+    def _split_csv(cls, value: object) -> object:
+        """Allow list-valued env vars to be comma-separated strings in ``.env``."""
         if isinstance(value, str):
-            return [origin.strip() for origin in value.split(",") if origin.strip()]
+            return [item.strip() for item in value.split(",") if item.strip()]
         return value
 
     @property

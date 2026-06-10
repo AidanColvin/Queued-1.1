@@ -21,23 +21,61 @@ from sqlalchemy.orm import Session
 
 from auth import google
 from auth.deps import get_current_user
-from auth.security import clear_auth_cookie, create_access_token, hash_password, set_auth_cookie, verify_password
+from auth.emailer import send_email
+from auth.ratelimit import rate_limit
+from auth.security import (
+    clear_auth_cookie,
+    create_access_token,
+    create_action_token,
+    decode_action_token,
+    hash_password,
+    password_fingerprint,
+    set_auth_cookie,
+    verify_password,
+)
 from config import get_settings
 from db.database import User, UserProfile, get_db
-from schemas import LoginRequest, RegisterRequest, UserOut
+from schemas import (
+    LoginRequest,
+    PasswordResetConfirm,
+    PasswordResetRequest,
+    RegisterRequest,
+    UserOut,
+    VerifyEmailRequest,
+)
 
 logger = logging.getLogger("nextwatch")
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
+# Action-token purposes + lifetimes.
+_VERIFY_PURPOSE = "verify_email"
+_RESET_PURPOSE = "reset_password"
+_VERIFY_EXPIRE_MIN = 7 * 24 * 60  # a week — verification is low-risk
+_RESET_EXPIRE_MIN = 60  # an hour — resets grant account takeover
+
 
 def _issue_session(response: Response, user: User) -> UserOut:
     """Mint the session cookie for ``user`` and return their public view."""
     set_auth_cookie(response, create_access_token(user.id, user.email))
-    return UserOut(id=user.id, email=user.email, display_name=user.display_name)
+    return UserOut(
+        id=user.id, email=user.email, display_name=user.display_name, email_verified=bool(user.email_verified)
+    )
 
 
-@router.post("/register", response_model=UserOut)
+def _send_verification_email(user: User) -> None:
+    """Email the user their verification link (console-logged in dev)."""
+    token = create_action_token(user.id, _VERIFY_PURPOSE, _VERIFY_EXPIRE_MIN)
+    link = f"{get_settings().frontend_url}/verify-email/?token={token}"
+    send_email(
+        user.email,
+        "Verify your NextWatch email",
+        f"Welcome to NextWatch!\n\nConfirm your email address by opening:\n\n{link}\n\n"
+        "If you didn't create this account, you can ignore this message.",
+    )
+
+
+@router.post("/register", response_model=UserOut, dependencies=[Depends(rate_limit("register", 10, 60.0))])
 def register(payload: RegisterRequest, response: Response, db: Session = Depends(get_db)) -> UserOut:
     """Create an email/password account, sign the user in, and return them.
 
@@ -58,10 +96,11 @@ def register(payload: RegisterRequest, response: Response, db: Session = Depends
     db.add(UserProfile(user_id=user.id))
     db.commit()
     db.refresh(user)
+    _send_verification_email(user)
     return _issue_session(response, user)
 
 
-@router.post("/login", response_model=UserOut)
+@router.post("/login", response_model=UserOut, dependencies=[Depends(rate_limit("login", 15, 60.0))])
 def login(payload: LoginRequest, response: Response, db: Session = Depends(get_db)) -> UserOut:
     """Verify credentials and start a session.
 
@@ -87,7 +126,87 @@ def logout() -> Response:
 @router.get("/me", response_model=UserOut)
 def me(user: User = Depends(get_current_user)) -> UserOut:
     """Return the signed-in user, or ``401`` if there is no valid session."""
-    return UserOut(id=user.id, email=user.email, display_name=user.display_name)
+    return UserOut(
+        id=user.id, email=user.email, display_name=user.display_name, email_verified=bool(user.email_verified)
+    )
+
+
+# --------------------------------------------------------------------------- #
+# Email verification + password reset
+# --------------------------------------------------------------------------- #
+@router.post(
+    "/request-verification", status_code=204, dependencies=[Depends(rate_limit("verify_req", 5, 300.0))]
+)
+def request_verification(user: User = Depends(get_current_user)) -> Response:
+    """(Re)send the signed-in user's verification email."""
+    if not user.email_verified:
+        _send_verification_email(user)
+    return Response(status_code=204)
+
+
+@router.post("/verify-email", status_code=204, dependencies=[Depends(rate_limit("verify", 20, 60.0))])
+def verify_email(payload: VerifyEmailRequest, db: Session = Depends(get_db)) -> Response:
+    """Mark the token's account as verified.
+
+    Raises:
+        HTTPException: ``400`` if the token is invalid, expired, or not a
+            verification token.
+    """
+    claims = decode_action_token(payload.token, _VERIFY_PURPOSE)
+    user = db.get(User, int(claims["sub"])) if claims else None
+    if user is None:
+        raise HTTPException(status_code=400, detail="This verification link is invalid or has expired.")
+    if not user.email_verified:
+        user.email_verified = True
+        db.commit()
+    return Response(status_code=204)
+
+
+@router.post(
+    "/request-password-reset", status_code=204, dependencies=[Depends(rate_limit("reset_req", 5, 300.0))]
+)
+def request_password_reset(payload: PasswordResetRequest, db: Session = Depends(get_db)) -> Response:
+    """Email a password-reset link.
+
+    Always returns ``204`` — whether or not the email exists — so the endpoint
+    cannot be used to probe which addresses have accounts.
+    """
+    user = db.scalar(select(User).where(User.email == payload.email))
+    if user is not None:
+        token = create_action_token(
+            user.id, _RESET_PURPOSE, _RESET_EXPIRE_MIN, fingerprint=password_fingerprint(user.hashed_password)
+        )
+        link = f"{get_settings().frontend_url}/reset-password/?token={token}"
+        send_email(
+            user.email,
+            "Reset your NextWatch password",
+            f"Someone (hopefully you) asked to reset your NextWatch password.\n\n"
+            f"Set a new one here (link valid for 1 hour):\n\n{link}\n\n"
+            "If this wasn't you, ignore this email — your password is unchanged.",
+        )
+    return Response(status_code=204)
+
+
+@router.post("/reset-password", status_code=204, dependencies=[Depends(rate_limit("reset", 10, 60.0))])
+def reset_password(payload: PasswordResetConfirm, db: Session = Depends(get_db)) -> Response:
+    """Set a new password from a reset token.
+
+    The token carries a fingerprint of the password hash it was minted against,
+    so it is single-use: once the password changes the fingerprint no longer
+    matches and the same link cannot be replayed.
+
+    Raises:
+        HTTPException: ``400`` on an invalid, expired, or already-used token.
+    """
+    claims = decode_action_token(payload.token, _RESET_PURPOSE)
+    user = db.get(User, int(claims["sub"])) if claims else None
+    if user is None or claims.get("fp") != password_fingerprint(user.hashed_password):
+        raise HTTPException(status_code=400, detail="This reset link is invalid or has expired.")
+    user.hashed_password = hash_password(payload.new_password)
+    # A completed reset also proves control of the inbox.
+    user.email_verified = True
+    db.commit()
+    return Response(status_code=204)
 
 
 # --------------------------------------------------------------------------- #
@@ -158,6 +277,8 @@ def google_callback(request: Request, state: str = "", code: str = "", db: Sessi
             db.add(user)
             db.flush()
             db.add(UserProfile(user_id=user.id))
+    # Google only issues tokens for addresses it has verified.
+    user.email_verified = True
     db.commit()
     db.refresh(user)
 

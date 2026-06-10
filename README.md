@@ -225,7 +225,26 @@ DB seed) via FastAPI's `TestClient`.
 Connect repo. Set `NEXT_PUBLIC_API_URL` to your Render backend URL. Push to `main`. Done.
 
 **Backend → Render**  
-`render.yaml` is included. Free tier works for demos; precomputed artifacts are committed to the repo (LFS if >100 MB). Set `TMDB_API_KEY` in the Render environment dashboard.
+`render.yaml` is included and now provisions a **Render Postgres** instance
+(`nextwatch-db`) wired into `DATABASE_URL`, with `alembic upgrade head` run as
+the pre-deploy step so the schema migrates before each release goes live. Free
+tier works for demos; precomputed artifacts are committed to the repo (LFS if
+>100 MB). Set `TMDB_API_KEY` and `JWT_SECRET` in the Render environment
+dashboard. SQLite remains the zero-setup default for local dev and tests.
+
+Production hardening that ships with the backend:
+
+- **Durable re-ranking** — anonymous session taste vectors persist to
+  `anon_session_profiles`, so the live deck re-ranking survives restarts and
+  multi-instance deployments (signed-in users already persisted via
+  `user_profiles`).
+- **Password reset + email verification** — token-based (purpose-scoped JWTs),
+  emailed over SMTP when `EMAIL_HOST` is set, logged to the console in dev.
+- **Rate limiting** — per-IP sliding windows on all auth endpoints.
+- **CORS locked down** — explicit origins only (SPA + Capacitor shell).
+- **Account deletion** — `DELETE /account` removes the user and every row tied
+  to them (required for App Store distribution), with a confirm UI in the
+  account menu.
 
 ---
 

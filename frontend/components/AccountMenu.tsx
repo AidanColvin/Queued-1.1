@@ -9,8 +9,10 @@ import type { AuthUser } from '@/lib/types';
 /** The signed-in account pill: shows the user's initial and opens a small menu
  *  with their email and a logout action. */
 export default function AccountMenu({ user }: { user: AuthUser }) {
-  const { logout } = useAuth();
+  const { logout, deleteAccount } = useAuth();
   const [open, setOpen] = useState(false);
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   const label = user.display_name || user.email;
@@ -66,6 +68,46 @@ export default function AccountMenu({ user }: { user: AuthUser }) {
             >
               Log out
             </button>
+            <div className="my-1 h-px bg-hairline" />
+            {confirmingDelete ? (
+              <div className="space-y-1.5 px-3 py-2">
+                <p className="text-xs text-muted">
+                  This permanently deletes your account, watchlist and taste profile. There is no undo.
+                </p>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    disabled={deleting}
+                    onClick={async () => {
+                      setDeleting(true);
+                      try {
+                        await deleteAccount();
+                      } catch {
+                        setDeleting(false); // stay open so the user can retry
+                      }
+                    }}
+                    className="flex-1 rounded-xl bg-pass px-3 py-1.5 text-xs font-semibold text-white transition hover:brightness-110 disabled:opacity-50"
+                  >
+                    {deleting ? 'Deleting…' : 'Delete forever'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setConfirmingDelete(false)}
+                    className="flex-1 rounded-xl bg-surface-2 px-3 py-1.5 text-xs font-medium text-ink transition hover:bg-surface-2/70"
+                  >
+                    Keep account
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setConfirmingDelete(true)}
+                className="w-full rounded-xl px-3 py-2 text-left text-sm text-pass transition hover:bg-surface-2"
+              >
+                Delete account…
+              </button>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

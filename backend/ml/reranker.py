@@ -182,18 +182,36 @@ class SessionStore:
             self._embeddings, self._tmdb_to_idx, init_vector=init_vector, init_confidence=init_confidence
         )
 
-    def get_or_create(self, session_id: str) -> SessionReranker:
-        """Return the session's reranker, creating it on first use."""
+    def get_or_create(
+        self,
+        session_id: str,
+        init_vector: np.ndarray | None = None,
+        init_confidence: float = 0.0,
+    ) -> SessionReranker:
+        """Return the session's reranker, creating it on first use.
+
+        ``init_vector``/``init_confidence`` warm-start a *newly created*
+        reranker from the session's persisted ``AnonSessionProfile`` row, so a
+        session survives process restarts; they are ignored when the session is
+        already cached (the in-memory copy is at least as fresh).
+        """
         with self._lock:
             reranker = self._sessions.get(session_id)
             if reranker is None:
-                reranker = SessionReranker(self._embeddings, self._tmdb_to_idx)
+                reranker = SessionReranker(
+                    self._embeddings, self._tmdb_to_idx, init_vector=init_vector, init_confidence=init_confidence
+                )
                 self._sessions[session_id] = reranker
                 if len(self._sessions) > MAX_SESSIONS:
                     self._sessions.popitem(last=False)  # evict oldest
             else:
                 self._sessions.move_to_end(session_id)
             return reranker
+
+    def peek(self, session_id: str) -> SessionReranker | None:
+        """Return the cached reranker without creating one (or ``None``)."""
+        with self._lock:
+            return self._sessions.get(session_id)
 
     def reset(self, session_id: str) -> None:
         """Forget a session (e.g. when the user starts a fresh deck)."""

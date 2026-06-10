@@ -76,7 +76,11 @@ class User(Base):
     email: Mapped[str] = mapped_column(String(320), unique=True, index=True)
     hashed_password: Mapped[str | None] = mapped_column(String(128), nullable=True)
     google_sub: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True, index=True)
+    apple_sub: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True, index=True)
     display_name: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    # True once the address is proven (verification link, or an OAuth provider
+    # that already verified it). Informational for now — nothing is gated on it.
+    email_verified: Mapped[bool] = mapped_column(default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 
@@ -94,6 +98,27 @@ class UserProfile(Base):
     __tablename__ = "user_profiles"
 
     user_id: Mapped[int] = mapped_column(primary_key=True)
+    taste_vector: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    confidence: Mapped[float] = mapped_column(default=0.0)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+
+class AnonSessionProfile(Base):
+    """An anonymous session's taste vector, persisted across restarts.
+
+    Mirrors :class:`UserProfile` but is keyed by the client-generated
+    ``session_id`` instead of an account. The in-memory
+    :class:`~ml.reranker.SessionStore` stays the hot path; this row is the
+    durable copy that warm-starts the session after a process restart or on a
+    different instance, so re-ranking keeps working on multi-instance /
+    serverless deployments.
+    """
+
+    __tablename__ = "anon_session_profiles"
+
+    session_id: Mapped[str] = mapped_column(String(64), primary_key=True)
     taste_vector: Mapped[list | None] = mapped_column(JSON, nullable=True)
     confidence: Mapped[float] = mapped_column(default=0.0)
     updated_at: Mapped[datetime] = mapped_column(

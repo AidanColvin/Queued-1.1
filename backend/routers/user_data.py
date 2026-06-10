@@ -8,11 +8,12 @@ stays the analytics/training log; this is the UI-facing state, stored as full
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, Response
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
 from auth.deps import get_current_user
-from db.database import User, UserSavedTitle, get_db
+from auth.security import clear_auth_cookie
+from db.database import SwipeEvent, User, UserProfile, UserSavedTitle, get_db
 from schemas import HistoryResponse, MergeRequest, Recommendation, SaveTitleRequest
 
 router = APIRouter(prefix="/account", tags=["account"])
@@ -103,3 +104,22 @@ def save_title(
     _upsert_saved(db, user.id, liked=liked, wishlist=wishlist, seen=[payload.rec.id])
     db.commit()
     return Response(status_code=204)
+
+
+@router.delete("", status_code=204)
+def delete_account(user: User = Depends(get_current_user), db: Session = Depends(get_db)) -> Response:
+    """Permanently delete the signed-in account and everything tied to it.
+
+    Required for App Store distribution (Apple mandates in-app account
+    deletion). Removes the user row, their taste profile, saved titles, and
+    their swipe log, then clears the session cookie.
+    """
+    db.execute(delete(UserSavedTitle).where(UserSavedTitle.user_id == user.id))
+    db.execute(delete(UserProfile).where(UserProfile.user_id == user.id))
+    db.execute(delete(SwipeEvent).where(SwipeEvent.user_id == user.id))
+    db.delete(user)
+    db.commit()
+
+    response = Response(status_code=204)
+    clear_auth_cookie(response)
+    return response

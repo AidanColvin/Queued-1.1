@@ -2,6 +2,13 @@
 # The real 5,400-movie model artifacts are committed to the repo, so the service
 # loads the trained recommender at startup with no data step. AUTO_SAMPLE stays
 # on only as a fallback if the artifacts are ever missing.
+databases:
+  # Persistent Postgres for accounts, profiles, providers and the swipe log.
+  # (Render's free Postgres expires after 30 days — upgrade the plan for a
+  # long-lived deployment.)
+  - name: nextwatch-db
+    plan: free
+
 services:
   - type: web
     name: nextwatch-backend
@@ -9,20 +16,24 @@ services:
     rootDir: backend
     plan: free
     buildCommand: pip install -r requirements.txt
+    # Apply schema migrations before each deploy goes live.
+    preDeployCommand: alembic upgrade head
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: AUTO_SAMPLE
         value: "true"
       - key: MODEL_ARTIFACTS_PATH
         value: ./data/artifacts
-      # Accounts/history need a PERSISTENT database. The /tmp SQLite below is
-      # wiped on restart, so for real accounts set DATABASE_URL to a Postgres
-      # URL (Neon / Render Postgres / Supabase): postgresql+psycopg://USER:PASS@HOST/DB
-      # (use the pooled endpoint). Without it, sign-in works but data is lost.
+      # Postgres connection string injected from the database above. SQLAlchemy
+      # needs the psycopg3 dialect prefix; Render emits postgres://, so the app
+      # normalizes the scheme at startup (see config.Settings).
       - key: DATABASE_URL
-        value: sqlite:////tmp/nextwatch.db
+        fromDatabase:
+          name: nextwatch-db
+          property: connectionString
+      # Locked to the deployed SPA, local dev, and the Capacitor native shell.
       - key: CORS_ORIGINS
-        value: https://nextwatch-rouge.vercel.app,http://localhost:3000
+        value: https://nextwatch-rouge.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost
       - key: TMDB_API_KEY
         sync: false
       # ---- Accounts / auth (Phase 3) ----

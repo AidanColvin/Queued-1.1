@@ -38,6 +38,9 @@ def client(tmp_path_factory: pytest.TempPathFactory) -> Iterator:
     os.environ["JWT_SECRET"] = "test-secret"
     os.environ["COOKIE_SECURE"] = "false"
     os.environ["FRONTEND_URL"] = "http://localhost:3000"
+    # Rate limiting off by default so unrelated tests can hammer the auth
+    # routes; the dedicated rate-limit test re-enables it explicitly.
+    os.environ["RATE_LIMIT_ENABLED"] = "false"
 
     # Clear cached settings/engine so the env above takes effect, then import
     # the app fresh (first import in the process happens here, post-env).

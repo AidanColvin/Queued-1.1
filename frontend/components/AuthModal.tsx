@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
+import { requestPasswordReset } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 
 interface AuthModalProps {
@@ -10,7 +11,7 @@ interface AuthModalProps {
   onClose: () => void;
 }
 
-type Mode = 'signin' | 'signup';
+type Mode = 'signin' | 'signup' | 'forgot';
 
 /** Sign in / create account, plus "Continue with Google". Matches the app's
  *  light tokens and the framer-motion overlay pattern used elsewhere. */
@@ -22,12 +23,18 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
   const [name, setName] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setBusy(true);
     try {
+      if (mode === 'forgot') {
+        await requestPasswordReset(email);
+        setResetSent(true);
+        return;
+      }
       if (mode === 'signup') await register(email, password, name || undefined);
       else await login(email, password);
       onClose();
@@ -69,7 +76,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
           >
             <div className="mb-1 flex items-center justify-between">
               <h2 className="text-xl font-semibold tracking-tight text-ink">
-                {mode === 'signup' ? 'Create your account' : 'Welcome back'}
+                {mode === 'signup' ? 'Create your account' : mode === 'forgot' ? 'Reset your password' : 'Welcome back'}
               </h2>
               <button
                 type="button"
@@ -80,32 +87,58 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 ✕
               </button>
             </div>
-            <p className="mb-4 text-sm text-muted">Save your watchlist and taste across devices.</p>
+            <p className="mb-4 text-sm text-muted">
+              {mode === 'forgot'
+                ? "Enter your email and we'll send you a reset link."
+                : 'Save your watchlist and taste across devices.'}
+            </p>
 
-            <div className="mb-4 flex items-center rounded-full bg-black/[0.04] p-0.5">
-              <button type="button" className={tab('signup', 'Sign up')} onClick={() => setMode('signup')}>
-                Sign up
-              </button>
-              <button type="button" className={tab('signin', 'Sign in')} onClick={() => setMode('signin')}>
-                Sign in
-              </button>
-            </div>
+            {mode !== 'forgot' && (
+              <>
+                <div className="mb-4 flex items-center rounded-full bg-black/[0.04] p-0.5">
+                  <button type="button" className={tab('signup', 'Sign up')} onClick={() => setMode('signup')}>
+                    Sign up
+                  </button>
+                  <button type="button" className={tab('signin', 'Sign in')} onClick={() => setMode('signin')}>
+                    Sign in
+                  </button>
+                </div>
 
-            <button
-              type="button"
-              onClick={loginWithGoogle}
-              className="mb-4 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-ink ring-1 ring-black/[0.12] transition hover:bg-surface-2 active:scale-[0.98]"
-            >
-              <GoogleGlyph />
-              Continue with Google
-            </button>
+                <button
+                  type="button"
+                  onClick={loginWithGoogle}
+                  className="mb-4 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-ink ring-1 ring-black/[0.12] transition hover:bg-surface-2 active:scale-[0.98]"
+                >
+                  <GoogleGlyph />
+                  Continue with Google
+                </button>
 
-            <div className="mb-4 flex items-center gap-3 text-xs text-faint">
-              <span className="h-px flex-1 bg-hairline" />
-              or
-              <span className="h-px flex-1 bg-hairline" />
-            </div>
+                <div className="mb-4 flex items-center gap-3 text-xs text-faint">
+                  <span className="h-px flex-1 bg-hairline" />
+                  or
+                  <span className="h-px flex-1 bg-hairline" />
+                </div>
+              </>
+            )}
 
+            {mode === 'forgot' && resetSent ? (
+              <div className="space-y-4">
+                <p className="text-sm text-ink">
+                  If an account exists for <span className="font-medium">{email}</span>, a reset link is on its way.
+                  Check your inbox.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setResetSent(false);
+                    setMode('signin');
+                  }}
+                  className="w-full rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 active:scale-[0.98]"
+                >
+                  Back to sign in
+                </button>
+              </div>
+            ) : (
             <form onSubmit={submit} className="space-y-3">
               {mode === 'signup' && (
                 <input
@@ -126,16 +159,18 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 autoComplete="email"
                 className="w-full rounded-xl bg-surface-2 px-4 py-2.5 text-sm text-ink outline-none ring-1 ring-transparent transition focus:ring-accent"
               />
-              <input
-                type="password"
-                required
-                minLength={mode === 'signup' ? 8 : undefined}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder={mode === 'signup' ? 'Password (8+ characters)' : 'Password'}
-                autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
-                className="w-full rounded-xl bg-surface-2 px-4 py-2.5 text-sm text-ink outline-none ring-1 ring-transparent transition focus:ring-accent"
-              />
+              {mode !== 'forgot' && (
+                <input
+                  type="password"
+                  required
+                  minLength={mode === 'signup' ? 8 : undefined}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder={mode === 'signup' ? 'Password (8+ characters)' : 'Password'}
+                  autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
+                  className="w-full rounded-xl bg-surface-2 px-4 py-2.5 text-sm text-ink outline-none ring-1 ring-transparent transition focus:ring-accent"
+                />
+              )}
 
               {error && <p className="text-sm text-pass">{error}</p>}
 
@@ -144,9 +179,41 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 disabled={busy}
                 className="w-full rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 active:scale-[0.98] disabled:opacity-50"
               >
-                {busy ? 'Please wait…' : mode === 'signup' ? 'Create account' : 'Sign in'}
+                {busy
+                  ? 'Please wait…'
+                  : mode === 'signup'
+                    ? 'Create account'
+                    : mode === 'forgot'
+                      ? 'Send reset link'
+                      : 'Sign in'}
               </button>
+
+              {mode === 'signin' && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setError(null);
+                    setMode('forgot');
+                  }}
+                  className="w-full text-center text-xs text-muted transition hover:text-ink"
+                >
+                  Forgot password?
+                </button>
+              )}
+              {mode === 'forgot' && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setError(null);
+                    setMode('signin');
+                  }}
+                  className="w-full text-center text-xs text-muted transition hover:text-ink"
+                >
+                  ← Back to sign in
+                </button>
+              )}
             </form>
+            )}
           </motion.div>
         </motion.div>
       )}

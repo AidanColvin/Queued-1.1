@@ -19,7 +19,13 @@ sys.path.insert(0, _BACKEND)
 os.environ.setdefault("MODEL_ARTIFACTS_PATH", os.path.join(_BACKEND, "data", "artifacts"))
 os.environ.setdefault("DATABASE_URL", "sqlite:////tmp/nextwatch.db")
 os.environ.setdefault("AUTO_SAMPLE", "false")
-os.environ.setdefault("CORS_ORIGINS", "*")
+# Same-origin in production (the SPA and this function share the Vercel host),
+# so CORS stays locked to the deployed frontend + local dev — never "*".
+# Capacitor native shells serve the bundled SPA from capacitor://localhost.
+os.environ.setdefault(
+    "CORS_ORIGINS",
+    "https://nextwatch-rouge.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost",
+)
 # Vercel is always HTTPS, so default the auth cookie to Secure. Accounts/history
 # need a persistent DATABASE_URL (Postgres) plus the JWT/Google/FRONTEND_URL env
 # vars set in the Vercel project — without a real DATABASE_URL the /tmp SQLite is
