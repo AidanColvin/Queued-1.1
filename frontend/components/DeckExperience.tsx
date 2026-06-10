@@ -2,7 +2,15 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { getMyProviders, getPopular, getRecommendations, getTv, mergeGuestData, saveTitle } from '@/lib/api';
+import {
+  getHistory,
+  getMyProviders,
+  getPopular,
+  getRecommendations,
+  getTv,
+  mergeGuestData,
+  saveTitle,
+} from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { useDeck } from '@/lib/deck';
 import { resolvePoster } from '@/lib/posters';
@@ -17,6 +25,7 @@ import {
 import type { ProviderFilter, ProviderPrefs, Recommendation, SwipeAction } from '@/lib/types';
 import AccountMenu from './AccountMenu';
 import AuthModal from './AuthModal';
+import LetterboxdModal from './LetterboxdModal';
 import SplashScreen from './SplashScreen';
 import SwipeDeck from './SwipeDeck';
 import TrailerModal from './TrailerModal';
@@ -38,6 +47,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [wishlistOpen, setWishlistOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
+  const [letterboxdOpen, setLetterboxdOpen] = useState(false);
   const [trailerRec, setTrailerRec] = useState<Recommendation | null>(null);
   const [stack, setStack] = useState<Stack>('movie');
   // Streaming-service filter: three-state toggle + the viewer's services.
@@ -285,7 +295,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           </button>
 
           {user ? (
-            <AccountMenu user={user} />
+            <AccountMenu user={user} onConnectLetterboxd={() => setLetterboxdOpen(true)} />
           ) : (
             <button
               type="button"
@@ -386,6 +396,16 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />
       <TrailerModal rec={trailerRec} onClose={() => setTrailerRec(null)} />
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
+      <LetterboxdModal
+        open={letterboxdOpen}
+        onClose={() => setLetterboxdOpen(false)}
+        onImported={() => {
+          // Adopt the imported likes/seen so the live deck stops serving them.
+          getHistory()
+            .then((hist) => deck.loadServerState(hist))
+            .catch(() => {});
+        }}
+      />
     </main>
   );
 }

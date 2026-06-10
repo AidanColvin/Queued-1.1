@@ -8,7 +8,13 @@ import type { AuthUser } from '@/lib/types';
 
 /** The signed-in account pill: shows the user's initial and opens a small menu
  *  with their email and a logout action. */
-export default function AccountMenu({ user }: { user: AuthUser }) {
+interface AccountMenuProps {
+  user: AuthUser;
+  /** Open the Connect-Letterboxd modal (owned by the page). */
+  onConnectLetterboxd?: () => void;
+}
+
+export default function AccountMenu({ user, onConnectLetterboxd }: AccountMenuProps) {
   const { logout, deleteAccount } = useAuth();
   const [open, setOpen] = useState(false);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
@@ -64,6 +70,18 @@ export default function AccountMenu({ user }: { user: AuthUser }) {
             >
               Streaming services…
             </a>
+            {onConnectLetterboxd && (
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  onConnectLetterboxd();
+                }}
+                className="w-full rounded-xl px-3 py-2 text-left text-sm text-ink transition hover:bg-surface-2"
+              >
+                Connect Letterboxd…
+              </button>
+            )}
             <button
               type="button"
               onClick={() => {

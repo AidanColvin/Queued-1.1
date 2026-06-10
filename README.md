@@ -285,6 +285,23 @@ gracefully degrades to "All titles".
 
 ---
 
+## Letterboxd import
+
+Connect a Letterboxd account from the account menu — no API key required:
+
+- **RSS sync** — enter a username and NextWatch reads the public diary feed
+  (`letterboxd.com/{user}/rss/`, the ~50 most recent entries).
+- **Export upload** — upload the Letterboxd data-export ZIP (or a bare
+  `ratings.csv` / `watched.csv`) for full history.
+
+Films are matched by TMDB id, then by normalized title + year (±1). Ratings of
+**≥ 3.5★ become liked seeds**, everything watched joins the seen-set (so it
+stops appearing in the deck), and new likes immediately nudge the persisted
+taste vector. Imports are idempotent — re-syncing never duplicates anything —
+and unmatched titles are kept in `external_ratings` for review.
+
+---
+
 ## Roadmap
 
 - [x] Phase 1 — Core ML pipeline + API (backend complete, fully tested)

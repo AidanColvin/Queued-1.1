@@ -84,6 +84,31 @@ class User(Base):
     # Flipped after the one-time "pick your streaming services" screen (saving
     # OR skipping), so returning users go straight to the deck.
     onboarding_completed: Mapped[bool] = mapped_column(default=False)
+    # Connected Letterboxd account (public RSS / CSV import — no OAuth).
+    letterboxd_username: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
+class ExternalRating(Base):
+    """One film imported from an external service (Letterboxd RSS or CSV).
+
+    Kept verbatim (title/year/rating) even when the film doesn't match the
+    catalog, so unmatched rows are reviewable and a later catalog expansion can
+    re-match them. ``movie_id``/``tmdb_id`` are filled when matched. Logical
+    uniqueness on ``(user_id, source, title, year)`` is enforced by upsert in
+    the import code, which is what makes re-syncs idempotent.
+    """
+
+    __tablename__ = "external_ratings"
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    user_id: Mapped[int] = mapped_column(index=True)
+    source: Mapped[str] = mapped_column(String(16), default="letterboxd")
+    title: Mapped[str] = mapped_column(String(512))
+    year: Mapped[int | None] = mapped_column(nullable=True)
+    rating: Mapped[float | None] = mapped_column(nullable=True)  # 0.5–5.0 stars
+    movie_id: Mapped[int | None] = mapped_column(nullable=True, index=True)
+    tmdb_id: Mapped[int | None] = mapped_column(nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 

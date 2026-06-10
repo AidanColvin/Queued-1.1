@@ -98,6 +98,22 @@ export interface UserProviders {
   onboarding_completed: boolean;
 }
 
+/** Outcome of a Letterboxd import (mirrors backend ``LetterboxdSummary``). */
+export interface LetterboxdSummary {
+  total: number;
+  matched: number;
+  liked: number;
+  seen: number;
+  unmatched: string[];
+}
+
+/** Letterboxd connection state (mirrors backend ``LetterboxdStatus``). */
+export interface LetterboxdStatus {
+  username: string | null;
+  imported: number;
+  matched: number;
+}
+
 /** A user's server-persisted deck state (mirrors backend ``HistoryResponse``). */
 export interface AccountHistory {
   liked: Recommendation[];

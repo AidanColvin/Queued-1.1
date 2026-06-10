@@ -4,6 +4,8 @@
 import type {
   AccountHistory,
   AuthUser,
+  LetterboxdStatus,
+  LetterboxdSummary,
   MediaType,
   ProviderPrefs,
   Recommendation,
@@ -202,6 +204,45 @@ export async function setMyProviders(providers: number[], complete = true): Prom
     method: 'PUT',
     body: JSON.stringify({ providers, complete }),
   });
+}
+
+// --------------------------------------------------------------------------- #
+// Letterboxd (RSS sync + export upload)
+// --------------------------------------------------------------------------- #
+
+/** Connection state + import counts for the settings UI. */
+export async function getLetterboxdStatus(): Promise<LetterboxdStatus> {
+  return request<LetterboxdStatus>('/account/letterboxd');
+}
+
+/** Import the user's recent diary from their public Letterboxd RSS feed. */
+export async function syncLetterboxd(username: string): Promise<LetterboxdSummary> {
+  return request<LetterboxdSummary>('/account/letterboxd/sync', {
+    method: 'POST',
+    body: JSON.stringify({ username }),
+  });
+}
+
+/** Upload a Letterboxd data export (ZIP, ratings.csv, or watched.csv). */
+export async function importLetterboxd(file: File): Promise<LetterboxdSummary> {
+  const form = new FormData();
+  form.append('file', file);
+  // Multipart: let the browser set the boundary Content-Type itself.
+  const res = await fetch(`${API_URL}/account/letterboxd/import`, {
+    method: 'POST',
+    credentials: 'include',
+    body: form,
+  });
+  if (!res.ok) {
+    let detail = res.statusText;
+    try {
+      detail = ((await res.json()) as { detail?: string }).detail ?? detail;
+    } catch {
+      /* no JSON body */
+    }
+    throw new ApiError(res.status, detail);
+  }
+  return res.json() as Promise<LetterboxdSummary>;
 }
 
 /** Load the signed-in user's saved deck state (liked/wishlist recs + seen ids). */

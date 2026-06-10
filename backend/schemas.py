@@ -288,6 +288,38 @@ class SaveTitleRequest(BaseModel):
 
 
 # --------------------------------------------------------------------------- #
+# /account/letterboxd
+# --------------------------------------------------------------------------- #
+class LetterboxdSyncRequest(BaseModel):
+    """Body for ``POST /account/letterboxd/sync`` (public RSS import)."""
+
+    username: str = Field(min_length=2, max_length=32)
+
+    @field_validator("username")
+    @classmethod
+    def _normalize_username(cls, value: str) -> str:
+        return value.strip().lstrip("@").lower()
+
+
+class LetterboxdSummary(BaseModel):
+    """Outcome of an import: what landed in the account."""
+
+    total: int = Field(description="Films parsed from the feed/export.")
+    matched: int = Field(description="Films matched to the catalog.")
+    liked: int = Field(description="Newly added likes (rated ≥ 3.5★).")
+    seen: int = Field(description="Newly added seen-set entries.")
+    unmatched: list[str] = Field(default_factory=list, description="Titles that didn't match (first 50).")
+
+
+class LetterboxdStatus(BaseModel):
+    """``GET /account/letterboxd`` — connection state for the settings UI."""
+
+    username: str | None = None
+    imported: int = Field(default=0, description="Total external ratings stored.")
+    matched: int = Field(default=0, description="How many matched the catalog.")
+
+
+# --------------------------------------------------------------------------- #
 # /providers  (streaming services)
 # --------------------------------------------------------------------------- #
 class ProviderInfo(BaseModel):

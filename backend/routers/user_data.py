@@ -13,7 +13,7 @@ from sqlalchemy.orm import Session
 
 from auth.deps import get_current_user
 from auth.security import clear_auth_cookie
-from db.database import SwipeEvent, User, UserProfile, UserSavedTitle, get_db
+from db.database import ExternalRating, SwipeEvent, User, UserProfile, UserProvider, UserSavedTitle, get_db
 from schemas import HistoryResponse, MergeRequest, Recommendation, SaveTitleRequest
 
 router = APIRouter(prefix="/account", tags=["account"])
@@ -117,6 +117,8 @@ def delete_account(user: User = Depends(get_current_user), db: Session = Depends
     db.execute(delete(UserSavedTitle).where(UserSavedTitle.user_id == user.id))
     db.execute(delete(UserProfile).where(UserProfile.user_id == user.id))
     db.execute(delete(SwipeEvent).where(SwipeEvent.user_id == user.id))
+    db.execute(delete(UserProvider).where(UserProvider.user_id == user.id))
+    db.execute(delete(ExternalRating).where(ExternalRating.user_id == user.id))
     db.delete(user)
     db.commit()
 
