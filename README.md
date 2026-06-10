@@ -260,6 +260,31 @@ This project is a portfolio demonstration. It is not for commercial use.
 
 ---
 
+## Streaming services (onboarding + deck filter)
+
+New accounts see a one-time onboarding screen ("Where do you watch?") with
+tappable buttons for Netflix, Hulu, Max, Disney+, Prime Video, Apple TV+,
+Paramount+ and Peacock; the selection is editable later from the account menu
+and guests can set it too (localStorage, merged on sign-up). The deck then
+offers a three-state filter — **All titles / My services (hard filter) / Boost
+mine (soft re-rank)** — applied server-side in `/recommend`, `/popular`, `/tv`
+and the `/swipe` re-ranker, with provider chips rendered on each card.
+
+Per-title availability comes from TMDB's `watch/providers` endpoint (data by
+**JustWatch** — attribution rendered in the UI):
+
+```bash
+cd backend
+TMDB_API_KEY=... python -m data.enrich_providers            # fill gaps
+TMDB_API_KEY=... python -m data.enrich_providers --refresh  # nightly re-sync
+```
+
+This writes `data/artifacts/providers.json`, which the API loads at startup
+(and mirrors into the `title_providers` table). Until it exists, the filter
+gracefully degrades to "All titles".
+
+---
+
 ## Roadmap
 
 - [x] Phase 1 — Core ML pipeline + API (backend complete, fully tested)

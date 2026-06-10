@@ -2,11 +2,19 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { getPopular, getRecommendations, getTv, mergeGuestData, saveTitle } from '@/lib/api';
+import { getMyProviders, getPopular, getRecommendations, getTv, mergeGuestData, saveTitle } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { useDeck } from '@/lib/deck';
 import { resolvePoster } from '@/lib/posters';
-import type { Recommendation, SwipeAction } from '@/lib/types';
+import {
+  FILTER_LABELS,
+  NEXT_FILTER,
+  loadProviderFilter,
+  loadSelectedProviders,
+  saveProviderFilter,
+  saveSelectedProviders,
+} from '@/lib/providers';
+import type { ProviderFilter, ProviderPrefs, Recommendation, SwipeAction } from '@/lib/types';
 import AccountMenu from './AccountMenu';
 import AuthModal from './AuthModal';
 import SplashScreen from './SplashScreen';
@@ -32,10 +40,24 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const [authOpen, setAuthOpen] = useState(false);
   const [trailerRec, setTrailerRec] = useState<Recommendation | null>(null);
   const [stack, setStack] = useState<Stack>('movie');
+  // Streaming-service filter: three-state toggle + the viewer's services.
+  const [provFilter, setProvFilter] = useState<ProviderFilter>('all');
+  const [myProviders, setMyProviders] = useState<number[]>([]);
   const fetchingRef = useRef(false);
   const startedRef = useRef(false);
   const exhaustedRef = useRef(false);
   const prevUserRef = useRef<typeof user>(null);
+  const onboardingSentRef = useRef(false);
+
+  // Restore the locally saved filter + services once on mount.
+  useEffect(() => {
+    setProvFilter(loadProviderFilter());
+    setMyProviders(loadSelectedProviders());
+  }, []);
+
+  const providerPrefs: ProviderPrefs = { filter: provFilter, providers: myProviders };
+  const prefsRef = useRef(providerPrefs);
+  prefsRef.current = providerPrefs;
 
   // Users should only ever see cards with a real poster. Keep a rec only if it
   // already has a poster (movies) or one can be resolved keylessly (TV → TVmaze);
@@ -74,16 +96,19 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             // that plus the current queue.
             const exclude = deck.knownIds;
             const count = initial ? 20 : REFILL_COUNT;
+            const prefs = prefsRef.current;
             let res;
             if (forStack === 'tv') {
-              res = await getTv(count, exclude);
+              res = await getTv(count, exclude, prefs);
             } else {
               const seeds = deck.positiveTitles.length ? deck.positiveTitles : seedTitles;
               // Adaptive when we have movie seeds; fall back to popular if /recommend
               // can't resolve them (or fails), so the deck never dead-ends.
               res = seeds.length
-                ? await getRecommendations(seeds, REFILL_COUNT, exclude).catch(() => getPopular(count, exclude))
-                : await getPopular(count, exclude);
+                ? await getRecommendations(seeds, REFILL_COUNT, exclude, prefs).catch(() =>
+                    getPopular(count, exclude, prefs),
+                  )
+                : await getPopular(count, exclude, prefs);
             }
             const fetched = res.recommendations;
             // Drop anything we can't show a poster for before it enters the deck.
@@ -140,6 +165,45 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     },
     [stack, deck, fetchMore],
   );
+
+  // The deck contents depend on the streaming filter, so changing it starts a
+  // fresh (still exclude-aware) deck.
+  const applyFilter = useCallback(
+    (next: ProviderFilter) => {
+      setProvFilter(next);
+      saveProviderFilter(next);
+      exhaustedRef.current = false;
+      deck.reset();
+      setStatus('loading');
+      // prefsRef updates on the next render; pass the new filter explicitly.
+      prefsRef.current = { filter: next, providers: myProviders };
+      void fetchMore(true, stack);
+    },
+    [myProviders, deck, fetchMore, stack],
+  );
+
+  // Cycle All → Only → Prefer → All.
+  const cycleFilter = useCallback(() => applyFilter(NEXT_FILTER[provFilter]), [applyFilter, provFilter]);
+
+  // First sign-in on this device: pull the account's saved services; and if the
+  // account has never been through onboarding, send it there once.
+  useEffect(() => {
+    if (!user) return;
+    getMyProviders()
+      .then((mine) => {
+        if (mine.providers.length) {
+          setMyProviders(mine.providers);
+          saveSelectedProviders(mine.providers);
+        }
+      })
+      .catch(() => {
+        /* keep the local selection */
+      });
+    if (!user.onboarding_completed && !onboardingSentRef.current) {
+      onboardingSentRef.current = true;
+      window.location.href = '/onboarding/';
+    }
+  }, [user]);
 
   // Keep the deck in sync with the account across sign-in / sign-out.
   useEffect(() => {
@@ -234,6 +298,28 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
         </div>
       </header>
 
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <button
+          type="button"
+          onClick={cycleFilter}
+          aria-label={`Streaming filter: ${FILTER_LABELS[provFilter]}`}
+          title="Cycle: all titles → only my services → boost my services"
+          className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium transition active:scale-95 ${
+            provFilter === 'all'
+              ? 'bg-white text-muted ring-1 ring-black/[0.08] hover:text-ink'
+              : 'bg-ink text-white'
+          }`}
+        >
+          <span aria-hidden>{provFilter === 'all' ? '◯' : provFilter === 'only' ? '●' : '◐'}</span>
+          {FILTER_LABELS[provFilter]}
+        </button>
+        {provFilter !== 'all' && myProviders.length === 0 && (
+          <a href="/onboarding/" className="text-xs font-medium text-accent hover:underline">
+            Pick your services →
+          </a>
+        )}
+      </div>
+
       <div className="flex min-h-0 flex-1 flex-col">
         {status === 'loading' && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4">
@@ -260,23 +346,34 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
 
         {status === 'ready' &&
           (deck.currentCard ? (
-            <SwipeDeck deck={deck} onOpenCard={openCard} onPersistSave={persistSave} />
+            <SwipeDeck deck={deck} onOpenCard={openCard} onPersistSave={persistSave} providerPrefs={providerPrefs} />
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-3 text-center">
               <p className="text-[17px] font-medium text-ink">
                 {exhaustedRef.current
-                  ? `That's every popular ${stack === 'tv' ? 'show' : 'title'} — nice swiping.`
+                  ? provFilter === 'only'
+                    ? "That's everything on your services."
+                    : `That's every popular ${stack === 'tv' ? 'show' : 'title'} — nice swiping.`
                   : 'Lining up more picks…'}
               </p>
-              {exhaustedRef.current && (
-                <button
-                  type="button"
-                  onClick={() => switchStack(stack === 'tv' ? 'movie' : 'tv')}
-                  className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition hover:brightness-110 active:scale-95"
-                >
-                  Try {stack === 'tv' ? 'Movies' : 'TV'} →
-                </button>
-              )}
+              {exhaustedRef.current &&
+                (provFilter === 'only' ? (
+                  <button
+                    type="button"
+                    onClick={() => applyFilter('all')}
+                    className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition hover:brightness-110 active:scale-95"
+                  >
+                    Show all titles →
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => switchStack(stack === 'tv' ? 'movie' : 'tv')}
+                    className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition hover:brightness-110 active:scale-95"
+                  >
+                    Try {stack === 'tv' ? 'Movies' : 'TV'} →
+                  </button>
+                ))}
             </div>
           ))}
       </div>
@@ -284,6 +381,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       <p className="mt-4 text-center text-xs text-faint">
         Swipe or tap the arrows — it learns as you go. Tap a card to watch the trailer.
       </p>
+      <p className="mt-1 text-center text-[10px] text-faint">Streaming availability data by JustWatch via TMDB.</p>
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />
       <TrailerModal rec={trailerRec} onClose={() => setTrailerRec(null)} />

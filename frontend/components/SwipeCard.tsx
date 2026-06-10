@@ -11,6 +11,7 @@ import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } f
 
 import { ACTION_CONFIG } from '@/lib/actions';
 import { useCardPoster } from '@/lib/posters';
+import { PROVIDER_BY_ID } from '@/lib/providers';
 import type { Recommendation, SwipeAction } from '@/lib/types';
 import ScoreBar from './ScoreBar';
 
@@ -291,6 +292,20 @@ export default function SwipeCard({
                 {g}
               </span>
             ))}
+            {(rec.providers ?? [])
+              .map((id) => PROVIDER_BY_ID.get(id))
+              .filter((p): p is NonNullable<typeof p> => Boolean(p))
+              .slice(0, 3)
+              .map((p) => (
+                <span
+                  key={p.id}
+                  title={`Streaming on ${p.name}`}
+                  className="rounded-full px-2.5 py-0.5 text-[11px] font-semibold text-white"
+                  style={{ backgroundColor: p.color }}
+                >
+                  {p.short}
+                </span>
+              ))}
           </div>
           {rec.cast.length > 0 && (
             <p className="truncate text-xs text-white/75">{rec.cast.join(' · ')}</p>

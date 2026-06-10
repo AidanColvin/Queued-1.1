@@ -5,6 +5,7 @@ import type {
   AccountHistory,
   AuthUser,
   MediaType,
+  ProviderPrefs,
   Recommendation,
   RecommendResponse,
   SearchResult,
@@ -12,6 +13,7 @@ import type {
   SwipeRequest,
   SwipeResponse,
   TrailerResponse,
+  UserProviders,
 } from './types';
 
 // Backend base URL. In production the backend runs as a Vercel function on the
@@ -66,32 +68,47 @@ export async function searchTitles(
   return data.results;
 }
 
+/** Serialize the streaming-service filter for a deck request body. */
+function providerBody(prefs?: ProviderPrefs) {
+  if (!prefs || prefs.filter === 'all') return {};
+  return { provider_filter: prefs.filter, providers: prefs.providers };
+}
+
 /** Fetch a fresh recommendation deck for the given seed titles. */
 export async function getRecommendations(
   titles: string[],
   count = 20,
   excludeIds: number[] = [],
+  prefs?: ProviderPrefs,
 ): Promise<RecommendResponse> {
   return request<RecommendResponse>('/recommend', {
     method: 'POST',
-    body: JSON.stringify({ titles, count, exclude_seen: true, exclude_ids: excludeIds }),
+    body: JSON.stringify({ titles, count, exclude_seen: true, exclude_ids: excludeIds, ...providerBody(prefs) }),
   });
 }
 
 /** Fetch the seedless, popularity-ranked cold-start deck. POSTed so the
  *  ever-growing "seen" exclude list never hits URL-length limits. */
-export async function getPopular(count = 20, excludeIds: number[] = []): Promise<RecommendResponse> {
+export async function getPopular(
+  count = 20,
+  excludeIds: number[] = [],
+  prefs?: ProviderPrefs,
+): Promise<RecommendResponse> {
   return request<RecommendResponse>('/popular', {
     method: 'POST',
-    body: JSON.stringify({ count, exclude_ids: excludeIds }),
+    body: JSON.stringify({ count, exclude_ids: excludeIds, ...providerBody(prefs) }),
   });
 }
 
 /** Fetch the popularity-ranked TV deck (separate keyless catalog — no ML model). */
-export async function getTv(count = 20, excludeIds: number[] = []): Promise<RecommendResponse> {
+export async function getTv(
+  count = 20,
+  excludeIds: number[] = [],
+  prefs?: ProviderPrefs,
+): Promise<RecommendResponse> {
   return request<RecommendResponse>('/tv', {
     method: 'POST',
-    body: JSON.stringify({ count, exclude_ids: excludeIds }),
+    body: JSON.stringify({ count, exclude_ids: excludeIds, ...providerBody(prefs) }),
   });
 }
 
@@ -172,6 +189,19 @@ export async function verifyEmail(token: string): Promise<void> {
 /** Permanently delete the signed-in account and all of its data. */
 export async function deleteAccount(): Promise<void> {
   await request<unknown>('/account', { method: 'DELETE' });
+}
+
+/** The signed-in user's saved streaming services. */
+export async function getMyProviders(): Promise<UserProviders> {
+  return request<UserProviders>('/account/providers');
+}
+
+/** Replace the signed-in user's streaming services (also completes onboarding). */
+export async function setMyProviders(providers: number[], complete = true): Promise<UserProviders> {
+  return request<UserProviders>('/account/providers', {
+    method: 'PUT',
+    body: JSON.stringify({ providers, complete }),
+  });
 }
 
 /** Load the signed-in user's saved deck state (liked/wishlist recs + seen ids). */

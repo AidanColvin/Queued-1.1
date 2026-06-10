@@ -20,11 +20,12 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import get_settings
-from db.database import init_db, seed_movies
+from db.database import init_db, seed_movies, seed_title_providers
 from ml.artifacts import artifacts_exist, load_artifacts
 from ml.recommender import HybridRecommender
 from ml.reranker import SessionStore
-from routers import auth, health, popular, recommend, search, swipe, trailer, tv, user_data
+from providers import ProviderIndex
+from routers import auth, health, popular, providers, recommend, search, swipe, trailer, tv, user_data
 
 logger = logging.getLogger("nextwatch")
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -81,6 +82,11 @@ def load_state(app: FastAPI) -> None:
             seed_movies(bundle.catalog)
             app.state.session_store = SessionStore(bundle.embeddings, bundle.catalog)
             app.state.tv_catalog = _load_tv_catalog(artifacts_dir)
+            # Streaming availability (optional artifact — empty index when the
+            # enrich script hasn't been run; filters then degrade to "all").
+            app.state.provider_index = ProviderIndex.load(artifacts_dir)
+            if app.state.provider_index.has_data:
+                seed_title_providers(app.state.provider_index)
             app.state.recommender = HybridRecommender(bundle)  # set last = "ready" flag
             logger.info("Loaded '%s' bundle: %d titles", app.state.recommender.source, app.state.recommender.size)
         except Exception:  # noqa: BLE001 — serve degraded so /health stays useful
@@ -131,7 +137,7 @@ def create_app(api_prefix: str = "") -> FastAPI:
             load_state(request.app)
         return await call_next(request)
 
-    for router in (health, search, recommend, swipe, popular, tv, trailer, auth, user_data):
+    for router in (health, search, recommend, swipe, popular, tv, trailer, auth, user_data, providers):
         app.include_router(router.router, prefix=api_prefix)
 
     @app.get(api_prefix or "/", tags=["meta"])

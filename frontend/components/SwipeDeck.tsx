@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { recordSwipe } from '@/lib/api';
 import { KEY_TO_ACTION } from '@/lib/actions';
 import type { DeckApi } from '@/lib/deck';
-import type { Recommendation, SwipeAction } from '@/lib/types';
+import type { ProviderPrefs, Recommendation, SwipeAction } from '@/lib/types';
 import { makeSessionId } from '@/lib/util';
 import ActionBar from './ActionBar';
 import KeyHints from './KeyHints';
@@ -18,9 +18,12 @@ interface SwipeDeckProps {
   /** Persist a committed liked/saved card to the signed-in account (no-op for
    *  guests). Fire-and-forget, like the swipe recording itself. */
   onPersistSave?: (rec: Recommendation, action: SwipeAction) => void;
+  /** The streaming filter in effect — sent with each swipe so the server-side
+   *  re-rank can softly boost on-service titles in "prefer" mode. */
+  providerPrefs?: ProviderPrefs;
 }
 
-export default function SwipeDeck({ deck, onOpenCard, onPersistSave }: SwipeDeckProps) {
+export default function SwipeDeck({ deck, onOpenCard, onPersistSave, providerPrefs }: SwipeDeckProps) {
   const sessionIdRef = useRef<string>('');
   const lockedRef = useRef(false);
   const appearedAtRef = useRef<number>(0);
@@ -83,6 +86,9 @@ export default function SwipeDeck({ deck, onOpenCard, onPersistSave }: SwipeDeck
           action,
           time_on_card_ms: elapsed,
           remaining: res.remaining,
+          ...(providerPrefs && providerPrefs.filter !== 'all'
+            ? { provider_filter: providerPrefs.filter, providers: providerPrefs.providers }
+            : {}),
         })
           .then((r) => deck.reorderRemaining(r.reranked_queue))
           .catch(() => {
@@ -90,7 +96,7 @@ export default function SwipeDeck({ deck, onOpenCard, onPersistSave }: SwipeDeck
           });
       }
     },
-    [deck, onPersistSave],
+    [deck, onPersistSave, providerPrefs],
   );
 
   // Keyboard: WASD + arrows, Z/Backspace undo, Space expand. Ignored in inputs.

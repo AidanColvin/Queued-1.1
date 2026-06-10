@@ -55,12 +55,21 @@ _VERIFY_EXPIRE_MIN = 7 * 24 * 60  # a week — verification is low-risk
 _RESET_EXPIRE_MIN = 60  # an hour — resets grant account takeover
 
 
+def _public_user(user: User) -> UserOut:
+    """Map a ``User`` row to its public API view."""
+    return UserOut(
+        id=user.id,
+        email=user.email,
+        display_name=user.display_name,
+        email_verified=bool(user.email_verified),
+        onboarding_completed=bool(user.onboarding_completed),
+    )
+
+
 def _issue_session(response: Response, user: User) -> UserOut:
     """Mint the session cookie for ``user`` and return their public view."""
     set_auth_cookie(response, create_access_token(user.id, user.email))
-    return UserOut(
-        id=user.id, email=user.email, display_name=user.display_name, email_verified=bool(user.email_verified)
-    )
+    return _public_user(user)
 
 
 def _send_verification_email(user: User) -> None:
@@ -126,9 +135,7 @@ def logout() -> Response:
 @router.get("/me", response_model=UserOut)
 def me(user: User = Depends(get_current_user)) -> UserOut:
     """Return the signed-in user, or ``401`` if there is no valid session."""
-    return UserOut(
-        id=user.id, email=user.email, display_name=user.display_name, email_verified=bool(user.email_verified)
-    )
+    return _public_user(user)
 
 
 # --------------------------------------------------------------------------- #

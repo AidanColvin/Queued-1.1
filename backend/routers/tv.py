@@ -12,9 +12,15 @@ from __future__ import annotations
 
 from collections import Counter
 
-from fastapi import APIRouter, Query, Request
+from fastapi import APIRouter, Depends, Query, Request
+from sqlalchemy.orm import Session
 
+from auth.deps import get_optional_user
+from db.database import User, get_db
+from dependencies import get_provider_index
+from providers import ONLY_FILTER_OVERFETCH, ProviderIndex
 from routers.popular import _parse_exclude
+from routers.providers import user_provider_ids
 from schemas import PopularRequest, Recommendation, RecommendResponse, TasteProfile
 
 router = APIRouter(tags=["tv"])
@@ -82,7 +88,20 @@ def tv(
 
 
 @router.post("/tv", response_model=RecommendResponse)
-def tv_post(request: Request, payload: PopularRequest) -> RecommendResponse:
-    """Same as ``GET /tv`` but takes the exclude list in the body, so the shared,
-    ever-growing "seen" set never bumps into URL-length limits."""
-    return _tv_deck(request, payload.count, payload.exclude_ids)
+def tv_post(
+    request: Request,
+    payload: PopularRequest,
+    index: ProviderIndex = Depends(get_provider_index),
+    db: Session = Depends(get_db),
+    user: User | None = Depends(get_optional_user),
+) -> RecommendResponse:
+    """Same as ``GET /tv`` but takes the exclude list in the body (so the shared,
+    ever-growing "seen" set never bumps into URL-length limits) and honors the
+    streaming-service filter."""
+    selected = user_provider_ids(db, user) or payload.providers
+    fetch = payload.count * ONLY_FILTER_OVERFETCH if payload.provider_filter == "only" else payload.count
+    response = _tv_deck(request, fetch, payload.exclude_ids)
+    response.recommendations = index.apply_filter(
+        response.recommendations, payload.provider_filter, selected, payload.count
+    )
+    return response

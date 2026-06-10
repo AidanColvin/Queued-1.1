@@ -11,9 +11,12 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from db.database import SwipeEvent, get_db
-from dependencies import get_recommender
+from auth.deps import get_optional_user
+from db.database import SwipeEvent, User, get_db
+from dependencies import get_provider_index, get_recommender
 from ml.recommender import HybridRecommender
+from providers import ONLY_FILTER_OVERFETCH, ProviderIndex
+from routers.providers import user_provider_ids
 from schemas import PopularRequest, RecommendResponse
 
 router = APIRouter(tags=["popular"])
@@ -74,8 +77,17 @@ def popular(
 def popular_post(
     payload: PopularRequest,
     recommender: HybridRecommender = Depends(get_recommender),
+    index: ProviderIndex = Depends(get_provider_index),
     db: Session = Depends(get_db),
+    user: User | None = Depends(get_optional_user),
 ) -> RecommendResponse:
-    """Same as ``GET /popular`` but takes the exclude list in the body, so a long
-    session's ever-growing "seen" set never bumps into URL-length limits."""
-    return _popular_deck(payload.count, payload.exclude_ids, recommender, db)
+    """Same as ``GET /popular`` but takes the exclude list in the body (so a long
+    session's ever-growing "seen" set never bumps into URL-length limits) and
+    honors the streaming-service filter."""
+    selected = user_provider_ids(db, user) or payload.providers
+    fetch = payload.count * ONLY_FILTER_OVERFETCH if payload.provider_filter == "only" else payload.count
+    response = _popular_deck(fetch, payload.exclude_ids, recommender, db)
+    response.recommendations = index.apply_filter(
+        response.recommendations, payload.provider_filter, selected, payload.count
+    )
+    return response

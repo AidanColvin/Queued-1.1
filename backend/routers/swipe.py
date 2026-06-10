@@ -24,8 +24,10 @@ from sqlalchemy.orm import Session
 
 from auth.deps import get_optional_user
 from db.database import AnonSessionProfile, SwipeEvent, User, UserProfile, get_db
-from dependencies import get_session_store
+from dependencies import get_provider_index, get_session_store
 from ml.reranker import SessionReranker, SessionStore
+from providers import ProviderIndex
+from routers.providers import user_provider_ids
 from schemas import SwipeRequest, SwipeResponse
 
 logger = logging.getLogger("nextwatch")
@@ -76,6 +78,7 @@ def _anon_reranker(db: Session, store: SessionStore, session_id: str) -> tuple[S
 def record_swipe(
     payload: SwipeRequest,
     store: SessionStore = Depends(get_session_store),
+    index: ProviderIndex = Depends(get_provider_index),
     db: Session = Depends(get_db),
     user: User | None = Depends(get_optional_user),
 ) -> SwipeResponse:
@@ -131,8 +134,20 @@ def record_swipe(
         db.rollback()
         logger.exception("Failed to persist swipe/profile (returning rerank anyway)")
 
+    # "Prefer my services": softly boost on-service cards in the re-rank. The
+    # hard filter has no work to do here — an "only" deck was already filtered
+    # when it was fetched.
+    boost_ids: set[int] | None = None
+    if payload.provider_filter == "prefer" and index.has_data:
+        try:
+            selected = set(user_provider_ids(db, user) or payload.providers)
+        except Exception:  # noqa: BLE001 — never let prefs lookup break a swipe
+            selected = set(payload.providers)
+        if selected:
+            boost_ids = {tid for tid in payload.remaining if index.available(tid) & selected}
+
     return SwipeResponse(
-        reranked_queue=reranker.rerank(payload.remaining),
+        reranked_queue=reranker.rerank(payload.remaining, boost_ids=boost_ids),
         session_confidence=round(reranker.confidence, 3),
         applied=applied,
     )

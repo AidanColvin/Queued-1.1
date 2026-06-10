@@ -58,6 +58,12 @@ export default function AccountMenu({ user }: { user: AuthUser }) {
               <p className="truncate text-xs text-muted">{user.email}</p>
             </div>
             <div className="my-1 h-px bg-hairline" />
+            <a
+              href="/onboarding/"
+              className="block w-full rounded-xl px-3 py-2 text-left text-sm text-ink transition hover:bg-surface-2"
+            >
+              Streaming services…
+            </a>
             <button
               type="button"
               onClick={() => {

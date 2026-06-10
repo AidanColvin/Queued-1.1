@@ -6,6 +6,15 @@ export type SearchType = 'movie' | 'tv' | 'all';
 /** The four swipe directions, plus the double-tap "super like". */
 export type SwipeAction = 'liked' | 'saved' | 'dismissed' | 'skip' | 'superliked';
 
+/** Deck filtering by streaming service: everything, hard filter, or soft boost. */
+export type ProviderFilter = 'all' | 'only' | 'prefer';
+
+/** What the deck endpoints need to apply the streaming-service filter. */
+export interface ProviderPrefs {
+  filter: ProviderFilter;
+  providers: number[];
+}
+
 export interface SearchResult {
   tmdb_id: number | null;
   title: string;
@@ -27,6 +36,8 @@ export interface Recommendation {
   tmdb_id: number | null;
   /** YouTube video id baked in keylessly — lets the trailer play in-page. */
   trailer_key: string | null;
+  /** Canonical streaming-provider ids carrying this title (may be empty). */
+  providers?: number[];
   why: string;
 }
 
@@ -47,6 +58,8 @@ export interface SwipeRequest {
   action: SwipeAction;
   time_on_card_ms: number;
   remaining: number[];
+  provider_filter?: ProviderFilter;
+  providers?: number[];
 }
 
 export interface SwipeResponse {
@@ -75,6 +88,14 @@ export interface AuthUser {
   email: string;
   display_name: string | null;
   email_verified: boolean;
+  /** True once the one-time streaming-services screen was saved or skipped. */
+  onboarding_completed: boolean;
+}
+
+/** A user's saved streaming services (mirrors backend ``UserProvidersResponse``). */
+export interface UserProviders {
+  providers: number[];
+  onboarding_completed: boolean;
 }
 
 /** A user's server-persisted deck state (mirrors backend ``HistoryResponse``). */

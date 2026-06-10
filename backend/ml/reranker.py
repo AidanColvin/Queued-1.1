@@ -114,7 +114,7 @@ class SessionReranker:
         self.confidence = min(self.confidence + abs(weight) * 0.1, 1.0)
         return True
 
-    def rerank(self, candidate_ids: list[int]) -> list[int]:
+    def rerank(self, candidate_ids: list[int], boost_ids: set[int] | None = None, boost: float = 0.12) -> list[int]:
         """Return ``candidate_ids`` re-sorted by similarity to the session vector.
 
         Below the confidence threshold the original order is preserved (not
@@ -123,6 +123,10 @@ class SessionReranker:
 
         Args:
             candidate_ids: Remaining deck as TMDB ids.
+            boost_ids: Optional ids to nudge upward (the "prefer my services"
+                soft boost) — added to the cosine score, so taste still
+                dominates and off-service titles are never excluded.
+            boost: Additive score bonus for ``boost_ids``.
 
         Returns:
             The re-ordered TMDB ids.
@@ -142,6 +146,8 @@ class SessionReranker:
         unit = self.session_vector / norm
         rows = self._embeddings[[self._tmdb_to_idx[c] for c in known]]
         scores = rows @ unit  # embedding rows are unit-norm -> dot == cosine
+        if boost_ids:
+            scores = scores + np.array([boost if c in boost_ids else 0.0 for c in known], dtype=scores.dtype)
         order = np.argsort(scores)[::-1]
         return [known[i] for i in order] + unknown
 

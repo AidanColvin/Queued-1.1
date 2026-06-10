@@ -20,6 +20,10 @@ SearchType = Literal["movie", "tv", "all"]
 # in ``swipe_events``.
 SwipeAction = Literal["liked", "saved", "dismissed", "skip", "superliked"]
 
+# Deck filtering by the user's streaming services: show everything, only titles
+# on their services (hard filter), or float their services up (soft boost).
+ProviderFilter = Literal["all", "only", "prefer"]
+
 
 # --------------------------------------------------------------------------- #
 # /recommend
@@ -41,6 +45,13 @@ class RecommendRequest(BaseModel):
         default_factory=list,
         description="Recommendation ids already shown — never returned again (keeps the endless deck unique).",
     )
+    provider_filter: ProviderFilter = Field(
+        default="all", description="Filter/boost the deck by the user's streaming services."
+    )
+    providers: list[int] = Field(
+        default_factory=list,
+        description="The caller's provider ids (anonymous users). Signed-in users' saved services take precedence.",
+    )
 
 
 class Recommendation(BaseModel):
@@ -59,6 +70,10 @@ class Recommendation(BaseModel):
     trailer_key: str | None = Field(
         default=None,
         description="YouTube video id for the trailer, baked in keylessly — lets the client play it in-page with no API key.",
+    )
+    providers: list[int] = Field(
+        default_factory=list,
+        description="Canonical streaming-provider ids carrying this title (empty when availability is unknown).",
     )
     why: str = Field(description="Human-readable explanation of why this title was matched.")
 
@@ -93,6 +108,8 @@ class PopularRequest(BaseModel):
 
     count: int = Field(default=20, ge=1, le=60)
     exclude_ids: list[int] = Field(default_factory=list)
+    provider_filter: ProviderFilter = "all"
+    providers: list[int] = Field(default_factory=list)
 
 
 # --------------------------------------------------------------------------- #
@@ -136,6 +153,11 @@ class SwipeRequest(BaseModel):
     action: SwipeAction
     time_on_card_ms: int = Field(default=0, ge=0)
     remaining: list[int] = Field(default_factory=list)
+    provider_filter: ProviderFilter = Field(
+        default="all",
+        description='Deck filter in effect. With "prefer", the re-rank softly boosts on-service titles.',
+    )
+    providers: list[int] = Field(default_factory=list)
 
 
 class SwipeResponse(BaseModel):
@@ -207,6 +229,7 @@ class UserOut(BaseModel):
     email: str
     display_name: str | None = None
     email_verified: bool = False
+    onboarding_completed: bool = False
 
 
 class PasswordResetRequest(BaseModel):
@@ -262,6 +285,44 @@ class SaveTitleRequest(BaseModel):
 
     rec: Recommendation
     kind: Literal["liked", "wishlist"]
+
+
+# --------------------------------------------------------------------------- #
+# /providers  (streaming services)
+# --------------------------------------------------------------------------- #
+class ProviderInfo(BaseModel):
+    """One selectable streaming service."""
+
+    id: int = Field(description="Canonical TMDB watch-provider id.")
+    slug: str
+    name: str
+    color: str = Field(description="Brand color for UI chips.")
+
+
+class ProvidersResponse(BaseModel):
+    """Response for ``GET /providers`` — the selectable services + data status."""
+
+    providers: list[ProviderInfo]
+    availability_loaded: bool = Field(
+        description="Whether per-title availability data is loaded (filters are no-ops when false)."
+    )
+    region: str = "US"
+
+
+class UserProvidersResponse(BaseModel):
+    """The signed-in user's saved services (``GET /account/providers``)."""
+
+    providers: list[int] = Field(default_factory=list)
+    onboarding_completed: bool = False
+
+
+class UserProvidersUpdate(BaseModel):
+    """Body for ``PUT /account/providers``."""
+
+    providers: list[int] = Field(default_factory=list, max_length=32)
+    # Saving (or skipping) the onboarding screen marks it done; edits from the
+    # account menu leave it true.
+    complete: bool = True
 
 
 # --------------------------------------------------------------------------- #

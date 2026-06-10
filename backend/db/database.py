@@ -81,7 +81,36 @@ class User(Base):
     # True once the address is proven (verification link, or an OAuth provider
     # that already verified it). Informational for now — nothing is gated on it.
     email_verified: Mapped[bool] = mapped_column(default=False)
+    # Flipped after the one-time "pick your streaming services" screen (saving
+    # OR skipping), so returning users go straight to the deck.
+    onboarding_completed: Mapped[bool] = mapped_column(default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+
+
+class UserProvider(Base):
+    """One streaming service a user subscribes to (canonical TMDB id)."""
+
+    __tablename__ = "user_providers"
+
+    user_id: Mapped[int] = mapped_column(primary_key=True)
+    provider_id: Mapped[int] = mapped_column(primary_key=True)
+
+
+class TitleProvider(Base):
+    """One (title, service, region) availability fact.
+
+    Mirrored at startup from the ``providers.json`` artifact written by
+    ``data.enrich_providers`` — the same seed-from-artifacts pattern as
+    ``movies``. Runtime filtering reads the in-memory
+    :class:`~providers.ProviderIndex`; this table is the SQL-queryable copy.
+    """
+
+    __tablename__ = "title_providers"
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    tmdb_id: Mapped[int] = mapped_column(index=True)
+    provider_id: Mapped[int] = mapped_column(index=True)
+    region: Mapped[str] = mapped_column(String(8), default="US")
 
 
 class UserProfile(Base):
@@ -223,3 +252,24 @@ def seed_movies(catalog: list[MovieRecord]) -> int:
         )
         session.commit()
         return len(catalog)
+
+
+def seed_title_providers(index) -> int:
+    """Idempotently mirror a :class:`~providers.ProviderIndex` into SQL.
+
+    Skipped when the row count already matches (warm database). Returns the
+    number of rows after seeding.
+    """
+    rows = [
+        {"tmdb_id": tmdb_id, "provider_id": pid, "region": index.region}
+        for tmdb_id, pids in index.items()
+        for pid in sorted(pids)
+    ]
+    with get_session_factory()() as session:
+        count = session.query(TitleProvider).count()
+        if count == len(rows):
+            return count
+        session.query(TitleProvider).delete()
+        session.add_all(TitleProvider(**row) for row in rows)
+        session.commit()
+        return len(rows)

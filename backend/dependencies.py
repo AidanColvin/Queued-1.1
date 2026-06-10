@@ -10,6 +10,7 @@ from fastapi import HTTPException, Request
 
 from ml.recommender import HybridRecommender
 from ml.reranker import SessionStore
+from providers import ProviderIndex
 
 
 def get_recommender(request: Request) -> HybridRecommender:
@@ -46,3 +47,13 @@ def get_session_store(request: Request) -> SessionStore:
     if store is None:
         raise HTTPException(status_code=503, detail="Session store is not loaded.")
     return store
+
+
+def get_provider_index(request: Request) -> ProviderIndex:
+    """Return the loaded availability index (empty when not enriched yet).
+
+    Never raises — provider filtering is an optional layer, so callers get an
+    empty index (filters degrade to "all") rather than a 503.
+    """
+    index: ProviderIndex | None = getattr(request.app.state, "provider_index", None)
+    return index if index is not None else ProviderIndex({})
