@@ -2,7 +2,10 @@
 // Base URL comes from NEXT_PUBLIC_API_URL (see .env.local.example).
 
 import type {
+  AccountHistory,
+  AuthUser,
   MediaType,
+  Recommendation,
   RecommendResponse,
   SearchResult,
   SearchType,
@@ -30,6 +33,9 @@ export class ApiError extends Error {
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
     ...init,
+    // Send/receive the auth cookie. Same-origin in production; in local dev the
+    // backend's CORS allow_credentials + explicit origin make this work too.
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
   });
   if (!res.ok) {
@@ -42,6 +48,8 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     }
     throw new ApiError(res.status, detail);
   }
+  // 204 No Content (logout, saved) has no body — don't try to parse JSON.
+  if (res.status === 204) return undefined as T;
   return res.json() as Promise<T>;
 }
 
@@ -96,6 +104,62 @@ export async function recordSwipe(req: SwipeRequest): Promise<SwipeResponse> {
     method: 'POST',
     body: JSON.stringify(req),
   });
+}
+
+// --------------------------------------------------------------------------- #
+// Accounts (Phase 3) — email/password + Google, plus per-user saved state.
+// All of these ride the httpOnly auth cookie (see `credentials: 'include'`).
+// --------------------------------------------------------------------------- #
+
+/** The current signed-in user, or null if the request is anonymous (401). */
+export async function getMe(): Promise<AuthUser | null> {
+  try {
+    return await request<AuthUser>('/auth/me');
+  } catch (err) {
+    if (err instanceof ApiError && err.status === 401) return null;
+    throw err;
+  }
+}
+
+/** Create an account with email + password; the response sets the session cookie. */
+export async function register(email: string, password: string, displayName?: string): Promise<AuthUser> {
+  return request<AuthUser>('/auth/register', {
+    method: 'POST',
+    body: JSON.stringify({ email, password, display_name: displayName || null }),
+  });
+}
+
+/** Sign in with email + password. */
+export async function login(email: string, password: string): Promise<AuthUser> {
+  return request<AuthUser>('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+  });
+}
+
+/** Clear the session cookie. */
+export async function logout(): Promise<void> {
+  await request<unknown>('/auth/logout', { method: 'POST' });
+}
+
+/** The path the browser navigates to for "Continue with Google" (full redirect). */
+export function googleLoginUrl(): string {
+  return `${API_URL}/auth/google/login`;
+}
+
+/** Load the signed-in user's saved deck state (liked/wishlist recs + seen ids). */
+export async function getHistory(): Promise<AccountHistory> {
+  return request<AccountHistory>('/account/history');
+}
+
+/** Merge a guest's local deck state into the account; returns the merged state. */
+export async function mergeGuestData(data: AccountHistory): Promise<AccountHistory> {
+  return request<AccountHistory>('/account/merge', { method: 'POST', body: JSON.stringify(data) });
+}
+
+/** Persist one liked/watch-listed card to the account (fire-and-forget). */
+export async function saveTitle(rec: Recommendation, kind: 'liked' | 'wishlist'): Promise<void> {
+  await request<unknown>('/account/saved', { method: 'POST', body: JSON.stringify({ rec, kind }) });
 }
 
 /** Resolve a title's YouTube trailer key so it can play in an in-page player.

@@ -15,9 +15,32 @@ services:
         value: "true"
       - key: MODEL_ARTIFACTS_PATH
         value: ./data/artifacts
+      # Accounts/history need a PERSISTENT database. The /tmp SQLite below is
+      # wiped on restart, so for real accounts set DATABASE_URL to a Postgres
+      # URL (Neon / Render Postgres / Supabase): postgresql+psycopg://USER:PASS@HOST/DB
+      # (use the pooled endpoint). Without it, sign-in works but data is lost.
       - key: DATABASE_URL
         value: sqlite:////tmp/nextwatch.db
       - key: CORS_ORIGINS
         value: https://nextwatch-rouge.vercel.app,http://localhost:3000
       - key: TMDB_API_KEY
+        sync: false
+      # ---- Accounts / auth (Phase 3) ----
+      # Random secret that signs the session JWT (required).
+      - key: JWT_SECRET
+        sync: false
+      # Send the auth cookie with Secure (HTTPS).
+      - key: COOKIE_SECURE
+        value: "true"
+      # SPA origin the OAuth callback redirects back to.
+      - key: FRONTEND_URL
+        value: https://nextwatch-rouge.vercel.app
+      # Google OAuth client (Google Cloud Console). Absent → email/password only;
+      # "Continue with Google" returns 503. Redirect URI must be
+      # https://<this-backend-host>/auth/google/callback (or /api/... on Vercel).
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
         sync: false

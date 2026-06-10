@@ -12,6 +12,14 @@ scipy==1.15.0
 SQLAlchemy==2.0.36
 httpx==0.28.1
 
+# ---- Accounts / auth (Phase 3) ----
+# Email/password hashing and the session JWT. Google OAuth uses the existing
+# httpx (token + userinfo endpoints — no extra OAuth lib). psycopg is the
+# Postgres driver for production (DATABASE_URL=postgresql+psycopg://...).
+bcrypt==5.0.0
+PyJWT==2.10.1
+psycopg[binary]==3.2.3
+
 # ---- Test stack ----
 pytest==8.3.4
 pytest-cov==6.0.0

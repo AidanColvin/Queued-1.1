@@ -2,10 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { getPopular, getRecommendations, getTv } from '@/lib/api';
+import { getPopular, getRecommendations, getTv, mergeGuestData, saveTitle } from '@/lib/api';
+import { useAuth } from '@/lib/auth';
 import { useDeck } from '@/lib/deck';
 import { resolvePoster } from '@/lib/posters';
-import type { Recommendation } from '@/lib/types';
+import type { Recommendation, SwipeAction } from '@/lib/types';
+import AccountMenu from './AccountMenu';
+import AuthModal from './AuthModal';
 import SplashScreen from './SplashScreen';
 import SwipeDeck from './SwipeDeck';
 import TrailerModal from './TrailerModal';
@@ -23,13 +26,16 @@ const REFILL_COUNT = 15;
 
 export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps) {
   const deck = useDeck();
+  const { user } = useAuth();
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [wishlistOpen, setWishlistOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
   const [trailerRec, setTrailerRec] = useState<Recommendation | null>(null);
   const [stack, setStack] = useState<Stack>('movie');
   const fetchingRef = useRef(false);
   const startedRef = useRef(false);
   const exhaustedRef = useRef(false);
+  const prevUserRef = useRef<typeof user>(null);
 
   // Users should only ever see cards with a real poster. Keep a rec only if it
   // already has a poster (movies) or one can be resolved keylessly (TV → TVmaze);
@@ -135,6 +141,44 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     [stack, deck, fetchMore],
   );
 
+  // Keep the deck in sync with the account across sign-in / sign-out.
+  useEffect(() => {
+    if (!deck.hydrated) return;
+    const was = prevUserRef.current;
+    prevUserRef.current = user;
+    if (!was && user) {
+      // Signed in: merge any local guest state into the account, then adopt the
+      // authoritative server state. Idempotent — a reload while already logged
+      // in just re-merges the mirrored local copy (a no-op) and reloads history.
+      mergeGuestData({ liked: deck.liked, wishlist: deck.wishlist, seen: deck.knownIds })
+        .then((hist) => deck.loadServerState(hist))
+        .catch(() => {
+          /* offline / server hiccup — keep local state, try again next load */
+        });
+      // Strip the ?login=success the Google redirect lands on.
+      if (typeof window !== 'undefined' && window.location.search.includes('login=')) {
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    } else if (was && !user) {
+      // Signed out: drop personal state and start a fresh anonymous deck.
+      deck.clearAll();
+      exhaustedRef.current = false;
+      setStatus('loading');
+      void fetchMore(true, stack);
+    }
+  }, [user, deck, fetchMore, stack]);
+
+  // While signed in, persist a liked/saved card to the account (fire-and-forget)
+  // so the watchlist follows the user across devices.
+  const persistSave = useCallback(
+    (rec: Recommendation, action: SwipeAction) => {
+      if (!user) return;
+      if (action === 'saved') saveTitle(rec, 'wishlist').catch(() => {});
+      else if (action === 'liked' || action === 'superliked') saveTitle(rec, 'liked').catch(() => {});
+    },
+    [user],
+  );
+
   // Open the trailer in an in-page player instead of navigating to YouTube.
   const openCard = useCallback((rec: Recommendation) => {
     setTrailerRec(rec);
@@ -175,6 +219,18 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
               <span className="hidden sm:inline">Watchlist</span>
             )}
           </button>
+
+          {user ? (
+            <AccountMenu user={user} />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setAuthOpen(true)}
+              className="rounded-full bg-ink px-3.5 py-2 text-sm font-medium text-white transition hover:brightness-125 active:scale-95"
+            >
+              Sign in
+            </button>
+          )}
         </div>
       </header>
 
@@ -204,7 +260,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
 
         {status === 'ready' &&
           (deck.currentCard ? (
-            <SwipeDeck deck={deck} onOpenCard={openCard} />
+            <SwipeDeck deck={deck} onOpenCard={openCard} onPersistSave={persistSave} />
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-3 text-center">
               <p className="text-[17px] font-medium text-ink">
@@ -231,6 +287,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />
       <TrailerModal rec={trailerRec} onClose={() => setTrailerRec(null)} />
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </main>
   );
 }

@@ -68,3 +68,17 @@ export interface CardDecision {
   action: SwipeAction;
   timestamp: number;
 }
+
+/** Public view of a signed-in account (mirrors backend ``UserOut``). */
+export interface AuthUser {
+  id: number;
+  email: string;
+  display_name: string | null;
+}
+
+/** A user's server-persisted deck state (mirrors backend ``HistoryResponse``). */
+export interface AccountHistory {
+  liked: Recommendation[];
+  wishlist: Recommendation[];
+  seen: number[];
+}

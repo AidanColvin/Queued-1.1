@@ -20,6 +20,11 @@ os.environ.setdefault("MODEL_ARTIFACTS_PATH", os.path.join(_BACKEND, "data", "ar
 os.environ.setdefault("DATABASE_URL", "sqlite:////tmp/nextwatch.db")
 os.environ.setdefault("AUTO_SAMPLE", "false")
 os.environ.setdefault("CORS_ORIGINS", "*")
+# Vercel is always HTTPS, so default the auth cookie to Secure. Accounts/history
+# need a persistent DATABASE_URL (Postgres) plus the JWT/Google/FRONTEND_URL env
+# vars set in the Vercel project — without a real DATABASE_URL the /tmp SQLite is
+# wiped between invocations, so accounts won't persist.
+os.environ.setdefault("COOKIE_SECURE", "true")
 
 from main import create_app  # noqa: E402  (must follow the sys.path / env setup)
 

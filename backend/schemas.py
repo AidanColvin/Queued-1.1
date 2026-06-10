@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 # A title is either a film or a show. ``all`` is a search-only filter meaning
 # "either kind".
@@ -164,6 +164,78 @@ class TrailerResponse(BaseModel):
     youtube_key: str | None = None
     name: str | None = None
     source: Literal["tmdb", "youtube", "none", "unconfigured", "error"] = "none"
+
+
+# --------------------------------------------------------------------------- #
+# /auth  +  /account  (Phase 3 — accounts, history, cross-session taste)
+# --------------------------------------------------------------------------- #
+class RegisterRequest(BaseModel):
+    """Body for ``POST /auth/register`` (email/password sign-up)."""
+
+    email: str = Field(min_length=3, max_length=320)
+    # Capped at 72 chars because bcrypt only hashes the first 72 bytes.
+    password: str = Field(min_length=8, max_length=72)
+    display_name: str | None = Field(default=None, max_length=128)
+
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, value: str) -> str:
+        """Lowercase/trim and require an ``@`` (keeps a real email-validator
+        dependency out of the runtime image)."""
+        value = value.strip().lower()
+        if "@" not in value or value.startswith("@") or value.endswith("@"):
+            raise ValueError("A valid email address is required.")
+        return value
+
+
+class LoginRequest(BaseModel):
+    """Body for ``POST /auth/login``."""
+
+    email: str = Field(min_length=3, max_length=320)
+    password: str = Field(min_length=1, max_length=72)
+
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, value: str) -> str:
+        return value.strip().lower()
+
+
+class UserOut(BaseModel):
+    """Public view of an account — what ``/auth/me`` and login/register return."""
+
+    id: int
+    email: str
+    display_name: str | None = None
+
+
+class HistoryResponse(BaseModel):
+    """A user's saved state, used to hydrate the SPA on sign-in."""
+
+    liked: list[Recommendation] = Field(default_factory=list)
+    wishlist: list[Recommendation] = Field(default_factory=list)
+    seen: list[int] = Field(default_factory=list, description="movie_ids ever shown.")
+
+
+class MergeRequest(BaseModel):
+    """Guest localStorage state POSTed to ``/account/merge`` on first sign-in.
+
+    Upserted into the account (deduped) so a user who built a watchlist before
+    creating an account keeps it.
+    """
+
+    liked: list[Recommendation] = Field(default_factory=list)
+    wishlist: list[Recommendation] = Field(default_factory=list)
+    seen: list[int] = Field(default_factory=list)
+
+
+class SaveTitleRequest(BaseModel):
+    """A single liked/watch-listed card POSTed to ``/account/saved`` while signed
+    in, so the server copy stays current without a full merge. The full
+    ``Recommendation`` is sent because the watchlist renders the card verbatim.
+    """
+
+    rec: Recommendation
+    kind: Literal["liked", "wishlist"]
 
 
 # --------------------------------------------------------------------------- #

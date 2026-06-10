@@ -48,6 +48,22 @@ class Settings(BaseSettings):
     cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:3000"]
     auto_sample: bool = True
 
+    # ---- Accounts / auth (Phase 3) ------------------------------------- #
+    # HS256 signing secret for the session JWT. The default is insecure and for
+    # local dev only — production MUST set JWT_SECRET to a random value.
+    jwt_secret: str = "dev-insecure-change-me"
+    jwt_expire_days: int = 30
+    # Send the auth cookie with the Secure flag. False for local HTTP dev; set
+    # COOKIE_SECURE=true in production (HTTPS).
+    cookie_secure: bool = False
+    # Where the OAuth callback redirects the browser back to (the SPA origin).
+    frontend_url: str = "http://localhost:3000"
+    # Google OAuth client credentials (created in Google Cloud Console). Absent
+    # locally → the Google sign-in routes report 503 but email/password works.
+    google_client_id: str | None = None
+    google_client_secret: str | None = None
+    google_redirect_uri: str | None = None
+
     @field_validator("cors_origins", mode="before")
     @classmethod
     def _split_cors_origins(cls, value: object) -> object:

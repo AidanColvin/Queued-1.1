@@ -33,6 +33,11 @@ def client(tmp_path_factory: pytest.TempPathFactory) -> Iterator:
     os.environ["DATABASE_URL"] = f"sqlite:///{tmp / 'test.db'}"
     os.environ["AUTO_SAMPLE"] = "true"
     os.environ["CORS_ORIGINS"] = "http://localhost:3000"
+    # Accounts/auth (Phase 3): deterministic JWT secret, no Secure flag over the
+    # test client's plain HTTP, and a frontend origin for OAuth redirects.
+    os.environ["JWT_SECRET"] = "test-secret"
+    os.environ["COOKIE_SECURE"] = "false"
+    os.environ["FRONTEND_URL"] = "http://localhost:3000"
 
     # Clear cached settings/engine so the env above takes effect, then import
     # the app fresh (first import in the process happens here, post-env).
@@ -50,3 +55,16 @@ def client(tmp_path_factory: pytest.TempPathFactory) -> Iterator:
 
     with TestClient(main.app) as test_client:
         yield test_client
+
+
+@pytest.fixture
+def api(client) -> Iterator:
+    """A fresh ``TestClient`` over the already-loaded app, with its own cookie
+    jar — so each auth test starts signed out and can't leak a session into the
+    next. Depends on ``client`` only to guarantee the model/DB are loaded."""
+    from fastapi.testclient import TestClient
+
+    import main
+
+    with TestClient(main.app) as isolated:
+        yield isolated

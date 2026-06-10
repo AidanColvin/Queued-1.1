@@ -163,6 +163,25 @@ class SessionStore:
         self._sessions: OrderedDict[str, SessionReranker] = OrderedDict()
         self._lock = threading.Lock()
 
+    @property
+    def dim(self) -> int:
+        """Embedding dimensionality — used to validate a persisted user vector
+        still matches the current model before warm-starting from it."""
+        return int(self._embeddings.shape[1])
+
+    def reranker_for_user(
+        self, init_vector: np.ndarray | None = None, init_confidence: float = 0.0
+    ) -> SessionReranker:
+        """Build a transient reranker warm-started from a user's persisted taste
+        (Layer 2). Not cached in ``_sessions``: for a signed-in user the DB
+        ``UserProfile`` row is the source of truth — the caller loads the vector,
+        applies the swipe, and persists it back. This stays correct across
+        serverless cold starts where any in-memory copy would be lost anyway.
+        """
+        return SessionReranker(
+            self._embeddings, self._tmdb_to_idx, init_vector=init_vector, init_confidence=init_confidence
+        )
+
     def get_or_create(self, session_id: str) -> SessionReranker:
         """Return the session's reranker, creating it on first use."""
         with self._lock:

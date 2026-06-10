@@ -15,9 +15,12 @@ import SwipeCard from './SwipeCard';
 interface SwipeDeckProps {
   deck: DeckApi;
   onOpenCard: (rec: Recommendation) => void;
+  /** Persist a committed liked/saved card to the signed-in account (no-op for
+   *  guests). Fire-and-forget, like the swipe recording itself. */
+  onPersistSave?: (rec: Recommendation, action: SwipeAction) => void;
 }
 
-export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
+export default function SwipeDeck({ deck, onOpenCard, onPersistSave }: SwipeDeckProps) {
   const sessionIdRef = useRef<string>('');
   const lockedRef = useRef(false);
   const appearedAtRef = useRef<number>(0);
@@ -57,6 +60,8 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
       if (lockedRef.current) return;
       const res = deck.commit(action);
       if (!res) return;
+      // Mirror a like/save to the signed-in account (no-op for guests).
+      onPersistSave?.(res.card, action);
       lockedRef.current = true;
       setExitAction(action);
       if (action === 'superliked') setSuperFlash((n) => n + 1);
@@ -85,7 +90,7 @@ export default function SwipeDeck({ deck, onOpenCard }: SwipeDeckProps) {
           });
       }
     },
-    [deck],
+    [deck, onPersistSave],
   );
 
   // Keyboard: WASD + arrows, Z/Backspace undo, Space expand. Ignored in inputs.

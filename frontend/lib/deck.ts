@@ -7,7 +7,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import type { CardDecision, Recommendation, SwipeAction } from './types';
+import type { AccountHistory, CardDecision, Recommendation, SwipeAction } from './types';
 
 interface DeckState {
   queue: Recommendation[];
@@ -47,6 +47,12 @@ export interface DeckApi {
   append: (recs: Recommendation[], fetchedAll?: Recommendation[]) => number;
   /** Empty the queue + history for a fresh stack; keeps liked + wish list. */
   reset: () => void;
+  /** Adopt a signed-in user's server state: replace liked + wishlist and fold
+   *  the server's seen ids into the exclude set. Called after login/merge. */
+  loadServerState: (history: AccountHistory) => void;
+  /** Wipe all personal state (liked/wishlist/seen + queue) and localStorage —
+   *  used on logout so one account's data never leaks to the next visitor. */
+  clearAll: () => void;
 }
 
 const LIKED_KEY = 'nextwatch:liked';
@@ -185,6 +191,35 @@ export function useDeck(): DeckApi {
     setState((s) => ({ ...s, queue: [], current: 0, decisions: [] }));
   }, []);
 
+  const loadServerState = useCallback<DeckApi['loadServerState']>((history) => {
+    setState((s) => ({
+      ...s,
+      likedCards: history.liked,
+      wishlistCards: history.wishlist,
+      // Union the server's seen ids with what's already been shown this session.
+      seenIds: [...new Set<number>([...s.seenIds, ...history.seen])],
+    }));
+  }, []);
+
+  const clearAll = useCallback(() => {
+    setState((s) => ({
+      ...s,
+      queue: [],
+      current: 0,
+      decisions: [],
+      likedCards: [],
+      wishlistCards: [],
+      seenIds: [],
+    }));
+    try {
+      localStorage.removeItem(LIKED_KEY);
+      localStorage.removeItem(WISHLIST_KEY);
+      localStorage.removeItem(SEEN_KEY);
+    } catch {
+      /* storage unavailable — non-fatal */
+    }
+  }, []);
+
   const append = useCallback<DeckApi['append']>((recs, fetchedAll) => {
     const allFetched = fetchedAll ?? recs;
     let added = 0;
@@ -238,6 +273,8 @@ export function useDeck(): DeckApi {
       reorderRemaining,
       append,
       reset,
+      loadServerState,
+      clearAll,
     };
-  }, [state, hydrated, commit, undo, reorderRemaining, append, reset]);
+  }, [state, hydrated, commit, undo, reorderRemaining, append, reset, loadServerState, clearAll]);
 }
