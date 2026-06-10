@@ -7,3 +7,10 @@ numpy==2.2.1
 scipy==1.15.0
 SQLAlchemy==2.0.36
 httpx==0.28.1  # /trailer calls TMDB; must mirror backend/requirements.txt
+# ---- Accounts / auth (Phase 3) — must mirror backend/requirements.txt ----
+# bcrypt + PyJWT are imported at startup (auth.security), so the function won't
+# boot without them. psycopg is the Postgres driver used when DATABASE_URL is
+# Postgres (imported lazily by SQLAlchemy).
+bcrypt==5.0.0
+PyJWT==2.10.1
+psycopg[binary]==3.2.3
