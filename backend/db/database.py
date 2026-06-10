@@ -245,8 +245,68 @@ def get_db() -> Iterator[Session]:
 
 
 def init_db() -> None:
-    """Create all tables if they do not already exist."""
-    Base.metadata.create_all(get_engine())
+    """Create all tables if they do not already exist, then heal additive drift.
+
+    ``create_all`` never alters existing tables, and serverless deployments
+    (Vercel) have no pre-deploy step to run Alembic — so when a release adds
+    columns to a table that already exists in production, every query on that
+    model would 500. :func:`_ensure_columns` closes that gap for purely
+    additive changes; destructive migrations still belong to Alembic (Render
+    runs ``alembic upgrade head`` pre-deploy).
+    """
+    engine = get_engine()
+    Base.metadata.create_all(engine)
+    _ensure_columns(engine)
+
+
+def _ensure_columns(engine: Engine) -> None:
+    """Add any model columns missing from existing tables (additive only).
+
+    NOT NULL columns get a type-appropriate DEFAULT so existing rows backfill;
+    anything unusual is added as nullable rather than failing. Errors are
+    logged, never raised — a startup must not die on a healing step.
+    """
+    import logging
+
+    from sqlalchemy import inspect
+
+    logger = logging.getLogger("nextwatch")
+    try:
+        inspector = inspect(engine)
+        for table in Base.metadata.sorted_tables:
+            if not inspector.has_table(table.name):
+                continue
+            existing = {col["name"] for col in inspector.get_columns(table.name)}
+            for column in table.columns:
+                if column.name in existing:
+                    continue
+                col_type = column.type.compile(engine.dialect)
+                ddl = f'ALTER TABLE {table.name} ADD COLUMN {column.name} {col_type}'
+                if not column.nullable:
+                    default = _backfill_default(column)
+                    if default is None:
+                        ddl += ""  # no safe backfill — add as nullable instead
+                    else:
+                        ddl += f" NOT NULL DEFAULT {default}"
+                with engine.begin() as conn:
+                    conn.exec_driver_sql(ddl)
+                logger.info("Schema heal: added %s.%s", table.name, column.name)
+    except Exception:  # noqa: BLE001 — best-effort healing only
+        logger.exception("Schema healing failed (continuing with current schema)")
+
+
+def _backfill_default(column) -> str | None:
+    """A literal DEFAULT for backfilling a new NOT NULL column, or ``None``."""
+    from sqlalchemy import Boolean, Float, Integer
+    from sqlalchemy import String as SAString
+
+    if isinstance(column.type, Boolean):
+        return "FALSE"
+    if isinstance(column.type, (Integer, Float)):
+        return "0"
+    if isinstance(column.type, SAString):
+        return "''"
+    return None
 
 
 def seed_movies(catalog: list[MovieRecord]) -> int:
