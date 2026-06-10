@@ -93,11 +93,12 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       if (fetchingRef.current) return;
       fetchingRef.current = true;
       // The backend runs as a serverless function, so the very first request
-      // after it's been idle pays a cold start (the ML model loads) and can time
-      // out. Retry the initial load with backoff so the deck always appears —
-      // the user should never be stranded on "Couldn't reach" with nothing to
+      // after it's been idle pays a cold start — the ML model loads AND the free
+      // Postgres (Neon) resumes from suspend — which together can take tens of
+      // seconds. Retry the initial load with a generous backoff so the deck always
+      // appears and the user is never stranded on "Couldn't reach" with nothing to
       // swipe. Refills only try once (a card is already on screen).
-      const attempts = initial ? 6 : 1;
+      const attempts = initial ? 8 : 1;
       try {
         for (let attempt = 1; attempt <= attempts; attempt += 1) {
           try {
@@ -135,8 +136,9 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             if (attempt >= attempts) {
               if (initial) setStatus('error');
             } else {
-              // Backoff: 1.2s, 2.4s, 3.6s… ≈ 18s total patience for a cold start.
-              await new Promise((r) => setTimeout(r, 1200 * attempt));
+              // Backoff: 2.5s, 5s, 7.5s, then capped at 9s ≈ 50s total patience —
+              // enough to ride out a cold start plus a Neon resume.
+              await new Promise((r) => setTimeout(r, Math.min(2500 * attempt, 9000)));
             }
           }
         }
