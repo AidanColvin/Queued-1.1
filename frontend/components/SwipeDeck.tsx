@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { recordSwipe } from '@/lib/api';
 import { KEY_TO_ACTION } from '@/lib/actions';
+import { hapticImpact } from '@/lib/native';
 import type { DeckApi } from '@/lib/deck';
 import type { ProviderPrefs, Recommendation, SwipeAction } from '@/lib/types';
 import { makeSessionId } from '@/lib/util';
@@ -75,8 +76,9 @@ export default function SwipeDeck({ deck, onOpenCard, onPersistSave, providerPre
         lockedRef.current = false;
       }, 260);
       // A super like gets a stronger double-buzz than an ordinary swipe.
-      if (typeof navigator !== 'undefined' && navigator.vibrate)
-        navigator.vibrate(action === 'superliked' ? [18, 40, 18] : 12);
+      // Native (Capacitor) builds get real impact haptics; web falls back to
+      // navigator.vibrate where available.
+      void hapticImpact(action === 'superliked');
 
       const elapsed = Date.now() - appearedAtRef.current;
       if (res.card.tmdb_id != null) {

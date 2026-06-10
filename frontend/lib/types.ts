@@ -90,6 +90,9 @@ export interface AuthUser {
   email_verified: boolean;
   /** True once the one-time streaming-services screen was saved or skipped. */
   onboarding_completed: boolean;
+  /** Present on login/register responses only — the session JWT the native
+   *  (Capacitor) shell stores and replays as a Bearer header. */
+  access_token?: string | null;
 }
 
 /** A user's saved streaming services (mirrors backend ``UserProvidersResponse``). */

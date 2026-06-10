@@ -14,9 +14,18 @@ from auth.security import AUTH_COOKIE, decode_token
 from db.database import User, get_db
 
 
+def _bearer_token(request: Request) -> str:
+    """The ``Authorization: Bearer`` token, if any (Capacitor native builds —
+    the WKWebView's capacitor:// origin can't reliably carry cross-site
+    cookies, so the native shell sends the same session JWT as a header)."""
+    header = request.headers.get("authorization", "")
+    scheme, _, token = header.partition(" ")
+    return token.strip() if scheme.lower() == "bearer" else ""
+
+
 def _user_from_request(request: Request, db: Session) -> User | None:
-    """Resolve the signed-in user from the auth cookie, or ``None``."""
-    claims = decode_token(request.cookies.get(AUTH_COOKIE, ""))
+    """Resolve the signed-in user from the auth cookie or bearer header."""
+    claims = decode_token(request.cookies.get(AUTH_COOKIE, "")) or decode_token(_bearer_token(request))
     if not claims:
         return None
     try:

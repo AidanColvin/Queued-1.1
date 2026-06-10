@@ -230,6 +230,23 @@ class UserOut(BaseModel):
     display_name: str | None = None
     email_verified: bool = False
     onboarding_completed: bool = False
+    # Set on login/register/apple responses only (None on /auth/me). The same
+    # JWT the cookie carries — native (Capacitor) clients store it and send it
+    # as an Authorization: Bearer header instead of relying on cookies.
+    access_token: str | None = None
+
+
+class AppleSignInRequest(BaseModel):
+    """Body for ``POST /auth/apple`` (native Sign in with Apple).
+
+    The client completes the native Apple flow and posts the resulting
+    ``identityToken`` here for server-side verification against Apple's JWKS.
+    """
+
+    identity_token: str = Field(min_length=1)
+    # Apple only provides the name on the *first* authorization; the client
+    # forwards it so the account keeps a display name.
+    display_name: str | None = Field(default=None, max_length=128)
 
 
 class PasswordResetRequest(BaseModel):

@@ -19,7 +19,7 @@ from fastapi.responses import RedirectResponse
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from auth import google
+from auth import apple, google
 from auth.deps import get_current_user
 from auth.emailer import send_email
 from auth.ratelimit import rate_limit
@@ -36,6 +36,7 @@ from auth.security import (
 from config import get_settings
 from db.database import User, UserProfile, get_db
 from schemas import (
+    AppleSignInRequest,
     LoginRequest,
     PasswordResetConfirm,
     PasswordResetRequest,
@@ -67,9 +68,17 @@ def _public_user(user: User) -> UserOut:
 
 
 def _issue_session(response: Response, user: User) -> UserOut:
-    """Mint the session cookie for ``user`` and return their public view."""
-    set_auth_cookie(response, create_access_token(user.id, user.email))
-    return _public_user(user)
+    """Start a session: set the cookie AND return the same JWT in the body.
+
+    Browsers use the httpOnly cookie; the Capacitor native shell stores the
+    body token and sends it as ``Authorization: Bearer`` instead (cookies are
+    unreliable from the capacitor:// origin).
+    """
+    token = create_access_token(user.id, user.email)
+    set_auth_cookie(response, token)
+    out = _public_user(user)
+    out.access_token = token
+    return out
 
 
 def _send_verification_email(user: User) -> None:
@@ -214,6 +223,58 @@ def reset_password(payload: PasswordResetConfirm, db: Session = Depends(get_db))
     user.email_verified = True
     db.commit()
     return Response(status_code=204)
+
+
+# --------------------------------------------------------------------------- #
+# Sign in with Apple — native iOS builds (App Store guideline 4.8: required
+# whenever third-party sign-in like Google is offered).
+# --------------------------------------------------------------------------- #
+@router.post("/apple", response_model=UserOut, dependencies=[Depends(rate_limit("apple", 15, 60.0))])
+def apple_sign_in(payload: AppleSignInRequest, response: Response, db: Session = Depends(get_db)) -> UserOut:
+    """Verify a native Sign-in-with-Apple identity token and start a session.
+
+    Resolves a user by ``apple_sub`` → else by ``email`` (linking an existing
+    account) → else creates a new one. Apple verifies addresses, so the
+    account is marked ``email_verified``.
+
+    Raises:
+        HTTPException: ``503`` when Apple sign-in isn't configured, ``401`` on
+            a token that fails verification.
+    """
+    if not apple.apple_configured():
+        raise HTTPException(status_code=503, detail="Sign in with Apple is not configured on this server.")
+
+    claims = apple.verify_identity_token(payload.identity_token)
+    if not claims or not claims.get("sub"):
+        raise HTTPException(status_code=401, detail="Apple sign-in could not be verified.")
+
+    sub = str(claims["sub"])
+    email = (claims.get("email") or "").strip().lower()
+
+    user = db.scalar(select(User).where(User.apple_sub == sub))
+    if user is None and email:
+        user = db.scalar(select(User).where(User.email == email))
+        if user is not None:
+            user.apple_sub = sub  # link Apple to the existing account
+    if user is None:
+        if not email:
+            # Apple omits the email after the first authorization; without a
+            # stored apple_sub we can't create an account from this token.
+            raise HTTPException(
+                status_code=401,
+                detail="Apple did not share an email for this account. Remove NextWatch from your Apple ID's "
+                "Sign in with Apple settings and try again.",
+            )
+        user = User(email=email, apple_sub=sub, display_name=payload.display_name)
+        db.add(user)
+        db.flush()
+        db.add(UserProfile(user_id=user.id))
+    if payload.display_name and not user.display_name:
+        user.display_name = payload.display_name
+    user.email_verified = True
+    db.commit()
+    db.refresh(user)
+    return _issue_session(response, user)
 
 
 # --------------------------------------------------------------------------- #

@@ -1,6 +1,7 @@
 // Typed fetch wrappers around the NextWatch backend.
 // Base URL comes from NEXT_PUBLIC_API_URL (see .env.local.example).
 
+import { getAuthToken } from './native';
 import type {
   AccountHistory,
   AuthUser,
@@ -36,12 +37,19 @@ export class ApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  // Native (Capacitor) sessions ride a stored bearer token; web rides the
+  // httpOnly cookie (getAuthToken() is always null in the browser).
+  const token = getAuthToken();
   const res = await fetch(`${API_URL}${path}`, {
     ...init,
     // Send/receive the auth cookie. Same-origin in production; in local dev the
     // backend's CORS allow_credentials + explicit origin make this work too.
     credentials: 'include',
-    headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(init?.headers ?? {}),
+    },
   });
   if (!res.ok) {
     let detail = res.statusText;
@@ -167,6 +175,14 @@ export function googleLoginUrl(): string {
   return `${API_URL}/auth/google/login`;
 }
 
+/** Exchange a native Sign-in-with-Apple identity token for a session. */
+export async function appleSignIn(identityToken: string, displayName?: string | null): Promise<AuthUser> {
+  return request<AuthUser>('/auth/apple', {
+    method: 'POST',
+    body: JSON.stringify({ identity_token: identityToken, display_name: displayName ?? null }),
+  });
+}
+
 /** Ask for a password-reset email. Always resolves (the backend never reveals
  *  whether the address has an account). */
 export async function requestPasswordReset(email: string): Promise<void> {
@@ -241,10 +257,12 @@ export async function syncLetterboxd(username: string): Promise<LetterboxdSummar
 export async function importLetterboxd(file: File): Promise<LetterboxdSummary> {
   const form = new FormData();
   form.append('file', file);
+  const token = getAuthToken();
   // Multipart: let the browser set the boundary Content-Type itself.
   const res = await fetch(`${API_URL}/account/letterboxd/import`, {
     method: 'POST',
     credentials: 'include',
+    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
     body: form,
   });
   if (!res.ok) {

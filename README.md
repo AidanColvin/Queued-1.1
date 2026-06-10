@@ -323,8 +323,23 @@ visitors get the same shelves from their session's likes plus a sign-in nudge
 - [x] Phase 1 — Core ML pipeline + API (backend complete, fully tested)
 - [x] Phase 2 — Frontend swipe deck + adaptive re-ranking (Layer 1 `/swipe`)
 - [ ] Phase 3 — User accounts, saved history, cross-session taste profiles (Layer 2)
-- [ ] Phase 4 — Gamification (Daily Pick, streaks, fingerprint) + offline retraining on swipe logs (Layer 3, ALS)
-- [ ] Phase 5 — Social: share taste profile, compare with friends
+- [x] Phase 3 (accounts) shipped, plus: production hardening (Postgres/Alembic,
+      durable sessions, password reset/email verification, rate limiting,
+      account deletion), streaming-service onboarding + deck filters,
+      Letterboxd import, the For You page, and iOS packaging via Capacitor
+      (see [docs/APP_STORE.md](docs/APP_STORE.md))
+- [ ] Gamification (Daily Pick, streaks, fingerprint) + offline retraining on swipe logs (Layer 3, ALS)
+- [ ] Social: share taste profile, compare with friends
+
+## iOS app (Capacitor)
+
+The same static export ships as a native iOS app: `npm run build:native` in
+`frontend/` builds the bundle and syncs it into the checked-in Xcode project
+(`frontend/ios/`). Native builds authenticate with a bearer token in Capacitor
+Preferences, add Sign in with Apple (`POST /auth/apple`, JWKS-verified) and
+real swipe haptics. The full Apple-side checklist — certificates, TestFlight,
+App Privacy, and the **MovieLens non-commercial licensing constraint** — lives
+in [docs/APP_STORE.md](docs/APP_STORE.md).
 
 ---
 

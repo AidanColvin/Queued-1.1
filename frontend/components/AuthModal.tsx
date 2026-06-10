@@ -16,7 +16,7 @@ type Mode = 'signin' | 'signup' | 'forgot';
 /** Sign in / create account, plus "Continue with Google". Matches the app's
  *  light tokens and the framer-motion overlay pattern used elsewhere. */
 export default function AuthModal({ open, onClose }: AuthModalProps) {
-  const { login, register, loginWithGoogle } = useAuth();
+  const { login, register, loginWithGoogle, loginWithApple, canUseApple } = useAuth();
   const [mode, setMode] = useState<Mode>('signup');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -104,6 +104,23 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                   </button>
                 </div>
 
+                {canUseApple && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setError(null);
+                      loginWithApple()
+                        .then(onClose)
+                        .catch((err) =>
+                          setError(err instanceof Error ? err.message : 'Apple sign-in failed. Try again.'),
+                        );
+                    }}
+                    className="mb-3 flex w-full items-center justify-center gap-2 rounded-xl bg-black px-4 py-2.5 text-sm font-medium text-white transition hover:brightness-125 active:scale-[0.98]"
+                  >
+                    <span aria-hidden></span>
+                    Continue with Apple
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={loginWithGoogle}
