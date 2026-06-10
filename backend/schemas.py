@@ -112,6 +112,18 @@ class PopularRequest(BaseModel):
     providers: list[int] = Field(default_factory=list)
 
 
+class AdaptiveRequest(PopularRequest):
+    """Body for ``POST /recommend/adaptive`` — the taste-driven movie deck.
+
+    Same shape as the popular deck plus the anonymous ``session_id`` (a signed-in
+    request is keyed by the account cookie instead). The server loads that
+    visitor's accumulated taste vector and returns fresh candidates nearest it,
+    falling back to the popularity deck when there isn't enough signal yet.
+    """
+
+    session_id: str = Field(default="", max_length=64)
+
+
 # --------------------------------------------------------------------------- #
 # /search
 # --------------------------------------------------------------------------- #

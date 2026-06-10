@@ -62,8 +62,9 @@ SIGNAL_WEIGHTS: dict[str, float] = {
     "dismissed": -0.55,  # moderate negative — "not this vibe at all" (dislike)
 }
 
-# Re-rank only once the session carries enough signal to be meaningful.
-CONFIDENCE_THRESHOLD = 0.15
+# Re-rank once the session carries a little signal — low so the deck visibly
+# adapts within the first couple of swipes (~one like or two dislikes).
+CONFIDENCE_THRESHOLD = 0.1
 # Cap on concurrently tracked anonymous sessions (oldest evicted past this).
 MAX_SESSIONS = 10_000
 

@@ -52,10 +52,11 @@ def test_swipe_confidence_grows_with_signal(client) -> None:
 
 
 def test_swipe_below_threshold_keeps_order(client) -> None:
-    """A single like (confidence 0.1 < 0.15) leaves the deck order untouched."""
+    """A single sub-threshold swipe (a 'saved' → confidence 0.065 < 0.1) leaves
+    the deck order untouched; reranking only begins once there's enough signal."""
     remaining = [THE_OFFICE, THE_SOPRANOS, PARKS_AND_REC]
-    body = _swipe(client, "s-thresh", BREAKING_BAD, "liked", remaining=remaining)
-    assert body["session_confidence"] < 0.15
+    body = _swipe(client, "s-thresh", BREAKING_BAD, "saved", remaining=remaining)
+    assert body["session_confidence"] < 0.1
     assert body["reranked_queue"] == remaining
 
 

@@ -26,6 +26,7 @@ from ml.recommender import HybridRecommender
 from ml.reranker import SessionStore, build_taste_space
 from providers import ProviderIndex
 from routers import (
+    adaptive,
     auth,
     health,
     letterboxd,
@@ -101,7 +102,9 @@ def load_state(app: FastAPI) -> None:
             app.state.provider_index = ProviderIndex.load(artifacts_dir)
             if app.state.provider_index.has_data:
                 seed_title_providers(app.state.provider_index)
-            app.state.recommender = HybridRecommender(bundle)  # set last = "ready" flag
+            recommender = HybridRecommender(bundle)
+            recommender.attach_taste_space(taste_space)  # enables taste-vector candidate gen
+            app.state.recommender = recommender  # set last = "ready" flag
             logger.info("Loaded '%s' bundle: %d titles", app.state.recommender.source, app.state.recommender.size)
         except Exception:  # noqa: BLE001 — serve degraded so /health stays useful
             logger.exception("Failed to load recommendation model")
@@ -151,7 +154,7 @@ def create_app(api_prefix: str = "") -> FastAPI:
             load_state(request.app)
         return await call_next(request)
 
-    routers = (health, search, recommend, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd, personal)
+    routers = (health, search, recommend, adaptive, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd, personal)
     for router in routers:
         app.include_router(router.router, prefix=api_prefix)
 

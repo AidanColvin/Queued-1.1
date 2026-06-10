@@ -61,6 +61,10 @@ class HybridRecommender:
     def __init__(self, bundle: ArtifactBundle) -> None:
         self._bundle = bundle
         self._catalog: list[MovieRecord] = bundle.catalog
+        # The hybrid CF+semantic item space the session reranker scores in,
+        # attached at startup (see main.load_state). Lets us generate *new*
+        # candidates directly from a user's live taste vector — not just reorder.
+        self._taste_space: np.ndarray | None = None
         # Lookup maps. Later entries do not overwrite earlier ones, so the first
         # occurrence of a normalized title wins (stable, order-preserving).
         self._by_title: dict[str, int] = {}
@@ -178,6 +182,56 @@ class HybridRecommender:
             recommendations=recs,
             taste_profile=self._taste_profile(seed_indices),
         )
+
+    def attach_taste_space(self, taste_space: np.ndarray) -> None:
+        """Give the recommender the hybrid item-vector space used for taste-based
+        candidate generation (the same matrix the session reranker ranks in)."""
+        self._taste_space = taste_space
+
+    def recommend_by_taste(
+        self,
+        vector: np.ndarray,
+        count: int = 20,
+        exclude_ids: list[int] | None = None,
+    ) -> RecommendResponse:
+        """Generate fresh candidates nearest a live taste vector (Layer 2).
+
+        Ranks the WHOLE catalog by cosine to the user's accumulated taste vector
+        in the hybrid space — so results reflect everything they've liked AND
+        disliked (dislikes pushed the vector away) and lean on collaborative
+        signal (the CF half of the space). This is what lets the deck *predict
+        new, unique titles* rather than only re-order a popularity pool. Already
+        seen ids are excluded so a card never repeats.
+
+        Returns an empty list (caller should fall back to popularity) when there
+        is no taste space, no signal, or a stale-dimension vector.
+        """
+        space = self._taste_space
+        norm = float(np.linalg.norm(vector)) if vector is not None else 0.0
+        if space is None or norm == 0.0 or vector.shape[0] != space.shape[1]:
+            return RecommendResponse(recommendations=[], taste_profile=self._taste_profile([]))
+
+        scores = space @ (vector / norm)  # cosine; space rows are unit-norm
+        order = np.argsort(scores)[::-1]
+        excluded = set(exclude_ids or [])
+
+        recs: list[Recommendation] = []
+        chosen: list[int] = []
+        for idx in order:
+            idx = int(idx)
+            rec = self._catalog[idx]
+            if rec.movie_id in excluded:
+                continue
+            recs.append(
+                self._to_recommendation(
+                    rec, score=round(float((scores[idx] + 1) / 2), 2), why="Tuned to your taste."
+                )
+            )
+            chosen.append(idx)
+            if len(recs) >= count:
+                break
+
+        return RecommendResponse(recommendations=recs, taste_profile=self._taste_profile(chosen[:8]))
 
     def popular(
         self,
