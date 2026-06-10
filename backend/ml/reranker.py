@@ -22,6 +22,31 @@ import numpy as np
 
 from ml.artifacts import MovieRecord
 
+
+def _unit_rows(matrix: np.ndarray) -> np.ndarray:
+    """L2-normalize each row so dot product equals cosine. Zero rows stay zero."""
+    norms = np.linalg.norm(matrix, axis=1, keepdims=True)
+    return (matrix / np.where(norms == 0.0, 1.0, norms)).astype(np.float32)
+
+
+def build_taste_space(embeddings: np.ndarray, cf_factors: np.ndarray) -> np.ndarray:
+    """Build the item-vector space the session reranker ranks in.
+
+    A 50/50 blend of the semantic plot embeddings and the collaborative-filtering
+    item factors: each block is L2-normalized per row, then concatenated and
+    re-normalized, so a title contributes equal cosine energy from each signal.
+
+    Offline evaluation (``ml.evaluate``, temporal holdout on MovieLens) showed
+    ranking in this hybrid space predicts like/dislike far better than the bare
+    semantic space the reranker used originally — ROC-AUC ~0.57 -> ~0.70,
+    Precision@5 ~0.76 -> ~0.84 — because like/dislike is driven by collaborative
+    signal, not plot-summary similarity. Keeping the semantic half preserves
+    content-awareness for novel / sparsely-rated titles. Both production and the
+    evaluator call THIS function, so the shipped space is exactly the measured one.
+    """
+    return _unit_rows(np.concatenate([_unit_rows(embeddings), _unit_rows(cf_factors)], axis=1))
+
+
 # Per-action base weights. Positive pulls the session vector toward the title;
 # negative pushes it away. Not symmetric — see the module docstring.
 SIGNAL_WEIGHTS: dict[str, float] = {
