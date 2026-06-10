@@ -23,7 +23,7 @@ from config import get_settings
 from db.database import init_db, seed_movies, seed_title_providers
 from ml.artifacts import artifacts_exist, load_artifacts
 from ml.recommender import HybridRecommender
-from ml.reranker import SessionStore
+from ml.reranker import SessionStore, build_taste_space
 from providers import ProviderIndex
 from routers import (
     auth,
@@ -93,7 +93,8 @@ def load_state(app: FastAPI) -> None:
             bundle = load_artifacts(artifacts_dir)
             init_db()
             seed_movies(bundle.catalog)
-            app.state.session_store = SessionStore(bundle.embeddings, bundle.catalog)
+            taste_space = build_taste_space(bundle.embeddings, bundle.cf_factors)
+            app.state.session_store = SessionStore(taste_space, bundle.catalog)
             app.state.tv_catalog = _load_tv_catalog(artifacts_dir)
             # Streaming availability (optional artifact — empty index when the
             # enrich script hasn't been run; filters then degrade to "all").

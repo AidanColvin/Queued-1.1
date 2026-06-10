@@ -213,10 +213,19 @@ def get_engine() -> Engine:
     between invocations, which would otherwise leave a pooled connection stale;
     a real connection pool belongs in the database side (pgbouncer / the
     provider's pooled endpoint), not in the frozen function.
+
+    A bare ``postgres://`` / ``postgresql://`` URL (the form Neon, Render, Heroku
+    hand out) is normalized to the ``postgresql+psycopg`` driver we actually
+    ship — SQLAlchemy's default for those is psycopg2, which isn't installed, so
+    without this the engine would fail to import its driver.
     """
     url = get_settings().database_url
     if url.startswith("sqlite"):
         return create_engine(url, connect_args={"check_same_thread": False}, future=True)
+    if url.startswith("postgres://"):
+        url = "postgresql+psycopg://" + url[len("postgres://") :]
+    elif url.startswith("postgresql://"):
+        url = "postgresql+psycopg://" + url[len("postgresql://") :]
     return create_engine(url, poolclass=NullPool, pool_pre_ping=True, future=True)
 
 
