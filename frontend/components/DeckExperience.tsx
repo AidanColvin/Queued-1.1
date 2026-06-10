@@ -308,34 +308,6 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
         </div>
       </header>
 
-      <div className="mb-3 flex items-center justify-between gap-2">
-        <button
-          type="button"
-          onClick={cycleFilter}
-          aria-label={`Streaming filter: ${FILTER_LABELS[provFilter]}`}
-          title="Cycle: all titles → only my services → boost my services"
-          className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium transition active:scale-95 ${
-            provFilter === 'all'
-              ? 'bg-white text-muted ring-1 ring-black/[0.08] hover:text-ink'
-              : 'bg-ink text-white'
-          }`}
-        >
-          <span aria-hidden>{provFilter === 'all' ? '◯' : provFilter === 'only' ? '●' : '◐'}</span>
-          {FILTER_LABELS[provFilter]}
-        </button>
-        {provFilter !== 'all' && myProviders.length === 0 && (
-          <a href="/onboarding/" className="text-xs font-medium text-accent hover:underline">
-            Pick your services →
-          </a>
-        )}
-        <a
-          href="/for-you/"
-          className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-medium text-ink ring-1 ring-black/[0.08] transition hover:ring-black/20 active:scale-95"
-        >
-          <span aria-hidden>✦</span> For You
-        </a>
-      </div>
-
       <div className="flex min-h-0 flex-1 flex-col">
         {status === 'loading' && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4">
@@ -394,7 +366,35 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           ))}
       </div>
 
-      <p className="mt-4 text-center text-xs text-faint">
+      <div className="mt-4 flex items-center justify-between gap-2">
+        <button
+          type="button"
+          onClick={cycleFilter}
+          aria-label={`Streaming filter: ${FILTER_LABELS[provFilter]}`}
+          title="Cycle: all titles → only my services → boost my services"
+          className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium transition active:scale-95 ${
+            provFilter === 'all'
+              ? 'bg-white text-muted ring-1 ring-black/[0.08] hover:text-ink'
+              : 'bg-ink text-white'
+          }`}
+        >
+          <span aria-hidden>{provFilter === 'all' ? '◯' : provFilter === 'only' ? '●' : '◐'}</span>
+          {FILTER_LABELS[provFilter]}
+        </button>
+        {provFilter !== 'all' && myProviders.length === 0 && (
+          <a href="/onboarding/" className="text-xs font-medium text-accent hover:underline">
+            Pick your services →
+          </a>
+        )}
+        <a
+          href="/for-you/"
+          className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-medium text-ink ring-1 ring-black/[0.08] transition hover:ring-black/20 active:scale-95"
+        >
+          <span aria-hidden>✦</span> Recommendations
+        </a>
+      </div>
+
+      <p className="mt-3 text-center text-xs text-faint">
         Swipe or tap the arrows — it learns as you go. Tap a card to watch the trailer.
       </p>
       <p className="mt-1 text-center text-[10px] text-faint">Streaming availability data by JustWatch via TMDB.</p>
