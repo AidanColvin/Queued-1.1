@@ -212,12 +212,10 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             aria-label="Open watchlist"
             className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-sm font-medium text-ink ring-1 ring-black/[0.08] transition hover:ring-black/20 active:scale-95"
           >
-            <span className="text-base leading-none">♡</span>
+            <span>Watchlist</span>
             {deck.wishlist.length ? (
-              <span className="tabular-nums">{deck.wishlist.length}</span>
-            ) : (
-              <span className="hidden sm:inline">Watchlist</span>
-            )}
+              <span className="tabular-nums text-muted">{deck.wishlist.length}</span>
+            ) : null}
           </button>
 
           {user ? (
