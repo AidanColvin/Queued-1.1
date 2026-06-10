@@ -98,6 +98,20 @@ export interface UserProviders {
   onboarding_completed: boolean;
 }
 
+/** One ranked shelf on the For You page (mirrors backend ``PersonalSection``). */
+export interface PersonalSection {
+  key: string;
+  title: string;
+  items: Recommendation[];
+}
+
+/** Response of GET /recommendations/personal. */
+export interface PersonalResponse {
+  sections: PersonalSection[];
+  seeded_by: string[];
+  signed_in: boolean;
+}
+
 /** Outcome of a Letterboxd import (mirrors backend ``LetterboxdSummary``). */
 export interface LetterboxdSummary {
   total: number;

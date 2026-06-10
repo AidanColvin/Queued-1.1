@@ -25,7 +25,20 @@ from ml.artifacts import artifacts_exist, load_artifacts
 from ml.recommender import HybridRecommender
 from ml.reranker import SessionStore
 from providers import ProviderIndex
-from routers import auth, health, letterboxd, popular, providers, recommend, search, swipe, trailer, tv, user_data
+from routers import (
+    auth,
+    health,
+    letterboxd,
+    personal,
+    popular,
+    providers,
+    recommend,
+    search,
+    swipe,
+    trailer,
+    tv,
+    user_data,
+)
 
 logger = logging.getLogger("nextwatch")
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -137,7 +150,8 @@ def create_app(api_prefix: str = "") -> FastAPI:
             load_state(request.app)
         return await call_next(request)
 
-    for router in (health, search, recommend, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd):
+    routers = (health, search, recommend, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd, personal)
+    for router in routers:
         app.include_router(router.router, prefix=api_prefix)
 
     @app.get(api_prefix or "/", tags=["meta"])

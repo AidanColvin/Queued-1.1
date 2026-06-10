@@ -79,6 +79,15 @@ function loadIds(key: string): number[] {
   }
 }
 
+/** The locally stored liked + wish-listed movie titles — the seeds an
+ *  anonymous visitor brings to the For You page. */
+export function loadStoredPositiveTitles(): string[] {
+  const titles = [...load(LIKED_KEY), ...load(WISHLIST_KEY)]
+    .filter((r) => r.type === 'movie')
+    .map((r) => r.title);
+  return [...new Set(titles)].slice(-12);
+}
+
 export function useDeck(): DeckApi {
   const [state, setState] = useState<DeckState>(() => ({
     queue: [],

@@ -302,6 +302,22 @@ and unmatched titles are kept in `external_ratings` for review.
 
 ---
 
+## The "For You" page
+
+`GET /recommendations/personal` builds ranked shelves from **everything known
+about the caller** — saved likes, the swipe log, imported Letterboxd ratings:
+
+- *Because you liked &lt;title&gt;* — hybrid ranking, one shelf per top seed
+- *Loved by viewers like you* — pure collaborative (SVD) signal
+- *On your services* — hard-filtered to the user's streaming services
+
+Seen titles never reappear and no title repeats across shelves. Anonymous
+visitors get the same shelves from their session's likes plus a sign-in nudge
+(falling back to the popular deck with no signal at all). Reachable from the
+**✦ For You** button on the deck.
+
+---
+
 ## Roadmap
 
 - [x] Phase 1 — Core ML pipeline + API (backend complete, fully tested)

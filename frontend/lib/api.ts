@@ -7,6 +7,7 @@ import type {
   LetterboxdStatus,
   LetterboxdSummary,
   MediaType,
+  PersonalResponse,
   ProviderPrefs,
   Recommendation,
   RecommendResponse,
@@ -204,6 +205,19 @@ export async function setMyProviders(providers: number[], complete = true): Prom
     method: 'PUT',
     body: JSON.stringify({ providers, complete }),
   });
+}
+
+/** The "For You" shelves. Signed-in users are recognized by their cookie; for
+ *  guests the session's liked titles ride along as seeds. */
+export async function getPersonal(seeds: string[] = [], prefs?: ProviderPrefs): Promise<PersonalResponse> {
+  const params = new URLSearchParams();
+  if (seeds.length) params.set('seeds', seeds.slice(0, 12).join(','));
+  if (prefs && prefs.filter !== 'all') {
+    params.set('provider_filter', prefs.filter);
+    if (prefs.providers.length) params.set('providers', prefs.providers.join(','));
+  }
+  const qs = params.toString();
+  return request<PersonalResponse>(`/recommendations/personal${qs ? `?${qs}` : ''}`);
 }
 
 // --------------------------------------------------------------------------- #

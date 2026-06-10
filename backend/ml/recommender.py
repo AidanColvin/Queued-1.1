@@ -130,6 +130,7 @@ class HybridRecommender:
         count: int = 10,
         exclude_seen: bool = True,
         exclude_ids: list[int] | None = None,
+        weights: tuple[float, float, float] | None = None,
     ) -> RecommendResponse:
         """Produce ranked recommendations for resolved seed indices.
 
@@ -139,15 +140,19 @@ class HybridRecommender:
             exclude_seen: Drop the seed titles from the results when true.
             exclude_ids: Recommendation ids (``movie_id``) already shown — never
                 returned again, so the endless deck never repeats a card.
+            weights: Optional ``(cf, content, semantic)`` blend override. The
+                default is the tuned hybrid; ``(1, 0, 0)`` gives the pure
+                "viewers like you" collaborative ranking used by /for-you.
 
         Returns:
             A :class:`~schemas.RecommendResponse`.
         """
+        w_cf, w_content, w_semantic = weights if weights is not None else (W_CF, W_CONTENT, W_SEMANTIC)
         cf = _cosine_to_unit(cf_scores(self._bundle.cf_factors, seed_indices))
         content = content_scores(self._bundle.tfidf, seed_indices)  # already [0, 1]
         semantic = _cosine_to_unit(semantic_scores(self._bundle.embeddings, seed_indices))
 
-        blended = W_CF * cf + W_CONTENT * content + W_SEMANTIC * semantic
+        blended = w_cf * cf + w_content * content + w_semantic * semantic
 
         order = np.argsort(blended)[::-1]
         seed_set = set(seed_indices) if exclude_seen else set()

@@ -288,6 +288,27 @@ class SaveTitleRequest(BaseModel):
 
 
 # --------------------------------------------------------------------------- #
+# /recommendations/personal  (the "For You" page)
+# --------------------------------------------------------------------------- #
+class PersonalSection(BaseModel):
+    """One ranked shelf on the For You page."""
+
+    key: str = Field(description='Stable section id ("because_you_liked", "similar_users", "on_your_services", "popular").')
+    title: str = Field(description="Display heading.")
+    items: list[Recommendation]
+
+
+class PersonalResponse(BaseModel):
+    """Response for ``GET /recommendations/personal``."""
+
+    sections: list[PersonalSection]
+    seeded_by: list[str] = Field(
+        default_factory=list, description="The titles the recommendations were built from."
+    )
+    signed_in: bool = Field(description="False → the UI shows a sign-in nudge (session-only seeds).")
+
+
+# --------------------------------------------------------------------------- #
 # /account/letterboxd
 # --------------------------------------------------------------------------- #
 class LetterboxdSyncRequest(BaseModel):

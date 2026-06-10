@@ -328,6 +328,12 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             Pick your services →
           </a>
         )}
+        <a
+          href="/for-you/"
+          className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-medium text-ink ring-1 ring-black/[0.08] transition hover:ring-black/20 active:scale-95"
+        >
+          <span aria-hidden>✦</span> For You
+        </a>
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col">
