@@ -9,7 +9,8 @@
     "build:native": "next build && cap sync ios",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@capacitor-community/apple-sign-in": "^6.0.0",
@@ -25,6 +26,7 @@
     "recharts": "2.13.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.1",
     "@types/node": "20.16.11",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.0",
