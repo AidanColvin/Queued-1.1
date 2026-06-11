@@ -1,5 +1,7 @@
 # Queued
 
+[![CI](https://github.com/AidanColvin/nextwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/AidanColvin/nextwatch/actions/workflows/ci.yml)
+
 **AI-powered movie and TV recommendation engine.**  
 Input titles you have loved. Get ranked suggestions from a hybrid ML pipeline trained on 25 million public ratings.
 
