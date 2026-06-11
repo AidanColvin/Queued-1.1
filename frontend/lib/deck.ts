@@ -47,6 +47,9 @@ export interface DeckApi {
   append: (recs: Recommendation[], fetchedAll?: Recommendation[]) => number;
   /** Empty the queue + history for a fresh stack; keeps liked + wish list. */
   reset: () => void;
+  /** Drop the persisted seen set (recovery path: a poisoned seen list can
+   *  exclude the whole catalog and starve the deck). Keeps liked + wishlist. */
+  clearSeen: () => void;
   /** Adopt a signed-in user's server state: replace liked + wishlist and fold
    *  the server's seen ids into the exclude set. Called after login/merge. */
   loadServerState: (history: AccountHistory) => void;
@@ -200,6 +203,10 @@ export function useDeck(): DeckApi {
     setState((s) => ({ ...s, queue: [], current: 0, decisions: [] }));
   }, []);
 
+  const clearSeen = useCallback(() => {
+    setState((s) => ({ ...s, seenIds: [], queue: [], current: 0, decisions: [] }));
+  }, []);
+
   const loadServerState = useCallback<DeckApi['loadServerState']>((history) => {
     setState((s) => ({
       ...s,
@@ -282,6 +289,7 @@ export function useDeck(): DeckApi {
       reorderRemaining,
       append,
       reset,
+      clearSeen,
       loadServerState,
       clearAll,
     };

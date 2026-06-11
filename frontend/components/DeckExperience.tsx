@@ -82,6 +82,9 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const startedRef = useRef(false);
   const exhaustedRef = useRef(false);
   const prevUserRef = useRef<typeof user>(null);
+  // One-shot guard: a poisoned seen set (it once swallowed the whole catalog
+  // during a poster outage) is cleared at most once per page load.
+  const seenResetRef = useRef(false);
   const onboardingSentRef = useRef(false);
 
   // Restore the locally saved filter + services once on mount.
@@ -152,8 +155,28 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
               );
             }
             const fetched = res.recommendations;
+            // RECOVERY: the backend returned nothing for a movie fetch even
+            // though the catalog holds thousands of titles — the only way that
+            // happens is an exclude list that grew to swallow the catalog
+            // (which real browsers accumulated during a poster outage: every
+            // poster-less batch was marked seen, batch after batch). Clear the
+            // poisoned seen set once and refetch from scratch; repeats are
+            // infinitely better than an empty deck.
+            if (fetched.length === 0 && forStack === 'movie' && exclude.length > 500 && !seenResetRef.current) {
+              seenResetRef.current = true;
+              deck.clearSeen();
+              continue;
+            }
             // Drop anything we can't show a poster for before it enters the deck.
             const postered = await keepPostered(fetched);
+            // GUARD: a batch where EVERY card lacks a poster is a systemic
+            // outage (bad catalog deploy), not bad luck. Marking those ids
+            // seen is what poisons browsers for good — surface the error
+            // state instead and leave the seen set untouched.
+            if (fetched.length > 0 && postered.length === 0 && forStack === 'movie') {
+              if (initial) setStatus('error');
+              return;
+            }
             // Queue the postered cards, but mark the *whole* fetched batch seen so
             // dropped (poster-less) titles are excluded from future fetches. When
             // a batch yields no postered cards, the refill effect re-fires and
