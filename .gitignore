@@ -38,7 +38,15 @@ training/
 data/raw/
 data/processed/
 backend/data/raw/
-backend/data/artifacts/
+backend/data/artifacts/*
+# The five artifact contract files ARE the deployed model — Vercel builds from
+# git, so they must stay committed (raw data and parquet stay ignored).
+!backend/data/artifacts/.gitkeep
+!backend/data/artifacts/movie_index.json
+!backend/data/artifacts/cf_item_factors.npy
+!backend/data/artifacts/tfidf_matrix.npz
+!backend/data/artifacts/embeddings.npy
+!backend/data/artifacts/tv_index.json
 backend/data/artifacts.backup-*/
 backend/data/*.parquet
 backend/data/*.csv
