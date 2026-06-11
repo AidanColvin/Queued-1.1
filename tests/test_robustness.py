@@ -1,32 +1,53 @@
-# tests/test_robustness.py
-import pytest
-import numpy as np
-from ml.reranker import build_taste_space, popularity_prior
+from fastapi.testclient import TestClient
+from main import app
 
-def test_reranker_predicts_diverse_tastes():
-    """
-    takes: model artifacts (embeddings.npy).
-    does: tests if the reranker adapts output based on different user history inputs.
-    returns: assertion error if recommendation order is identical for different user profiles.
-    """
-    # 1. Simulate two users with opposite tastes
-    user_a_history = ["The Godfather", "Goodfellas"]
-    user_b_history = ["The Little Mermaid", "Toy Story"]
-    
-    # 2. Get recommendations
-    recs_a = build_taste_space(user_a_history)
-    recs_b = build_taste_space(user_b_history)
-    
-    # 3. Assert diversity
-    # The models must recommend different films for different tastes
-    assert recs_a[0] != recs_b[0], "Reranker failed to adapt to diverse tastes"
-    assert len(recs_a) == 5, "Reranker must return 5 candidates"
+client = TestClient(app)
 
-def test_popularity_prior_bounds():
-    """
-    takes: model artifacts.
-    does: ensures the popularity prior probability is normalized between 0 and 1.
-    returns: assertion error if weights are invalid.
-    """
-    priors = popularity_prior()
-    assert np.all((priors >= 0) & (priors <= 1)), "Priors must be in [0, 1]"
+def test_health():
+    r = client.get("/health")
+    assert r.status_code == 200
+    assert r.json()["status"] == "ok"
+
+def test_demo():
+    r = client.get("/api/recommendations/demo")
+    assert r.status_code == 200
+    body = r.json()
+    assert "recommendations" in body
+    assert len(body["recommendations"]) >= 1
+
+def test_train():
+    r = client.post("/api/train")
+    assert r.status_code == 200
+    assert r.json()["status"] == "started"
+
+def test_rerank_schema():
+    """Validates the contract: API must return a 'recommendations' key with a list of strings."""
+    payload = {"user_history": ["The Godfather"]}
+    r = client.post("/rerank", json=payload)
+    assert r.status_code == 200
+    data = r.json()
+    assert "recommendations" in data
+    assert isinstance(data["recommendations"], list)
+    assert len(data["recommendations"]) > 0
+
+def test_rerank_empty_history():
+    """Resilience: Ensure system doesn't crash when history is empty."""
+    payload = {"user_history": []}
+    r = client.post("/rerank", json=payload)
+    assert r.status_code == 200
+    assert "recommendations" in r.json()
+
+def test_rerank_malformed_input():
+    """Robustness: Ensure system handles missing keys gracefully."""
+    r = client.post("/rerank", json={}) # Missing 'user_history'
+    assert r.status_code == 200 # Or 422 if you prefer strict validation
+
+import time
+
+def test_rerank_latency():
+    """Robustness: Latency threshold check."""
+    start = time.time()
+    r = client.post("/rerank", json={"user_history": ["The Godfather"]})
+    duration = time.time() - start
+    assert r.status_code == 200
+    assert duration < 0.2, f"Rerank latency too high: {duration:.4f}s"

@@ -1,70 +1,61 @@
-# ---- Python ----
+# env
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# macOS
+.DS_Store
+
+# Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-.eggs/
 .pytest_cache/
-.coverage
-htmlcov/
 .mypy_cache/
 .ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
 
-# Virtual environments
+# virtual environments
 .venv/
 venv/
 env/
+backend/.venv/
 
-# ---- Environment / secrets ----
-.env
-.env.local
-*.local
+# logs
+logs/
+*.log
 
-# ---- Databases ----
+# local databases
 *.db
 *.sqlite
 *.sqlite3
 
-# ---- ML artifacts & raw data ----
-# Generated/large artifacts are not committed. The sample artifacts are
-# regenerated on demand via `python -m data.sample`; the real artifacts come
-# from the download + preprocess pipeline.
-backend/data/artifacts/*
-!backend/data/artifacts/.gitkeep
+# training / generated data
+training/
+data/raw/
+data/processed/
 backend/data/raw/
-*.npy
-*.npz
-*.pkl
-
-# ---- Node / Next.js (Phase 2) ----
-node_modules/
-.next/
-out/
-*.tsbuildinfo
-frontend/.env*.local
-
-# ---- OS / editor ----
-.DS_Store
-.idea/
-.vscode/
-*.swp
-
-# ---- Local-only Claude Code settings (keep launch.json shareable) ----
-.claude/settings.local.json
-
-# ---- Committed servable model artifacts ----
-# The trained 5,400-movie model ships in the repo so the deployed backend serves
-# it out of the box. The 15 MB training parquet + raw data stay ignored above.
+backend/data/artifacts/*
+# The five artifact contract files ARE the deployed model — Vercel builds from
+# git, so they must stay committed (raw data and parquet stay ignored).
+!backend/data/artifacts/.gitkeep
 !backend/data/artifacts/movie_index.json
 !backend/data/artifacts/cf_item_factors.npy
 !backend/data/artifacts/tfidf_matrix.npz
 !backend/data/artifacts/embeddings.npy
 !backend/data/artifacts/tv_index.json
-artifacts.backup*
-backend/data/artifacts.backup*
-experiments/kion/data_en/
-experiments/kion/data_en/interactions.csv
-/data/
-node_modules/
-backend/.venv/
-.DS_Store
-data/
+backend/data/artifacts.backup-*/
+backend/data/*.parquet
+backend/data/*.csv
+backend/data/*.json
+backend/ml/artifacts/
+experiments/
+
+# frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/tsconfig.tsbuildinfo
