@@ -44,3 +44,12 @@ One entry per dataset stage. Metric = ml.evaluate temporal holdout (AUC / P@k), 
 - old factors: shipped AUC 0.7936, P@5 0.8586, P@10 0.8594 (cf-only AUC 0.7593)
 - new factors: shipped AUC 0.7937, P@5 0.8573, P@10 0.8594 (cf-only AUC 0.7594)
 - verdict: ADOPTED
+
+## Stage 4 — recent ratings only (2015+, HF recent-ratings equivalent)
+
+- HF pinecone/movielens-recent-ratings is a loader over ml-25m.zip; the slice is reproduced locally
+- hypothesis: dropping pre-2015 preferences sharpens modern like/dislike prediction
+- ratings: 6,755,713 rows / 45,043 users (86,103 holdout judgments, 2,541 eval users)
+- old factors: shipped AUC 0.7937, P@5 0.8573, P@10 0.8594 (cf-only AUC 0.7594)
+- new factors: shipped AUC 0.7619, P@5 0.8555, P@10 0.8569 (cf-only AUC 0.7310)
+- verdict: REJECTED (regression — old factors kept)
