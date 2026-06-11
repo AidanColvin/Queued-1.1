@@ -61,6 +61,9 @@ def test_real_user_learning_curve_improves(engine, capsys) -> None:
     pd = pytest.importorskip("pandas")
     from ml.simulate import run_batch
 
+    if not (ARTIFACTS / "ratings.parquet").exists():
+        pytest.skip("ratings.parquet not present (training-only artifact)")
+
     ratings = pd.read_parquet(ARTIFACTS / "ratings.parquet")
     ratings = ratings[ratings["movieId"].isin(engine.movieid_to_idx)]
     rows = run_batch(engine, ratings, n_users=60, max_swipes=10, seed=7)

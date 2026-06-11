@@ -246,6 +246,41 @@ class HybridRecommender:
 
         return RecommendResponse(recommendations=recs, taste_profile=self._taste_profile(chosen[:8]))
 
+    def predict_extremes(self, vector, count: int = 5) -> tuple[list[dict], list[dict]]:
+        """The crystal ball: titles the model predicts this taste will LOVE and HATE.
+
+        Loves = the production blended ranking (cosine + popularity prior) —
+        identical scoring to the adaptive deck, so the forecast IS the model's
+        actual next picks. Hates = the most NEGATIVE raw cosines (no prior:
+        "you'll dislike this" is about taste opposition, not obscurity).
+        Returns ([], []) when there is no usable signal.
+        """
+        import numpy as np
+
+        space = self._taste_space
+        norm = float(np.linalg.norm(vector)) if vector is not None else 0.0
+        if space is None or norm == 0.0 or vector.shape[0] != space.shape[1]:
+            return [], []
+
+        cosine = space @ (vector / norm)
+        blended = cosine + POP_BETA * self._pop_prior
+
+        def pack(idx: int, score: float) -> dict:
+            rec = self._catalog[idx]
+            return {"id": rec.movie_id, "title": rec.title, "year": rec.year,
+                    "score": round(float(score), 2)}
+
+        love_order = np.argsort(blended)[::-1][:count]
+        # Only popular-enough titles qualify as predicted hates — "you'll hate
+        # this obscure film you've never heard of" is noise, not a forecast.
+        hate_mask = self._pop_prior >= 0.5
+        hate_pool = np.where(hate_mask)[0]
+        hate_order = hate_pool[np.argsort(cosine[hate_pool])[:count]] if hate_pool.size else []
+
+        loves = [pack(int(i), blended[int(i)]) for i in love_order]
+        hates = [pack(int(i), cosine[int(i)]) for i in hate_order]
+        return loves, hates
+
     def popular(
         self,
         popularity: dict[int, float],
