@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
-# Explicitly set PYTHONPATH to the current directory
+# Force the project root into the PYTHONPATH
 export PYTHONPATH=$(pwd)
 
 echo "--- Running Backend Tests ---"
-# Remove the invalid --pythonpath flag, rely on PYTHONPATH
+# -c pytest.ini is implied, --pythonpath . is handled by ini
 python3 -m pytest tests/ -v
 
 echo "--- Running Frontend Tests ---"
