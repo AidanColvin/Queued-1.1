@@ -62,7 +62,10 @@ def adaptive(
     response: RecommendResponse | None = None
     if vector and confidence >= ADAPTIVE_MIN_CONFIDENCE:
         response = recommender.recommend_by_taste(
-            np.asarray(vector, dtype=np.float32), count=fetch, exclude_ids=payload.exclude_ids
+            np.asarray(vector, dtype=np.float32),
+            count=fetch,
+            exclude_ids=payload.exclude_ids,
+            confidence=confidence,
         )
     # No signal / stale vector / drained → crowd-popularity fallback.
     if response is None or not response.recommendations:

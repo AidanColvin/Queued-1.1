@@ -25,7 +25,7 @@ from ml.artifacts import ArtifactBundle, MovieRecord, normalize_title
 from ml.collaborative import cf_scores
 from ml.content import content_scores
 from ml.embeddings import semantic_scores
-from ml.reranker import POP_BETA, popularity_prior
+from ml.reranker import POP_BETA, TASTE_SHRINK, popularity_prior
 from schemas import Recommendation, RecommendResponse, TasteProfile
 
 # Blend weights (must sum to 1.0). CF dominates because behavioral signal is the
@@ -197,6 +197,7 @@ class HybridRecommender:
         vector: np.ndarray,
         count: int = 20,
         exclude_ids: list[int] | None = None,
+        confidence: float = 1.0,
     ) -> RecommendResponse:
         """Generate fresh candidates nearest a live taste vector (Layer 2).
 
@@ -218,6 +219,11 @@ class HybridRecommender:
             return RecommendResponse(recommendations=[], taste_profile=self._taste_profile([]))
 
         cosine = space @ (vector / norm)  # space rows are unit-norm -> dot == cosine
+        # Early-swipe shrinkage (see reranker.TASTE_SHRINK): trust the taste
+        # vector in proportion to its confidence so a thin profile leans on the
+        # popularity prior. A persisted/mature profile (high confidence) is
+        # barely shrunk; the default 1.0 keeps callers that omit it unchanged.
+        cosine = (confidence / (confidence + TASTE_SHRINK)) * cosine
         scores = cosine + POP_BETA * self._pop_prior
         order = np.argsort(scores)[::-1]
         excluded = set(exclude_ids or [])

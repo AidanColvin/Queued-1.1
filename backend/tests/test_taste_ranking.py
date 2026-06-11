@@ -65,15 +65,24 @@ def test_rerank_blends_popularity_prior() -> None:
     assert with_prior.rerank([300, 200])[0] == 300
 
 
-def test_prior_does_not_override_strong_taste_signal() -> None:
-    """A clear taste match beats max popularity: cosine spread (2.0 across
-    opposite directions) outweighs ``POP_BETA`` (< 1) by design."""
+def test_mature_taste_signal_overrides_prior_but_thin_one_defers() -> None:
+    """Taste beats max popularity once it's well-established, but a *thin* taste
+    vector (1-2 swipes) defers to the popularity prior — the early-swipe
+    shrinkage (``TASTE_SHRINK``) that removes the measured cold-start dip."""
     embeddings = np.array([[1.0, 0.0], [1.0, 0.0], [-1.0, 0.0]], dtype=np.float32)
     tmdb_to_idx = {100: 0, 200: 1, 300: 2}
     prior = np.array([0.0, 0.0, 1.0], dtype=np.float32)
     assert POP_BETA < 2.0
 
-    rr = SessionReranker(embeddings, tmdb_to_idx, prior=prior)
-    rr.update(100, "liked", 2000)
-    # 200 matches taste exactly (cos 1.0); 300 is opposite (cos -1.0) but popular.
-    assert rr.rerank([300, 200])[0] == 200
+    # One swipe: the taste vector is shrunk toward the prior, so the maximally
+    # popular (but taste-opposite) title 300 still leads.
+    cold = SessionReranker(embeddings, tmdb_to_idx, prior=prior)
+    cold.update(100, "liked", 2000)
+    assert cold.rerank([300, 200])[0] == 300
+
+    # Once the same taste is reinforced, confidence rises, shrinkage relaxes,
+    # and the exact taste match 200 overtakes the popular title.
+    warm = SessionReranker(embeddings, tmdb_to_idx, prior=prior)
+    for _ in range(8):
+        warm.update(100, "liked", 2000)
+    assert warm.rerank([300, 200])[0] == 200
