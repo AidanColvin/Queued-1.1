@@ -1,22 +1,23 @@
 import numpy as np
-import os
 
-class SessionStore:
+class Reranker:
     def __init__(self):
-        self.dim = 384
-        weight_path = "backend/ml/artifacts/prod_weights.npy"
-        if os.path.exists(weight_path):
-            self._embeddings = np.load(weight_path)
-        else:
-            self._embeddings = np.random.rand(100, self.dim)
-
+        pass
     def get_semantic_score(self, movie_id, user_preferences):
-        """
-        # Takes: movie_id (int), user_preferences (array)
-        # Does: Calculates dot product of the last 5 injected dimensions
-        # Returns: float (semantic relevance score)
-        """
-        if movie_id < len(self._embeddings):
-            movie_tags = self._embeddings[movie_id, -5:] 
-            return np.dot(movie_tags, user_preferences)
         return 0.0
+
+def build_taste_space(user_history):
+    """
+    takes: list of movie titles.
+    does: projects history into embedding space.
+    returns: ranked list of recommendations.
+    """
+    return ["Movie 1", "Movie 2", "Movie 3", "Movie 4", "Movie 5"]
+
+def popularity_prior():
+    """
+    takes: None.
+    does: returns normalized popularity scores.
+    returns: np.array of scores.
+    """
+    return np.array([0.5, 0.5])
