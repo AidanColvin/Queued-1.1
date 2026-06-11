@@ -438,7 +438,12 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       <p className="mt-3 text-center text-xs text-faint">
         Swipe or tap the arrows — it learns as you go. Tap a card to watch the trailer.
       </p>
-      <p className="mt-1 text-center text-[10px] text-faint">Streaming availability data by JustWatch via TMDB.</p>
+      <p className="mt-1 text-center text-[10px] text-faint">
+        Streaming availability data by JustWatch via TMDB ·{' '}
+        <a href="/privacy/" className="hover:text-ink hover:underline">
+          Privacy
+        </a>
+      </p>
 
       <WishlistDrawer open={wishlistOpen} items={deck.wishlist} onClose={() => setWishlistOpen(false)} />
       <TrailerModal rec={trailerRec} onClose={() => setTrailerRec(null)} />
