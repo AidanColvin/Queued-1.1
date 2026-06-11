@@ -193,22 +193,92 @@ def stage2_netflix_prize() -> None:
         if i % 500 == 0:
             print(f"  parsed {i:,}/{len(mapped):,} movie files...")
     nf = pd.concat(frames, ignore_index=True)
-    nf["userId"] += 1_000_000_000  # disjoint from MovieLens user ids
     print(f"[Stage 2] Netflix ratings on catalog titles: {len(nf):,}")
+    # Full Netflix (75.6M) outweighs modern MovieLens 3:1 and REGRESSED the
+    # holdout (AUC 0.794 -> 0.764): 2005-era preferences swamp the signal.
+    # Subsample Netflix users to rough parity with MovieLens instead.
+    keep_users = nf["userId"] % 4 == 0  # deterministic ~25% of users
+    nf = nf[keep_users]
+    nf["userId"] = nf["userId"] + 1_000_000_000  # disjoint from MovieLens ids
+    print(f"[Stage 2] after 25% user subsample: {len(nf):,} ratings")
 
     ml = pd.read_parquet(ARTIFACTS / "ratings.parquet")[["userId", "movieId", "rating"]]
     combined = pd.concat([ml, nf], ignore_index=True)
     _retrain_and_compare(
         combined,
-        "Stage 2 — Netflix Prize pretrain (+ML25M)",
+        "Stage 2 — Netflix Prize pretrain (+ML25M, 25% user subsample)",
         [f"- {len(mapped):,}/17,770 Netflix titles mapped by normalized title+year (±1)",
+         f"- full-Netflix variant (75.6M ratings) REGRESSED AUC 0.7936 -> 0.7643 (2005-era data swamps modern signal); retried at 25% user parity",
          f"- Netflix adds {len(nf):,} ratings on catalog titles ({nf['userId'].nunique():,} users)"],
         write_parquet=False,   # holdout stays pure MovieLens
         refresh_prior=False,   # 2005-era popularity must not leak into the prior
     )
 
 
-STAGES = {1: stage1_movielens_full, 2: stage2_netflix_prize}
+def stage3_kion_implicit() -> None:
+    """MTS Kion implicit watch events (2021 streaming) as pseudo-ratings.
+
+    The closest dataset to real streaming behavior: completion percentage is
+    the signal (finish it = like, bail early = dislike). 1,788 of the English-
+    translated items map onto the catalog via title_orig/title + year (±1).
+    Watch events become pseudo-ratings (>=70% watched -> 4.5, <=20% -> 1.5,
+    middle = ambiguous, dropped) and join the MovieLens matrix with offset
+    user ids. Holdout stays pure MovieLens; prior untouched.
+    """
+    from ml.artifacts import normalize_title
+
+    movies, _ = _catalog()
+    key_of: dict[tuple[str, int | None], int] = {}
+    for m in movies:
+        key_of.setdefault((normalize_title(m["title"]), m["year"]), m["movie_id"])
+
+    kion = Path("../experiments/kion/data_en")
+    items = pd.read_csv(kion / "items_en.csv", usecols=["item_id", "content_type", "title", "title_orig", "release_year"])
+    films = items[items["content_type"] == "film"]
+    mapped: dict[int, int] = {}
+    for _, r in films.iterrows():
+        year = int(r["release_year"]) if pd.notna(r["release_year"]) else None
+        for t in (r["title_orig"], r["title"]):
+            if pd.isna(t):
+                continue
+            k = normalize_title(str(t))
+            hit = None
+            for y in (year, (year - 1) if year else None, (year + 1) if year else None):
+                hit = key_of.get((k, y))
+                if hit:
+                    break
+            if hit:
+                mapped[int(r["item_id"])] = hit
+                break
+    print(f"[Stage 3] mapped {len(mapped):,} Kion films onto the catalog")
+
+    inter = pd.read_csv(kion / "interactions.csv", usecols=["user_id", "item_id", "watched_pct"])
+    inter = inter[inter["item_id"].isin(mapped)].dropna(subset=["watched_pct"])
+    finished = inter["watched_pct"] >= 70
+    bailed = inter["watched_pct"] <= 20
+    inter = inter[finished | bailed].copy()
+    inter["rating"] = np.where(inter["watched_pct"] >= 70, 4.5, 1.5).astype(np.float32)
+    kion_df = pd.DataFrame({
+        "userId": inter["user_id"].astype(np.int64) + 2_000_000_000,
+        "movieId": inter["item_id"].map(mapped),
+        "rating": inter["rating"],
+    })
+    print(f"[Stage 3] Kion pseudo-ratings: {len(kion_df):,} ({kion_df['userId'].nunique():,} users)")
+
+    ml = pd.read_parquet(ARTIFACTS / "ratings.parquet")[["userId", "movieId", "rating"]]
+    combined = pd.concat([ml, kion_df], ignore_index=True)
+    _retrain_and_compare(
+        combined,
+        "Stage 3 — MTS Kion implicit watch events (+ML25M)",
+        [f"- {len(mapped):,}/12,002 Kion films mapped via title_orig/title + year (±1)",
+         f"- completion-as-signal: >=70% watched -> 4.5, <=20% -> 1.5 (middle dropped)",
+         f"- adds {len(kion_df):,} pseudo-ratings from {kion_df['userId'].nunique():,} real streaming users"],
+        write_parquet=False,
+        refresh_prior=False,
+    )
+
+
+STAGES = {1: stage1_movielens_full, 2: stage2_netflix_prize, 3: stage3_kion_implicit}
 
 
 def main() -> None:

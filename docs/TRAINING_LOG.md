@@ -24,3 +24,13 @@ One entry per dataset stage. Metric = ml.evaluate temporal holdout (AUC / P@k), 
 - old factors: shipped AUC 0.7936, P@5 0.8586, P@10 0.8594 (cf-only AUC 0.7593)
 - new factors: shipped AUC 0.7643, P@5 0.8416, P@10 0.8452 (cf-only AUC 0.7320)
 - verdict: REJECTED (regression — old factors kept)
+
+## Stage 2 — Netflix Prize pretrain (+ML25M, 25% user subsample)
+
+- 3,026/17,770 Netflix titles mapped by normalized title+year (±1)
+- full-Netflix variant (75.6M ratings) REGRESSED AUC 0.7936 -> 0.7643 (2005-era data swamps modern signal); retried at 25% user parity
+- Netflix adds 18,834,398 ratings on catalog titles (119,550 users)
+- ratings: 42,100,611 rows / 282,085 users (86,103 holdout judgments, 2,541 eval users)
+- old factors: shipped AUC 0.7936, P@5 0.8586, P@10 0.8594 (cf-only AUC 0.7593)
+- new factors: shipped AUC 0.7895, P@5 0.8534, P@10 0.8549 (cf-only AUC 0.7548)
+- verdict: REJECTED (regression — old factors kept)
