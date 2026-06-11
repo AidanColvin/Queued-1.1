@@ -31,6 +31,7 @@ import LetterboxdModal from './LetterboxdModal';
 import SplashScreen from './SplashScreen';
 import SwipeDeck from './SwipeDeck';
 import TrailerModal from './TrailerModal';
+import WelcomeGate from './WelcomeGate';
 import WishlistDrawer from './WishlistDrawer';
 
 interface DeckExperienceProps {
@@ -50,6 +51,27 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [wishlistOpen, setWishlistOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
+  // First-visit gate (splash -> sign-in page -> deck). True until proven new.
+  const [welcomed, setWelcomed] = useState(true);
+  useEffect(() => {
+    try {
+      setWelcomed(localStorage.getItem('queued:welcomed') === '1');
+    } catch {
+      /* storage unavailable -> skip the gate */
+    }
+  }, []);
+  const dismissGate = useCallback(() => {
+    setWelcomed(true);
+    try {
+      localStorage.setItem('queued:welcomed', '1');
+    } catch {
+      /* non-fatal */
+    }
+  }, []);
+  // Signing in (now or on a later visit) counts as welcomed.
+  useEffect(() => {
+    if (user) dismissGate();
+  }, [user, dismissGate]);
   const [letterboxdOpen, setLetterboxdOpen] = useState(false);
   const [trailerRec, setTrailerRec] = useState<Recommendation | null>(null);
   const [stack, setStack] = useState<Stack>('movie');
@@ -165,12 +187,18 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     void fetchMore(true, 'movie');
   }, [fetchMore, deck.hydrated]);
 
-  // Endless refill: keep the queue topped up as the user swipes.
+  // Endless refill: keep the queue topped up as the user swipes. When the
+  // queue has fully drained ("Lining up more picks…"), use the patient
+  // initial-fetch path: it retries through serverless cold starts and surfaces
+  // the error state (with its Try again button) if the backend stays down —
+  // a single silent refill attempt here used to strand the deck on the
+  // "Lining up" message forever, since this effect's deps never change again
+  // once the queue is empty.
   useEffect(() => {
     if (status === 'ready' && !exhaustedRef.current && deck.upcomingCount <= REFILL_AT) {
-      void fetchMore(false, stack);
+      void fetchMore(deck.currentCard == null, stack);
     }
-  }, [status, deck.upcomingCount, fetchMore, stack]);
+  }, [status, deck.upcomingCount, deck.currentCard, fetchMore, stack]);
 
   // Jump between the Movies and TV stacks: reset the deck (keeping the shared
   // watchlist) and load the other catalog fresh.
@@ -319,14 +347,17 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       </header>
 
       <div className="flex min-h-0 flex-1 flex-col">
-        {status === 'loading' && (
+        {!welcomed && (
+          <WelcomeGate onSignIn={() => setAuthOpen(true)} onGuest={dismissGate} />
+        )}
+        {welcomed && status === 'loading' && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4">
             <div className="h-7 w-7 animate-spin rounded-full border-[3px] border-surface-2 border-t-accent" />
             <p className="text-[15px] text-muted">Finding something to watch…</p>
           </div>
         )}
 
-        {status === 'error' && (
+        {welcomed && status === 'error' && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center">
             <p className="text-[15px] text-muted">Couldn&apos;t reach the recommender.</p>
             <button
@@ -342,7 +373,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           </div>
         )}
 
-        {status === 'ready' &&
+        {welcomed && status === 'ready' &&
           (deck.currentCard ? (
             <SwipeDeck deck={deck} onOpenCard={openCard} onPersistSave={persistSave} providerPrefs={providerPrefs} />
           ) : (
