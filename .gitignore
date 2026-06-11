@@ -67,3 +67,4 @@ experiments/kion/data_en/interactions.csv
 node_modules/
 backend/.venv/
 .DS_Store
+data/
