@@ -7,7 +7,7 @@ constraint that governs how the app may be distributed.
 
 ## What's already in the repo
 
-- `frontend/capacitor.config.ts` — app id `com.nextwatch.app`, `webDir: out`,
+- `frontend/capacitor.config.ts` — app id `com.queued.app`, `webDir: out`,
   splash configuration.
 - `frontend/ios/` — the generated Xcode project (`npx cap add ios`).
 - `npm run build:native` — static-exports the SPA and syncs it into the iOS
@@ -27,9 +27,9 @@ constraint that governs how the app may be distributed.
 ## One-time Apple setup (manual)
 
 1. **Apple Developer Program** — enroll at developer.apple.com ($99/year).
-2. **Bundle ID** — register `com.nextwatch.app` (Certificates, Identifiers &
+2. **Bundle ID** — register `com.queued.app` (Certificates, Identifiers &
    Profiles → Identifiers) and enable the **Sign in with Apple** capability.
-3. **Backend config** — set `APPLE_CLIENT_IDS=com.nextwatch.app` on the
+3. **Backend config** — set `APPLE_CLIENT_IDS=com.queued.app` on the
    backend (Render/Vercel env), or `/auth/apple` will report 503.
 
 ## Building (requires a Mac with Xcode 15+)

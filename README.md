@@ -3,7 +3,7 @@
 **AI-powered movie and TV recommendation engine.**  
 Input titles you have loved. Get ranked suggestions from a hybrid ML pipeline trained on 25 million public ratings.
 
-> Live demo → `queued-app.vercel.app` · Backend → Render free tier
+> Live demo → `queued-2.vercel.app` · Backend → Render free tier
 
 ---
 

@@ -32,7 +32,7 @@ def test_apple_sign_in_creates_links_and_rejects(api, monkeypatch):
     from auth import apple as apple_mod
     from config import get_settings
 
-    monkeypatch.setenv("APPLE_CLIENT_IDS", "com.nextwatch.app")
+    monkeypatch.setenv("APPLE_CLIENT_IDS", "com.queued.app")
     get_settings.cache_clear()
     try:
         # Bad token → 401.
@@ -70,7 +70,7 @@ def test_apple_links_existing_email_account(api, monkeypatch):
     api.post("/auth/register", json={"email": "linkme@example.com", "password": "hunter2secret"})
     api.cookies.clear()
 
-    monkeypatch.setenv("APPLE_CLIENT_IDS", "com.nextwatch.app")
+    monkeypatch.setenv("APPLE_CLIENT_IDS", "com.queued.app")
     get_settings.cache_clear()
     try:
         monkeypatch.setattr(

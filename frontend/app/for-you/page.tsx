@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
+import TrajectoryForecast from '@/components/TrajectoryForecast';
+
 import { getPersonal } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { loadStoredPositiveTitles } from '@/lib/deck';
@@ -41,6 +43,7 @@ export default function ForYouPage() {
     <main className="app-shell mx-auto flex w-full max-w-md flex-col">
       <header className="mb-4 flex items-center justify-between gap-2">
         <a href="/" className="text-sm font-medium text-muted transition hover:text-ink">
+      <TrajectoryForecast />
           ← Deck
         </a>
         <span className="text-[17px] font-semibold tracking-tight text-ink">For You</span>

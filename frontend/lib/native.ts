@@ -74,8 +74,8 @@ export async function hapticImpact(strong = false): Promise<void> {
 export async function nativeAppleSignIn(): Promise<{ identityToken: string; displayName: string | null }> {
   const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
   const result = await SignInWithApple.authorize({
-    clientId: 'com.nextwatch.app',
-    redirectURI: 'https://queued-app.vercel.app',
+    clientId: 'com.queued.app',
+    redirectURI: 'https://queued-2.vercel.app',
     scopes: 'email name',
   });
   const r = result.response;

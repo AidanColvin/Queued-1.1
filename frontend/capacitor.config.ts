@@ -13,7 +13,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
  * cookie to a bearer token kept in Capacitor Preferences (see lib/native.ts).
  */
 const config: CapacitorConfig = {
-  appId: 'com.nextwatch.app',
+  appId: 'com.queued.app',
   appName: 'Queued',
   webDir: 'out',
   ios: {
