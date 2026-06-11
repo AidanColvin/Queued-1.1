@@ -75,7 +75,7 @@ export async function nativeAppleSignIn(): Promise<{ identityToken: string; disp
   const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
   const result = await SignInWithApple.authorize({
     clientId: 'com.nextwatch.app',
-    redirectURI: 'https://queued.vercel.app',
+    redirectURI: 'https://queued-app.vercel.app',
     scopes: 'email name',
   });
   const r = result.response;

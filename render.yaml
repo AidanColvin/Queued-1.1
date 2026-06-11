@@ -33,7 +33,7 @@ services:
           property: connectionString
       # Locked to the deployed SPA, local dev, and the Capacitor native shell.
       - key: CORS_ORIGINS
-        value: https://queued.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost
+        value: https://queued-app.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost
       - key: TMDB_API_KEY
         sync: false
       # ---- Accounts / auth (Phase 3) ----
@@ -45,7 +45,7 @@ services:
         value: "true"
       # SPA origin the OAuth callback redirects back to.
       - key: FRONTEND_URL
-        value: https://queued.vercel.app
+        value: https://queued-app.vercel.app
       # Google OAuth client (Google Cloud Console). Absent → email/password only;
       # "Continue with Google" returns 503. Redirect URI must be
       # https://<this-backend-host>/auth/google/callback (or /api/... on Vercel).

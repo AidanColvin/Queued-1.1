@@ -24,7 +24,7 @@ os.environ.setdefault("AUTO_SAMPLE", "false")
 # Capacitor native shells serve the bundled SPA from capacitor://localhost.
 os.environ.setdefault(
     "CORS_ORIGINS",
-    "https://queued.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost",
+    "https://queued-app.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost",
 )
 # Vercel is always HTTPS, so default the auth cookie to Secure. Accounts/history
 # need a persistent DATABASE_URL (Postgres) plus the JWT/Google/FRONTEND_URL env
