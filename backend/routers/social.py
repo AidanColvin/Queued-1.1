@@ -4,7 +4,6 @@ import numpy as np
 from db.database import get_db, AnonSessionProfile, UserProfile
 from dependencies import get_session_store
 from ml.reranker import SessionStore
-from schemas import MatchResponse
 
 router = APIRouter(prefix="/social", tags=["social"])
 
