@@ -225,7 +225,10 @@ export default function SwipeCard({
       exit="exit"
       transition={{ type: 'spring', stiffness: 300, damping: 26 }}
     >
-      <div className="group relative h-full w-full overflow-hidden rounded-[28px] bg-surface shadow-card ring-1 ring-black/5">
+      <div
+        data-testid={isTop ? 'swipe-card' : undefined}
+        className="group relative h-full w-full overflow-hidden rounded-[28px] bg-surface shadow-card ring-1 ring-black/5"
+      >
         {/* Trailer action (▶). Lives inside the card so it rides the swipe
             transform with it. stopPropagation on the press keeps a button tap
             from being read as a card tap/drag. */}
