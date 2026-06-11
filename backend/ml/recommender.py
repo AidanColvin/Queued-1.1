@@ -25,6 +25,7 @@ from ml.artifacts import ArtifactBundle, MovieRecord, normalize_title
 from ml.collaborative import cf_scores
 from ml.content import content_scores
 from ml.embeddings import semantic_scores
+from ml.reranker import POP_BETA, popularity_prior
 from schemas import Recommendation, RecommendResponse, TasteProfile
 
 # Blend weights (must sum to 1.0). CF dominates because behavioral signal is the
@@ -65,6 +66,9 @@ class HybridRecommender:
         # attached at startup (see main.load_state). Lets us generate *new*
         # candidates directly from a user's live taste vector — not just reorder.
         self._taste_space: np.ndarray | None = None
+        # Popularity prior blended into taste ranking (zeros for the sample
+        # bundle, where it is a no-op). Same prior the session reranker uses.
+        self._pop_prior = popularity_prior(self._catalog)
         # Lookup maps. Later entries do not overwrite earlier ones, so the first
         # occurrence of a normalized title wins (stable, order-preserving).
         self._by_title: dict[str, int] = {}
@@ -199,9 +203,11 @@ class HybridRecommender:
         Ranks the WHOLE catalog by cosine to the user's accumulated taste vector
         in the hybrid space — so results reflect everything they've liked AND
         disliked (dislikes pushed the vector away) and lean on collaborative
-        signal (the CF half of the space). This is what lets the deck *predict
-        new, unique titles* rather than only re-order a popularity pool. Already
-        seen ids are excluded so a card never repeats.
+        signal (the CF half of the space) — plus the popularity prior
+        (``cosine + POP_BETA * prior``), the configuration the offline holdout
+        measured as most predictive (see ``ml.evaluate``). This is what lets the
+        deck *predict new, unique titles* rather than only re-order a popularity
+        pool. Already seen ids are excluded so a card never repeats.
 
         Returns an empty list (caller should fall back to popularity) when there
         is no taste space, no signal, or a stale-dimension vector.
@@ -211,7 +217,8 @@ class HybridRecommender:
         if space is None or norm == 0.0 or vector.shape[0] != space.shape[1]:
             return RecommendResponse(recommendations=[], taste_profile=self._taste_profile([]))
 
-        scores = space @ (vector / norm)  # cosine; space rows are unit-norm
+        cosine = space @ (vector / norm)  # space rows are unit-norm -> dot == cosine
+        scores = cosine + POP_BETA * self._pop_prior
         order = np.argsort(scores)[::-1]
         excluded = set(exclude_ids or [])
 
@@ -222,10 +229,10 @@ class HybridRecommender:
             rec = self._catalog[idx]
             if rec.movie_id in excluded:
                 continue
+            # Display score: map the blended score from [-1, 1 + POP_BETA] to [0, 1].
+            display = (float(scores[idx]) + 1.0) / (2.0 + POP_BETA)
             recs.append(
-                self._to_recommendation(
-                    rec, score=round(float((scores[idx] + 1) / 2), 2), why="Tuned to your taste."
-                )
+                self._to_recommendation(rec, score=round(display, 2), why="Tuned to your taste.")
             )
             chosen.append(idx)
             if len(recs) >= count:

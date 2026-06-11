@@ -58,6 +58,10 @@ class MovieRecord:
         trailer_key: YouTube video id of the title's trailer, when known —
             baked in keylessly (Wikidata P1651) so the player embeds it in-page
             with no runtime API key. See ``data.enrich_trailers``.
+        rating_count: Number of MovieLens ratings behind this title — the
+            popularity prior the rankers blend in (see ``ml.reranker``).
+            0 for bundles without ratings (sample), which makes the prior a
+            no-op there.
     """
 
     idx: int
@@ -72,6 +76,7 @@ class MovieRecord:
     tmdb_id: int | None = None
     poster_url: str | None = None
     trailer_key: str | None = None
+    rating_count: int = 0
 
     def to_json(self) -> dict:
         """Serialize to a plain dict for ``movie_index.json``."""

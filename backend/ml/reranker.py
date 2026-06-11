@@ -29,22 +29,61 @@ def _unit_rows(matrix: np.ndarray) -> np.ndarray:
     return (matrix / np.where(norms == 0.0, 1.0, norms)).astype(np.float32)
 
 
-def build_taste_space(embeddings: np.ndarray, cf_factors: np.ndarray) -> np.ndarray:
+# Share of the hybrid space's cosine energy carried by the semantic block; the
+# rest is collaborative. Tuned by sweep in ``ml.evaluate`` (temporal holdout on
+# MovieLens): the 50/50 split scored AUC 0.700, but the semantic signal alone is
+# weak (AUC 0.57), so leaning the blend toward CF lifts AUC to ~0.737 with the
+# optimum flat across 0.05-0.15. 0.15 keeps the most content-awareness for
+# novel/sparsely-rated titles at no measured accuracy cost.
+W_SEMANTIC_ENERGY = 0.15
+
+# Additive popularity-prior weight used by taste ranking (see
+# :func:`popularity_prior`). Swept offline: AUC peaks at beta ~0.6
+# (0.737 -> 0.772, P@5 0.850 -> 0.864) and degrades past ~1.0.
+POP_BETA = 0.6
+
+
+def build_taste_space(
+    embeddings: np.ndarray, cf_factors: np.ndarray, w_semantic: float = W_SEMANTIC_ENERGY
+) -> np.ndarray:
     """Build the item-vector space the session reranker ranks in.
 
-    A 50/50 blend of the semantic plot embeddings and the collaborative-filtering
-    item factors: each block is L2-normalized per row, then concatenated and
-    re-normalized, so a title contributes equal cosine energy from each signal.
+    A weighted blend of the semantic plot embeddings and the collaborative-
+    filtering item factors: each block is L2-normalized per row, scaled so the
+    semantic block carries ``w_semantic`` of the final cosine energy (scale
+    factors are square roots because cosine energy is quadratic in the block
+    norm), then concatenated and re-normalized.
 
-    Offline evaluation (``ml.evaluate``, temporal holdout on MovieLens) showed
-    ranking in this hybrid space predicts like/dislike far better than the bare
-    semantic space the reranker used originally — ROC-AUC ~0.57 -> ~0.70,
-    Precision@5 ~0.76 -> ~0.84 — because like/dislike is driven by collaborative
-    signal, not plot-summary similarity. Keeping the semantic half preserves
-    content-awareness for novel / sparsely-rated titles. Both production and the
-    evaluator call THIS function, so the shipped space is exactly the measured one.
+    Offline evaluation (``ml.evaluate``, temporal holdout on MovieLens) drove
+    both moves away from the original bare semantic space: hybridizing with CF
+    (ROC-AUC ~0.57 -> ~0.70) and then re-weighting the blend toward CF
+    (~0.70 -> ~0.74 at ``w_semantic=0.15``), because like/dislike is driven by
+    collaborative signal, not plot-summary similarity. Keeping a semantic share
+    preserves content-awareness for novel / sparsely-rated titles. Both
+    production and the evaluator call THIS function, so the shipped space is
+    exactly the measured one.
     """
-    return _unit_rows(np.concatenate([_unit_rows(embeddings), _unit_rows(cf_factors)], axis=1))
+    s = float(np.sqrt(w_semantic))
+    c = float(np.sqrt(1.0 - w_semantic))
+    return _unit_rows(np.concatenate([s * _unit_rows(embeddings), c * _unit_rows(cf_factors)], axis=1))
+
+
+def popularity_prior(catalog: list[MovieRecord]) -> np.ndarray:
+    """Per-row popularity prior in ``[0, 1]``, aligned to the catalog ordering.
+
+    ``log1p`` of each title's MovieLens rating count, min-max scaled. Added to
+    the taste cosine as ``score = cosine + POP_BETA * prior`` wherever taste
+    ranking happens, because a like is far more likely on a broadly-popular
+    title than the cosine alone predicts (popularity alone scores AUC 0.59 vs
+    0.5 chance on the holdout). Bundles without rating counts (the sample)
+    yield all zeros, making the prior a no-op.
+    """
+    counts = np.array([max(0, rec.rating_count) for rec in catalog], dtype=np.float64)
+    log_pop = np.log1p(counts)
+    spread = float(log_pop.max() - log_pop.min())
+    if spread == 0.0:
+        return np.zeros(len(catalog), dtype=np.float32)
+    return ((log_pop - log_pop.min()) / spread).astype(np.float32)
 
 
 # Per-action base weights. Positive pulls the session vector toward the title;
@@ -100,6 +139,8 @@ class SessionReranker:
         tmdb_to_idx: Map from TMDB id to embedding row index.
         init_vector: Optional warm-start vector (Phase 3 user-profile blend).
         init_confidence: Optional warm-start confidence.
+        prior: Optional per-row popularity prior (see :func:`popularity_prior`);
+            ``None`` disables the prior term in :meth:`rerank`.
     """
 
     def __init__(
@@ -108,9 +149,11 @@ class SessionReranker:
         tmdb_to_idx: dict[int, int],
         init_vector: np.ndarray | None = None,
         init_confidence: float = 0.0,
+        prior: np.ndarray | None = None,
     ) -> None:
         self._embeddings = embeddings
         self._tmdb_to_idx = tmdb_to_idx
+        self._prior = prior
         dim = embeddings.shape[1]
         self.session_vector = (
             init_vector.astype(np.float32).copy()
@@ -170,8 +213,10 @@ class SessionReranker:
             return list(candidate_ids)
 
         unit = self.session_vector / norm
-        rows = self._embeddings[[self._tmdb_to_idx[c] for c in known]]
-        scores = rows @ unit  # embedding rows are unit-norm -> dot == cosine
+        known_idxs = [self._tmdb_to_idx[c] for c in known]
+        scores = self._embeddings[known_idxs] @ unit  # rows are unit-norm -> dot == cosine
+        if self._prior is not None:
+            scores = scores + POP_BETA * self._prior[known_idxs]
         if boost_ids:
             scores = scores + np.array([boost if c in boost_ids else 0.0 for c in known], dtype=scores.dtype)
         order = np.argsort(scores)[::-1]
@@ -192,6 +237,7 @@ class SessionStore:
     def __init__(self, embeddings: np.ndarray, catalog: list[MovieRecord]) -> None:
         self._embeddings = embeddings
         self._tmdb_to_idx = {rec.tmdb_id: rec.idx for rec in catalog if rec.tmdb_id is not None}
+        self._prior = popularity_prior(catalog)
         self._sessions: OrderedDict[str, SessionReranker] = OrderedDict()
         self._lock = threading.Lock()
 
@@ -211,7 +257,11 @@ class SessionStore:
         serverless cold starts where any in-memory copy would be lost anyway.
         """
         return SessionReranker(
-            self._embeddings, self._tmdb_to_idx, init_vector=init_vector, init_confidence=init_confidence
+            self._embeddings,
+            self._tmdb_to_idx,
+            init_vector=init_vector,
+            init_confidence=init_confidence,
+            prior=self._prior,
         )
 
     def get_or_create(
@@ -231,7 +281,11 @@ class SessionStore:
             reranker = self._sessions.get(session_id)
             if reranker is None:
                 reranker = SessionReranker(
-                    self._embeddings, self._tmdb_to_idx, init_vector=init_vector, init_confidence=init_confidence
+                    self._embeddings,
+                    self._tmdb_to_idx,
+                    init_vector=init_vector,
+                    init_confidence=init_confidence,
+                    prior=self._prior,
                 )
                 self._sessions[session_id] = reranker
                 if len(self._sessions) > MAX_SESSIONS:

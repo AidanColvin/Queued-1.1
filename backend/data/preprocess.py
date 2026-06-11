@@ -315,10 +315,13 @@ def preprocess(sample_frac: float = 1.0) -> ArtifactBundle:
 
     # Order the catalog by MovieLens rating count (most-rated first) so the
     # cold-start /popular deck opens on a genuinely popular title.
-    movie_ids = ratings["movieId"].value_counts().index.tolist()
+    rating_counts = ratings["movieId"].value_counts()
+    movie_ids = rating_counts.index.tolist()
     genome_map = load_genome_tags(movie_ids)
     cmu_map = load_cmu_summaries()
     catalog = build_catalog(movie_ids, genome_map, cmu_map)
+    for rec in catalog:  # popularity prior consumed by ml.reranker
+        rec.rating_count = int(rating_counts.get(rec.movie_id, 0))
 
     print("Building TF-IDF content matrix (genres + tags + genome + overview)...")
     tfidf = TfidfBuilder(min_df=2).fit_transform([_content_document(r) for r in catalog])
