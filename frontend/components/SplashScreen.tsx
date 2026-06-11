@@ -1,88 +1,80 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 
-type Phase = 'static' | 'title' | 'fading';
+type Phase = 'writing' | 'hold' | 'fading';
 
 /**
- * Retro-TV intro splash shown on every full page load / hard refresh: a CRT
- * showing static for ~1s, then the screen "turns on" to white and shows the
- * lowercase wordmark for ~1.8s, then the whole thing fades into the app. Tap
- * anywhere to skip. Purely decorative — sits above everything and removes
- * itself when done.
+ * Wordmark intro shown on every full page load / hard refresh. The word
+ * "Queued" writes itself out left-to-right, starting from the Q, with a
+ * hairline caret riding the leading edge; it then fades up into the app. Tap
+ * anywhere to skip. Calm, monochrome, Apple-style — purely decorative, and it
+ * removes itself from the tree once done.
  */
 export default function SplashScreen() {
-  const [phase, setPhase] = useState<Phase>('static');
+  const reduce = useReducedMotion();
+  const [phase, setPhase] = useState<Phase>('writing');
   const [gone, setGone] = useState(false);
+
+  // The whole word is written over this window (instant for reduced motion).
+  const writeMs = reduce ? 0 : 1400;
 
   useEffect(() => {
     const timers = [
-      window.setTimeout(() => setPhase('title'), 1200),
-      window.setTimeout(() => setPhase('fading'), 3000),
-      window.setTimeout(() => setGone(true), 3600),
+      window.setTimeout(() => setPhase('hold'), writeMs + 120),
+      window.setTimeout(() => setPhase('fading'), writeMs + 680),
+      window.setTimeout(() => setGone(true), writeMs + 1320),
     ];
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [writeMs]);
 
   if (gone) return null;
 
   const skip = () => {
     setPhase('fading');
-    window.setTimeout(() => setGone(true), 500);
+    window.setTimeout(() => setGone(true), 600);
   };
 
-  const lit = phase !== 'static'; // screen has "turned on" to the wordmark
+  // Soft "ease-out-expo" — quick to start, gentle to settle, like a pen lift.
+  const ease = [0.22, 1, 0.36, 1] as const;
 
   return (
-    <div
+    <motion.div
       aria-hidden
       onClick={skip}
-      className={`fixed inset-0 z-[100] flex items-center justify-center ${
-        lit ? 'bg-white' : 'bg-black'
-      } ${phase === 'fading' ? 'opacity-0' : 'opacity-100'}`}
-      style={{ transition: 'opacity 0.55s ease, background-color 0.45s ease' }}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-canvas"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: phase === 'fading' ? 0 : 1, scale: phase === 'fading' ? 1.04 : 1 }}
+      transition={{ duration: 0.6, ease }}
     >
-      <div className={`relative transition-transform duration-500 ${phase === 'fading' ? 'scale-105' : 'scale-100'}`}>
-        {/* Rabbit-ear antennas */}
-        <div className="absolute -top-10 left-1/2 -z-10 h-12 w-px origin-bottom -translate-x-1/2 -rotate-[28deg] bg-[#555]" />
-        <div className="absolute -top-10 left-1/2 -z-10 h-12 w-px origin-bottom -translate-x-1/2 rotate-[28deg] bg-[#555]" />
-        <div className="absolute -top-[42px] left-1/2 -z-10 h-1.5 w-1.5 -translate-x-[14px] rounded-full bg-[#666]" />
-        <div className="absolute -top-[42px] left-1/2 -z-10 h-1.5 w-1.5 translate-x-[8px] rounded-full bg-[#666]" />
+      <div className="relative inline-block text-6xl font-semibold tracking-tight text-ink sm:text-7xl">
+        {/* The word, unveiled left-to-right like a single pen stroke. */}
+        <motion.div
+          className="overflow-hidden"
+          initial={{ clipPath: reduce ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)' }}
+          animate={{ clipPath: 'inset(0 0 0 0)' }}
+          transition={{ duration: writeMs / 1000, ease }}
+        >
+          <span className="block leading-none">Queued</span>
+        </motion.div>
 
-        {/* TV body */}
-        <div className="flex items-stretch gap-3 rounded-[2rem] bg-gradient-to-b from-[#3c3c40] to-[#202023] p-4 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
-          {/* Screen */}
-          <div className="relative h-52 w-72 overflow-hidden rounded-2xl bg-black ring-1 ring-black/60 sm:h-56 sm:w-80">
-            {lit ? (
-              <div className="absolute inset-0 flex items-center justify-center bg-white">
-                <span className="animate-fade-in text-2xl font-semibold lowercase tracking-tight text-ink sm:text-3xl">
-                  next watch
-                </span>
-              </div>
-            ) : (
-              <>
-                <div className="tv-static absolute inset-0 opacity-90" />
-                <div className="tv-scanlines absolute inset-0" />
-                {/* CRT curvature vignette */}
-                <div className="absolute inset-0 shadow-[inset_0_0_60px_20px_rgba(0,0,0,0.55)]" />
-              </>
-            )}
-          </div>
-
-          {/* Control strip: two knobs + a speaker grille */}
-          <div className="flex w-10 flex-col items-center justify-center gap-3">
-            <div className="h-6 w-6 rounded-full bg-[#0c0c0d] ring-2 ring-white/10" />
-            <div className="h-6 w-6 rounded-full bg-[#0c0c0d] ring-2 ring-white/10" />
-            <div className="mt-1 flex flex-col gap-[3px]">
-              {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="h-px w-6 bg-white/15" />
-              ))}
-            </div>
-            {/* Power LED — red while static, green once lit */}
-            <div className={`h-1.5 w-1.5 rounded-full ${lit ? 'bg-like' : 'bg-pass'}`} />
-          </div>
-        </div>
+        {/* Hairline caret that rides the writing edge, then quietly lifts off. */}
+        {!reduce && (
+          <motion.span
+            className="absolute top-1/2 h-[0.78em] w-[2px] -translate-y-1/2 rounded-full bg-ink"
+            initial={{ left: '0%', opacity: 1 }}
+            animate={
+              phase === 'writing' ? { left: '100%', opacity: 1 } : { left: '100%', opacity: 0 }
+            }
+            transition={
+              phase === 'writing'
+                ? { duration: writeMs / 1000, ease }
+                : { duration: 0.45, ease: 'easeOut' }
+            }
+          />
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 }
