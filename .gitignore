@@ -63,3 +63,7 @@ artifacts.backup*
 backend/data/artifacts.backup*
 experiments/kion/data_en/
 experiments/kion/data_en/interactions.csv
+data/
+node_modules/
+backend/.venv/
+.DS_Store
