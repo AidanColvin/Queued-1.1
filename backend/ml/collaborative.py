@@ -143,6 +143,15 @@ def _train_cli() -> None:
         )
     ratings = pd.read_parquet(ratings_path)
 
+    # Fold in any supplemental rating sources (e.g. the Netflix Prize set built
+    # by `data.ingest_netflix`). Same schema, disjoint user-id space; absent the
+    # file this is a no-op so the default MovieLens-only training is unchanged.
+    netflix_path = art / "netflix_ratings.parquet"
+    if netflix_path.exists():
+        extra = pd.read_parquet(netflix_path)
+        print(f"  + {len(extra):,} supplemental ratings from {netflix_path.name}")
+        ratings = pd.concat([ratings, extra[ratings.columns]], ignore_index=True)
+
     print(f"Training SVD on {len(ratings):,} ratings over {len(movie_order):,} movies...")
     factors = train_svd(ratings, movie_order)
     np.save(Path(art) / CF_FACTORS_FILE, factors)
