@@ -29,6 +29,7 @@ from ml.reranker import SessionReranker, SessionStore
 from providers import ProviderIndex
 from routers.providers import user_provider_ids
 from schemas import SwipeRequest, SwipeResponse
+from ml.trajectory_filter import filter_doomed_titles
 
 logger = logging.getLogger("queued")
 
@@ -146,8 +147,22 @@ def record_swipe(
         if selected:
             boost_ids = {tid for tid in payload.remaining if index.available(tid) & selected}
 
+    raw_reranked = reranker.rerank(payload.remaining, boost_ids=boost_ids)
+
+    def _fetch_emb(tmdb_id):
+        # Pull directly from Queued's in-memory hot cache
+        idx = store._tmdb_to_idx.get(tmdb_id)
+        return store._embeddings[idx] if idx is not None else None
+
+    sanitized_queue = filter_doomed_titles(
+        reranked_queue=raw_reranked,
+        current_profile=reranker.session_vector.tolist(),
+        recent_swipes=[],  # Base evaluation
+        get_embedding_fn=_fetch_emb
+    )
+
     return SwipeResponse(
-        reranked_queue=reranker.rerank(payload.remaining, boost_ids=boost_ids),
+        reranked_queue=sanitized_queue,
         session_confidence=round(reranker.confidence, 3),
         applied=applied,
     )

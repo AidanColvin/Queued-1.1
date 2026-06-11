@@ -1,0 +1,42 @@
+# Runs the backend test suite and the frontend production build on every push.
+# Deploys are NOT gated on this (Vercel ships main immediately, by choice) —
+# this exists so a broken commit shows a red ✗ on GitHub within minutes instead
+# of being discovered in production. ratings.parquet and the training stack
+# (pandas/torch) are absent in CI; tests that need them skip themselves.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - run: pip install -r requirements.txt
+      - run: python -m pytest tests/ -q
+
+  frontend-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build
