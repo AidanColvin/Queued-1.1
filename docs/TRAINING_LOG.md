@@ -34,3 +34,13 @@ One entry per dataset stage. Metric = ml.evaluate temporal holdout (AUC / P@k), 
 - old factors: shipped AUC 0.7936, P@5 0.8586, P@10 0.8594 (cf-only AUC 0.7593)
 - new factors: shipped AUC 0.7895, P@5 0.8534, P@10 0.8549 (cf-only AUC 0.7548)
 - verdict: REJECTED (regression — old factors kept)
+
+## Stage 3 — MTS Kion implicit watch events (+ML25M)
+
+- 1,788/12,002 Kion films mapped via title_orig/title + year (±1)
+- completion-as-signal: >=70% watched -> 4.5, <=20% -> 1.5 (middle dropped)
+- adds 840,528 pseudo-ratings from 298,334 real streaming users
+- ratings: 24,106,741 rows / 460,869 users (86,103 holdout judgments, 2,541 eval users)
+- old factors: shipped AUC 0.7936, P@5 0.8586, P@10 0.8594 (cf-only AUC 0.7593)
+- new factors: shipped AUC 0.7937, P@5 0.8573, P@10 0.8594 (cf-only AUC 0.7594)
+- verdict: ADOPTED

@@ -278,7 +278,39 @@ def stage3_kion_implicit() -> None:
     )
 
 
-STAGES = {1: stage1_movielens_full, 2: stage2_netflix_prize, 3: stage3_kion_implicit}
+def stage4_recent_ratings() -> None:
+    """Recency finetune: train only on 2015+ MovieLens ratings.
+
+    The HF ``pinecone/movielens-recent-ratings`` dataset is a loader script
+    that downloads ml-25m.zip (already local) and slices recent ratings — so
+    the experiment it enables is run directly from the raw data: do factors
+    trained only on RECENT preferences predict the (recent-leaning) holdout
+    better than factors trained on all 25 years?
+    """
+    _, movie_order = _catalog()
+    keep = set(movie_order)
+    cutoff = 1_420_070_400  # 2015-01-01 UTC
+    print("Loading full ml-25m/ratings.csv and slicing >= 2015...")
+    ratings = pd.read_csv(RAW / "ml-25m" / "ratings.csv")
+    ratings = ratings[ratings["movieId"].isin(keep) & (ratings["timestamp"] >= cutoff)]
+    active = ratings.groupby("userId").size()
+    ratings = ratings[ratings["userId"].isin(active[active >= MIN_USER_RATINGS].index)]
+    _retrain_and_compare(
+        ratings,
+        "Stage 4 — recent ratings only (2015+, HF recent-ratings equivalent)",
+        ["- HF pinecone/movielens-recent-ratings is a loader over ml-25m.zip; the slice is reproduced locally",
+         "- hypothesis: dropping pre-2015 preferences sharpens modern like/dislike prediction"],
+        write_parquet=False,   # keep the established full-history holdout
+        refresh_prior=False,
+    )
+
+
+STAGES = {
+    1: stage1_movielens_full,
+    2: stage2_netflix_prize,
+    3: stage3_kion_implicit,
+    4: stage4_recent_ratings,
+}
 
 
 def main() -> None:
