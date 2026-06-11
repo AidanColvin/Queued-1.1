@@ -1,7 +1,7 @@
 """``GET /trailer/{tmdb_id}`` — resolve a title's YouTube trailer key.
 
 The frontend embeds the returned key in an in-page player so the trailer plays
-inside NextWatch instead of navigating the user away to youtube.com.
+inside Queued instead of navigating the user away to youtube.com.
 
 Resolution order:
 1. **TMDB** ``videos`` when a ``TMDB_API_KEY`` is configured (most precise —

@@ -1,4 +1,4 @@
-// Typed fetch wrappers around the NextWatch backend.
+// Typed fetch wrappers around the Queued backend.
 // Base URL comes from NEXT_PUBLIC_API_URL (see .env.local.example).
 
 import { getAuthToken } from './native';

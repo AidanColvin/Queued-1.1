@@ -1,7 +1,7 @@
 """``/auth`` — account creation and sign-in (Phase 3).
 
 Email/password and Google OAuth both end the same way: a session JWT is minted
-and set as the ``nextwatch_auth`` httpOnly cookie, and the SPA learns who it is
+and set as the ``queued_auth`` httpOnly cookie, and the SPA learns who it is
 by calling ``GET /auth/me``. There is no server-side session — the cookie is the
 whole session, which is what keeps this working on serverless.
 
@@ -45,7 +45,7 @@ from schemas import (
     VerifyEmailRequest,
 )
 
-logger = logging.getLogger("nextwatch")
+logger = logging.getLogger("queued")
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -87,8 +87,8 @@ def _send_verification_email(user: User) -> None:
     link = f"{get_settings().frontend_url}/verify-email/?token={token}"
     send_email(
         user.email,
-        "Verify your NextWatch email",
-        f"Welcome to NextWatch!\n\nConfirm your email address by opening:\n\n{link}\n\n"
+        "Verify your Queued email",
+        f"Welcome to Queued!\n\nConfirm your email address by opening:\n\n{link}\n\n"
         "If you didn't create this account, you can ignore this message.",
     )
 
@@ -195,8 +195,8 @@ def request_password_reset(payload: PasswordResetRequest, db: Session = Depends(
         link = f"{get_settings().frontend_url}/reset-password/?token={token}"
         send_email(
             user.email,
-            "Reset your NextWatch password",
-            f"Someone (hopefully you) asked to reset your NextWatch password.\n\n"
+            "Reset your Queued password",
+            f"Someone (hopefully you) asked to reset your Queued password.\n\n"
             f"Set a new one here (link valid for 1 hour):\n\n{link}\n\n"
             "If this wasn't you, ignore this email — your password is unchanged.",
         )
@@ -262,7 +262,7 @@ def apple_sign_in(payload: AppleSignInRequest, response: Response, db: Session =
             # stored apple_sub we can't create an account from this token.
             raise HTTPException(
                 status_code=401,
-                detail="Apple did not share an email for this account. Remove NextWatch from your Apple ID's "
+                detail="Apple did not share an email for this account. Remove Queued from your Apple ID's "
                 "Sign in with Apple settings and try again.",
             )
         user = User(email=email, apple_sub=sub, display_name=payload.display_name)

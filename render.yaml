@@ -1,4 +1,4 @@
-# Render blueprint for the NextWatch backend (free tier friendly).
+# Render blueprint for the Queued backend (free tier friendly).
 # The real 5,400-movie model artifacts are committed to the repo, so the service
 # loads the trained recommender at startup with no data step. AUTO_SAMPLE stays
 # on only as a fallback if the artifacts are ever missing.
@@ -6,12 +6,12 @@ databases:
   # Persistent Postgres for accounts, profiles, providers and the swipe log.
   # (Render's free Postgres expires after 30 days — upgrade the plan for a
   # long-lived deployment.)
-  - name: nextwatch-db
+  - name: queued-db
     plan: free
 
 services:
   - type: web
-    name: nextwatch-backend
+    name: queued-backend
     runtime: python
     rootDir: backend
     plan: free
@@ -29,11 +29,11 @@ services:
       # normalizes the scheme at startup (see config.Settings).
       - key: DATABASE_URL
         fromDatabase:
-          name: nextwatch-db
+          name: queued-db
           property: connectionString
       # Locked to the deployed SPA, local dev, and the Capacitor native shell.
       - key: CORS_ORIGINS
-        value: https://nextwatch-rouge.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost
+        value: https://queued.vercel.app,http://localhost:3000,capacitor://localhost,ionic://localhost
       - key: TMDB_API_KEY
         sync: false
       # ---- Accounts / auth (Phase 3) ----
@@ -45,7 +45,7 @@ services:
         value: "true"
       # SPA origin the OAuth callback redirects back to.
       - key: FRONTEND_URL
-        value: https://nextwatch-rouge.vercel.app
+        value: https://queued.vercel.app
       # Google OAuth client (Google Cloud Console). Absent → email/password only;
       # "Continue with Google" returns 503. Redirect URI must be
       # https://<this-backend-host>/auth/google/callback (or /api/... on Vercel).

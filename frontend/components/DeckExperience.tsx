@@ -281,7 +281,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
     <main className="app-shell mx-auto flex w-full max-w-md flex-col">
       <SplashScreen />
       <header className="mb-4 flex items-center justify-between gap-1 sm:gap-2">
-        <span className="text-[15px] font-semibold tracking-tight text-ink sm:text-[17px]">NextWatch</span>
+        <span className="text-[15px] font-semibold tracking-tight text-ink sm:text-[17px]">Queued</span>
 
         <div className="flex items-center gap-1 sm:gap-2">
           <div className="flex items-center rounded-full bg-black/[0.04] p-0.5">

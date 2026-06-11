@@ -19,7 +19,7 @@ def test_password_reset_flow(api, caplog):
     _register(api, "reset@example.com", "originalpass1")
     api.cookies.clear()
 
-    with caplog.at_level("INFO", logger="nextwatch"):
+    with caplog.at_level("INFO", logger="queued"):
         res = api.post("/auth/request-password-reset", json={"email": "reset@example.com"})
     assert res.status_code == 204
 
@@ -56,7 +56,7 @@ def test_reset_password_rejects_garbage_token(api):
 # Email verification
 # --------------------------------------------------------------------------- #
 def test_register_sends_verification_and_token_verifies(api, caplog):
-    with caplog.at_level("INFO", logger="nextwatch"):
+    with caplog.at_level("INFO", logger="queued"):
         user = _register(api, "verify@example.com")
     assert user["email_verified"] is False
 
@@ -70,7 +70,7 @@ def test_register_sends_verification_and_token_verifies(api, caplog):
 def test_verify_email_rejects_session_jwt(api):
     """A session cookie JWT must not double as a verification token."""
     _register(api, "purpose@example.com")
-    session_jwt = api.cookies.get("nextwatch_auth")
+    session_jwt = api.cookies.get("queued_auth")
     assert session_jwt
     res = api.post("/auth/verify-email", json={"token": session_jwt})
     assert res.status_code == 400

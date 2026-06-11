@@ -270,7 +270,7 @@ def _ensure_columns(engine: Engine) -> None:
 
     from sqlalchemy import inspect
 
-    logger = logging.getLogger("nextwatch")
+    logger = logging.getLogger("queued")
     try:
         inspector = inspect(engine)
         for table in Base.metadata.sorted_tables:

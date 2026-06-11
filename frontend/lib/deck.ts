@@ -55,9 +55,9 @@ export interface DeckApi {
   clearAll: () => void;
 }
 
-const LIKED_KEY = 'nextwatch:liked';
-const WISHLIST_KEY = 'nextwatch:wishlist';
-const SEEN_KEY = 'nextwatch:seen';
+const LIKED_KEY = 'queued:liked';
+const WISHLIST_KEY = 'queued:wishlist';
+const SEEN_KEY = 'queued:seen';
 
 function load(key: string): Recommendation[] {
   try {

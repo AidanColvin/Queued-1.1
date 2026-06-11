@@ -1,4 +1,4 @@
-# NextWatch backend — runtime image (sample bundle works with zero data setup).
+# Queued backend — runtime image (sample bundle works with zero data setup).
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY . .
 # AUTO_SAMPLE lets startup generate the sample artifacts if none are baked in.
 ENV AUTO_SAMPLE=true \
     MODEL_ARTIFACTS_PATH=./data/artifacts \
-    DATABASE_URL=sqlite:///./nextwatch.db
+    DATABASE_URL=sqlite:///./queued.db
 
 EXPOSE 8000
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

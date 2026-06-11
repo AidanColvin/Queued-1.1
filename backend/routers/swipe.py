@@ -30,7 +30,7 @@ from providers import ProviderIndex
 from routers.providers import user_provider_ids
 from schemas import SwipeRequest, SwipeResponse
 
-logger = logging.getLogger("nextwatch")
+logger = logging.getLogger("queued")
 
 router = APIRouter(tags=["swipe"])
 

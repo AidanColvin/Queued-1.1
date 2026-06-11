@@ -1,15 +1,15 @@
-# nextwatch
+# Queued
 
 **AI-powered movie and TV recommendation engine.**  
 Input titles you have loved. Get ranked suggestions from a hybrid ML pipeline trained on 25 million public ratings.
 
-> Live demo → `nextwatch.vercel.app` · Backend → Render free tier
+> Live demo → `queued.vercel.app` · Backend → Render free tier
 
 ---
 
 ## What it does
 
-You give NextWatch a list of movies or shows. It analyzes your taste across three axes — collaborative signal (what similar viewers watched), content signal (genre and tag overlap), and semantic signal (plot embedding similarity) — blends them into a single ranked list, and tells you *why* each title was recommended.
+You give Queued a list of movies or shows. It analyzes your taste across three axes — collaborative signal (what similar viewers watched), content signal (genre and tag overlap), and semantic signal (plot embedding similarity) — blends them into a single ranked list, and tells you *why* each title was recommended.
 
 ---
 
@@ -226,7 +226,7 @@ Connect repo. Set `NEXT_PUBLIC_API_URL` to your Render backend URL. Push to `mai
 
 **Backend → Render**  
 `render.yaml` is included and now provisions a **Render Postgres** instance
-(`nextwatch-db`) wired into `DATABASE_URL`, with `alembic upgrade head` run as
+(`queued-db`) wired into `DATABASE_URL`, with `alembic upgrade head` run as
 the pre-deploy step so the schema migrates before each release goes live. Free
 tier works for demos; precomputed artifacts are committed to the repo (LFS if
 >100 MB). Set `TMDB_API_KEY` and `JWT_SECRET` in the Render environment
@@ -289,7 +289,7 @@ gracefully degrades to "All titles".
 
 Connect a Letterboxd account from the account menu — no API key required:
 
-- **RSS sync** — enter a username and NextWatch reads the public diary feed
+- **RSS sync** — enter a username and Queued reads the public diary feed
   (`letterboxd.com/{user}/rss/`, the ~50 most recent entries).
 - **Export upload** — upload the Letterboxd data-export ZIP (or a bare
   `ratings.csv` / `watched.csv`) for full history.

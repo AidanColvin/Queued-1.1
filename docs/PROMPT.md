@@ -1,7 +1,7 @@
-# NextWatch — Product & Build Prompt
+# Queued — Product & Build Prompt
 
 Use this as the single source of truth when building, extending, or reviewing
-NextWatch. Any change must keep every guarantee below true. The bar: a FAANG
+Queued. Any change must keep every guarantee below true. The bar: a FAANG
 recruiter opens the repo and the app, and within seconds sees a product that is
 **modular, intuitive, responsive, and genuinely well-designed** — not generated.
 

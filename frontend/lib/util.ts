@@ -8,7 +8,7 @@ export function makeSessionId(): string {
   return `s-${Date.now().toString(36)}-${Math.floor(Math.random() * 1e9).toString(36)}`;
 }
 
-const SESSION_KEY = 'nextwatch:session';
+const SESSION_KEY = 'queued:session';
 
 /** A STABLE anonymous session id, persisted in localStorage. The anonymous taste
  *  vector is keyed by this server-side, so persisting it (rather than minting a

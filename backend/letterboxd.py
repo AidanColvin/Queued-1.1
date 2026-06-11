@@ -1,6 +1,6 @@
 """Letterboxd import: public RSS feed + CSV/ZIP export parsing and matching.
 
-Letterboxd's official API is approval-gated, so NextWatch connects without it:
+Letterboxd's official API is approval-gated, so Queued connects without it:
 
 * **RSS** — every public profile exposes ``letterboxd.com/{user}/rss/`` with
   the ~50 most recent diary entries, including ``letterboxd:filmTitle``,

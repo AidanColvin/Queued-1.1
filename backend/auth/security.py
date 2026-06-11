@@ -23,7 +23,7 @@ from config import get_settings
 _BCRYPT_MAX_BYTES = 72
 
 # The httpOnly cookie the browser sends on every same-origin call.
-AUTH_COOKIE = "nextwatch_auth"
+AUTH_COOKIE = "queued_auth"
 # Path "/" (not "/api") so the same cookie works whether the API is root-mounted
 # (local uvicorn / tests) or served under the "/api" prefix in production. The
 # routes' mount prefix isn't known here, and "/" is correct in both.

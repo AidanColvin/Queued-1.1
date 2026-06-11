@@ -14,7 +14,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
  */
 const config: CapacitorConfig = {
   appId: 'com.nextwatch.app',
-  appName: 'NextWatch',
+  appName: 'Queued',
   webDir: 'out',
   ios: {
     contentInset: 'always',

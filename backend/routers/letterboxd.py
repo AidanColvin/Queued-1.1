@@ -28,7 +28,7 @@ from dependencies import get_session_store
 from ml.reranker import SessionStore
 from schemas import LetterboxdStatus, LetterboxdSummary, LetterboxdSyncRequest
 
-logger = logging.getLogger("nextwatch")
+logger = logging.getLogger("queued")
 
 router = APIRouter(prefix="/account/letterboxd", tags=["letterboxd"])
 
@@ -55,7 +55,7 @@ def fetch_rss(username: str) -> str:
     """
     url = f"https://letterboxd.com/{username}/rss/"
     try:
-        res = httpx.get(url, timeout=15, follow_redirects=True, headers={"User-Agent": "NextWatch/1.0"})
+        res = httpx.get(url, timeout=15, follow_redirects=True, headers={"User-Agent": "Queued/1.0"})
     except httpx.HTTPError as exc:
         raise HTTPException(status_code=502, detail="Could not reach Letterboxd. Try again shortly.") from exc
     if res.status_code == 404:

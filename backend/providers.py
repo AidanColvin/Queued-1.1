@@ -1,6 +1,6 @@
 """Streaming-provider registry + per-title availability index.
 
-NextWatch tracks a small canonical set of US streaming services. Availability
+Queued tracks a small canonical set of US streaming services. Availability
 ("which of my services has this title?") comes from TMDB's ``watch/providers``
 endpoint (data licensed from JustWatch — attribution required in the UI) via
 ``data.enrich_providers``, which writes ``providers.json`` next to the model
@@ -19,7 +19,7 @@ import logging
 from dataclasses import dataclass
 from pathlib import Path
 
-logger = logging.getLogger("nextwatch")
+logger = logging.getLogger("queued")
 
 PROVIDERS_FILE = "providers.json"
 

@@ -1,1 +1,1 @@
-"""HTTP routers for the NextWatch API."""
+"""HTTP routers for the Queued API."""

@@ -64,7 +64,7 @@ export default function OnboardingPage() {
       <header className="mb-6 mt-2 text-center">
         <h1 className="text-2xl font-bold tracking-tight text-ink">Where do you watch?</h1>
         <p className="mt-1.5 text-sm text-muted">
-          Pick your streaming services and NextWatch can stick to titles you can actually press play on. You can
+          Pick your streaming services and Queued can stick to titles you can actually press play on. You can
           change this anytime from the account menu.
         </p>
       </header>

@@ -1,6 +1,6 @@
 {
-  "name": "NextWatch",
-  "short_name": "NextWatch",
+  "name": "Queued",
+  "short_name": "Queued",
   "description": "Swipe through movie & TV recommendations from a hybrid ML engine. It learns your taste as you go.",
   "start_url": "/",
   "scope": "/",

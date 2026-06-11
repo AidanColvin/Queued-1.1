@@ -25,7 +25,7 @@ _GOOGLE_USERINFO_URL = "https://openidconnect.googleapis.com/v1/userinfo"
 
 # Short-lived httpOnly cookie holding the CSRF ``state`` between /login and
 # /callback. Path "/" so it survives the round-trip through Google.
-OAUTH_STATE_COOKIE = "nextwatch_oauth_state"
+OAUTH_STATE_COOKIE = "queued_oauth_state"
 OAUTH_SCOPE = "openid email profile"
 
 

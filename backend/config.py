@@ -41,7 +41,7 @@ class Settings(BaseSettings):
     )
 
     tmdb_api_key: str | None = None
-    database_url: str = "sqlite:///./nextwatch.db"
+    database_url: str = "sqlite:///./queued.db"
     model_artifacts_path: Path = Path("./data/artifacts")
     # ``NoDecode`` stops pydantic-settings from JSON-decoding the env value so
     # the validator below can accept a plain comma-separated string.
@@ -76,7 +76,7 @@ class Settings(BaseSettings):
     email_port: int = 587
     email_username: str | None = None
     email_password: str | None = None
-    email_from: str = "NextWatch <no-reply@nextwatch.app>"
+    email_from: str = "Queued <no-reply@queued.app>"
 
     # ---- Abuse protection ------------------------------------------------ #
     # Per-IP rate limiting on the auth endpoints. Disable only in tests.

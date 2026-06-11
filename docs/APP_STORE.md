@@ -1,4 +1,4 @@
-# Shipping NextWatch to the iOS App Store
+# Shipping Queued to the iOS App Store
 
 The frontend is one codebase with two build targets: the Vercel web deploy and
 a Capacitor-wrapped native iOS app. This document covers everything the repo

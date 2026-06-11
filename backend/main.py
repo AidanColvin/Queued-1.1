@@ -1,4 +1,4 @@
-"""NextWatch API — FastAPI application entry point.
+"""Queued API — FastAPI application entry point.
 
 Run locally with:
 
@@ -41,7 +41,7 @@ from routers import (
     user_data,
 )
 
-logger = logging.getLogger("nextwatch")
+logger = logging.getLogger("queued")
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
 _load_lock = threading.Lock()
@@ -132,7 +132,7 @@ def create_app(api_prefix: str = "") -> FastAPI:
     """
     settings = get_settings()
     app = FastAPI(
-        title="NextWatch API",
+        title="Queued API",
         version="1.0.0",
         summary="Hybrid movie & TV recommendation engine.",
         lifespan=lifespan,
@@ -161,7 +161,7 @@ def create_app(api_prefix: str = "") -> FastAPI:
     @app.get(api_prefix or "/", tags=["meta"])
     def root() -> dict:
         """Tiny landing payload pointing at the interactive docs."""
-        return {"name": "NextWatch API", "docs": f"{api_prefix}/docs", "health": f"{api_prefix}/health"}
+        return {"name": "Queued API", "docs": f"{api_prefix}/docs", "health": f"{api_prefix}/health"}
 
     return app
 
