@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
-# Add the current directory (where 'backend' lives) to PYTHONPATH
-export PYTHONPATH=$PYTHONPATH:$(pwd)
+# Explicitly set PYTHONPATH to the current directory
+export PYTHONPATH=$(pwd)
 
 echo "--- Running Backend Tests ---"
+# Remove the invalid --pythonpath flag, rely on PYTHONPATH
 python3 -m pytest tests/ -v
 
 echo "--- Running Frontend Tests ---"
