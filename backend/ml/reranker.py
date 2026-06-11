@@ -38,9 +38,11 @@ def _unit_rows(matrix: np.ndarray) -> np.ndarray:
 W_SEMANTIC_ENERGY = 0.15
 
 # Additive popularity-prior weight used by taste ranking (see
-# :func:`popularity_prior`). Swept offline: AUC peaks at beta ~0.6
-# (0.737 -> 0.772, P@5 0.850 -> 0.864) and degrades past ~1.0.
-POP_BETA = 0.6
+# :func:`popularity_prior`). Originally swept to 0.6 against the 10%-sample
+# factors; re-swept jointly with w_semantic after the Stage-3 retrain (full
+# 25M + Kion factors): 0.75 wins AUC on all three holdout seeds
+# (e.g. 0.8019 -> 0.8031 on seed 42) and degrades past ~1.0.
+POP_BETA = 0.75
 
 # Early-swipe taste shrinkage. The taste cosine is scaled by
 # ``confidence / (confidence + TASTE_SHRINK)`` so a vector built from 1-2 noisy

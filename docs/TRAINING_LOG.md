@@ -73,3 +73,13 @@ One entry per dataset stage. Metric = ml.evaluate temporal holdout (AUC / P@k), 
   films each (consent-page scrape bug); the runtime YouTube-search fallback
   serves those titles. Both enrichment scripts hardened (year-aware CMU
   lookup; same-id dedup guard).
+
+## Constant re-sweep on Stage-3 factors (post-campaign tuning)
+
+- the shipped POP_BETA/W_SEMANTIC_ENERGY were tuned against the old
+  10%-sample factors; re-swept jointly (beta x w_semantic grid) on the
+  adopted Stage-3 factors.
+- w_semantic: flat within noise across 0.10-0.20 — kept at 0.15.
+- POP_BETA 0.6 -> 0.75: AUC improves on every seed tested
+  (42: 0.8019 -> 0.8031; 7: 0.7817 -> 0.7832; 1234: 0.7682 -> 0.7702),
+  P@5 neutral-to-positive. ADOPTED.
