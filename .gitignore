@@ -59,3 +59,8 @@ frontend/node_modules/
 frontend/.next/
 frontend/out/
 frontend/tsconfig.tsbuildinfo
+
+# Local-only run outputs (other-session automation)
+logs/
+training/
+test-results/
