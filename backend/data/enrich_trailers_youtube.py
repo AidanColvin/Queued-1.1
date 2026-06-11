@@ -64,10 +64,15 @@ def enrich(limit: int) -> None:
     print(f"Resolving trailers for {len(targets)} of the top {limit} titles (keyless YouTube search)…", flush=True)
 
     filled = misses = 0
+    # Guard against YouTube serving a generic/consent page: the same video id
+    # answering different queries is garbage, not 200 films sharing a trailer.
+    # One id once nuked 1,251 records this way (see data.fix_collisions).
+    seen_keys: set[str] = {r.trailer_key for r in bundle.catalog if r.trailer_key}
     with httpx.Client(headers={"User-Agent": _UA, "Accept-Language": "en-US,en;q=0.9"}) as client:
         for i, rec in enumerate(targets, 1):
             key = _first_video(client, rec.title, rec.year)
-            if key:
+            if key and key not in seen_keys:
+                seen_keys.add(key)
                 rec.trailer_key = key
                 filled += 1
             else:

@@ -53,3 +53,23 @@ One entry per dataset stage. Metric = ml.evaluate temporal holdout (AUC / P@k), 
 - old factors: shipped AUC 0.7937, P@5 0.8573, P@10 0.8594 (cf-only AUC 0.7594)
 - new factors: shipped AUC 0.7619, P@5 0.8555, P@10 0.8569 (cf-only AUC 0.7310)
 - verdict: REJECTED (regression — old factors kept)
+
+## Stage 5 — Kaggle "movie rating data" (20M + tags)
+
+- not trained: the dataset is GroupLens MovieLens 20M (2016) repackaged — a
+  strict predecessor of the 25M release Stage 1 already trains on in full,
+  including the tag-genome our content signal consumes from 25M's newer cut.
+  Nothing in it is new to the corpus; also requires Kaggle credentials.
+- verdict: REDUNDANT (documented, skipped)
+
+## Catalog collision repair (post-campaign)
+
+- 135 wrong-film overviews (year-less CMU fallback collisions: Inside Out
+  2015 carried the 2011 crime film's plot, Ex Machina carried Appleseed,
+  Arrival carried The Arrival 1996...) — re-fetched year-verified Wikipedia
+  summaries (Inside Out/Whiplash/Arrival fixed; unverifiable ones cleared);
+  all 135 rows re-embedded with MiniLM so the semantic space is clean.
+- 1,251 trailer keys nulled: 19 YouTube ids had fanned out over hundreds of
+  films each (consent-page scrape bug); the runtime YouTube-search fallback
+  serves those titles. Both enrichment scripts hardened (year-aware CMU
+  lookup; same-id dedup guard).

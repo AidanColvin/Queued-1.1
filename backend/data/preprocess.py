@@ -213,6 +213,26 @@ class TMDBClient:
         self.cache_path.write_text(json.dumps(self.cache))
 
 
+
+def cmu_summary_for(
+    cmu_map: dict[tuple[str, int | None], str], title_norm: str, year: int | None
+) -> str:
+    """CMU summary for a title WITHOUT cross-film collisions.
+
+    Exact year first, then +/-1 (release-date drift). The year-less entry is a
+    last resort ONLY when our record has no year at all — falling back to it
+    for a known year hands a post-CMU film (corpus ends ~2012) the plot of an
+    older same-titled film (the Inside Out 2015 / 2011 bug).
+    """
+    if year is not None:
+        for y in (year, year - 1, year + 1):
+            hit = cmu_map.get((title_norm, y))
+            if hit:
+                return str(hit)
+        return ""
+    return str(cmu_map.get((title_norm, None)) or "")
+
+
 def build_catalog(
     movie_ids: list[int],
     genome_map: dict[int, list[str]],
@@ -258,7 +278,7 @@ def build_catalog(
         meta = tmdb.fetch(tmdb_id) if (tmdb and tmdb_id) else {"overview": "", "genres": [], "poster_url": None, "cast": []}
 
         title_norm = normalize_title(title)
-        cmu_summary = cmu_map.get((title_norm, year)) or cmu_map.get((title_norm, None)) or ""
+        cmu_summary = cmu_summary_for(cmu_map, title_norm, year)
         # Prefer TMDB overview for display; fall back to the (richer) CMU summary.
         overview = meta["overview"] or cmu_summary[:400]
 
@@ -331,7 +351,7 @@ def preprocess(sample_frac: float = 1.0) -> ArtifactBundle:
 
     def _semantic_text(rec: MovieRecord) -> str:
         key = normalize_title(rec.title)
-        cmu = cmu_map.get((key, rec.year)) or cmu_map.get((key, None))
+        cmu = cmu_summary_for(cmu_map, key, rec.year)
         return (cmu or rec.overview or rec.title)[:1000]
 
     embeddings = embedder.encode([_semantic_text(r) for r in catalog])
