@@ -16,14 +16,13 @@ def filter_doomed_titles(reranked_queue: list, current_profile: list, recent_swi
         item_id = item if isinstance(item, int) else item.get("id")
         
         candidate_embedding = get_embedding_fn(item_id)
-        if not candidate_embedding:
+        # numpy arrays have no truth value — an explicit None check is required
+        if candidate_embedding is None:
             filtered_queue.append(item)
             continue
-            
+
         future_score = predictor.predict_future_affinity(
-            current_vector=current_profile,
-            simulated_swipes=recent_swipes,
-            candidate_embedding=candidate_embedding
+            current_profile, recent_swipes, candidate_embedding
         )
         
         # -0.3 is the mathematical threshold for "destined to hate"
