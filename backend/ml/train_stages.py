@@ -116,7 +116,7 @@ def _retrain_and_compare(
         print(f"[{stage_name}] REGRESSION — old factors restored.")
 
     # Refresh the popularity prior from this (larger) ratings source.
-    if improved:
+    if improved and refresh_prior:
         counts = ratings.groupby("movieId").size().to_dict()
         for m in movies:
             m["rating_count"] = int(counts.get(m["movie_id"], 0))
@@ -154,7 +154,61 @@ def stage1_movielens_full() -> None:
     )
 
 
-STAGES = {1: stage1_movielens_full}
+def stage2_netflix_prize() -> None:
+    """Netflix Prize (100M ratings, 2005) mapped onto the catalog by title+year.
+
+    Netflix users are offset to stay disjoint from MovieLens users; the model
+    trains on the combined matrix but the holdout stays the pure-MovieLens
+    ``ratings.parquet`` from Stage 1, so adoption is judged on the identical
+    benchmark. Netflix popularity is 2005-era, so the prior is NOT refreshed.
+    """
+    from ml.artifacts import normalize_title
+
+    movies, _ = _catalog()
+    key_of: dict[tuple[str, int | None], int] = {}
+    for m in movies:
+        key_of.setdefault((normalize_title(m["title"]), m["year"]), m["movie_id"])
+
+    nf_dir = RAW / "download"
+    mapped: dict[int, int] = {}
+    for line in (nf_dir / "movie_titles.txt").read_text(encoding="latin-1").splitlines():
+        nf_id, year_s, title = line.split(",", 2)
+        year = int(year_s) if year_s.isdigit() else None
+        for y in (year, (year - 1) if year else None, (year + 1) if year else None):
+            mid = key_of.get((normalize_title(title), y))
+            if mid is not None:
+                mapped[int(nf_id)] = mid
+                break
+    print(f"[Stage 2] mapped {len(mapped):,} of 17,770 Netflix movies onto the catalog")
+
+    frames = []
+    for i, (nf_id, mid) in enumerate(sorted(mapped.items())):
+        f = nf_dir / "training_set" / f"mv_{nf_id:07d}.txt"
+        if not f.exists():
+            continue
+        df = pd.read_csv(f, skiprows=1, header=None, names=["userId", "rating", "d"],
+                         usecols=["userId", "rating"], dtype={"userId": np.int64, "rating": np.float32})
+        df["movieId"] = mid
+        frames.append(df)
+        if i % 500 == 0:
+            print(f"  parsed {i:,}/{len(mapped):,} movie files...")
+    nf = pd.concat(frames, ignore_index=True)
+    nf["userId"] += 1_000_000_000  # disjoint from MovieLens user ids
+    print(f"[Stage 2] Netflix ratings on catalog titles: {len(nf):,}")
+
+    ml = pd.read_parquet(ARTIFACTS / "ratings.parquet")[["userId", "movieId", "rating"]]
+    combined = pd.concat([ml, nf], ignore_index=True)
+    _retrain_and_compare(
+        combined,
+        "Stage 2 — Netflix Prize pretrain (+ML25M)",
+        [f"- {len(mapped):,}/17,770 Netflix titles mapped by normalized title+year (±1)",
+         f"- Netflix adds {len(nf):,} ratings on catalog titles ({nf['userId'].nunique():,} users)"],
+        write_parquet=False,   # holdout stays pure MovieLens
+        refresh_prior=False,   # 2005-era popularity must not leak into the prior
+    )
+
+
+STAGES = {1: stage1_movielens_full, 2: stage2_netflix_prize}
 
 
 def main() -> None:
