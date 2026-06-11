@@ -322,3 +322,19 @@ export async function getTrailer(
   if (year != null) params.set('year', String(year));
   return request<TrailerResponse>(`/trailer/${tmdbId ?? 0}?${params}`);
 }
+
+export interface TasteMatch {
+  user_a: string;
+  user_b: string;
+  cosine_similarity: number;
+  match_percentage: number;
+}
+
+/** Compare two taste profiles (anon session ids or numeric user ids) → cosine
+ *  similarity + a 0–100% match rate. Routed through the shared `request` helper
+ *  so it uses the `/api` origin and auth like every other call (the standalone
+ *  fetch it replaced fell back to http://localhost:8000 in production). */
+export async function getTasteMatch(userA: string, userB: string): Promise<TasteMatch> {
+  const params = new URLSearchParams({ user_a: userA, user_b: userB });
+  return request<TasteMatch>(`/social/match?${params}`);
+}

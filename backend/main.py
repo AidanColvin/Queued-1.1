@@ -36,6 +36,8 @@ from routers import (
     providers,
     recommend,
     search,
+    share,
+    social,
     swipe,
     trailer,
     tv,
@@ -155,7 +157,7 @@ def create_app(api_prefix: str = "") -> FastAPI:
             load_state(request.app)
         return await call_next(request)
 
-    routers = (health, search, recommend, adaptive, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd, personal, predict)
+    routers = (health, search, recommend, adaptive, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd, personal, predict, social, share)
     for router in routers:
         app.include_router(router.router, prefix=api_prefix)
 
