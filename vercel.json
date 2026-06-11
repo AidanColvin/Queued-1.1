@@ -11,5 +11,11 @@
       "includeFiles": "backend/**"
     }
   },
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/index" }]
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    }
+  ],
+  "ignoreCommand": "bash scripts/deploy_gate.sh"
 }
