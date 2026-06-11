@@ -17,11 +17,22 @@ export default function Matchmaker() {
   const [match, setMatch] = useState<TasteMatch | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   // Prefill the caller's own session id (client-only, avoids SSR mismatch).
   useEffect(() => {
     setUserA((prev) => prev || getSessionId());
   }, []);
+
+  const copyMyId = async () => {
+    try {
+      await navigator.clipboard.writeText(userA);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      /* clipboard blocked — the id is still visible to copy manually */
+    }
+  };
 
   const checkMatch = async () => {
     if (!userA.trim() || !userB.trim() || loading) return;
@@ -49,21 +60,30 @@ export default function Matchmaker() {
       <h3 className="text-lg font-semibold tracking-tight text-ink">Taste Matchmaker</h3>
       <p className="mb-5 mt-1 text-sm text-muted">Compare your taste with a friend by session id.</p>
 
-      <div className="mb-4 flex flex-col gap-3 md:flex-row">
-        <input
-          type="text"
-          placeholder="Your session id"
-          className={inputCls}
-          value={userA}
-          onChange={(e) => setUserA(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Friend's session id"
-          className={inputCls}
-          value={userB}
-          onChange={(e) => setUserB(e.target.value)}
-        />
+      <div className="mb-4 space-y-3">
+        <div>
+          <label className="mb-1 block text-xs font-medium text-faint">Your id — share it with a friend</label>
+          <div className="flex gap-2">
+            <input type="text" readOnly className={`${inputCls} font-mono`} value={userA} />
+            <button
+              type="button"
+              onClick={copyMyId}
+              className="shrink-0 rounded-xl bg-surface-2 px-4 text-sm font-medium text-ink ring-1 ring-black/[0.06] transition hover:ring-black/20 active:scale-95"
+            >
+              {copied ? 'Copied' : 'Copy'}
+            </button>
+          </div>
+        </div>
+        <div>
+          <label className="mb-1 block text-xs font-medium text-faint">Friend&apos;s id</label>
+          <input
+            type="text"
+            placeholder="Paste their id"
+            className={`${inputCls} font-mono`}
+            value={userB}
+            onChange={(e) => setUserB(e.target.value)}
+          />
+        </div>
       </div>
 
       <button
