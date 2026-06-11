@@ -1,70 +1,111 @@
-# ---- Python ----
+# Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-.eggs/
+.venv/
 .pytest_cache/
-.coverage
-htmlcov/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js
+.next/
+out/
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Misc
+coverage/
+dist/
+tmp/
+
+# local env
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
 
-# Virtual environments
+# virtual env
 .venv/
 venv/
 env/
 
-# ---- Environment / secrets ----
-.env
-.env.local
-*.local
+# logs
+logs/
+*.log
 
-# ---- Databases ----
+# local databases
 *.db
 *.sqlite
 *.sqlite3
 
-# ---- ML artifacts & raw data ----
-# Generated/large artifacts are not committed. The sample artifacts are
-# regenerated on demand via `python -m data.sample`; the real artifacts come
-# from the download + preprocess pipeline.
-backend/data/artifacts/*
-!backend/data/artifacts/.gitkeep
+# local training artifacts / generated data
+training/
+data/raw/
+data/processed/
 backend/data/raw/
-*.npy
-*.npz
-*.pkl
+backend/data/artifacts/
+backend/data/artifacts.backup-*/
+backend/data/*.parquet
+backend/data/*.csv
+backend/data/*.json
+backend/data/*.db
+backend/data/simulation_logs.csv
 
-# ---- Node / Next.js (Phase 2) ----
-node_modules/
-.next/
-out/
-*.tsbuildinfo
-frontend/.env*.local
+# frontend build junk
+frontend/.next/
+frontend/node_modules/
+frontend/tsconfig.tsbuildinfo
 
-# ---- OS / editor ----
+# mac
 .DS_Store
-.idea/
-.vscode/
-*.swp
 
-# ---- Local-only Claude Code settings (keep launch.json shareable) ----
-.claude/settings.local.json
+# generated ML artifacts
+backend/ml/artifacts/
+backend/data/artifacts/
+backend/data/artifacts.backup-*/
+backend/data/raw/
+training/
+logs/
 
-# ---- Committed servable model artifacts ----
-# The trained 5,400-movie model ships in the repo so the deployed backend serves
-# it out of the box. The 15 MB training parquet + raw data stay ignored above.
-!backend/data/artifacts/movie_index.json
-!backend/data/artifacts/cf_item_factors.npy
-!backend/data/artifacts/tfidf_matrix.npz
-!backend/data/artifacts/embeddings.npy
-!backend/data/artifacts/tv_index.json
-artifacts.backup*
-backend/data/artifacts.backup*
-experiments/kion/data_en/
-experiments/kion/data_en/interactions.csv
-/data/
-node_modules/
+# experiments / scratch
+experiments/
+
+# frontend dependencies/build
+frontend/node_modules/
+frontend/.next/
+frontend/tsconfig.tsbuildinfo
+
+# backend venv / local libs
 backend/.venv/
-.DS_Store
-data/
+
+# local databases and coverage
+*.db
+*.sqlite
+*.sqlite3
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/

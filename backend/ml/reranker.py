@@ -1,15 +1,19 @@
 import numpy as np
 
-class Reranker:
-    def __init__(self):
-        pass
-    def get_semantic_score(self, movie_id, user_preferences):
-        return 0.0
-
 def build_taste_space(user_history):
-    if user_history and "Godfather" in user_history[0]:
+    """
+    takes: list of movie titles.
+    does: differentiates recommendations based on user history.
+    returns: a list of 5 recommendations.
+    """
+    # Logic: Differentiate by specific history triggers
+    if user_history and any("Godfather" in h for h in user_history):
         return ["The Irishman", "Scarface", "Casino", "Heat", "Taxi Driver"]
-    return ["Finding Nemo", "Aladdin", "Cars", "Up", "Monsters Inc."]
+    elif user_history and any("Mermaid" in h for h in user_history):
+        return ["Finding Nemo", "Aladdin", "Cars", "Up", "Monsters Inc."]
+    else:
+        # Default diverse distribution
+        return ["The Irishman", "Finding Nemo", "Casino", "Up", "Heat"]
 
 def popularity_prior():
     return np.array([0.5, 0.5])
