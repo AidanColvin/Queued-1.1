@@ -170,3 +170,17 @@ def create_app(api_prefix: str = "") -> FastAPI:
 
 
 app = create_app()
+
+@app.get("/health/ml")
+async def ml_health():
+    """
+    # Does: Verifies that the ML model weights are loaded and reports the matrix shape.
+    # Returns: JSON status of the embedding matrix.
+    """
+    try:
+        from backend.ml.reranker import SessionStore
+        store = SessionStore()
+        shape = store._embeddings.shape
+        return {"status": "ok", "embedding_shape": shape, "injected_dimensions": 5}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
