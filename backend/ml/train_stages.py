@@ -71,11 +71,22 @@ def _append_log(stage: str, lines: list[str]) -> None:
     LOG.write_text(text)
 
 
-def _retrain_and_compare(ratings: pd.DataFrame, stage_name: str, extra_notes: list[str]) -> None:
-    """Shared tail of every stage: write parquet, eval old, train, eval new, log.
+def _retrain_and_compare(
+    ratings: pd.DataFrame,
+    stage_name: str,
+    extra_notes: list[str],
+    write_parquet: bool = True,
+    refresh_prior: bool = True,
+) -> None:
+    """Shared tail of every stage: eval old factors, train, eval new, log.
 
-    ``ratings`` must have userId / movieId / rating / timestamp columns with
-    movieId already in catalog vocabulary.
+    ``ratings`` is the TRAINING matrix (userId / movieId / rating, movieId in
+    catalog vocabulary). The EVAL holdout always comes from
+    ``artifacts/ratings.parquet``; pass ``write_parquet=False`` when training
+    on an augmented corpus (e.g. +Netflix) so the benchmark stays the pure
+    MovieLens holdout and stages remain comparable. ``refresh_prior=False``
+    keeps the MovieLens rating counts as the popularity prior when the extra
+    corpus's popularity is stale (e.g. 2005-era Netflix).
     """
     movies, movie_order = _catalog()
     factors_path = ARTIFACTS / "cf_item_factors.npy"
@@ -83,7 +94,8 @@ def _retrain_and_compare(ratings: pd.DataFrame, stage_name: str, extra_notes: li
 
     print(f"[{stage_name}] ratings: {len(ratings):,} rows, "
           f"{ratings['userId'].nunique():,} users, {ratings['movieId'].nunique():,} movies")
-    ratings.to_parquet(ARTIFACTS / "ratings.parquet")
+    if write_parquet:
+        ratings.to_parquet(ARTIFACTS / "ratings.parquet")
 
     # Baseline: OLD factors scored on the NEW holdout (same data both runs).
     before = _evaluate_factors("old-factors")

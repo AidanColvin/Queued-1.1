@@ -6,6 +6,12 @@ One entry per dataset stage. Metric = ml.evaluate temporal holdout (AUC / P@k), 
 
 - previous factors were trained on a 10% user sample (2.33M ratings)
 - ratings: 23,266,213 rows / 162,535 users (86,103 holdout judgments, 2,541 eval users)
-- old factors: shipped AUC 0.7861, P@5 0.8646, P@10 0.8647 (cf-only AUC 0.7609)
-- new factors: shipped AUC 0.7893, P@5 0.8632, P@10 0.8639 (cf-only AUC 0.7593)
-- verdict: ADOPTED
+- old factors: shipped AUC 0.7954, P@5 0.8603, P@10 0.8626 (cf-only AUC 0.7609)
+- new factors: shipped AUC 0.7959, P@5 0.8602, P@10 0.8612 (cf-only AUC 0.7593)
+- verdict: ADOPTED — small but real AUC gain; the catalog's 5,462 titles were
+  already well-covered by the 10% sample, so 10x data moves the needle only
+  slightly. Popularity prior refreshed from the full 25M counts.
+- incident: an interim "force commit" regenerated all artifacts from the 10%
+  sample WITHOUT enrichment (catalog shrank to 5,400; zero posters/trailers —
+  the production deck went empty). Restored the enriched 5,462-title artifacts
+  from git (2b77796) and retrained on top; numbers above are post-restore.
