@@ -4,12 +4,12 @@ services:
   backend:
     build:
       context: ./backend
-    image: nextwatch-backend
+    image: queued-backend
     ports:
       - "8000:8000"
     environment:
       # Override these in a local .env or here for real data / Postgres.
-      DATABASE_URL: ${DATABASE_URL:-sqlite:///./nextwatch.db}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:///./queued.db}
       MODEL_ARTIFACTS_PATH: ${MODEL_ARTIFACTS_PATH:-./data/artifacts}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
       AUTO_SAMPLE: ${AUTO_SAMPLE:-true}

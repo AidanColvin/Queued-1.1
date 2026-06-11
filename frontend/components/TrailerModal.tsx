@@ -19,7 +19,7 @@ type Phase =
 
 /**
  * Plays a title's trailer in an embedded YouTube player *inside the app* — the
- * user never leaves NextWatch. Resolves the video id from the backend (`/trailer`,
+ * user never leaves Queued. Resolves the video id from the backend (`/trailer`,
  * TMDB-backed); if none is available it degrades to an explicit "open on YouTube"
  * link rather than auto-navigating away.
  */

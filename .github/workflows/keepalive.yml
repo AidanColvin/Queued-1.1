@@ -25,10 +25,10 @@ jobs:
           for path in /api/health "/api/popular"; do
             echo "pinging ${path}"
             if [ "${path}" = "/api/popular" ]; then
-              curl -fsS -m 30 -X POST "https://nextwatch-rouge.vercel.app${path}" \
+              curl -fsS -m 30 -X POST "https://queued-app.vercel.app${path}" \
                 -H 'Content-Type: application/json' -d '{"count":1,"exclude_ids":[]}' >/dev/null || true
             else
-              curl -fsS -m 30 "https://nextwatch-rouge.vercel.app${path}" >/dev/null || true
+              curl -fsS -m 30 "https://queued-app.vercel.app${path}" >/dev/null || true
             fi
           done
           echo "warm-up complete"

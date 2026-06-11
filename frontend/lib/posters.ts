@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import type { Recommendation } from './types';
 
 const memCache = new Map<string, string | null>();
-const LS_PREFIX = 'nextwatch:poster:';
+const LS_PREFIX = 'queued:poster:';
 
 function cacheKey(title: string): string {
   return title.trim().toLowerCase();

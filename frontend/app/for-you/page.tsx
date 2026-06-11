@@ -76,7 +76,7 @@ export default function ForYouPage() {
                 <a href="/" className="font-medium text-accent hover:underline">
                   Sign in
                 </a>{' '}
-                and NextWatch will use everything you&apos;ve ever liked — including your Letterboxd ratings.
+                and Queued will use everything you&apos;ve ever liked — including your Letterboxd ratings.
               </p>
             </div>
           )}

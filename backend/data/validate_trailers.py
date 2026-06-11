@@ -45,7 +45,7 @@ def validate() -> None:
         return
 
     print(f"Validating {len(keyed)} trailer ids via YouTube oEmbed (keyless)…", flush=True)
-    with httpx.Client(headers={"User-Agent": "Mozilla/5.0 NextWatch"}) as client:
+    with httpx.Client(headers={"User-Agent": "Mozilla/5.0 Queued"}) as client:
         with cf.ThreadPoolExecutor(max_workers=8) as ex:
             verdicts = list(ex.map(lambda r: (r, _playable(client, r.trailer_key)), keyed))
 

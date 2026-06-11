@@ -15,7 +15,7 @@ export function isNative(): boolean {
 // keeps the session JWT in Capacitor Preferences and sends it as a Bearer
 // header. An in-memory mirror lets the synchronous fetch path read it.
 // ---------------------------------------------------------------------------
-const TOKEN_KEY = 'nextwatch_auth_token';
+const TOKEN_KEY = 'queued_auth_token';
 let cachedToken: string | null = null;
 
 /** Load the persisted token into memory. Call once before the first API call. */
@@ -75,7 +75,7 @@ export async function nativeAppleSignIn(): Promise<{ identityToken: string; disp
   const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
   const result = await SignInWithApple.authorize({
     clientId: 'com.nextwatch.app',
-    redirectURI: 'https://nextwatch-rouge.vercel.app',
+    redirectURI: 'https://queued-app.vercel.app',
     scopes: 'email name',
   });
   const r = result.response;

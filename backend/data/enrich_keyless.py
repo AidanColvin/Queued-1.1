@@ -42,7 +42,7 @@ from ml.artifacts import MOVIE_INDEX_FILE, ArtifactBundle, load_artifacts
 
 # A descriptive User-Agent is mandatory: the Wikidata Query Service and the
 # MediaWiki API both reject generic/blank agents.
-USER_AGENT = "NextWatch/1.0 (portfolio recommender; keyless poster enrichment)"
+USER_AGENT = "Queued/1.0 (portfolio recommender; keyless poster enrichment)"
 WDQS_ENDPOINT = "https://query.wikidata.org/sparql"
 WIKIPEDIA_API = "https://en.wikipedia.org/w/api.php"
 

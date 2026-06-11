@@ -188,7 +188,7 @@ def main() -> None:
 
     r = evaluate(args.users, args.min_ratings, args.holdout, args.seed)
     base = r["like_rate"]
-    print("\n=== NextWatch swipe-prediction accuracy (offline, temporal holdout) ===")
+    print("\n=== Queued swipe-prediction accuracy (offline, temporal holdout) ===")
     print(f"users evaluated    : {r['users_evaluated']:,}")
     print(f"held-out judgments : {r['holdout_judgments']:,}  (like rate {base:.1%})\n")
     print(f"{'configuration':<14}{'ROC-AUC':>10}{'P@5':>9}{'P@10':>9}")

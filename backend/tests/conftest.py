@@ -28,7 +28,7 @@ def client(tmp_path_factory: pytest.TempPathFactory) -> Iterator:
     Session-scoped: the model loads and the catalog is seeded once. All tests
     are read-only, so sharing the instance is safe and keeps the suite fast.
     """
-    tmp = tmp_path_factory.mktemp("nextwatch")
+    tmp = tmp_path_factory.mktemp("queued")
     os.environ["MODEL_ARTIFACTS_PATH"] = str(tmp / "artifacts")
     os.environ["DATABASE_URL"] = f"sqlite:///{tmp / 'test.db'}"
     os.environ["AUTO_SAMPLE"] = "true"

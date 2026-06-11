@@ -4,11 +4,11 @@ import { AuthProvider } from '@/lib/auth';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'NextWatch — find your next watch',
+  title: 'Queued — find your next watch',
   description:
     'Swipe through movie & TV recommendations from a hybrid ML engine trained on 25M ratings. It learns your taste as you go.',
   manifest: '/manifest.webmanifest',
-  applicationName: 'NextWatch',
+  applicationName: 'Queued',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   // bar (dark text) to match the bright app (the shell pads out of safe areas).
   appleWebApp: {
     capable: true,
-    title: 'NextWatch',
+    title: 'Queued',
     statusBarStyle: 'default',
   },
 };

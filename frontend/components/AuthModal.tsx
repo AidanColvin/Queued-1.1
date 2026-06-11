@@ -64,7 +64,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
           onClick={onClose}
           role="dialog"
           aria-modal="true"
-          aria-label="Sign in to NextWatch"
+          aria-label="Sign in to Queued"
         >
           <motion.div
             className="w-full max-w-sm overflow-hidden rounded-3xl bg-surface p-6 shadow-card"

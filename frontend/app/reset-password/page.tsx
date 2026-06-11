@@ -55,7 +55,7 @@ export default function ResetPasswordPage() {
               href="/"
               className="block w-full rounded-xl bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:brightness-110"
             >
-              Back to NextWatch
+              Back to Queued
             </a>
           </div>
         ) : (

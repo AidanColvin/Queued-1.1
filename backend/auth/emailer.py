@@ -15,7 +15,7 @@ from email.message import EmailMessage
 
 from config import get_settings
 
-logger = logging.getLogger("nextwatch")
+logger = logging.getLogger("queued")
 
 
 def send_email(to: str, subject: str, body: str) -> bool:

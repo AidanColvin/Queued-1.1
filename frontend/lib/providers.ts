@@ -27,8 +27,8 @@ export const PROVIDERS: ProviderMeta[] = [
 
 export const PROVIDER_BY_ID = new Map(PROVIDERS.map((p) => [p.id, p]));
 
-const SELECTED_KEY = 'nextwatch:providers';
-const FILTER_KEY = 'nextwatch:providerFilter';
+const SELECTED_KEY = 'queued:providers';
+const FILTER_KEY = 'queued:providerFilter';
 
 /** The locally saved service selection (guests; mirror for signed-in users). */
 export function loadSelectedProviders(): number[] {
