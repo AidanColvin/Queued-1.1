@@ -42,6 +42,17 @@ W_SEMANTIC_ENERGY = 0.15
 # (0.737 -> 0.772, P@5 0.850 -> 0.864) and degrades past ~1.0.
 POP_BETA = 0.6
 
+# Early-swipe taste shrinkage. The taste cosine is scaled by
+# ``confidence / (confidence + TASTE_SHRINK)`` so a vector built from 1-2 noisy
+# swipes can't override the strong popularity prior before it's trustworthy.
+# Since ``confidence ~= 0.1 * signal_count``, 0.4 reproduces ``k / (k + 4)`` for
+# a pure-like run. Swept on a held-out MovieLens user split (cross-seed): it
+# removes the measured cold-start dip (P@10 at swipe 1: 0.856 -> 0.889, AUC
+# 0.608 -> 0.635) and lifts swipe-3 P@10 0.875 -> 0.891, with the warm regime
+# (swipe 12) preserved (P@10 0.916 -> 0.917, AUC 0.679 -> 0.685). A warm /
+# persisted profile carries high confidence, so it is barely shrunk.
+TASTE_SHRINK = 0.4
+
 
 def build_taste_space(
     embeddings: np.ndarray, cf_factors: np.ndarray, w_semantic: float = W_SEMANTIC_ENERGY
@@ -215,6 +226,9 @@ class SessionReranker:
         unit = self.session_vector / norm
         known_idxs = [self._tmdb_to_idx[c] for c in known]
         scores = self._embeddings[known_idxs] @ unit  # rows are unit-norm -> dot == cosine
+        # Shrink the taste signal toward the prior while evidence is thin (see
+        # TASTE_SHRINK): full trust only once the session vector has matured.
+        scores = (self.confidence / (self.confidence + TASTE_SHRINK)) * scores
         if self._prior is not None:
             scores = scores + POP_BETA * self._prior[known_idxs]
         if boost_ids:
