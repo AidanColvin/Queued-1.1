@@ -11,7 +11,6 @@ same app be mounted under ``/api`` when it runs behind the static frontend.
 """
 
 from __future__ import annotations
-from routers import predict
 
 import logging
 import threading
@@ -33,6 +32,7 @@ from routers import (
     letterboxd,
     personal,
     popular,
+    predict,
     providers,
     recommend,
     search,
@@ -155,7 +155,7 @@ def create_app(api_prefix: str = "") -> FastAPI:
             load_state(request.app)
         return await call_next(request)
 
-    routers = (health, search, recommend, adaptive, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd, personal)
+    routers = (health, search, recommend, adaptive, swipe, popular, tv, trailer, auth, user_data, providers, letterboxd, personal, predict)
     for router in routers:
         app.include_router(router.router, prefix=api_prefix)
 
@@ -168,4 +168,3 @@ def create_app(api_prefix: str = "") -> FastAPI:
 
 
 app = create_app()
-app.include_router(predict.router)
