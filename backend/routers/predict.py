@@ -1,4 +1,9 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
+from auth.deps import get_optional_user
+from db.database import get_db
+from dependencies import get_recommender
 from pydantic import BaseModel
 from typing import List
 try: from ml.predictor import TrajectoryPredictor
@@ -20,16 +25,30 @@ async def forecast_trajectory(payload: PredictionRequest):
  return {"predicted_affinity": score, "will_like_in_future": score >= 0.5, "recommendation_status": "surface" if score >= 0.5 else "suppress"}
 
 @router.get("/crystal-ball")
-async def get_crystal_ball():
-    # Placeholder: In Phase 3, this will map to actual user session vectors.
-    # Currently serves the schema directly to the UI widget to verify connectivity.
-    return {
-        "loves": [
-            {"id": 693134, "title": "Dune: Part Two", "score": 0.92},
-            {"id": 157336, "title": "Interstellar", "score": 0.88}
-        ],
-        "hates": [
-            {"id": 805217, "title": "Madame Web", "score": -0.85},
-            {"id": 335983, "title": "Venom", "score": -0.72}
-        ]
-    }
+def get_crystal_ball(
+    session_id: str = "",
+    recommender=Depends(get_recommender),
+    db: Session = Depends(get_db),
+    user=Depends(get_optional_user),
+):
+    """Predict the titles this viewer will most love and most hate.
+
+    Loads the caller's REAL taste vector (signed-in profile or anonymous
+    session — the same one /swipe trains and /recommend/adaptive ranks with)
+    and scores the whole catalog in the production taste space. Before there
+    is enough signal the forecast is not personalized: loves fall back to the
+    popularity prior and hates stay empty.
+    """
+    import numpy as np
+
+    from routers.adaptive import ADAPTIVE_MIN_CONFIDENCE, _load_taste
+
+    vector, confidence = _load_taste(db, user, session_id)
+    if vector and confidence >= ADAPTIVE_MIN_CONFIDENCE:
+        loves, hates = recommender.predict_extremes(np.asarray(vector, dtype=np.float32))
+        if loves:
+            return {"loves": loves, "hates": hates, "personalized": True}
+    # Cold start: crowd favorites, no hate predictions (no signal to oppose).
+    top = recommender.popular({}, count=5).recommendations
+    loves = [{"id": r.id, "title": r.title, "year": r.year, "score": r.score} for r in top]
+    return {"loves": loves, "hates": [], "personalized": False}

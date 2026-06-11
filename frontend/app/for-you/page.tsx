@@ -44,8 +44,6 @@ export default function ForYouPage() {
     <main className="app-shell mx-auto flex w-full max-w-md flex-col">
       <header className="mb-4 flex items-center justify-between gap-2">
         <a href="/" className="text-sm font-medium text-muted transition hover:text-ink">
-      <TrajectoryForecast />
-      <Matchmaker />
           ← Deck
         </a>
         <span className="text-[17px] font-semibold tracking-tight text-ink">For You</span>
@@ -92,6 +90,9 @@ export default function ForYouPage() {
               {data.seeded_by.length > 4 ? ` and ${data.seeded_by.length - 4} more` : ''}.
             </p>
           )}
+
+          <TrajectoryForecast />
+          <Matchmaker />
 
           {data.sections.map((section) => (
             <section key={section.key}>
