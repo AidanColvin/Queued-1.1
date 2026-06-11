@@ -225,7 +225,11 @@ class HybridRecommender:
         # barely shrunk; the default 1.0 keeps callers that omit it unchanged.
         cosine = (confidence / (confidence + TASTE_SHRINK)) * cosine
         scores = cosine + POP_BETA * self._pop_prior
-        order = np.argsort(scores)[::-1]
+        # Partial top-k instead of a full catalog sort: the deck never needs
+        # more than count + len(excluded) ranked rows.
+        k = min(len(scores), count + len(exclude_ids or []) + 8)
+        top = np.argpartition(-scores, k - 1)[:k]
+        order = top[np.argsort(-scores[top])]
         excluded = set(exclude_ids or [])
 
         recs: list[Recommendation] = []
