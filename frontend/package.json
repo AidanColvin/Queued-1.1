@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "test": "vitest",
     "dev": "next dev",
     "build": "next build",
     "build:native": "next build && cap sync ios",
