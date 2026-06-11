@@ -270,18 +270,20 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
 
   // Apple-style segmented control: a single pill track with the active segment
   // lifted onto a white, softly-shadowed chip.
+  // Compact paddings below sm so the whole header row (brand + segments +
+  // Watchlist + Sign in) fits a 375px viewport without clipping.
   const segBtn = (active: boolean) =>
-    `rounded-full px-4 py-1.5 text-sm font-medium transition ${
+    `rounded-full px-2.5 py-1.5 text-sm font-medium transition sm:px-4 ${
       active ? 'bg-white text-ink shadow-soft ring-1 ring-black/[0.04]' : 'text-muted hover:text-ink'
     }`;
 
   return (
     <main className="app-shell mx-auto flex w-full max-w-md flex-col">
       <SplashScreen />
-      <header className="mb-4 flex items-center justify-between gap-2">
-        <span className="text-[17px] font-semibold tracking-tight text-ink">NextWatch</span>
+      <header className="mb-4 flex items-center justify-between gap-1 sm:gap-2">
+        <span className="text-[15px] font-semibold tracking-tight text-ink sm:text-[17px]">NextWatch</span>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <div className="flex items-center rounded-full bg-black/[0.04] p-0.5">
             <button type="button" onClick={() => switchStack('movie')} className={segBtn(stack === 'movie')}>
               Movies
@@ -294,7 +296,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             type="button"
             onClick={() => setWishlistOpen(true)}
             aria-label="Open watchlist"
-            className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-sm font-medium text-ink ring-1 ring-black/[0.08] transition hover:ring-black/20 active:scale-95"
+            className="flex items-center gap-1.5 rounded-full bg-white px-2.5 py-2 text-sm font-medium text-ink ring-1 ring-black/[0.08] transition hover:ring-black/20 active:scale-95 sm:px-3.5"
           >
             <span>Watchlist</span>
             {deck.wishlist.length ? (
@@ -308,7 +310,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
             <button
               type="button"
               onClick={() => setAuthOpen(true)}
-              className="rounded-full bg-ink px-3.5 py-2 text-sm font-medium text-white transition hover:brightness-125 active:scale-95"
+              className="whitespace-nowrap rounded-full bg-ink px-2.5 py-2 text-sm font-medium text-white transition hover:brightness-125 active:scale-95 sm:px-3.5"
             >
               Sign in
             </button>
