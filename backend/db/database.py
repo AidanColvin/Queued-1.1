@@ -58,6 +58,11 @@ class SwipeEvent(Base):
     tmdb_id: Mapped[int] = mapped_column(index=True)
     action: Mapped[str] = mapped_column(String(16))
     time_on_card_ms: Mapped[int | None] = mapped_column(nullable=True)
+    # The model's pre-swipe guess for this card (the production ranking score),
+    # logged so live accuracy is measurable: guess first, then check the swipe.
+    # Null when the model had no basis to guess. Additive + nullable, so
+    # existing deployments heal automatically at startup (see init_db).
+    predicted_score: Mapped[float | None] = mapped_column(nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 

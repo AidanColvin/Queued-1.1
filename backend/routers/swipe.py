@@ -110,6 +110,11 @@ def record_swipe(
             logger.exception("Failed to load anon session profile (memory-only fallback)")
             reranker = store.get_or_create(payload.session_id)
 
+    # Guess BEFORE learning from the swipe: the model's production score for
+    # this card given everything it knew up to now. Logged with the outcome so
+    # /predict/accuracy can measure live prediction quality (guess → check).
+    guess = reranker.predict_score(payload.tmdb_id)
+
     applied = reranker.update(payload.tmdb_id, payload.action, payload.time_on_card_ms)
 
     # Persist the swipe log (+ the updated taste vector). A DB hiccup here must
@@ -128,6 +133,7 @@ def record_swipe(
                 tmdb_id=payload.tmdb_id,
                 action=payload.action,
                 time_on_card_ms=payload.time_on_card_ms,
+                predicted_score=guess,
             )
         )
         db.commit()

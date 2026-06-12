@@ -64,3 +64,4 @@ frontend/tsconfig.tsbuildinfo
 logs/
 training/
 test-results/
+backend/data/artifacts/ratings.parquet

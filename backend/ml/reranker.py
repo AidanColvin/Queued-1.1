@@ -38,11 +38,15 @@ def _unit_rows(matrix: np.ndarray) -> np.ndarray:
 W_SEMANTIC_ENERGY = 0.15
 
 # Additive popularity-prior weight used by taste ranking (see
-# :func:`popularity_prior`). Originally swept to 0.6 against the 10%-sample
-# factors; re-swept jointly with w_semantic after the Stage-3 retrain (full
-# 25M + Kion factors): 0.75 wins AUC on all three holdout seeds
-# (e.g. 0.8019 -> 0.8031 on seed 42) and degrades past ~1.0.
-POP_BETA = 0.75
+# :func:`popularity_prior`). Swept to 0.6 then 0.75 on the MovieLens 25M
+# holdout (the CF factors' own training distribution; it degraded past ~1.0
+# there). Re-determined on an INDEPENDENT public dataset (MovieLens 1M via
+# ``ml.tune_weights``: disjoint tune/test user split, temporal holdout):
+# 1.0 beats 0.75 on every test seed (AUC 0.755 -> 0.764) and is the largest
+# value both datasets support, so 1.0 ships. w_semantic stays 0.15 — the sweep
+# shows it is flat (±0.001 AUC across 0.05-0.20), and changing it would rescale
+# the taste space under every persisted user vector.
+POP_BETA = 1.0
 
 # Early-swipe taste shrinkage. The taste cosine is scaled by
 # ``confidence / (confidence + TASTE_SHRINK)`` so a vector built from 1-2 noisy
@@ -195,6 +199,25 @@ class SessionReranker:
         self.session_vector += weight * time_modifier(time_on_card_ms, action) * self._embeddings[idx]
         self.confidence = min(self.confidence + abs(weight) * 0.1, 1.0)
         return True
+
+    def predict_score(self, tmdb_id: int) -> float | None:
+        """The model's guess for a card, scored BEFORE the user swipes it.
+
+        Exactly the production ranking score — shrunk taste cosine plus the
+        popularity prior — so logging it against the actual swipe measures the
+        deployed model, not a simplified proxy. Returns ``None`` when the model
+        has no basis to guess (unknown title, or no taste signal yet); callers
+        store it next to the swipe outcome so accuracy is observable live.
+        """
+        idx = self._tmdb_to_idx.get(tmdb_id)
+        norm = float(np.linalg.norm(self.session_vector))
+        if idx is None or norm == 0.0 or self.confidence < CONFIDENCE_THRESHOLD:
+            return None
+        cosine = float(self._embeddings[idx] @ (self.session_vector / norm))
+        score = (self.confidence / (self.confidence + TASTE_SHRINK)) * cosine
+        if self._prior is not None:
+            score += POP_BETA * float(self._prior[idx])
+        return score
 
     def rerank(self, candidate_ids: list[int], boost_ids: set[int] | None = None, boost: float = 0.12) -> list[int]:
         """Return ``candidate_ids`` re-sorted by similarity to the session vector.
