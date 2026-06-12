@@ -40,7 +40,15 @@ import pandas as pd
 from scipy.stats import rankdata
 
 from ml.artifacts import MovieRecord
-from ml.reranker import POP_BETA, SessionReranker, _unit_rows, build_taste_space, popularity_prior
+from ml.reranker import (
+    POP_BETA,
+    QUALITY_GAMMA,
+    SessionReranker,
+    _unit_rows,
+    build_taste_space,
+    load_quality_prior,
+    popularity_prior,
+)
 
 LIKE_AT = 4.0
 DISLIKE_AT = 2.0
@@ -68,8 +76,10 @@ def _load() -> tuple[dict[str, np.ndarray], dict[int, int], pd.DataFrame, np.nda
 
     movies = json.loads((ARTIFACTS / "movie_index.json").read_text())["movies"]
     movieid_to_idx = {m["movie_id"]: m["idx"] for m in movies}
-    # Same prior production blends in (zeros if the bundle has no rating counts).
+    # Same priors production blends in (zeros when the bundle lacks them), so
+    # the "shipped" row stays exactly what runs live: popularity + quality.
     prior = popularity_prior([MovieRecord.from_json(m) for m in movies])
+    prior = prior + (QUALITY_GAMMA / POP_BETA) * load_quality_prior(ARTIFACTS, len(movies))
     ratings = pd.read_parquet(ARTIFACTS / "ratings.parquet")
     ratings = ratings[ratings["movieId"].isin(movieid_to_idx)]
     return matrices, movieid_to_idx, ratings, prior

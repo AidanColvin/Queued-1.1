@@ -38,15 +38,29 @@ def _unit_rows(matrix: np.ndarray) -> np.ndarray:
 W_SEMANTIC_ENERGY = 0.15
 
 # Additive popularity-prior weight used by taste ranking (see
-# :func:`popularity_prior`). Swept to 0.6 then 0.75 on the MovieLens 25M
-# holdout (the CF factors' own training distribution; it degraded past ~1.0
-# there). Re-determined on an INDEPENDENT public dataset (MovieLens 1M via
-# ``ml.tune_weights``: disjoint tune/test user split, temporal holdout):
-# 1.0 beats 0.75 on every test seed (AUC 0.755 -> 0.764) and is the largest
-# value both datasets support, so 1.0 ships. w_semantic stays 0.15 — the sweep
-# shows it is flat (±0.001 AUC across 0.05-0.20), and changing it would rescale
-# the taste space under every persisted user vector.
-POP_BETA = 1.0
+# :func:`popularity_prior`). History: swept to 0.6 then 0.75 on the MovieLens
+# 25M holdout; briefly 1.0 from a popularity-only re-sweep on MovieLens 1M.
+# The full 1,440-point campaign (``ml.tune_campaign``: decay x dislike x
+# w_semantic x beta x gamma, disjoint tune/test users) found beta=0.75 optimal
+# ONCE the quality prior below carries the "is it actually good?" signal that
+# raw popularity was partly proxying. w_semantic stays 0.15 — measured flat
+# (±0.001 AUC), and changing it would rescale the taste space under every
+# persisted user vector.
+POP_BETA = 0.75
+
+# Additive QUALITY-prior weight: per-item shrunk mean rating in [-1, 1] from
+# public ratings data (``quality_prior.npy``, baked by ``ml.tune_campaign``).
+# Separates popular-and-loved from popular-but-mediocre — the single biggest
+# accuracy lever found by the 1,440-point campaign. The AUC optimum is 0.75
+# (held-out 0.850), but at that strength the static prior crowds niche tastes
+# out of GENERATED decks (the persona simulation's animation-family fit
+# collapsed +0.95 -> +0.05). 0.4 is the measured Pareto point: AUC 0.841 —
+# 89% of the max gain over the 0.764 baseline, every test seed won, horizon
+# AUCs next-5/10/20 0.74/0.78/0.81 vs 0.67/0.70/0.72 — with deck adaptation
+# fully preserved (all six personas still adapt, P@5 0.859 -> 0.890).
+# Bundles without the artifact get zeros (no-op).
+QUALITY_GAMMA = 0.4
+QUALITY_FILE = "quality_prior.npy"
 
 # Early-swipe taste shrinkage. The taste cosine is scaled by
 # ``confidence / (confidence + TASTE_SHRINK)`` so a vector built from 1-2 noisy
@@ -103,6 +117,25 @@ def popularity_prior(catalog: list[MovieRecord]) -> np.ndarray:
     return ((log_pop - log_pop.min()) / spread).astype(np.float32)
 
 
+def load_quality_prior(artifacts_dir, n_items: int) -> np.ndarray:
+    """Load the optional per-item quality prior, aligned to the catalog.
+
+    Returns zeros (a scoring no-op) when the artifact is absent or its length
+    no longer matches the catalog — a stale file must degrade, never crash.
+    """
+    from pathlib import Path
+
+    path = Path(artifacts_dir) / QUALITY_FILE
+    try:
+        if path.exists():
+            q = np.load(path).astype(np.float32)
+            if q.shape[0] == n_items:
+                return q
+    except Exception:  # noqa: BLE001 — a corrupt optional artifact must not kill startup
+        pass
+    return np.zeros(n_items, dtype=np.float32)
+
+
 # Per-action base weights. Positive pulls the session vector toward the title;
 # negative pushes it away. Not symmetric — see the module docstring.
 SIGNAL_WEIGHTS: dict[str, float] = {
@@ -115,7 +148,11 @@ SIGNAL_WEIGHTS: dict[str, float] = {
                        # Still recorded to swipe_events (offline training), but
                        # never nudges the live taste vector — a discovery app
                        # must not learn *away* from titles you simply haven't met.
-    "dismissed": -0.55,  # moderate negative — "not this vibe at all" (dislike)
+    "dismissed": -1.0,  # full-strength negative. The tune campaign swept the
+                       # dislike magnitude (0.25/0.55/0.8/1.0) against held-out
+                       # behaviour: symmetric dislikes win decisively on every
+                       # test seed — a "not this" carries as much taste
+                       # information as a "more of this".
 }
 
 # Re-rank once the session carries a little signal — low so the deck visibly
@@ -158,6 +195,8 @@ class SessionReranker:
         init_confidence: Optional warm-start confidence.
         prior: Optional per-row popularity prior (see :func:`popularity_prior`);
             ``None`` disables the prior term in :meth:`rerank`.
+        quality: Optional per-row quality prior (see :func:`load_quality_prior`);
+            ``None`` disables the quality term.
     """
 
     def __init__(
@@ -167,10 +206,12 @@ class SessionReranker:
         init_vector: np.ndarray | None = None,
         init_confidence: float = 0.0,
         prior: np.ndarray | None = None,
+        quality: np.ndarray | None = None,
     ) -> None:
         self._embeddings = embeddings
         self._tmdb_to_idx = tmdb_to_idx
         self._prior = prior
+        self._quality = quality
         dim = embeddings.shape[1]
         self.session_vector = (
             init_vector.astype(np.float32).copy()
@@ -217,6 +258,8 @@ class SessionReranker:
         score = (self.confidence / (self.confidence + TASTE_SHRINK)) * cosine
         if self._prior is not None:
             score += POP_BETA * float(self._prior[idx])
+        if self._quality is not None:
+            score += QUALITY_GAMMA * float(self._quality[idx])
         return score
 
     def rerank(self, candidate_ids: list[int], boost_ids: set[int] | None = None, boost: float = 0.12) -> list[int]:
@@ -256,6 +299,8 @@ class SessionReranker:
         scores = (self.confidence / (self.confidence + TASTE_SHRINK)) * scores
         if self._prior is not None:
             scores = scores + POP_BETA * self._prior[known_idxs]
+        if self._quality is not None:
+            scores = scores + QUALITY_GAMMA * self._quality[known_idxs]
         if boost_ids:
             scores = scores + np.array([boost if c in boost_ids else 0.0 for c in known], dtype=scores.dtype)
         order = np.argsort(scores)[::-1]
@@ -273,10 +318,13 @@ class SessionStore:
         catalog: The bundle's catalog (for the TMDB-id index).
     """
 
-    def __init__(self, embeddings: np.ndarray, catalog: list[MovieRecord]) -> None:
+    def __init__(
+        self, embeddings: np.ndarray, catalog: list[MovieRecord], quality: np.ndarray | None = None
+    ) -> None:
         self._embeddings = embeddings
         self._tmdb_to_idx = {rec.tmdb_id: rec.idx for rec in catalog if rec.tmdb_id is not None}
         self._prior = popularity_prior(catalog)
+        self._quality = quality
         self._sessions: OrderedDict[str, SessionReranker] = OrderedDict()
         self._lock = threading.Lock()
 
@@ -310,6 +358,7 @@ class SessionStore:
             init_vector=init_vector,
             init_confidence=init_confidence,
             prior=self._prior,
+            quality=self._quality,
         )
 
     def get_or_create(
@@ -334,6 +383,7 @@ class SessionStore:
                     init_vector=init_vector,
                     init_confidence=init_confidence,
                     prior=self._prior,
+                    quality=self._quality,
                 )
                 self._sessions[session_id] = reranker
                 if len(self._sessions) > MAX_SESSIONS:

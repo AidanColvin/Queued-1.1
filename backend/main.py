@@ -23,7 +23,7 @@ from config import get_settings
 from db.database import init_db, seed_movies, seed_title_providers
 from ml.artifacts import artifacts_exist, load_artifacts
 from ml.recommender import HybridRecommender
-from ml.reranker import SessionStore, build_taste_space
+from ml.reranker import SessionStore, build_taste_space, load_quality_prior
 from providers import ProviderIndex
 from routers import (
     adaptive,
@@ -98,7 +98,10 @@ def load_state(app: FastAPI) -> None:
             init_db()
             seed_movies(bundle.catalog)
             taste_space = build_taste_space(bundle.embeddings, bundle.cf_factors)
-            app.state.session_store = SessionStore(taste_space, bundle.catalog)
+            # Optional quality prior (shrunk mean rating from public ratings
+            # data) — zeros when the artifact is absent, so nothing breaks.
+            quality = load_quality_prior(artifacts_dir, bundle.size)
+            app.state.session_store = SessionStore(taste_space, bundle.catalog, quality=quality)
             app.state.tv_catalog = _load_tv_catalog(artifacts_dir)
             # Streaming availability (optional artifact — empty index when the
             # enrich script hasn't been run; filters then degrade to "all").
@@ -107,6 +110,7 @@ def load_state(app: FastAPI) -> None:
                 seed_title_providers(app.state.provider_index)
             recommender = HybridRecommender(bundle)
             recommender.attach_taste_space(taste_space)  # enables taste-vector candidate gen
+            recommender.attach_quality_prior(quality)
             app.state.recommender = recommender  # set last = "ready" flag
             logger.info("Loaded '%s' bundle: %d titles", app.state.recommender.source, app.state.recommender.size)
         except Exception:  # noqa: BLE001 — serve degraded so /health stays useful

@@ -47,6 +47,7 @@ backend/data/artifacts/*
 !backend/data/artifacts/tfidf_matrix.npz
 !backend/data/artifacts/embeddings.npy
 !backend/data/artifacts/tv_index.json
+!backend/data/artifacts/quality_prior.npy
 backend/data/artifacts.backup-*/
 backend/data/*.parquet
 backend/data/*.csv

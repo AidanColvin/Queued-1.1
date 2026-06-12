@@ -25,7 +25,7 @@ from ml.artifacts import ArtifactBundle, MovieRecord, normalize_title
 from ml.collaborative import cf_scores
 from ml.content import content_scores
 from ml.embeddings import semantic_scores
-from ml.reranker import POP_BETA, TASTE_SHRINK, popularity_prior
+from ml.reranker import POP_BETA, QUALITY_GAMMA, TASTE_SHRINK, popularity_prior
 from schemas import Recommendation, RecommendResponse, TasteProfile
 
 # Blend weights (must sum to 1.0). CF dominates because behavioral signal is the
@@ -69,6 +69,9 @@ class HybridRecommender:
         # Popularity prior blended into taste ranking (zeros for the sample
         # bundle, where it is a no-op). Same prior the session reranker uses.
         self._pop_prior = popularity_prior(self._catalog)
+        # Optional quality prior (shrunk mean rating, [-1, 1]); zeros until
+        # attach_quality_prior() — same no-op degradation as the pop prior.
+        self._q_prior = np.zeros(len(self._catalog), dtype=np.float32)
         # Lookup maps. Later entries do not overwrite earlier ones, so the first
         # occurrence of a normalized title wins (stable, order-preserving).
         self._by_title: dict[str, int] = {}
@@ -192,6 +195,12 @@ class HybridRecommender:
         candidate generation (the same matrix the session reranker ranks in)."""
         self._taste_space = taste_space
 
+    def attach_quality_prior(self, quality: np.ndarray) -> None:
+        """Attach the per-item quality prior (see ``ml.reranker.load_quality_prior``)
+        so taste ranking scores with the full production blend."""
+        if quality.shape[0] == len(self._catalog):
+            self._q_prior = quality.astype(np.float32)
+
     def recommend_by_taste(
         self,
         vector: np.ndarray,
@@ -224,7 +233,7 @@ class HybridRecommender:
         # popularity prior. A persisted/mature profile (high confidence) is
         # barely shrunk; the default 1.0 keeps callers that omit it unchanged.
         cosine = (confidence / (confidence + TASTE_SHRINK)) * cosine
-        scores = cosine + POP_BETA * self._pop_prior
+        scores = cosine + POP_BETA * self._pop_prior + QUALITY_GAMMA * self._q_prior
         # Partial top-k instead of a full catalog sort: the deck never needs
         # more than count + len(excluded) ranked rows.
         k = min(len(scores), count + len(exclude_ids or []) + 8)
@@ -239,8 +248,15 @@ class HybridRecommender:
             rec = self._catalog[idx]
             if rec.movie_id in excluded:
                 continue
-            # Display score: map the blended score from [-1, 1 + POP_BETA] to [0, 1].
-            display = (float(scores[idx]) + 1.0) / (2.0 + POP_BETA)
+            # Display score: map the blended score from
+            # [-1 - QUALITY_GAMMA, 1 + POP_BETA + QUALITY_GAMMA] to [0, 1].
+            display = float(
+                np.clip(
+                    (float(scores[idx]) + 1.0 + QUALITY_GAMMA) / (2.0 + POP_BETA + 2.0 * QUALITY_GAMMA),
+                    0.0,
+                    1.0,
+                )
+            )
             recs.append(
                 self._to_recommendation(rec, score=round(display, 2), why="Tuned to your taste.")
             )
@@ -286,7 +302,7 @@ class HybridRecommender:
         # a monotone scaling, so within-list order is preserved while the
         # displayed scores stop overstating thin evidence.
         cosine = (confidence / (confidence + TASTE_SHRINK)) * (space @ (vector / norm))
-        blended = cosine + POP_BETA * self._pop_prior
+        blended = cosine + POP_BETA * self._pop_prior + QUALITY_GAMMA * self._q_prior
         excluded = exclude_tmdb_ids or set()
 
         def pack(idx: int, score: float) -> dict:
