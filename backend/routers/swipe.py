@@ -149,16 +149,15 @@ def record_swipe(
 
     raw_reranked = reranker.rerank(payload.remaining, boost_ids=boost_ids)
 
-    def _fetch_emb(tmdb_id):
-        # Pull directly from Queued's in-memory hot cache
-        idx = store._tmdb_to_idx.get(tmdb_id)
-        return store._embeddings[idx] if idx is not None else None
-
+    # Drop cards the model is confident this taste will dislike. Confidence
+    # rides along so the doom filter trusts the vector exactly as much as the
+    # ranking paths do — a one-dislike session can't silently shrink the deck.
     sanitized_queue = filter_doomed_titles(
         reranked_queue=raw_reranked,
         current_profile=reranker.session_vector.tolist(),
         recent_swipes=[],  # Base evaluation
-        get_embedding_fn=_fetch_emb
+        get_embedding_fn=store.embedding_for,
+        confidence=reranker.confidence,
     )
 
     return SwipeResponse(

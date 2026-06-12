@@ -13,6 +13,7 @@ from __future__ import annotations
 import numpy as np
 
 from ml.predictor import TrajectoryPredictor
+from ml.reranker import TASTE_SHRINK
 
 # Cosine below which a candidate is "destined to hate" and silently dropped.
 DOOM_THRESHOLD = -0.3
@@ -20,7 +21,13 @@ DOOM_THRESHOLD = -0.3
 predictor = TrajectoryPredictor()
 
 
-def filter_doomed_titles(reranked_queue: list, current_profile: list, recent_swipes: list, get_embedding_fn) -> list:
+def filter_doomed_titles(
+    reranked_queue: list,
+    current_profile: list,
+    recent_swipes: list,
+    get_embedding_fn,
+    confidence: float = 1.0,
+) -> list:
     """Return ``reranked_queue`` minus titles predicted to be disliked.
 
     Args:
@@ -29,6 +36,11 @@ def filter_doomed_titles(reranked_queue: list, current_profile: list, recent_swi
         recent_swipes: Hypothetical next swipes (``{action, embedding}``) folded
             into the profile before scoring — the "trajectory" part.
         get_embedding_fn: id -> embedding row (or ``None`` for unknown ids).
+        confidence: The profile's confidence. The cosine is shrunk by the same
+            ``confidence / (confidence + TASTE_SHRINK)`` policy the ranking
+            paths use, so a vector built from one or two swipes can't doom
+            cards on evidence the ranker itself doesn't yet trust. The default
+            of 1.0 preserves prior behaviour for callers that don't track it.
     """
     v_pref = np.asarray(current_profile, dtype=np.float32)
     for swipe in recent_swipes:
@@ -47,8 +59,9 @@ def filter_doomed_titles(reranked_queue: list, current_profile: list, recent_swi
         return list(reranked_queue)
 
     # One matrix-vector product scores every known candidate at once. Rows are
-    # unit-norm (the taste space), so the dot product is the cosine.
+    # unit-norm (the taste space), so the dot product is the cosine — shrunk
+    # toward zero while session evidence is thin (see ``confidence`` above).
     matrix = np.stack([embs[k] for k in known]).astype(np.float32)
-    scores = matrix @ unit
+    scores = (confidence / (confidence + TASTE_SHRINK)) * (matrix @ unit)
     doomed = {known[j] for j, s in enumerate(scores) if float(s) < DOOM_THRESHOLD}
     return [item for k, item in enumerate(reranked_queue) if k not in doomed]

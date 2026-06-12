@@ -44,12 +44,22 @@ def get_crystal_ball(
     popularity prior and hates stay empty.
     """
     import numpy as np
+    from sqlalchemy import select
 
+    from db.database import SwipeEvent
     from routers.adaptive import ADAPTIVE_MIN_CONFIDENCE, _load_taste
 
     vector, confidence = _load_taste(db, user, session_id)
     if vector and confidence >= ADAPTIVE_MIN_CONFIDENCE:
-        loves, hates = recommender.predict_extremes(np.asarray(vector, dtype=np.float32))
+        # A forecast must not name titles the caller already swiped — liked
+        # titles are by construction the nearest neighbours of their own vector.
+        scope = SwipeEvent.user_id == user.id if user is not None else SwipeEvent.session_id == session_id
+        swiped = set(db.scalars(select(SwipeEvent.tmdb_id).where(scope).distinct()).all())
+        loves, hates = recommender.predict_extremes(
+            np.asarray(vector, dtype=np.float32),
+            exclude_tmdb_ids=swiped,
+            confidence=confidence,
+        )
         if loves:
             return {"loves": loves, "hates": hates, "personalized": True}
     # Cold start: crowd favorites, no hate predictions (no signal to oppose).

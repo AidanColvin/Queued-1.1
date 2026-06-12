@@ -263,6 +263,15 @@ class SessionStore:
         still matches the current model before warm-starting from it."""
         return int(self._embeddings.shape[1])
 
+    def embedding_for(self, tmdb_id: int) -> np.ndarray | None:
+        """The item vector for a TMDB id, or ``None`` when it isn't indexed.
+
+        The public read path for callers (e.g. the trajectory doom filter) that
+        need per-title vectors without reaching into private attributes.
+        """
+        idx = self._tmdb_to_idx.get(tmdb_id)
+        return self._embeddings[idx] if idx is not None else None
+
     def reranker_for_user(
         self, init_vector: np.ndarray | None = None, init_confidence: float = 0.0
     ) -> SessionReranker:

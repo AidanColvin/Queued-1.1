@@ -30,3 +30,15 @@ def test_swipes_personalize_the_forecast(client) -> None:
     # forecast entries carry usable fields for the widget
     first = body["loves"][0]
     assert {"id", "title", "score"} <= set(first)
+
+
+def test_forecast_never_names_already_swiped_titles(client) -> None:
+    """Predicting a title the user just liked is recall, not a forecast."""
+    session = "cb-no-echo"
+    swiped = [1396, 1438]  # Breaking Bad, The Wire
+    for tmdb_id in swiped:
+        _swipe(client, session, tmdb_id, "liked")
+    body = client.get(f"/predict/crystal-ball?session_id={session}").json()
+    assert body["personalized"] is True
+    forecast_ids = {m["id"] for m in body["loves"]} | {m["id"] for m in body["hates"]}
+    assert not forecast_ids & set(swiped), "forecast echoed an already-swiped title"

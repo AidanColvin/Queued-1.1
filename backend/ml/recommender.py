@@ -250,14 +250,30 @@ class HybridRecommender:
 
         return RecommendResponse(recommendations=recs, taste_profile=self._taste_profile(chosen[:8]))
 
-    def predict_extremes(self, vector, count: int = 5) -> tuple[list[dict], list[dict]]:
+    def predict_extremes(
+        self,
+        vector,
+        count: int = 5,
+        exclude_tmdb_ids: set[int] | None = None,
+        confidence: float = 1.0,
+    ) -> tuple[list[dict], list[dict]]:
         """The crystal ball: titles the model predicts this taste will LOVE and HATE.
 
-        Loves = the production blended ranking (cosine + popularity prior) —
-        identical scoring to the adaptive deck, so the forecast IS the model's
-        actual next picks. Hates = the most NEGATIVE raw cosines (no prior:
-        "you'll dislike this" is about taste opposition, not obscurity).
+        Loves = the production blended ranking (shrunk cosine + popularity
+        prior) — identical scoring to the adaptive deck, so the forecast IS the
+        model's actual next picks. Hates = the most NEGATIVE taste cosines (no
+        prior: "you'll dislike this" is about taste opposition, not obscurity).
         Returns ([], []) when there is no usable signal.
+
+        Args:
+            exclude_tmdb_ids: Titles the caller has already swiped — a forecast
+                that names what the user just told us isn't a prediction, and
+                liked titles are exactly the nearest neighbours of the vector
+                they trained.
+            confidence: The profile's confidence, applying the same
+                early-evidence shrinkage as :meth:`recommend_by_taste` (the
+                measured production policy). The default keeps raw cosines for
+                callers that don't track confidence.
         """
         import numpy as np
 
@@ -266,23 +282,34 @@ class HybridRecommender:
         if space is None or norm == 0.0 or vector.shape[0] != space.shape[1]:
             return [], []
 
-        cosine = space @ (vector / norm)
+        # Same shrinkage the adaptive deck applies (see reranker.TASTE_SHRINK):
+        # a monotone scaling, so within-list order is preserved while the
+        # displayed scores stop overstating thin evidence.
+        cosine = (confidence / (confidence + TASTE_SHRINK)) * (space @ (vector / norm))
         blended = cosine + POP_BETA * self._pop_prior
+        excluded = exclude_tmdb_ids or set()
 
         def pack(idx: int, score: float) -> dict:
             rec = self._catalog[idx]
             return {"id": rec.movie_id, "title": rec.title, "year": rec.year,
                     "score": round(float(score), 2)}
 
-        love_order = np.argsort(blended)[::-1][:count]
+        def take(order, scores) -> list[dict]:
+            out: list[dict] = []
+            for i in order:
+                rec = self._catalog[int(i)]
+                if rec.tmdb_id in excluded or rec.movie_id in excluded:
+                    continue
+                out.append(pack(int(i), scores[int(i)]))
+                if len(out) >= count:
+                    break
+            return out
+
+        loves = take(np.argsort(blended)[::-1], blended)
         # Only popular-enough titles qualify as predicted hates — "you'll hate
         # this obscure film you've never heard of" is noise, not a forecast.
-        hate_mask = self._pop_prior >= 0.5
-        hate_pool = np.where(hate_mask)[0]
-        hate_order = hate_pool[np.argsort(cosine[hate_pool])[:count]] if hate_pool.size else []
-
-        loves = [pack(int(i), blended[int(i)]) for i in love_order]
-        hates = [pack(int(i), cosine[int(i)]) for i in hate_order]
+        hate_pool = np.where(self._pop_prior >= 0.5)[0]
+        hates = take(hate_pool[np.argsort(cosine[hate_pool])], cosine) if hate_pool.size else []
         return loves, hates
 
     def popular(
