@@ -32,6 +32,19 @@ os.environ.setdefault(
 # wiped between invocations, so accounts won't persist.
 os.environ.setdefault("COOKIE_SECURE", "true")
 
+# Heal stale auth config left over from the NextWatch -> Queued domain move.
+# The Vercel dashboard's FRONTEND_URL / GOOGLE_REDIRECT_URI still pointed at the
+# retired nextwatch-rouge.vercel.app host, which broke "Continue with Google":
+# the CSRF state cookie was set on queued-2 but Google bounced the browser back
+# to the old domain, where the cookie (and the session) couldn't exist. Any
+# missing value — or one referencing the dead domain — is rewritten to the live
+# production origin; a corrected dashboard value still wins.
+_PROD_ORIGIN = "https://queued-2.vercel.app"
+if "nextwatch" in os.environ.get("FRONTEND_URL", "") or not os.environ.get("FRONTEND_URL"):
+    os.environ["FRONTEND_URL"] = _PROD_ORIGIN
+if "nextwatch" in os.environ.get("GOOGLE_REDIRECT_URI", "") or not os.environ.get("GOOGLE_REDIRECT_URI"):
+    os.environ["GOOGLE_REDIRECT_URI"] = f"{_PROD_ORIGIN}/api/auth/google/callback"
+
 from main import create_app  # noqa: E402  (must follow the sys.path / env setup)
 
 # Served behind the static frontend at /api/*.
