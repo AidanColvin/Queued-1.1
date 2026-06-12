@@ -5,15 +5,15 @@ import { motion } from 'framer-motion';
 interface WelcomeGateProps {
   /** Open the sign-in / create-account modal (Google, Apple in-app, email). */
   onSignIn: () => void;
-  /** Continue without an account — remembered, so the gate shows once. */
+  /** Continue without an account — remembered for this browser session. */
   onGuest: () => void;
 }
 
 /**
- * First-visit screen between the wordmark splash and the deck: one quiet page
+ * Sign-in screen between the wordmark splash and the deck: one quiet page
  * offering sign-in (Google / Apple / email+password via the auth modal) or
- * guest browsing. Shown only until the visitor picks either path or signs in;
- * the choice persists in localStorage.
+ * guest browsing. Shown to every signed-out visitor once per browser session;
+ * picking guest mode or signing in dismisses it (sessionStorage).
  */
 export default function WelcomeGate({ onSignIn, onGuest }: WelcomeGateProps) {
   return (

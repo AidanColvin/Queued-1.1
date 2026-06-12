@@ -47,15 +47,18 @@ const INITIAL_COUNT = 12; // small first batch so taste-driven picks arrive with
 
 export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps) {
   const deck = useDeck();
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [wishlistOpen, setWishlistOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
-  // First-visit gate (splash -> sign-in page -> deck). True until proven new.
+  // Sign-in gate (splash -> sign-in page -> deck). Shown to every signed-out
+  // visitor once per browser session (sessionStorage, not localStorage — it
+  // used to be remembered forever, which made the gate vanish for everyone
+  // after their first visit). True until storage proves this session is new.
   const [welcomed, setWelcomed] = useState(true);
   useEffect(() => {
     try {
-      setWelcomed(localStorage.getItem('queued:welcomed') === '1');
+      setWelcomed(sessionStorage.getItem('queued:welcomed') === '1');
     } catch {
       /* storage unavailable -> skip the gate */
     }
@@ -63,7 +66,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   const dismissGate = useCallback(() => {
     setWelcomed(true);
     try {
-      localStorage.setItem('queued:welcomed', '1');
+      sessionStorage.setItem('queued:welcomed', '1');
     } catch {
       /* non-fatal */
     }
@@ -72,6 +75,9 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
   useEffect(() => {
     if (user) dismissGate();
   }, [user, dismissGate]);
+  // Show the gate only once the /me check has resolved to "signed out", so a
+  // returning signed-in user never sees it flash before their session loads.
+  const gateOpen = !welcomed && !authLoading && !user;
   const [letterboxdOpen, setLetterboxdOpen] = useState(false);
   const [trailerRec, setTrailerRec] = useState<Recommendation | null>(null);
   const [stack, setStack] = useState<Stack>('movie');
@@ -370,17 +376,17 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
       </header>
 
       <div className="flex min-h-0 flex-1 flex-col">
-        {!welcomed && (
+        {gateOpen && (
           <WelcomeGate onSignIn={() => setAuthOpen(true)} onGuest={dismissGate} />
         )}
-        {welcomed && status === 'loading' && (
+        {!gateOpen && status === 'loading' && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4">
             <div className="h-7 w-7 animate-spin rounded-full border-[3px] border-surface-2 border-t-accent" />
             <p className="text-[15px] text-muted">Finding something to watch…</p>
           </div>
         )}
 
-        {welcomed && status === 'error' && (
+        {!gateOpen && status === 'error' && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center">
             <p className="text-[15px] text-muted">Couldn&apos;t reach the recommender.</p>
             <button
@@ -396,7 +402,7 @@ export default function DeckExperience({ seedTitles = [] }: DeckExperienceProps)
           </div>
         )}
 
-        {welcomed && status === 'ready' &&
+        {!gateOpen && status === 'ready' &&
           (deck.currentCard ? (
             <SwipeDeck deck={deck} onOpenCard={openCard} onPersistSave={persistSave} providerPrefs={providerPrefs} />
           ) : (
